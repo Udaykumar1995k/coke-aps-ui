@@ -17,7 +17,7 @@ const Counter = () => {
         aria-label="Decrement value"
         onClick={() => dispatch(decrement())}
       >
-        Decrement 
+        Decrement
       </button>
     </div>
   )
