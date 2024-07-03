@@ -9,4 +9,4 @@ const CheckBoxInput = ({label, checked,onChange}) =>{
     );
 };
 
-export default CheckBoxInput
+export default CheckBoxInput;
