@@ -8,12 +8,12 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import Dashboard from './pages/Dashboard';
-import Setting from './pages/Setting';
 import Login from './components/Login';
 import PrivateRoutes from './routes/PrivateRoutes';
 import { Provider } from 'react-redux';
 import {store} from './redux/store'
+import RunAnalytics from './pages/RunAnalytics';
+import AnalyticsResults from './pages/AnalyticsResults';
 
 const router = createBrowserRouter([
   {
@@ -25,22 +25,22 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "dashboard",
+        path: "run-analytics",
         element: <PrivateRoutes />,
         children: [
           {
             path: "",
-            element: <Dashboard />,
+            element: <RunAnalytics />,
           },
         ],
       },
       {
-        path: "setting",
+        path: "analytics-results",
         element: <PrivateRoutes />,
         children: [
           {
             path: "",
-            element: <Setting />,
+            element: <AnalyticsResults />,
           },
         ],
       },

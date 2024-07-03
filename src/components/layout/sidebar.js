@@ -104,8 +104,8 @@ const Sidebar = () => {
 
     const navigate = useNavigate();
     const menuItems = [
-        { path: '/dashboard', label: 'Dashboard', icon: <DashboardIcon /> },
-        { path: '/setting', label: 'Setting', icon: <SettingsIcon /> },
+        { path: '/run-analytics', label: 'Run LT analytics', icon: <DashboardIcon /> },
+        { path: '/analytics-results', label: 'LT Analytics Results', icon: <SettingsIcon /> },
       ];
 
     const handleMenuItemClick = (path, label) => {

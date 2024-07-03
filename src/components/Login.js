@@ -18,7 +18,7 @@ const Login = () => {
         if(formData){
             localStorage.setItem('isLoggedIn', true);
             localStorage.setItem('data', formData.username);
-            navigate('/dashboard')
+            navigate('/run-analytics')
         } else (
             navigate('/login')
         )
@@ -26,7 +26,7 @@ const Login = () => {
 
      useEffect(() => {
         if(localStorage.getItem('isLoggedIn')){
-            navigate('/dashboard')
+            navigate('/run-analitics')
         }
      })
 
