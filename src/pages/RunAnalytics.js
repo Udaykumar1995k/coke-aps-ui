@@ -1,8 +1,11 @@
 import React from 'react'
-
+import LeadTimeAnalyticsForm from './LeadTimeAnalyticsForm'
 const RunAnalytics = () => {
   return (
-    <div>RunAnalytics</div>
+    <div>RunAnalytics
+      <LeadTimeAnalyticsForm/>
+    </div>
+    
   )
 }
 
