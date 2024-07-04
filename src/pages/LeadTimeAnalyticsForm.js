@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import { Grid,FormControl,Select,MenuItem,InputLabel } from "@mui/material";
 import RadioButtonGroup from "../components/common/RadioButtonGroup";
 import CheckBoxInput from "../components/common/CheckboxInput";
+import TextInput from "../components/common/TextInput";
+import ActionButton from "../components/common/ActionButton";
 const LeadTimeAnalyticsForm = () => {
     const [excludeRange,setExcludeRange] = useState(false);
     const [recentContractUpdates,setRecentContractUpdates] = useState('')
@@ -9,8 +11,15 @@ const LeadTimeAnalyticsForm = () => {
         setExcludeRange(event.target.checked)
 
     }
+    const handleClear =() =>{
+        return ""
+    }
     return(
-        <div>
+        <form>
+            <Grid container spacing={2}>
+                <Grid item xs={12}>
+                    <h2>Input Data For Lead Time Analytics</h2>
+                </Grid>
             <Grid>
                 <CheckBoxInput
                 label = "Exclude range in the period"
@@ -29,7 +38,20 @@ const LeadTimeAnalyticsForm = () => {
                 onChange={(e) =>setRecentContractUpdates(e.target.value)}
                 />
             </Grid>
-        </div>
+            <Grid item xs={6}>
+                <TextInput
+                />
+            </Grid>
+            <Grid item xs={6}>
+                <ActionButton label="Clear all" color="error" onclick={handleClear}/>
+
+            </Grid>
+            <Grid item xs={6}>
+                <ActionButton label="Schedule Analytics Run" color="error" onclick={handleClear}/>
+
+            </Grid>
+            </Grid>
+        </form>
             
     );
 };
