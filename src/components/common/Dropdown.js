@@ -34,7 +34,6 @@ const Dropdown = ({label,value, options=[], handleChange }) => {
            < Select
                 id="dropdown"
                 labelId="dropdown-label"
-                multiple
                 value={value}
                 onChange={handleChange}
                 input={<OutlinedInput label={label} />}
