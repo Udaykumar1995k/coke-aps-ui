@@ -1,8 +1,9 @@
-import { Box,Typography } from "@mui/material";
-import { Link, useRouteError } from "react-router-dom"
+import { Box, Typography } from "@mui/material";
+import { Link, useRouteError } from "react-router-dom";
+import Logo from "../assets/logo.png";
 
 const ErrorPage = () => {
-    const error = useRouteError();
+  const error = useRouteError();
   return (
     <Box
       id="error-page"
@@ -38,6 +39,11 @@ const ErrorPage = () => {
             borderRadius: "5px",
           }}
         ></Box>
+        <img
+          src={Logo}
+          alt="logo"
+          style={{ position: "absolute", left: "33%", top: "10%" }}
+        />
         <Typography
           variant="h1"
           sx={{
@@ -45,10 +51,10 @@ const ErrorPage = () => {
             color: "#fff",
             fontWeight: "700",
             fontSize: "90px",
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%,-50%)',
-            lineHeight: '40px'
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%,-50%)",
+            lineHeight: "40px",
           }}
         >
           404
@@ -88,6 +94,6 @@ const ErrorPage = () => {
       </Link>
     </Box>
   );
-}
+};
 
-export default ErrorPage
+export default ErrorPage;
