@@ -41,6 +41,7 @@ const LeadTimeAnalyticsForm = () => {
     };
     return(
         <form>
+            <Box sx={{width:'100%'}}>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <Typography variant="h6">Input Data For Lead Time Analytics</Typography>
@@ -129,7 +130,7 @@ const LeadTimeAnalyticsForm = () => {
                     <Grid item xs={3}>
                         <Typography>Ship From & To</Typography>
                     </Grid>
-                    <Grid item xs={4.5}>
+                    <Grid item xs={4}>
                         <Dropdown 
                         label="Ship From" 
                         value={shipFrom} 
@@ -140,7 +141,7 @@ const LeadTimeAnalyticsForm = () => {
                         handleChange={(e) =>setShipFrom(e.target.value)}
                         />
                     </Grid>
-                    <Grid item xs={4.5}>
+                    <Grid item xs={4}>
                         <Dropdown 
                         label="Ship To" 
                         value={shipTo} 
@@ -152,18 +153,18 @@ const LeadTimeAnalyticsForm = () => {
                         />
                     </Grid>
                 </Grid>
-                <Grid  item container xs={12} alignItems="center">
-                    <Grid item xs={3}>
+                <Grid   item container xs={12} alignItems="center">
+                    <Grid item xs={3.1}>
                         <Typography>Period To Consider</Typography>
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item xs={4} >
                         <DatePicker 
                         label="From Date" 
                         value={fromDate} 
                        onChange={(newValue) =>setFromDate(newValue)}
                         />
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item xs={4} sx={{paddingLeft:3}}>
                         <DatePicker 
                         label="To Date" 
                         value={toDate} 
@@ -218,7 +219,7 @@ const LeadTimeAnalyticsForm = () => {
                         />
                     </Grid>
                 </Grid>
-                <Grid item container xs={12} justifyContent="center">
+                <Grid item container xs={6} justifyContent="center">
                     <Box display="flex" justifyContent="center" width="100%" gap={2}>
                         <ActionButton label="Clear all" color="error" onclick={handleClear}/>
                         <ActionButton label="Schedule Analytics Run" color="error" onclick={handleClear}/>
@@ -226,6 +227,7 @@ const LeadTimeAnalyticsForm = () => {
 
                 </Grid>
             </Grid>
+            </Box>
         </form>
             
     );
