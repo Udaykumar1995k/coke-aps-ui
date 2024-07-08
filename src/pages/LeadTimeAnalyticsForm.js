@@ -178,9 +178,12 @@ const LeadTimeAnalyticsForm = () => {
                     </Grid>
                     <Grid item xs={1}>
                         <CheckBoxInput
-                        label = ""
-                        checked = {excludeRange}
-                        onChange = {handleExcludeRangeChange}
+                         props={{
+                            checked: excludeRange,
+                            fontSize: 28,
+                            onchange: handleExcludeRangeChange,
+                         }
+                         }
                         />
                     </Grid>
                     <Grid item xs={6.8}>
