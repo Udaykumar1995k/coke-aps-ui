@@ -7,7 +7,8 @@ const ActionButton = ({label,color,onclick, ...props}) =>{
         variant="contained"
         color={color}
         fullWidth
-        onclick={onclick}
+        onClick={onclick}
+        style={{margin: '0 8px', padding:'10px 20px', fontSize:'16px',fontWeight:'bold'}}
         {...props}
         >
         {label}

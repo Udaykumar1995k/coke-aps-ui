@@ -92,7 +92,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const Sidebar = () => {
     const theme = useTheme();
     const [open, setOpen] = useState(true);
-    const [title, setTitle] = useState('Dashboard')
+    const [title, setTitle] = useState('Run LT analytics')
   
     const handleDrawerOpen = () => {
       setOpen(true);
