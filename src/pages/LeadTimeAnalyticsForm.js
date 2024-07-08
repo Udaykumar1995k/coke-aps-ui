@@ -198,7 +198,7 @@ const LeadTimeAnalyticsForm = () => {
                         <RadioButtonGroup
                             props={[
                                 {label: 'Include', value: 'include',labelPlacement:"end",size:'medium'},
-                                {label: 'Exclude',value: 'exclude',labelPlacement:"end",size:'meduim'}
+                                {label: 'Exclude',value: 'exclude',labelPlacement:"end",size:'medium'}
                                 ]}
                             value={recentContractUpdates}
                             onChange={(e) =>setRecentContractUpdates(e.target.value)}
