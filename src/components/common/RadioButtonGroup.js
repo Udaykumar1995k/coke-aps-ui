@@ -10,6 +10,7 @@ const RadioButtonGroup = ({value,onChange,props}) =>{
                 key={`${prop?.value}-${index}`}
                 value={prop?.value}
                 control={<Radio
+                        size={prop.size}
                         sx={{color:prop?.uncheckedColor|| 'default',
                         '&.Mui-checked':{
                             color: prop?.checkedColor

@@ -197,8 +197,8 @@ const LeadTimeAnalyticsForm = () => {
                     <Grid item xs={9}>
                         <RadioButtonGroup
                             props={[
-                                {label: 'Include', value: 'include',labelPlacement:"end"},
-                                {label: 'Exclude',value: 'exclude',labelPlacement:"end"}
+                                {label: 'Include', value: 'include',labelPlacement:"end",size:'medium'},
+                                {label: 'Exclude',value: 'exclude',labelPlacement:"end",size:'meduim'}
                                 ]}
                             value={recentContractUpdates}
                             onChange={(e) =>setRecentContractUpdates(e.target.value)}
@@ -212,8 +212,8 @@ const LeadTimeAnalyticsForm = () => {
                     <Grid item xs={9}>
                         <RadioButtonGroup
                         props={[
-                            {label: 'Include', value: 'include',labelPlacement:"end"},
-                            {label: 'Exclude',value: 'exclude',labelPlacement:"end"}
+                            {label: 'Include', value: 'include',labelPlacement:"end",size:'medium'},
+                            {label: 'Exclude',value: 'exclude',labelPlacement:"end",size:'medium'}
                         ]}
                         value={posPlacedInAdvance}
                         onChange={(e) =>setPosPlacedInAdvance(e.target.value)}
