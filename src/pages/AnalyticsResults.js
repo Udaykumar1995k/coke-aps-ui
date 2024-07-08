@@ -1,58 +1,56 @@
 import React,{useState} from 'react';
-import { Box, Tab, Tabs, Typography } from '@mui/material';
+import { Container, Grid, Tab, Tabs } from '@mui/material';
 import Button from '@mui/material/Button';
 import AnalyticsResultTable from '../components/AnalyticsResultTable'
 
-import  './AnalyticsResults.css';
-
 const columns = [
-  { id: 'Supplier', label: 'Supplier',},
-  { id: 'Material', label: 'Material', },
+  { id: 'Supplier', label: 'Supplier', minWidth: 100},
+  { id: 'Material', label: 'Material', minWidth: 100},
   {
     id: 'Inventory_Classification',
     label: 'Inventory Classification',
-   // minWidth: 70,
+    minWidth: 70,
   },
   {
     id: 'Material_Type',
     label: 'Material Type',
- //   minWidth: 140,
+    minWidth: 140,
   },
   {
     id: 'Ship_From',
     label: 'Ship From',
-  //  minWidth: 100,
+     minWidth: 100,
   },
 
   {
     id: 'Ship_To',
     label: 'Ship To',
- //   minWidth: 100,
+    minWidth: 100,
   },
   {
     id: 'Master_LT',
     label: 'Master LT',
-   // minWidth: 100,
+    minWidth: 100,
   },
   {
     id: 'Demon_started_LT',
     label: 'Demon started LT',
-   // minWidth: 100,
+    minWidth: 100,
   },
   {
     id: 'Confidence_score',
     label: 'Confidence score',
-  //  minWidth: 100,
+    minWidth: 100,
   },
   {
     id: 'LT_Variation',
     label: 'LT Variation',
-    //minWidth: 100,
+    minWidth: 100,
   },
   {
     id: 'Analytics_intiated_by',
     label: 'Analytics intiated by',
-  //  minWidth: 100,
+    minWidth: 100,
   },
   {
     id: 'View_Input_Details',
@@ -73,14 +71,30 @@ const rows = [
   createData('Abc Inc', 'Material 1','A','Ingredients','Helsinki','Ballina','40 days','60 days','90%','High','Admin',
   <Button variant="contained"  sx={{ backgroundColor: '#177C8E', color: 'white', padding: '1px 6px'}} onClick={() =>{ handleViewInputDetailsClick()}}>Input</Button>,
   <Button variant="contained" sx={{ backgroundColor: '#177C8E', color: 'white', padding: '2px 6px'}} onClick={() => {handleDetailsClick()}}>Details</Button>),
-  createData('--', '--','--','--','--','--','--','--','--'), 
-  createData('--', '--','--','--','--','--','--','--','--'),
-  createData('--', '--','--','--','--','--','--','--','--'),
-  createData('--', '--','--','--','--','--','--','--','--'), 
+   createData('--', '--','--','--','--','--','--','--','--'), 
    createData('--', '--','--','--','--','--','--','--','--'),
    createData('--', '--','--','--','--','--','--','--','--'),
-  
+   createData('--', '--','--','--','--','--','--','--','--'), 
+   createData('--', '--','--','--','--','--','--','--','--'),
+   createData('--', '--','--','--','--','--','--','--','--'),  
+   createData('--', '--','--','--','--','--','--','--','--'),
+   createData('--', '--','--','--','--','--','--','--','--'),
+   createData('--', '--','--','--','--','--','--','--','--'), 
+   createData('--', '--','--','--','--','--','--','--','--'),
+   createData('--', '--','--','--','--','--','--','--','--'),
 ]
+const recentContractItems= [
+  createData('xyz Inc', 'Material','A','Ingredients','India','Ballina','30 days','70 days','80%','High','Admin1',
+  <Button variant="contained"  sx={{ backgroundColor: '#177C8E', color: 'white', padding: '1px 6px'}} onClick={() =>{ handleViewInputDetailsClick()}}>Input</Button>,
+  <Button variant="contained" sx={{ backgroundColor: '#177C8E', color: 'white', padding: '2px 6px'}} onClick={() => {handleDetailsClick()}}>Details</Button>),
+  createData('--', '--','--','--','--','--','--','--','--'), 
+  createData('--', '--','--','--','--','--','--','--','--'),
+  createData('--', '--','--','--','--','--','--','--','--'),
+  createData('--', '--','--','--','--','--','--','--','--'), 
+  createData('--', '--','--','--','--','--','--','--','--'),
+  createData('--', '--','--','--','--','--','--','--','--'), 
+]
+
 function handleViewInputDetailsClick() {
 
   console.log('View Input Details');
@@ -90,12 +104,10 @@ function handleDetailsClick() {
   console.log('Details');
 }
 
-
 const AnalyticsResults = () => {
   const[value,setValue]=useState(0);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -111,18 +123,9 @@ const AnalyticsResults = () => {
 
 
   return (
-    <Box>
-      <Box className='analytics-info'>
-      <Box className='info-text'>
-       <Typography variant='body2' className='bold-text'>Periods Considered for Analytics: 01-Jan-23 to 31-Dec-23</Typography> 
-        <a href="">Click here to view the complete input details</a> 
-        </Box>
-        <Box className='info-text'>
-        <Typography variant='body2' className='bold-text'>Analytics Initiated by: Administrator (Scheduler based)</Typography>
-         <Typography variant='body2' className='bold-text'>Result Updated at  : 22-June-24 at 13:24:00 </Typography>   
-        </Box>
-      </Box>
-      <Box> 
+    <Container maxWidth="lg" >
+      <Grid container spacing={2}>
+      <Grid item xs={12}>
        <Tabs
         onChange={handleChange}
         value={value}
@@ -133,18 +136,20 @@ const AnalyticsResults = () => {
         <Tab label="Opening Period Variation Items"/>
         <Tab label="Recent Contract Updates Items"/>
       </Tabs>
-      </Box>
+      </Grid>
+      <Grid item xs={12}>
       {value === 0 && (
         <AnalyticsResultTable columns={columns} rows={rows} page={page} rowsPerPage={rowsPerPage} handleChangePage={handleChangePage} handleChangeRowsPerPage={handleChangeRowsPerPage}/>
       )}
       {value === 1 && (
-      <h2>Content of tab-opening period variation Items</h2>
+      <AnalyticsResultTable columns={columns} rows={rows} page={page} rowsPerPage={rowsPerPage} handleChangePage={handleChangePage} handleChangeRowsPerPage={handleChangeRowsPerPage}/>
       
     )}
     {value === 2 && (
-      <h2>Content of tab -Recent Contract Updates Items</h2>
-    )}      
-    </Box>
+      <AnalyticsResultTable columns={columns} rows={recentContractItems} page={page} rowsPerPage={rowsPerPage} handleChangePage={handleChangePage} handleChangeRowsPerPage={handleChangeRowsPerPage}/>)} 
+      </Grid>    
+      </Grid> 
+    </Container>
   )
 }
 

@@ -4,9 +4,9 @@ import React from 'react';
 const AnalyticsResultTable = ({ columns, rows, page, rowsPerPage, handleChangePage, handleChangeRowsPerPage }) =>
 {
 return(
-<Paper sx={{ width: '100%'}}>
-      <TableContainer sx={{ maxHeight: 500}}>
-        <Table  aria-label="sticky table" sx={{ minWidth: 750 }}>
+<Paper sx={{width: '100%', overflow: 'hidden'}}>
+      <TableContainer sx={{maxHeight:500}}>
+        <Table  aria-label="sticky table"  stickyHeader>
           <TableHead>
             <TableRow>
               {columns.map((column) => (
@@ -28,14 +28,12 @@ return(
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                  <TableRow hover tabIndex={-1} key={row.code}>
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
-                        <TableCell key={column.id} align={column.align}>
-                          {column.format && typeof value === 'number'
-                            ? column.format(value)
-                            : value}
+                        <TableCell key={column.id}>
+                          { value}
                         </TableCell>
                       );
                     })}
@@ -46,7 +44,7 @@ return(
         </Table>
       </TableContainer>
       <TablePagination
-      rowsPerPageOptions={[5,10, 15, 20, 100]}
+      rowsPerPageOptions={[10, 15, 20, 100]}
       component="div"
       count={rows.length}
       rowsPerPage={rowsPerPage}
