@@ -2,8 +2,12 @@ import React from "react";
 import { Button,Box } from "@mui/material";
 import { useTheme,styled } from "@mui/material/styles";
 
-const  CustomButton = styled(Button)(({theme,fontSize}) =>({
+const  CustomButton = styled(Button)(({theme,fontSize,customColor}) =>({
     padding: '5px 10px',
+    backgroundColor: customColor,
+    '&:hover': {
+        backgroundColor: customColor,
+      },
     fontSize: fontSize || '1rem',
     whiteSpace:'normal',
     wordBreak: 'break-word',
@@ -23,10 +27,10 @@ const ButtonComponent = ({props}) =>{
             <CustomButton 
                 theme={theme} 
                 variant={props?.variant || "contained"}  
-                color={props?.color}
                 onClick={props?.onClick}
                 disabled={props?.disabled}
                 fontSize= {props?.fontSize}
+                customColor ={props?.customColor}
             >
            {props?.text}
             </CustomButton>
