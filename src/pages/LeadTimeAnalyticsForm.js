@@ -227,7 +227,7 @@ const LeadTimeAnalyticsForm = () => {
                             props={{
                                     variant: 'contained',
                                     size: 'medium',
-                                    color: 'error',
+                                    customColor: 'red',
                                     text: 'Clear All',
                                     onClick: handleClear,
                                     fontSize:'1rem'
@@ -239,7 +239,7 @@ const LeadTimeAnalyticsForm = () => {
                             props={{
                                 variant: 'contained',
                                 size: 'medium',
-                                color: 'error',
+                                customColor: 'red',
                                 text: 'Schedule Analytics Run',
                                 onClick: handleClear,
                                 fontSize:'1rem'
