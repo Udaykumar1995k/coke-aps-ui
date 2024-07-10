@@ -1,17 +1,24 @@
 import React from "react";
 import { FormControl,FormControlLabel,RadioGroup,Radio, FormLabel } from "@mui/material";
 
-const RadioButtonGroup = ({label,options, value, onChange}) =>{
+const RadioButtonGroup = ({value,onChange,props}) =>{
     return (
        <FormControl component="fieldset">
-        <FormLabel component="legend">{label}</FormLabel>
         <RadioGroup row value={value} onChange={onChange}>
-            {options.map((option,index) =>(
+            {props?.map((prop,index) =>(
                 <FormControlLabel
-                key={`${option.value}-${index}`}
-                value={option.value}
-                control={<Radio/>}
-                label={option.label}
+                key={`${prop?.value}-${index}`}
+                value={prop?.value}
+                control={<Radio
+                        size={prop.size}
+                        sx={{color:prop?.uncheckedColor|| 'default',
+                        '&.Mui-checked':{
+                            color: prop?.checkedColor
+                        }
+                            }}
+                        />}
+                label={prop?.label}
+                labelPlacement={prop?.labelPlacement}
                 />
             ))
             }

@@ -3,9 +3,9 @@ import { Grid, Typography,Box } from "@mui/material";
 import RadioButtonGroup from "../components/common/RadioButtonGroup";
 import CheckBoxInput from "../components/common/CheckboxInput";
 import TextInput from "../components/common/TextInput";
-import ActionButton from "../components/common/ActionButton";
 import Dropdown from "../components/common/Dropdown";
 import DatePicker from "../components/common/DatePicker";
+import ButtonComponent from "../components/common/ButtonComponent";
 const LeadTimeAnalyticsForm = () => {
     const [excludeRange,setExcludeRange] = useState(false);
     const [recentContractUpdates,setRecentContractUpdates] = useState('')
@@ -41,7 +41,7 @@ const LeadTimeAnalyticsForm = () => {
     };
     return(
         <form>
-            <Box sx={{width:'100%'}}>
+            <Box>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <Typography variant="h6">Input Data For Lead Time Analytics</Typography>
@@ -178,9 +178,12 @@ const LeadTimeAnalyticsForm = () => {
                     </Grid>
                     <Grid item xs={1}>
                         <CheckBoxInput
-                        label = ""
-                        checked = {excludeRange}
-                        onChange = {handleExcludeRangeChange}
+                         props={{
+                            checked: excludeRange,
+                            fontSize: 28,
+                            onchange: handleExcludeRangeChange,
+                         }
+                         }
                         />
                     </Grid>
                     <Grid item xs={6.8}>
@@ -193,10 +196,9 @@ const LeadTimeAnalyticsForm = () => {
                     </Grid>
                     <Grid item xs={9}>
                         <RadioButtonGroup
-                            label=""
-                            options={[
-                                {label: 'Include', value: 'include'},
-                                {label: 'Exclude',value: 'exclude'}
+                            props={[
+                                {label: 'Include', value: 'include',labelPlacement:"end",size:'medium'},
+                                {label: 'Exclude',value: 'exclude',labelPlacement:"end",size:'medium'}
                                 ]}
                             value={recentContractUpdates}
                             onChange={(e) =>setRecentContractUpdates(e.target.value)}
@@ -209,22 +211,42 @@ const LeadTimeAnalyticsForm = () => {
                     </Grid>
                     <Grid item xs={9}>
                         <RadioButtonGroup
-                        label=""
-                        options={[
-                            {label: 'Include', value: 'include'},
-                            {label: 'Exclude',value: 'exclude'}
+                        props={[
+                            {label: 'Include', value: 'include',labelPlacement:"end",size:'medium'},
+                            {label: 'Exclude',value: 'exclude',labelPlacement:"end",size:'medium'}
                         ]}
                         value={posPlacedInAdvance}
                         onChange={(e) =>setPosPlacedInAdvance(e.target.value)}
                         />
                     </Grid>
                 </Grid>
-                <Grid item container xs={6} justifyContent="center">
-                    <Box display="flex" justifyContent="center" width="100%" gap={2}>
-                        <ActionButton label="Clear all" color="error" onclick={handleClear}/>
-                        <ActionButton label="Schedule Analytics Run" color="error" onclick={handleClear}/>
-                    </Box>
-
+                <Grid  item  xs={12} >
+                    <Grid container alignItems="flex-start" >
+                        <Grid  item >
+                            <ButtonComponent 
+                            props={{
+                                    variant: 'contained',
+                                    size: 'medium',
+                                    color: 'error',
+                                    text: 'Clear All',
+                                    onClick: handleClear,
+                                    fontSize:'1rem'
+                            }}
+                            />
+                        </Grid>
+                        <Grid item>
+                            <ButtonComponent
+                            props={{
+                                variant: 'contained',
+                                size: 'medium',
+                                color: 'error',
+                                text: 'Schedule Analytics Run',
+                                onClick: handleClear,
+                                fontSize:'1rem'
+                        }}
+                            />
+                        </Grid>
+                    </Grid>
                 </Grid>
             </Grid>
             </Box>
