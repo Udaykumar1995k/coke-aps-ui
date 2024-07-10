@@ -3,14 +3,14 @@ import { Button,Box } from "@mui/material";
 import { useTheme,styled } from "@mui/material/styles";
 
 const  CustomButton = styled(Button)(({theme,fontSize}) =>({
-    padding: '10px 20px',
+    padding: '5px 10px',
     fontSize: fontSize || '1rem',
     whiteSpace:'normal',
     wordBreak: 'break-word',
-    margin:'10px',  
+    margin:'10px 22px 10px 10px',  
     textAlign: 'center',
     [theme.breakpoints.down('sm')]: {
-        padding: '8px 16px',    
+        padding: '4px 8px',    
         fontSize: '0.75rem',
         width: '150px'
     },
