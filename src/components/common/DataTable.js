@@ -1,12 +1,13 @@
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TablePagination,Paper } from '@mui/material';
 import React from 'react';
 
-const AnalyticsResultTable = ({ columns, rows, page, rowsPerPage, handleChangePage, handleChangeRowsPerPage }) =>
+const DataTable= ({ columns, rows,page, rowsPerPage, handleChangePage, handleChangeRowsPerPage}) =>
 {
+ 
 return(
 <Paper sx={{width: '100%', overflow: 'hidden'}}>
-      <TableContainer sx={{maxHeight:500}}>
-        <Table  aria-label="sticky table"  stickyHeader>
+      <TableContainer  sx={{maxHeight:500,height:500}}>
+        <Table  aria-label="sticky table" >
           <TableHead>
             <TableRow>
               {columns.map((column) => (
@@ -44,7 +45,7 @@ return(
         </Table>
       </TableContainer>
       <TablePagination
-      rowsPerPageOptions={[10, 15, 20, 100]}
+      rowsPerPageOptions={[10,15,20,100]}
       component="div"
       count={rows.length}
       rowsPerPage={rowsPerPage}
@@ -54,4 +55,4 @@ return(
     />
     </Paper>
 )};
-export default AnalyticsResultTable
+export default DataTable
