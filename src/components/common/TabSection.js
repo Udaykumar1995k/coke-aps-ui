@@ -10,6 +10,7 @@ const TabSection = ({label,value,handleChange,...props}) => {
         value={value}
         aria-label={props.ariaLabel||"lead time analytics tabs"}
         variant="fullWidth" 
+        style={props.style}
       >
         {label.map((item,index)=>(<Tab key={index}label={item}/>))}
       </Tabs>

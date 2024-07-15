@@ -3,229 +3,235 @@ import { Container, Grid, } from '@mui/material';
 import Button from '@mui/material/Button';
 import DataTable from '../components/common/DataTable'
 import TabSection from '../components/common/TabSection'
+import TextInput from '../components/common/TextInput'
 
 const regularItem = [
-  { id: 'Supplier', label: 'Supplier', minWidth: 100},
-  { id: 'Material', label: 'Material', minWidth: 100},
+  { field: 'Supplier', label: 'Supplier', width: 100},
+  { field: 'Material', label: 'Material', width: 100},
   {
-    id: 'Inventory_Classification',
-    label: 'Inventory Classification',
-    minWidth: 80,
+    field: 'InventoryClassification',
+    headerName: 'Inventory Classification',
+     width: 80,
   },
   {
-    id: 'Material_Type',
-    label: 'Material Type',
-    minWidth: 100,
+    field: 'MaterialType',
+    headerName: 'Material Type',
+    width: 130,
   },
   {
-    id: 'Ship_From',
-    label: 'Ship From',
-     minWidth: 100,
+    field: 'ShipFrom',
+    headerName: 'Ship From',
+     width: 130,
   },
 
   {
-    id: 'Ship_To',
-    label: 'Ship To',
-    minWidth: 100,
+    field: 'ShipTo',
+    headerName: 'Ship To',
+    width: 130,
   },
   {
-    id: 'Master_LT',
-    label: 'Master LT',
-    minWidth: 100,
+    field: 'MasterLT',
+    headerName: 'Master LT',
+    width: 100,
   },
   {
-    id: 'Demon_strated_LT',
-    label: 'Demon strated LT',
-    minWidth: 100,
+    field: 'DemonstratedLT',
+    headerName: 'Demon strated LT',
+    width: 100,
   },
   {
-    id: 'Confidence_score',
-    label: 'Confidence score',
-    minWidth: 100,
+    field: 'confidencescore',
+    headerName: 'Confidence score',
+    width: 100,
   },
   {
-    id: 'LT_Variations',
-    label: 'LT Variations',
-    minWidth: 100,
+    field: 'LTVariations',
+    headerName: 'LT Variations',
+    width: 100,
   },
   {
-    id: 'Analytics_intiated_by',
-    label: 'Analytics intiated by',
-    minWidth: 100,
+    field: 'Analyticsintiatedby',
+    headerName: 'Analytics intiated by',
+    width: 100,
   },
   {
-    id: 'View_Input_Details',
-    label: 'View Input Details',
+    field: 'ViewInputDetails',
+    headerName: 'View Input Details',
   },
   {
-    id: 'Details',
-    label: 'Details',
+    field: 'Details',
+    headerName: 'Details',
   },
   
 ];
 
 const openingPeriodVariationItems =  [
-  { id: 'Supplier', label: 'Supplier',  minWidth: 100},
-  { id: 'Material', label: 'Material',  minWidth: 100},
+  { field: 'Supplier', headerName: 'Supplier',  width: 100},
+  { field: 'Material', headerName: 'Material',  width: 100},
   {
-    id: 'Inventory_Classification',
-    label: 'Inventory Classification',
-     minWidth: 90,
+    field: 'InventoryClassification',
+    headerName: 'Inventory Classification',
+     width: 90,
   },
   {
-    id: 'Material_Type',
-    label: 'Material Type',
-    minWidth: 90,
+    field: 'MaterialType',
+    headerName: 'Material Type',
+    width: 90,
   },
   {
-    id: 'Ship_From',
-    label: 'Ship From',
-    minWidth: 100,
+    field: 'ShipFrom',
+    headerName: 'Ship From',
+    width: 100,
   },
 
   {
-    id: 'Ship_To',
-    label: 'Ship To',
-    minWidth: 100,
+    field: 'ShipTo',
+    headerName: 'Ship To',
+    width: 100,
   },
   
   {
-    id: 'Opening_Period_variations',
-    label: 'Opening Period variations',
-    minWidth: 90,
+    field: 'OpeningPeriodvariations',
+    headerName: 'Opening Period variations',
+    width: 90,
   },
 
   {
-    id: 'Master_LT',
-    label: 'Master LT',
-     minWidth: 90,
+    field: 'MasterLT',
+    headerName: 'Master LT',
+     width: 90,
   },
   {
-    id: 'Demon_strated_LT',
-    label: 'Demon strated LT',
-    minWidth: 100,
+    field: 'DemonstratedLT',
+    headerName: 'Demon strated LT',
+    width: 100,
   },
   {
-    id: 'Confidence_score',
-    label: 'Confidence score',
-    minWidth: 100,
+    field: 'confidencescore',
+    headerName: 'Conffieldence score',
+    width: 100,
   },
   {
-    id: 'LT_Variations',
-    label: 'LT Variations',
-    minWidth: 100,
+    field: 'LTVariations',
+    headerName: 'LT Variations',
+    width: 100,
   },
   {
-    id: 'Analytics_intiated_by',
-    label: 'Analytics intiated by',
-    minWidth: 100,
+    field: 'Analyticsintiatedby',
+    headerName: 'Analytics intiated by',
+    width: 100,
   },
   {
-    id: 'View_Input_Details',
-    label: 'View Input Details',
+    field: 'ViewInputDetails',
+    headerName: 'View Input Details',
   },
   {
-    id: 'Details',
-    label: 'Details',
+    field: 'Details',
+    headerName: 'Details',
   },
   
 ];
 
 const recentContractUpdateItems=  [
-  { id: 'Supplier', label: 'Supplier', minWidth: 100},
-  { id: 'Material', label: 'Material', minWidth: 100},
+  { field: 'Supplier', headerName: 'Supplier', width: 100},
+  { field: 'Material', headerName: 'Material', width: 100},
   {
-    id: 'Inventory_Classification',
-    label: 'Inventory Classification',
-    minWidth: 70,
+    field: 'InventoryClassification',
+    headerName: 'Inventory Classification',
+    width: 70,
   },
   {
-    id: 'Material_Type',
-    label: 'Material Type',
-    minWidth: 120,
+    field: 'MaterialType',
+    headerName: 'Material Type',
+    width: 120,
   },
   {
-    id: 'Ship_From',
-    label: 'Ship From',
-     minWidth: 100,
+    field: 'ShipFrom',
+    headerName: 'Ship From',
+     width: 100,
   },
 
   {
-    id: 'Ship_To',
-    label: 'Ship To',
-    minWidth: 100,
+    field: 'ShipTo',
+    headerName: 'Ship To',
+    width: 100,
   },
   {
-    id: 'Change_in_Contract_LT',
-    label: 'Change in Contract LT',
-    minWidth: 100,
+    field: 'ChangeinContractLT',
+    headerName: 'Change in Contract LT',
+    width: 100,
   },
   {
-    id: 'Contract_Updated_on',
-    label: 'Contract Updated on',
-    minWidth: 100,
+    field: 'ContractUpdatedon',
+    headerName: 'Contract Updated on',
+    width: 100,
   },
   {
-    id: 'Master_LT',
-    label: 'Master LT',
-    minWidth: 100,
+    field: 'MasterLT',
+    headerName: 'Master LT',
+    width: 100,
   },
   {
-    id: 'Demon_strated_LT',
-    label: 'Demon strated LT',
-    minWidth: 100,
+    field: 'DemonstratedLT',
+    headerName: 'Demon strated LT',
+    width: 100,
   },
   {
-    id: 'Confidence_score',
-    label: 'Confidence score',
-    minWidth: 100,
+    field: 'confidencescore',
+    headerName: 'Conffieldence score',
+    width: 100,
   },
   {
-    id: 'LT_Variations',
-    label: 'LT Variations',
-    minWidth: 100,
+    field: 'LTVariations',
+    headerName: 'LT Variations',
+    width: 100,
   },
   {
-    id: 'Analytics_intiated_by',
-    label: 'Analytics intiated by',
-    minWidth: 100,
+    field: 'Analyticsintiatedby',
+    headerName: 'Analytics intiated by',
+    width: 100,
   },
   {
-    id: 'View_Input_Details',
-    label: 'View Input Details',
+    field: 'ViewInputDetails',
+    headerName: 'View Input Details',
   },
   {
-    id: 'Details',
-    label: 'Details',
+    field: 'Details',
+    headerName: 'Details',
   },
   
 ];
-function createDataForFirstTab(Supplier, Material, Inventory_Classification, Material_Type,Ship_From,Ship_To,Master_LT,Demon_strated_LT,Confidence_score,LT_Variations,Analytics_intiated_by,View_Input_Details,Details) {
-  return { Supplier, Material, Inventory_Classification, Material_Type,Ship_From,Ship_To,Master_LT,Demon_strated_LT,Confidence_score,LT_Variations,Analytics_intiated_by,View_Input_Details,Details };
+function createDataForFirstTab(Supplier, Material, InventoryClassification, MaterialType,ShipFrom,ShipTo,MasterLT,DemonstratedLT,confidencescore,LTVariations,Analyticsintiatedby,ViewInputDetails,Details) {
+  return { Supplier, Material, InventoryClassification, MaterialType,ShipFrom,ShipTo,MasterLT,DemonstratedLT,confidencescore,LTVariations,Analyticsintiatedby,ViewInputDetails,Details };
 }
 
-function createDataForSecondTab(Supplier, Material, Inventory_Classification, Material_Type,Ship_From,Ship_To,Opening_Period_variations,Master_LT,Demon_strated_LT,Confidence_score,LT_Variations,Analytics_intiated_by,View_Input_Details,Details) {
-  return { Supplier, Material, Inventory_Classification, Material_Type,Ship_From,Ship_To,Opening_Period_variations,Master_LT,Demon_strated_LT,Confidence_score,LT_Variations,Analytics_intiated_by,View_Input_Details,Details };
+function createDataForSecondTab(Supplier, Material, InventoryClassification, MaterialType,ShipFrom,ShipTo,OpeningPeriodvariations,MasterLT,DemonstratedLT,confidencescore,LTVariations,Analyticsintiatedby,ViewInputDetails,Details) {
+  return { Supplier, Material, InventoryClassification, MaterialType,ShipFrom,ShipTo,OpeningPeriodvariations,MasterLT,DemonstratedLT,confidencescore,LTVariations,Analyticsintiatedby,ViewInputDetails,Details };
 }
 
-function createDataForThirdTab(Supplier, Material, Inventory_Classification, Material_Type,Ship_From,Ship_To,Change_in_Contract_LT,Contract_Updated_on,Master_LT,Demon_strated_LT,Confidence_score,LT_Variations,Analytics_intiated_by,View_Input_Details,Details) {
-  return { Supplier, Material, Inventory_Classification, Material_Type,Ship_From,Ship_To,Change_in_Contract_LT,Contract_Updated_on,Master_LT,Demon_strated_LT,Confidence_score,LT_Variations,Analytics_intiated_by,View_Input_Details,Details };
+function createDataForThirdTab(Supplier, Material, InventoryClassification, MaterialType,ShipFrom,ShipTo,ChangeinContractLT,ContractUpdatedon,MasterLT,DemonstratedLT,confidencescore,LTVariations,Analyticsintiatedby,ViewInputDetails,Details) {
+  return { Supplier, Material, InventoryClassification, MaterialType,ShipFrom,ShipTo,ChangeinContractLT,ContractUpdatedon,MasterLT,DemonstratedLT,confidencescore,LTVariations,Analyticsintiatedby,ViewInputDetails,Details};
 }
 const rows = [
+ 
   createDataForFirstTab('Abc Inc', 'Material 1','A','Ingredients','Helsinki','Ballina','40 days','60 days','90%','High','Admin',
-  <Button variant="contained"  sx={{ backgroundColor: '#177C8E', color: 'white', padding: '1px 6px'}} onClick={() =>{ handleViewInputDetailsClick()}}>Input</Button>,
-  <Button variant="contained" sx={{ backgroundColor: '#177C8E', color: 'white', padding: '2px 6px'}} onClick={() => {handleDetailsClick()}}>Details</Button>),
-  createDataForFirstTab('--', '--','--','--','--','--','--','--','--'), 
-  createDataForFirstTab('--', '--','--','--','--','--','--','--','--'), 
-  createDataForFirstTab('--', '--','--','--','--','--','--','--','--'), 
-  createDataForFirstTab('--', '--','--','--','--','--','--','--','--'), 
-  createDataForFirstTab('--', '--','--','--','--','--','--','--','--'), 
-  createDataForFirstTab('--', '--','--','--','--','--','--','--','--'), 
-  createDataForFirstTab('--', '--','--','--','--','--','--','--','--'),
-  createDataForFirstTab('--', '--','--','--','--','--','--','--','--'), 
-  createDataForFirstTab('--', '--','--','--','--','--','--','--','--'), 
-  createDataForFirstTab('--', '--','--','--','--','--','--','--','--'), 
-  createDataForFirstTab('--', '--','--','--','--','--','--','--','--'), 
+    <Button variant="contained"  sx={{ backgroundColor: '#177C8E', color: 'white', padding: '1px 6px'}} onClick={() =>{ handleViewInputDetailsClick()}}>Input</Button>,
+    <Button variant="contained" sx={{ backgroundColor: '#177C8E', color: 'white', padding: '2px 6px'}} onClick={() => {handleDetailsClick()}}>Details</Button>),
+    createDataForFirstTab('Abc Inc', 'Material 1','A','Ingredients','Helsinki','Ballina','40 days','60 days','90%','High','Admin',
+      <Button variant="contained"  sx={{ backgroundColor: '#177C8E', color: 'white', padding: '1px 6px'}} onClick={() =>{ handleViewInputDetailsClick()}}>Input</Button>,
+      <Button variant="contained" sx={{ backgroundColor: '#177C8E', color: 'white', padding: '2px 6px'}} onClick={() => {handleDetailsClick()}}>Details</Button>),
+      createDataForFirstTab('Abc Inc', 'Material 1','A','Ingredients','Helsinki','Ballina','40 days','60 days','90%','High','Admin',
+        <Button variant="contained"  sx={{ backgroundColor: '#177C8E', color: 'white', padding: '1px 6px'}} onClick={() =>{ handleViewInputDetailsClick()}}>Input</Button>,
+        <Button variant="contained" sx={{ backgroundColor: '#177C8E', color: 'white', padding: '2px 6px'}} onClick={() => {handleDetailsClick()}}>Details</Button>),
+        createDataForFirstTab('Abc Inc', 'Material 1','A','Ingredients','Helsinki','Ballina','40 days','60 days','90%','High','Admin',
+          <Button variant="contained"  sx={{ backgroundColor: '#177C8E', color: 'white', padding: '1px 6px'}} onClick={() =>{ handleViewInputDetailsClick()}}>Input</Button>,
+          <Button variant="contained" sx={{ backgroundColor: '#177C8E', color: 'white', padding: '2px 6px'}} onClick={() => {handleDetailsClick()}}>Details</Button>),
+          createDataForFirstTab('Abc Inc', 'Material 1','A','Ingredients','Helsinki','Ballina','40 days','60 days','90%','High','Admin',
+            <Button variant="contained"  sx={{ backgroundColor: '#177C8E', color: 'white', padding: '1px 6px'}} onClick={() =>{ handleViewInputDetailsClick()}}>Input</Button>,
+            <Button variant="contained" sx={{ backgroundColor: '#177C8E', color: 'white', padding: '2px 6px'}} onClick={() => {handleDetailsClick()}}>Details</Button>),
+            createDataForFirstTab('Abc Inc', 'Material 1','A','Ingredients','Helsinki','Ballina','40 days','60 days','90%','High','Admin',
+              <Button variant="contained"  sx={{ backgroundColor: '#177C8E', color: 'white', padding: '1px 6px'}} onClick={() =>{ handleViewInputDetailsClick()}}>Input</Button>,
+              <Button variant="contained" sx={{ backgroundColor: '#177C8E', color: 'white', padding: '2px 6px'}} onClick={() => {handleDetailsClick()}}>Details</Button>),
 ]
 const openingPeriodVariationItemList = [
   createDataForSecondTab('Abc Inc', 'Material 1','A','Ingredients','Helsinki','Ballina','5 days','40 days','60 days','90%','High','Admin',
@@ -265,21 +271,15 @@ function handleDetailsClick() {
 
 const AnalyticsResults = () => {
   const[value,setValue]=useState(0);
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
   
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const addUniqueId = (data) => data.map((item, index) => ({ id: index, ...item }));
+
+const rowsWithId = addUniqueId(rows);
+const openingPeriodVariationItemListWithId = addUniqueId(openingPeriodVariationItemList);
+const recentContractItemsWithId = addUniqueId(recentContractItems);
   
   return (
     <Container maxWidth="lg" >
@@ -287,15 +287,17 @@ const AnalyticsResults = () => {
         <Grid item xs={12}>
           <TabSection label={["Regular Items", "Opening Period Variation Items", "Recent Contract Updates Items"]} value={value} handleChange={handleChange}/>
         </Grid>
+        <Grid item xs={4}> <TextInput/></Grid>
+       
         <Grid item xs={12}>
           {value === 0 && (
-            <DataTable columns={regularItem} rows={rows} page={page} rowsPerPage={rowsPerPage} handleChangePage={handleChangePage} handleChangeRowsPerPage={handleChangeRowsPerPage} />
+            <DataTable columns={regularItem} rows={rowsWithId} checkboxSelection={false} />
           )}
           {value === 1 && (
-            <DataTable columns={openingPeriodVariationItems} rows={openingPeriodVariationItemList} page={page} rowsPerPage={rowsPerPage} handleChangePage={handleChangePage} handleChangeRowsPerPage={handleChangeRowsPerPage}/>
+            <DataTable columns={openingPeriodVariationItems} rows={openingPeriodVariationItemListWithId} checkboxSelection={true}/>
           )}
           {value === 2 && (
-            <DataTable columns={recentContractUpdateItems} rows={recentContractItems} page={page} rowsPerPage={rowsPerPage} handleChangePage={handleChangePage} handleChangeRowsPerPage={handleChangeRowsPerPage}/>)}
+            <DataTable columns={recentContractUpdateItems} rows={recentContractItemsWithId} checkboxSelection={false} />)}
         </Grid>
       </Grid>
     </Container>
