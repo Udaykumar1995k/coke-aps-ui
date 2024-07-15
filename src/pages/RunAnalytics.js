@@ -1,9 +1,9 @@
 import React from 'react'
-import LeadTimeAnalyticsForm from './LeadTimeAnalyticsForm'
+import LeadtTime from './LeadTimeAnalyticsForm'
 const RunAnalytics = () => {
   return (
     <div>RunAnalytics
-      <LeadTimeAnalyticsForm/>
+      <LeadtTime/>
     </div>
     
   )
