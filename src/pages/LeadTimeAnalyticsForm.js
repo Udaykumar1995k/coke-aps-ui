@@ -1,12 +1,12 @@
 import React, {useState} from "react";
-import { Grid, Typography,Box } from "@mui/material";
+import  "./LeadTimeAnalyticsForm.css";
 import RadioButtonGroup from "../components/common/RadioButtonGroup";
 import CheckBoxInput from "../components/common/CheckboxInput";
 import TextInput from "../components/common/TextInput";
 import Dropdown from "../components/common/Dropdown";
 import DatePicker from "../components/common/DatePicker";
-import ButtonComponent from "../components/common/ButtonComponent";
-const LeadTimeAnalyticsForm = () => {
+import ButtonComponent from "../components/common/button/Button";
+const LeadtTime = () =>{
     const [excludeRange,setExcludeRange] = useState(false);
     const [recentContractUpdates,setRecentContractUpdates] = useState('')
     const [supplier,setSupplier] = useState([]);
@@ -19,39 +19,17 @@ const LeadTimeAnalyticsForm = () => {
     const [posPlacedInAdvance,setPosPlacedInAdvance] = useState('');
     const [fromDate,setFromDate] = useState(null);
     const [toDate,setToDate] = useState(null);
-
     const handleExcludeRangeChange  = (event) =>{
         setExcludeRange(event.target.checked)
 
     }
-    const handleClear =() =>{
-        console.log("in handle clear");
-        setExcludeRange(null);
-        setRecentContractUpdates('')
-        setSupplier([]);
-        setMaterialType([]);
-        setMaterialGroup([]);
-        setMaterial([]);
-        setHierarchy([]);
-        setShipFrom([]);
-        setShipTo([]);
-        setPosPlacedInAdvance('');
-        setFromDate(null);
-        setToDate(null);
-    };
     return(
-        <form>
-            <Box>
-            <Grid container spacing={2}>
-                <Grid item xs={12}>
-                    <Typography variant="h6">Input Data For Lead Time Analytics</Typography>
-                </Grid>
-                <Grid  item container xs={12} alignItems="center">
-                    <Grid item xs={3}>
-                        <Typography>Hierarchy for LT Analytics</Typography>
-                    </Grid>
-                    <Grid item xs={9}>
-                        <Dropdown 
+        <div className="form-container">
+            <h5>Input Data For Lead Time Analytics</h5>
+            <form>
+                <div className="form-group">
+                    <label className="label-position" htmlFor="hierarchy">Hierarchy for LT Analytics</label>
+                    <Dropdown 
                         label="Plant/Supplier/Material" 
                         value={hierarchy} 
                         options={[
@@ -60,14 +38,10 @@ const LeadTimeAnalyticsForm = () => {
                         ]}
                         handleChange={(e) =>setHierarchy(e.target.value)}
                         />
-                    </Grid>
-                </Grid>
-                <Grid item container xs={12} alignItems="center">
-                    <Grid item xs={3}>
-                        <Typography>Supplier</Typography>
-                    </Grid>
-                    <Grid item xs={9}>
-                        <Dropdown 
+                </div>
+                <div className="form-group">
+                    <label className="label-position" htmlFor="supplier">Supplier</label>
+                    <Dropdown
                         label="Supplier" 
                         value={supplier} 
                         options={[
@@ -76,14 +50,10 @@ const LeadTimeAnalyticsForm = () => {
                          ]}
                         handleChange={(e) =>setSupplier(e.target.value)}
                         />
-                    </Grid>
-                </Grid>
-                <Grid item container xs={12} alignItems="center">
-                    <Grid item xs={3}>
-                        <Typography>Material Type</Typography>
-                    </Grid>
-                    <Grid item xs={9}>
-                        <Dropdown 
+                </div>
+                <div className="form-group">
+                    <label className="label-position" htmlFor="material-type">Material Type</label>
+                    <Dropdown 
                         label="Material Type" 
                         value={materialType} 
                         options={[
@@ -92,14 +62,10 @@ const LeadTimeAnalyticsForm = () => {
                         ]}
                         handleChange={(e) =>setMaterialType(e.target.value)}
                         />
-                    </Grid>
-                </Grid>
-                <Grid  item container xs={12} alignItems="center">
-                    <Grid item xs={3}>
-                        <Typography>Material Group</Typography>
-                    </Grid>
-                    <Grid item xs={9}>
-                        <Dropdown 
+                </div>
+                <div className="form-group">
+                    <label className="label-position" htmlFor="material-group">Material Group</label>
+                    <Dropdown 
                         label="Material Group" 
                         value={materialGroup} 
                         options={[
@@ -108,14 +74,10 @@ const LeadTimeAnalyticsForm = () => {
                         ]}
                         handleChange={(e) =>setMaterialGroup(e.target.value)}
                         />
-                    </Grid>
-                </Grid>
-                <Grid  item container xs={12} alignItems="center">
-                    <Grid item xs={3}>
-                        <Typography>Material</Typography>
-                    </Grid>
-                    <Grid item xs={9}>
-                        <Dropdown 
+                </div>
+                <div className="form-group">
+                    <label className="label-position" htmlFor="material">Material</label>
+                    <Dropdown 
                         label="Material" 
                         value={material} 
                         options={[
@@ -124,14 +86,11 @@ const LeadTimeAnalyticsForm = () => {
                         ]}
                         handleChange={(e) =>setMaterial(e.target.value)}
                         />
-                    </Grid>
-                </Grid>
-                <Grid  item container xs={12} alignItems="center">
-                    <Grid item xs={3}>
-                        <Typography>Ship From & To</Typography>
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Dropdown 
+                </div>
+                <div className="form-group">
+                    <label className="label-position" htmlFor="material">Ship From & To</label>
+                    <div className="flex-container">
+                    <Dropdown
                         label="Ship From" 
                         value={shipFrom} 
                         options={[
@@ -140,44 +99,36 @@ const LeadTimeAnalyticsForm = () => {
                         ]}
                         handleChange={(e) =>setShipFrom(e.target.value)}
                         />
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Dropdown 
+                    <Dropdown 
                         label="Ship To" 
                         value={shipTo} 
                         options={[
-                            {value: 'Location1', label: 'Ireland'},
-                            {value: 'Location2',label:'India'}
-                            ]}
+                            {value: 'Location1', label: 'India'},
+                            {value: 'Location2',label:'Ireland'}
+                        ]}
                         handleChange={(e) =>setShipTo(e.target.value)}
                         />
-                    </Grid>
-                </Grid>
-                <Grid   item container xs={12} alignItems="center">
-                    <Grid item xs={3.1}>
-                        <Typography>Period To Consider</Typography>
-                    </Grid>
-                    <Grid item xs={4} >
+                    </div>
+                </div>
+                <div className="form-group">
+                    <label className="label-position" htmlFor="period-to-consider">Period To Consider</label>
+                    <div className="flex-container">
                         <DatePicker 
                         label="From Date" 
                         value={fromDate} 
                        onChange={(newValue) =>setFromDate(newValue)}
                         />
-                    </Grid>
-                    <Grid item xs={4} sx={{paddingLeft:3}}>
-                        <DatePicker 
+                       <DatePicker 
                         label="To Date" 
                         value={toDate} 
                        onChange={(newValue) =>setToDate(newValue)}
                         />
-                    </Grid>
-                </Grid>
-                <Grid item container xs={12} alignItems="center">
-                    <Grid item xs={3.1}>
-                        <Typography>Exclude range in the period</Typography>
-                    </Grid>
-                    <Grid item xs={1}>
-                        <CheckBoxInput
+                    </div>
+                </div>
+                <div className="form-group">
+                    <label className="label-position" htmlFor="period-to-consider">Exclusive Range In Period</label>
+                    <div className="flex-container">
+                    <CheckBoxInput
                          props={{
                             checked: excludeRange,
                             fontSize: 28,
@@ -185,17 +136,13 @@ const LeadTimeAnalyticsForm = () => {
                          }
                          }
                         />
-                    </Grid>
-                    <Grid item xs={6.8}>
-                        <TextInput/>
-                    </Grid>
-                </Grid>
-                <Grid item container xs={12} alignItems="center">
-                    <Grid item xs={3}>
-                        <Typography>Recent Contract Updates</Typography>
-                    </Grid>
-                    <Grid item xs={9}>
-                        <RadioButtonGroup
+                       <TextInput/>
+                    </div>
+                </div>
+                <div className="form-group">
+                    <label className="label-position" htmlFor="period-to-consider">Recent Contract Updates</label>
+                    <div className="flex-container">
+                    <RadioButtonGroup
                             props={[
                                 {label: 'Include', value: 'include',labelPlacement:"end",size:'medium'},
                                 {label: 'Exclude',value: 'exclude',labelPlacement:"end",size:'medium'}
@@ -203,56 +150,39 @@ const LeadTimeAnalyticsForm = () => {
                             value={recentContractUpdates}
                             onChange={(e) =>setRecentContractUpdates(e.target.value)}
                         />
-                    </Grid>
-                </Grid>
-                <Grid item container xs={12} alignItems="center">
-                    <Grid item xs={3}>
-                        <Typography>Pos Placed in Advance of Opening Period</Typography>
-                    </Grid>
-                    <Grid item xs={9}>
-                        <RadioButtonGroup
-                        props={[
-                            {label: 'Include', value: 'include',labelPlacement:"end",size:'medium'},
-                            {label: 'Exclude',value: 'exclude',labelPlacement:"end",size:'medium'}
-                        ]}
-                        value={posPlacedInAdvance}
-                        onChange={(e) =>setPosPlacedInAdvance(e.target.value)}
+                    </div>
+                </div>
+                <div className="form-group">
+                    <label className="label-position" htmlFor="period-to-consider">Pos Placed in Advance of Opening Period</label>
+                    <div className="flex-container">
+                    <RadioButtonGroup
+                            props={[
+                                {label: 'Include', value: 'include',labelPlacement:"end",size:'medium'},
+                                {label: 'Exclude',value: 'exclude',labelPlacement:"end",size:'medium'}
+                                ]}
+                            value={recentContractUpdates}
+                            onChange={(e) =>setRecentContractUpdates(e.target.value)}
                         />
-                    </Grid>
-                </Grid>
-                <Grid  item  xs={12} >
-                    <Grid container alignItems="flex-start" >
-                        <Grid  item >
-                            <ButtonComponent 
-                            props={{
-                                    variant: 'contained',
-                                    size: 'medium',
-                                    customColor: 'red',
-                                    text: 'Clear All',
-                                    onClick: handleClear,
-                                    fontSize:'1rem'
-                            }}
-                            />
-                        </Grid>
-                        <Grid item>
-                            <ButtonComponent
-                            props={{
-                                variant: 'contained',
-                                size: 'medium',
-                                customColor: 'red',
-                                text: 'Schedule Analytics Run',
-                                onClick: handleClear,
-                                fontSize:'1rem'
-                        }}
-                            />
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </Grid>
-            </Box>
-        </form>
-            
-    );
-};
+                    </div>
+                </div>
+                <div className="form-actions">
+                    <ButtonComponent
+                    maxWidth="120px"
+                    label = "Clear All"
+                    className="clear-btn"
+                    bgColor="red"
+                    />
+                    <ButtonComponent
+                    maxWidth="300px"
+                    label="Schedule Analytics Run"
+                    className="schedule-btn"
+                    bgColor="red"
 
-export  default  LeadTimeAnalyticsForm
+                    />
+                </div>
+            </form>
+        </div>
+    )
+}
+
+export default LeadtTime

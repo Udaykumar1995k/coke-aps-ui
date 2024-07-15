@@ -1,0 +1,60 @@
+body {
+    font-family: Arial,sans-serif;
+}
+
+.form-container {
+    max-width: 600px;
+    padding: 20px;
+    /* border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff; */
+    /* margin: auto; */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+
+}
+h5{
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+}
+
+.form-group > .label-position{
+    margin-top: 10px;
+    min-width: 150px;
+    
+}
+ 
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 50%;
+}
+
+.form-actions{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    gap: 100px;
+    /* align-items: flex-start;
+    justify-content: flex-start; */
+}
+
+.clear-btn, .schedule-btn {
+    padding: 10px 20px !important;
+    border: none !important;
+    border-radius: 4px !important;
+    /* cursor: pointer !important; */
+}
