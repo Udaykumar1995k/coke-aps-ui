@@ -1,27 +1,45 @@
 import React, {useState} from "react";
 import  "./LeadTimeAnalyticsForm.css";
-import RadioButtonGroup from "../components/common/RadioButtonGroup";
-import CheckBoxInput from "../components/common/CheckboxInput";
-import TextInput from "../components/common/TextInput";
-import Dropdown from "../components/common/Dropdown";
-import DatePicker from "../components/common/DatePicker";
-import ButtonComponent from "../components/common/button/Button";
+import RadioButtonGroup from "../../components/common/RadioButtonGroup";
+import CheckBoxInput from "../../components/common/CheckboxInput";
+import TextInput from "../../components/common/TextInput";
+import Dropdown from "../../components/common/Dropdown";
+import DatePicker from "../../components/common/DatePicker";
+import ButtonComponent from "../../components/common/button/Button";
 const LeadtTime = () =>{
-    const [excludeRange,setExcludeRange] = useState(false);
-    const [recentContractUpdates,setRecentContractUpdates] = useState('')
-    const [supplier,setSupplier] = useState([]);
-    const [materialType,setMaterialType] = useState([]);
-    const [materialGroup,setMaterialGroup] = useState([]);
-    const [material,setMaterial] = useState([]);
-    const [hierarchy,setHierarchy] = useState([]);
-    const [shipFrom,setShipFrom] = useState([]);
-    const [shipTo,setShipTo] = useState([]);
-    const [posPlacedInAdvance,setPosPlacedInAdvance] = useState('');
-    const [fromDate,setFromDate] = useState(null);
-    const [toDate,setToDate] = useState(null);
-    const handleExcludeRangeChange  = (event) =>{
-        setExcludeRange(event.target.checked)
+    const [formData, setFormData] = useState({
+        plantSupplier: '',
+        supplier: '',
+        materialType: '',
+        materialGroup: '',
+        material: '',
+        shipFrom: '',
+        shipTo: '',
+        excludeRange: false,
+        recentContractUpdates: '',
+        posPlacedInAdvance: '',
+        fromDate: null,
+        toDate: null
 
+    });
+    const handleChange = (event) =>{
+        console.log("event",event, event.target.name, event.target.value)
+        setFormData({...formData,[event.target.name]: event.target.type ==="checkbox" ? event.target.checked: event.target.value});
+        
+    }
+    const handleDateChange  = (date,name) =>{
+        setFormData({
+            ...formData,
+            [name]: date
+        });
+
+    };
+    const clearAll =() =>{
+        setFormData('');
+    };
+
+    const scheduleAnalyticsRun = (event) =>{
+        console.log("Event",event)
     }
     return(
         <div className="form-container">
@@ -30,83 +48,90 @@ const LeadtTime = () =>{
                 <div className="form-group">
                     <label className="label-position" htmlFor="hierarchy">Hierarchy for LT Analytics</label>
                     <Dropdown 
+                        name="plantSupplier"
                         label="Plant/Supplier/Material" 
-                        value={hierarchy} 
+                        value={formData.plantSupplier} 
                         options={[
                             {value: 'Hierarchy1', label: 'Hierarchy1'},
                             {value: 'Hierarchy2',label:'Hierarchy2'}
                         ]}
-                        handleChange={(e) =>setHierarchy(e.target.value)}
+                        handleChange={handleChange}
                         />
                 </div>
                 <div className="form-group">
                     <label className="label-position" htmlFor="supplier">Supplier</label>
                     <Dropdown
                         label="Supplier" 
-                        value={supplier} 
+                        name="supplier"
+                        value={formData.supplier} 
                         options={[
                              {value: 'ireland', label: 'CPS Balina'},
                             {value: 'india',label:'CPS Hyderabad'}
                          ]}
-                        handleChange={(e) =>setSupplier(e.target.value)}
+                        handleChange={handleChange}
                         />
                 </div>
                 <div className="form-group">
                     <label className="label-position" htmlFor="material-type">Material Type</label>
-                    <Dropdown 
+                    <Dropdown
+                        name="materialType"
                         label="Material Type" 
-                        value={materialType} 
+                        value={formData.materialType} 
                         options={[
                             {value: 'Type1', label: 'Type1'},
                             {value: 'Type2',label:'Type2'}
                         ]}
-                        handleChange={(e) =>setMaterialType(e.target.value)}
+                        handleChange={handleChange}
                         />
                 </div>
                 <div className="form-group">
                     <label className="label-position" htmlFor="material-group">Material Group</label>
-                    <Dropdown 
+                    <Dropdown
+                        name="materialGroup"
                         label="Material Group" 
-                        value={materialGroup} 
+                        value={formData.materialGroup} 
                         options={[
                             {value: 'Group1', label: 'Group1'},
                             {value: 'Group2',label:'Group2'}
                         ]}
-                        handleChange={(e) =>setMaterialGroup(e.target.value)}
+                        handleChange={handleChange}
                         />
                 </div>
                 <div className="form-group">
                     <label className="label-position" htmlFor="material">Material</label>
                     <Dropdown 
+                        name="material"
                         label="Material" 
-                        value={material} 
+                        value={formData.material} 
                         options={[
                             {value: 'Material1', label: 'Material1'},
                             {value: 'Material2',label:'Material2'}
                         ]}
-                        handleChange={(e) =>setMaterial(e.target.value)}
+                        handleChange={handleChange}
                         />
                 </div>
                 <div className="form-group">
                     <label className="label-position" htmlFor="material">Ship From & To</label>
                     <div className="flex-container">
                     <Dropdown
+                        name="shipFrom"
                         label="Ship From" 
-                        value={shipFrom} 
+                        value={formData.shipFrom} 
                         options={[
                             {value: 'Location1', label: 'India'},
                             {value: 'Location2',label:'Ireland'}
                         ]}
-                        handleChange={(e) =>setShipFrom(e.target.value)}
+                        handleChange={handleChange}
                         />
                     <Dropdown 
+                        name="shipTo"
                         label="Ship To" 
-                        value={shipTo} 
+                        value={formData.shipTo} 
                         options={[
                             {value: 'Location1', label: 'India'},
                             {value: 'Location2',label:'Ireland'}
                         ]}
-                        handleChange={(e) =>setShipTo(e.target.value)}
+                        handleChange={handleChange}
                         />
                     </div>
                 </div>
@@ -114,14 +139,16 @@ const LeadtTime = () =>{
                     <label className="label-position" htmlFor="period-to-consider">Period To Consider</label>
                     <div className="flex-container">
                         <DatePicker 
+                        name="fromDate"
                         label="From Date" 
-                        value={fromDate} 
-                       onChange={(newValue) =>setFromDate(newValue)}
+                        value={formData.fromDate} 
+                       onChange={(e)=> handleDateChange(e,'fromDate')}
                         />
                        <DatePicker 
+                        name="toDate"
                         label="To Date" 
-                        value={toDate} 
-                       onChange={(newValue) =>setToDate(newValue)}
+                        value={formData.toDate} 
+                       onChange={(e) => handleDateChange(e,'toDate')}
                         />
                     </div>
                 </div>
@@ -130,9 +157,10 @@ const LeadtTime = () =>{
                     <div className="flex-container">
                     <CheckBoxInput
                          props={{
-                            checked: excludeRange,
+                            name:"excludeRange",
+                            checked: formData.excludeRange,
                             fontSize: 28,
-                            onchange: handleExcludeRangeChange,
+                            onchange: handleChange
                          }
                          }
                         />
@@ -147,8 +175,10 @@ const LeadtTime = () =>{
                                 {label: 'Include', value: 'include',labelPlacement:"end",size:'medium'},
                                 {label: 'Exclude',value: 'exclude',labelPlacement:"end",size:'medium'}
                                 ]}
-                            value={recentContractUpdates}
-                            onChange={(e) =>setRecentContractUpdates(e.target.value)}
+                            value={formData.recentContractUpdates}
+                            onChange={handleChange}
+                            name="recentContractUpdates"
+                        
                         />
                     </div>
                 </div>
@@ -160,8 +190,9 @@ const LeadtTime = () =>{
                                 {label: 'Include', value: 'include',labelPlacement:"end",size:'medium'},
                                 {label: 'Exclude',value: 'exclude',labelPlacement:"end",size:'medium'}
                                 ]}
-                            value={recentContractUpdates}
-                            onChange={(e) =>setRecentContractUpdates(e.target.value)}
+                            value={formData.posPlacedInAdvance}
+                            onChange={handleChange}
+                            name="posPlacedInAdvance"
                         />
                     </div>
                 </div>
@@ -171,13 +202,13 @@ const LeadtTime = () =>{
                     label = "Clear All"
                     className="clear-btn"
                     bgColor="red"
+                    onClick={clearAll}
                     />
                     <ButtonComponent
                     maxWidth="300px"
                     label="Schedule Analytics Run"
                     className="schedule-btn"
                     bgColor="red"
-
                     />
                 </div>
             </form>

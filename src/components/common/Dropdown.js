@@ -11,7 +11,7 @@ const Dropdown = ({label,value, options=[], handleChange, ...props }) => {
                 labelId={props.labelId ||'dropdown-label'}
                 value={value}
                 onChange={handleChange}
-                input={<OutlinedInput label={label} sx={{ height: props.height||'48px', minHeight: props.height||'48px'}}/>} 
+                input={<OutlinedInput name = {props?.name} label={label} sx={{ height: props.height||'48px', minHeight: props.height||'48px'}}/>} 
                 sx={{
                   height: props.height ||'48px', 
                   minHeight: props.minHeight || '48px', 

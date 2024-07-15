@@ -1,5 +1,5 @@
 import React from 'react'
-import LeadtTime from './LeadTimeAnalyticsForm'
+import LeadtTime from './leadtime/LeadTimeAnalyticsForm'
 const RunAnalytics = () => {
   return (
     <div>RunAnalytics
