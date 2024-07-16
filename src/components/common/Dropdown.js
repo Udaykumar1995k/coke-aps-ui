@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FormControl, InputLabel, Select, MenuItem} from '@mui/material';
 import OutlinedInput from '@mui/material/OutlinedInput';
 
@@ -9,7 +9,7 @@ const Dropdown = ({ label, value, options = [], handleChange, ...props }) => {
         labelId: props.labelId || 'dropdown-label',
         value: value,
         onChange: handleChange,
-        input: <OutlinedInput label={label} sx={{ height: props.height || '48px', minHeight: props.height || '48px' }} />,
+        input: <OutlinedInput label={label} name={props.name}sx={{ height: props.height || '48px', minHeight: props.height || '48px' }} />,
         sx: {
             height: props.height || '48px',
             minHeight: props.minHeight || '48px',

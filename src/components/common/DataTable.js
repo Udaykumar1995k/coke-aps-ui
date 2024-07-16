@@ -2,26 +2,24 @@
 import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 
+const DataTable = ({ columns, rows, ...props }) => {
+  const { checkboxSelection } = props;
 
-const DataTable=({columns, rows ,...props}) => {
-  const{checkboxSelection}=props;
-
-  
   return (
-    <div style={{ height: 480, width: "100%" }}>
+    <div style={{ height: 450, width: "100%" }}>
       <DataGrid
         rows={rows}
         columns={columns}
         initialState={{
           pagination: {
-            paginationModel: { page: 0, pageSize: 7 }
+            paginationModel: { page: 0, pageSize: 7 },
           }
         }}
         pageSizeOptions={[5, 10]}
-         checkboxSelection={checkboxSelection}
-         disableRowSelectionOnClick={!checkboxSelection}
+        checkboxSelection={checkboxSelection}
+        disableRowSelectionOnClick={!checkboxSelection}
       />
     </div>
   );
 }
-export default  DataTable
+export default DataTable
