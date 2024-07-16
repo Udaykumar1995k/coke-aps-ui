@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Container, Grid } from '@mui/material';
-import DataTable from '../components/common/DataTable';
-import TabSection from '../components/common/TabSection';
-import SearchInput from '../components/common/SearchInputField';
-import ButtonComponent from '../components/common/button/Button';
+import DataTable from '../../components/common/DataTable';
+import TabSection from '../../components/common/TabSection';
+import SearchInput from '../../components/common/SearchInputField';
+import ButtonComponent from '../../components/common/button/Button';
 import './AnalyticsResults.css'
 
 
@@ -250,16 +250,6 @@ const recentContractItems = [
   createDataForThirdTab('--', '--', '--', '--', '--', '--', '--', '--', '--'),
   createDataForThirdTab('--', '--', '--', '--', '--', '--', '--', '--', '--'),
 ]
-
-
-function handleViewInputDetailsClick() {
-
-  console.log('View Input Details');
-}
-
-function handleDetailsClick() {
-  console.log('Details');
-}
 
 const AnalyticsResults = () => {
   const [value, setValue] = useState(0);

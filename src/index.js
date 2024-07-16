@@ -13,7 +13,7 @@ import PrivateRoutes from './routes/PrivateRoutes';
 import { Provider } from 'react-redux';
 import {store} from './redux/store'
 import RunAnalytics from './pages/RunAnalytics';
-import AnalyticsResults from './pages/AnalyticsResults';
+import AnalyticsResults from './pages/analyticsresults/AnalyticsResults';
 import ErrorPage from './pages/ErrorPage';
 
 const router = createBrowserRouter([
