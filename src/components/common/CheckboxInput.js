@@ -5,6 +5,7 @@ const CheckBoxInput = ({props}) =>{
        <FormControlLabel
        control={
                 <Checkbox
+                name={props?.name}
                 checked={props?.checked || false} 
                 onChange={props?.onchange}
                 sx={{'& .MuiSvgIcon-root': { fontSize:props.fontSize }|| 28, 

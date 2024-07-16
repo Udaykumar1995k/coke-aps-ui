@@ -1,10 +1,10 @@
 import React from "react";
 import { FormControl,FormControlLabel,RadioGroup,Radio } from "@mui/material";
 
-const RadioButtonGroup = ({value,onChange,props}) =>{
+const RadioButtonGroup = ({name,value,onChange,props}) =>{
     return (
        <FormControl component="fieldset">
-        <RadioGroup row value={value} onChange={onChange}>
+        <RadioGroup row  name={name} value={value} onChange={onChange}>
             {props?.map((prop,index) =>(
                 <FormControlLabel
                 key={`${prop?.value}-${index}`}
