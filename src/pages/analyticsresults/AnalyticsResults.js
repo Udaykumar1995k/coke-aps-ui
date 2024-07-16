@@ -63,7 +63,7 @@ const regularItem = [
   {
     field: 'Details',
     headerName: 'Details',
-    renderCell: () => <ButtonComponent label='Details >' />,
+    renderCell: () => <ButtonComponent label='Details' />,
     // cellClassName: 'sticky-col',
   },
 
@@ -128,7 +128,7 @@ const openingPeriodVariationItems = [
   {
     field: 'Details',
     headerName: 'Details',
-    renderCell: () => <ButtonComponent label='Details >' />,
+    renderCell: () => <ButtonComponent label='Details' />,
     // cellClassName: 'sticky-col',
   },
 
@@ -196,7 +196,7 @@ const recentContractUpdateItems = [
   {
     field: 'Details',
     headerName: 'Details',
-    renderCell: () => <ButtonComponent label='Details >' />,
+    renderCell: () => <ButtonComponent label='Details' />,
     //  cellClassName: 'sticky-col',
   },
 
@@ -214,7 +214,7 @@ function createDataForThirdTab(Supplier, Material, InventoryClassification, Mate
 }
 const rows = [
 
-  createDataForFirstTab('Abc Inc', 'Material 1', 'A', 'Ingredients', 'Helsinki', 'Ballina', '40 days', '60 days', '90%', 'High', 'Admin', 'ViewInputDetails', <ButtonComponent label='Details >' />),
+  createDataForFirstTab('Abc Inc', 'Material 1', 'A', 'Ingredients', 'Helsinki', 'Ballina', '40 days', '60 days', '90%', 'High', 'Admin', 'ViewInputDetails', <ButtonComponent label='Details' />),
   createDataForFirstTab('Abc Inc', 'Material 1', 'A', 'Ingredients', 'Helsinki', 'Ballina', '40 days', '60 days', '90%', 'High', 'Admin',),
   createDataForFirstTab('Abc Inc', 'Material 1', 'A', 'Ingredients', 'Helsinki', 'Ballina', '40 days', '60 days', '90%', 'High', 'Admin',),
   createDataForFirstTab('Abc Inc', 'Material 1', 'A', 'Ingredients', 'Helsinki', 'Ballina', '40 days', '60 days', '90%', 'High', 'Admin',),
@@ -229,7 +229,7 @@ const rows = [
 ]
 const openingPeriodVariationItemList = [
   createDataForSecondTab('Abc Inc', 'Material 1', 'A', 'Ingredients', 'Helsinki', 'Ballina', '5 days', '40 days', '60 days', '90%', 'High', 'Admin',
-    <ButtonComponent label='Details >' />,),
+    <ButtonComponent label='Details' />,),
   createDataForSecondTab('--', '--', '--', '--', '--', '--', '--', '--', '--', '--'),
   createDataForSecondTab('--', '--', '--', '--', '--', '--', '--', '--', '--', '--'),
   createDataForSecondTab('--', '--', '--', '--', '--', '--', '--', '--', '--', '--'),
@@ -242,7 +242,7 @@ const openingPeriodVariationItemList = [
 
 const recentContractItems = [
   createDataForThirdTab('xyz Inc', 'Material', 'A', 'Ingredients', 'India', 'Ballina', '40 to 30 days', '20 Jun 24', '30 days', '70 days', '80%', 'High', 'Admin1',
-    <ButtonComponent label='Details >' />),
+    <ButtonComponent label='Details' />),
   createDataForThirdTab('--', '--', '--', '--', '--', '--', '--', '--', '--'),
   createDataForThirdTab('--', '--', '--', '--', '--', '--', '--', '--', '--'),
   createDataForThirdTab('--', '--', '--', '--', '--', '--', '--', '--', '--'),
@@ -253,6 +253,7 @@ const recentContractItems = [
 
 const AnalyticsResults = () => {
   const [value, setValue] = useState(0);
+
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -270,6 +271,7 @@ const AnalyticsResults = () => {
           <TabSection label={["Regular Items", "Opening Period Variation Items", "Recent Contract Updates Items"]} value={value} handleChange={handleChange} />
         </Grid>
         <Grid item xs={4}> <SearchInput /></Grid>
+
 
         <Grid item xs={12}>
           {value === 0 && (
