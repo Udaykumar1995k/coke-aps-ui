@@ -209,6 +209,7 @@ const LeadtTime = () =>{
                     label="Schedule Analytics Run"
                     className="schedule-btn"
                     bgColor="red"
+                    onClick={scheduleAnalyticsRun}
                     />
                 </div>
             </form>

@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
-import './button.css'
+import './Button.css'
 const ButtonComponent = (props) =>{
     return (
         <div className="button-container">
