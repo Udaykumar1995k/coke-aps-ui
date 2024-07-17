@@ -26,6 +26,10 @@ body {
      
 }
 
+
+.card.selected {
+    border-color: black;
+}
 .card-header h3 {
     font-size: 16px;
     text-align: left;

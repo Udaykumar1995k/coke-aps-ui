@@ -1,11 +1,20 @@
 import './Card.css'
-const Cards = ({cards, maxWidth, minHeight,bgColor}) =>{
-
+import React, {useState} from 'react'
+const Cards = ({cards, maxWidth,bgColor,callBackFunction}) =>{
+    const [selectedCard,setSelectedCard] = useState(null);
+    const handleCardClick = (index) =>{ 
+        setSelectedCard(index);
+    }
     return (
         <div className="card-grid-container" style={{maxWidth:maxWidth}}>
             <div className="card-grid" >
             {cards.map((card,index)=>(
-                <div className="card" key={index} style={{minHeight:minHeight, background:bgColor}}>
+                <div 
+                className={`card  ${selectedCard === index?'selected': ''}`}
+                key={index} 
+                style={{ background:bgColor}}
+                onClick={() => handleCardClick(index)}
+                >
                     <div className="card-header">
                         <h3 >{card.title}</h3>
                     </div>
