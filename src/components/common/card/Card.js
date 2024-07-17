@@ -7,11 +7,11 @@ const Cards = ({cards, maxWidth, minHeight,bgColor}) =>{
             {cards.map((card,index)=>(
                 <div className="card" key={index} style={{minHeight:minHeight, background:bgColor}}>
                     <div className="card-header">
-                        <h3>{card.title}</h3>
+                        <h3 >{card.title}</h3>
                     </div>
                     <div className="card-content">
                         <p className="value-number">{card.value}</p>
-                       {card.description && <p>{card.description}</p>} 
+                       {card.description && <p className="card-description">{card.description}</p>} 
                     </div>
                 </div>       
                 ))}
