@@ -1,5 +1,6 @@
 import React from 'react';
 import { Tab, Tabs } from '@mui/material';
+import CircleIcon from './CircleIcon';
 
 const TabSection = ({label,value,handleChange,...props}) => {
   
@@ -12,7 +13,7 @@ const TabSection = ({label,value,handleChange,...props}) => {
         variant="fullWidth" 
         style={props.style}
       >
-        {label.map((item,index)=>(<Tab key={index}label={item}/>))}
+        {label.map((item,index)=>(<Tab key={index} label={item} icon={<CircleIcon count={18}/>} iconPosition="end" />))}
       </Tabs>
       </div>
   )
