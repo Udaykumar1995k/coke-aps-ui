@@ -5,15 +5,18 @@ import Header from "./components/Header/Header";
 import MainContent from "./components/MainContent/MainContent";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import SettingsIcon from "@mui/icons-material/Settings";
+import { useSelector, useDispatch } from 'react-redux';
+import { setTitle } from './redux/actions/dashboardTitle';
 
 function App() {
   const navigate = useNavigate();
-  const [title, setTitle] = useState("Run LT analytics");
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const dispatch = useDispatch();
+  const title = useSelector((state) => state?.dashboardDetails?.title);
 
-  const handleMenuItemClick = (path, label, index) => {
+  const handleMenuItemClick = (path, label, titleName, index) => {
     navigate(path);
-    setTitle(label);
+    dispatch(setTitle(titleName))
     setSelectedIndex(index);
   };
 
@@ -58,7 +61,7 @@ function App() {
   useEffect(() => {
     if (localStorage.getItem("isLoggedIn")) {
       <Outlet />;
-    } else {
+         } else {
       navigate("/login");
     }
   });
