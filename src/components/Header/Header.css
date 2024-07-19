@@ -2,8 +2,9 @@
     background-color: #F40000;
     color: #fff;
     width: 100%;
-    position: fixed;
     z-index: 9;
+    height: 64px;
+    position: fixed;
 }
 .main-box {
     display: flex;
