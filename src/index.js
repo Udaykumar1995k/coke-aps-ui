@@ -46,6 +46,36 @@ const router = createBrowserRouter([
           },
         ],
       },
+      {
+        path: "actionDashboard",
+        element: <PrivateRoutes />,
+        children: [
+          {
+            path: "",
+            element: <AnalyticsResults />,
+          },
+        ],
+      },
+      {
+        path: "workflowManagement",
+        element: <PrivateRoutes />,
+        children: [
+          {
+            path: "",
+            element: <AnalyticsResults />,
+          },
+        ],
+      },
+      {
+        path: "schedulerConfigurator",
+        element: <PrivateRoutes />,
+        children: [
+          {
+            path: "",
+            element: <AnalyticsResults />,
+          },
+        ],
+      },
     ],
   },
   {
