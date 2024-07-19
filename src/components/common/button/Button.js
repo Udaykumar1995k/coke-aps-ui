@@ -1,25 +1,48 @@
 import { Button } from "@mui/material";
 import './CustomButton.css'
 const ButtonComponent = (props) =>{
+    let disabledClassName = ""
+    const buttonConfigs = {
+        success: {
+            backgroundColor: "green",
+            color: "white"
+        },
+        error: {
+            backgroundColor: "red",
+            color: "white"
+        },
+        primary: {
+            backgroundColor: "white",
+            color: "black"
+        },
+        secondary: {
+            backgroundColor: "black",
+            color: "white"
+        }  
+    }
+  
+    const config = buttonConfigs[props?.type] || {};
     return (
-        <div className="button-container">
-            { props?.type === 'success'?
-                <Button
+        <div className={props.className}>
+            <Button
+                    className={`${props.className}_button ${props?.type}`}
                     onClick={props?.onClick}
-                    style={{ backgroundColor: 'green' ,width:'100%',maxWidth:props?.maxWidth || '200px'} } >
-                    {props?.label} 
+                    disabled = {props?.disabled || false}
+                    variant="contained" 
+                    style={{  wordBreak:"break-word", 
+                    backgroundColor:props?.disabled?'none' :props?.bgColor || config.backgroundColor || 'red' ,
+                    width:'100%',
+                    maxWidth:props?.maxWidth || '200px' ,
+                    color: props?.disabled?'none':props?.color || config.color || 'white',
+                    borderRadius: props?.borderRadius ||"6px",
+                    height: props?.height || "30px",
+                    border: props?.disabled? 'none': props?.border || props?.bgColor?"":'1px solid black',
+                    ...props?.styles
+                }}  
+                    disableRipple
+                    >
+                    {props?.label}
                 </Button>
-                :props?.type === 'error'?
-                <Button
-                    onClick={props?.onClick}
-                    style={{ backgroundColor: 'red' ,width:'100%',maxWidth:props?.maxWidth || '200px'} }  >
-                    {props?.label} 
-                </Button>: 
-                <Button
-                    onClick={props?.onClick}
-                    variant="contained" style={{  wordBreak:"break-word", backgroundColor: props?.bgColor,width:'100%',maxWidth:props?.maxWidth || '200px'} }  >{props?.label}
-                </Button> 
-            }
         </div>
     )
 }

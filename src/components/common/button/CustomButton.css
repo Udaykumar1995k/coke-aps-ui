@@ -4,30 +4,17 @@
     align-items: center;
 }
 
-.responsive-button-container {
+/* .responsive-button-container {
    white-space: normal;
    word-break: break-word;
    text-align: center;
    width: auto;
 
-}
-
-/* @media (max-width:600px) {
-    .responsive-button-container {
-        padding: 4px 8px;
-        font-size: 0.875rem;
-        width: '150px'
-
-    }
 } */
-
-/* .error{
-    background-color: red !important;
+ .error {
+    border: none !important;
 }
 
 .success {
-    background-color: green !important;
+    border: none !important;
 }
-.default{
-    background-color: orange ;
-} */
