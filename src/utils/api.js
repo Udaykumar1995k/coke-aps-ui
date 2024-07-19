@@ -12,7 +12,7 @@ const myApi = axios.create({
     },
   });
 
-export const createFetchApiThunk = (endpoint, method) => {
+export const createApi = (endpoint, method) => {
   return createAsyncThunk(
     `api/${endpoint}`,
     async (data = {}, { rejectWithValue }) => {
@@ -20,7 +20,7 @@ export const createFetchApiThunk = (endpoint, method) => {
         const response = await myApi({
           method,
           url: `${baseUrl}/${endpoint}`,
-        //   data,  // for post requests
+          data,  // for post requests
         });
         return response.data;
       } catch (error) {

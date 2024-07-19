@@ -15,6 +15,7 @@ import {store} from './redux/store'
 import RunAnalytics from './pages/RunAnalytics';
 import AnalyticsResults from './pages/analyticsresults/AnalyticsResults';
 import ErrorPage from './pages/ErrorPage';
+import WorkflowManagement from './pages/WorkflowManagement/WorkflowManagement';
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,16 @@ const router = createBrowserRouter([
           {
             path: "",
             element: <AnalyticsResults />,
+          },
+        ],
+      },
+      {
+        path: "workflow-management",
+        element: <PrivateRoutes />,
+        children: [
+          {
+            path: "",
+            element: <WorkflowManagement />,
           },
         ],
       },

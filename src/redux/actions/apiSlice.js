@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { createFetchApiThunk } from '../../utils/api';
+import { createApi } from '../../utils/api';
 
 const initialState = {
   data: null,
@@ -7,7 +7,10 @@ const initialState = {
   error: null,
 };
 
-export const fetchData = createFetchApiThunk('posts', 'get');
+export const fetchData = createApi('posts', 'get');
+export const postData = createApi('posts', 'post');
+export const deleteData = createApi('posts', 'delete');
+export const putData = createApi('posts', 'put');
 
 const apiSlice = createSlice({
   name: 'api',

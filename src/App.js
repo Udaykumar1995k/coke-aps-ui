@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import MainContent from "./components/MainContent/MainContent";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import SettingsIcon from "@mui/icons-material/Settings";
+import AssuredWorkloadIcon from '@mui/icons-material/AssuredWorkload';
 
 function App() {
   const navigate = useNavigate();
@@ -33,6 +34,11 @@ function App() {
       path: "/analytics-results",
       label: "LT Analytics Results",
       icon: <SettingsIcon />,
+    },
+    {
+      path: "/workflow-management",
+      label: "Workflow Management",
+      icon: <AssuredWorkloadIcon />,
     },
   ];
 

@@ -17,7 +17,7 @@ const ButtonComponent = (props) =>{
                 </Button>: 
                 <Button
                     onClick={props?.onClick}
-                    variant="contained" style={{  wordBreak:"break-word", backgroundColor: props?.bgColor,width:'100%',maxWidth:props?.maxWidth || '200px'} }  >{props?.label}
+                    variant="contained" style={{  wordBreak:"break-word", textTransform: 'none', backgroundColor: props?.bgColor,width:'100%',maxWidth:props?.maxWidth || '200px'} }  >{props?.label}
                 </Button> 
             }
         </div>
