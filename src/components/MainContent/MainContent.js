@@ -1,10 +1,14 @@
 import React from 'react'
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import { Outlet } from 'react-router-dom';
-
+import { useSelector, useDispatch } from 'react-redux';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import './MainContent.css';
+import { setTitle } from '../../redux/actions/dashboardTitle';
 
 const MainContent = (props) => {
+    const title = useSelector((state) => state?.dashboardDetails?.title)
+    const dispatch = useDispatch()
     return (
         <div className='main-content'>
             <div className='sidebar'>
@@ -13,11 +17,11 @@ const MainContent = (props) => {
                         <ListItem
                             key={item}
                             disablePadding
-                            onClick={() => props.handleMenuItemClick(item.path, item.label, index)}
+                            onClick={() => (props.handleMenuItemClick(item.path, item.label, index), dispatch(setTitle(item.title)))}
                         >
                             <ListItemButton
                                 selected={index === props.selectedIndex}
-                                style={{backgroundColor: index === props.selectedIndex?"#717171":"#aaaaaa"}}
+                                style={{ backgroundColor: index === props.selectedIndex ? "#717171" : "#aaaaaa" }}
                                 className='listButtonSection'
                             >
                                 <ListItemIcon
@@ -26,7 +30,7 @@ const MainContent = (props) => {
                                         mr: 3,
                                         justifyContent: "center",
                                     }}
-                                    style={{display:'flex',margin:'auto',color:'#fff'}}
+                                    style={{ display: 'flex', margin: 'auto', color: '#fff' }}
                                 >
                                     {item.icon}
                                 </ListItemIcon>
@@ -36,17 +40,26 @@ const MainContent = (props) => {
                                         opacity: 1,
                                         ".MuiTypography-root": { fontSize: "12px !important" },
                                     }}
-                                    style={{color:'#fff'}}
+                                    style={{ color: '#fff' }}
                                 />
                             </ListItemButton>
                         </ListItem>
-                            
+
 
                     ))}
                 </List>
             </div>
             <div className='content'>
-                <Outlet />
+                <div>
+                    <div>
+                        <div style={{ display: 'flex', justifyContent: 'end', fontSize: 12, padding: 10 }}>Last updated : 12/07/2024</div>
+                        <div style={{ display: 'flex', flexDirection: 'row', fontSize: 22, fontWeight: 'bold', padding: 10 }}>
+                            <div style={{ marginRight: 10, fontSize: 'large' }} ><ArrowBackIcon /></div>
+                            <div>Lead Time Analytics - {title}</div>
+                        </div>
+                    </div>
+                    <Outlet />
+                </div>
             </div>
         </div>
     )

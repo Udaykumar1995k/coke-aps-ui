@@ -15,6 +15,9 @@ import {store} from './redux/store'
 import RunAnalytics from './pages/RunAnalytics';
 import AnalyticsResults from './pages/analyticsresults/AnalyticsResults';
 import ErrorPage from './pages/ErrorPage';
+import ActionDashboard from './pages/ActionDashboard';
+import WorkflowManagement from './pages/WorkflowManagement';
+import SchedulerConfigurator from './pages/SchedulerConfigurator';
 
 const router = createBrowserRouter([
   {
@@ -52,7 +55,7 @@ const router = createBrowserRouter([
         children: [
           {
             path: "",
-            element: <AnalyticsResults />,
+            element: <ActionDashboard />,
           },
         ],
       },
@@ -62,7 +65,7 @@ const router = createBrowserRouter([
         children: [
           {
             path: "",
-            element: <AnalyticsResults />,
+            element: <WorkflowManagement />,
           },
         ],
       },
@@ -72,7 +75,7 @@ const router = createBrowserRouter([
         children: [
           {
             path: "",
-            element: <AnalyticsResults />,
+            element: <SchedulerConfigurator />,
           },
         ],
       },
