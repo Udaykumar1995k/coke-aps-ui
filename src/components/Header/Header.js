@@ -10,7 +10,7 @@ const Header = (props) => {
       <Toolbar>
         <div className="main-box">
           <img src={Logo} alt="logo" width={64} height={20} />
-          <h3>Lead Time Analytics - {props.title}</h3>
+          <h3>Technical, Innovation & supply chain</h3>
           <p onClick={props.handleLogout} style={{cursor: 'pointer', color: '#fff'}}>Logout</p>
         </div>
       </Toolbar>
