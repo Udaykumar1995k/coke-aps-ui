@@ -26,14 +26,33 @@ function App() {
 
   const menuItems = [
     {
+      path: "/actionDashboard",
+      label: "Action Dashboard",
+      icon: <DashboardIcon />,
+      title: "Dashboard"
+    }, {
       path: "/run-analytics",
       label: "Run LT analytics",
       icon: <DashboardIcon />,
+      title: "LT Analytics"
     },
     {
       path: "/analytics-results",
       label: "LT Analytics Results",
       icon: <SettingsIcon />,
+      title: "Results"
+    },
+    {
+      path: "/workflowManagement",
+      label: "Workflow Management",
+      icon: <SettingsIcon />,
+      title: "Workflow Management"
+    },
+    {
+      path: "/schedulerConfigurator",
+      label: "Scheduler Configurator",
+      icon: <SettingsIcon />,
+      title: "Scheduler Configurator"
     },
     {
       path: "/workflow-management",

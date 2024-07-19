@@ -15,7 +15,9 @@ import {store} from './redux/store'
 import RunAnalytics from './pages/RunAnalytics';
 import AnalyticsResults from './pages/analyticsresults/AnalyticsResults';
 import ErrorPage from './pages/ErrorPage';
-import WorkflowManagement from './pages/WorkflowManagement/WorkflowManagement';
+import ActionDashboard from './pages/ActionDashboard';
+import WorkflowManagement from './pages/WorkflowManagement';
+import SchedulerConfigurator from './pages/SchedulerConfigurator';
 
 const router = createBrowserRouter([
   {
@@ -48,12 +50,32 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: "workflow-management",
+        path: "actionDashboard",
+        element: <PrivateRoutes />,
+        children: [
+          {
+            path: "",
+            element: <ActionDashboard />,
+          },
+        ],
+      },
+      {
+        path: "workflowManagement",
         element: <PrivateRoutes />,
         children: [
           {
             path: "",
             element: <WorkflowManagement />,
+          },
+        ],
+      },
+      {
+        path: "schedulerConfigurator",
+        element: <PrivateRoutes />,
+        children: [
+          {
+            path: "",
+            element: <SchedulerConfigurator />,
           },
         ],
       },

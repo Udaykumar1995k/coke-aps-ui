@@ -1,21 +1,28 @@
 .main-content {
     display: flex;
-    position: relative;
-    top: 70px;
-    z-index: 0;
-    margin: auto 10px;
+    padding-top: 64px;
+    gap:20px;
+    height: 100vh;
 }
 .sidebar {
-    width: 25%;
-    border: 1px solid;
-    border-radius: 50px;
-    position: fixed;
-    height: 85%;
-    overflow: hidden;
+    width: 8%;
+    background-color: #aaaaaa;
 }
 .content {
-    width: 75%;
-    position: absolute;
-    left: 25%;
-    margin-left: 20px;
+    width: 92%; 
+}
+
+.listButtonSection {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    word-wrap: break-word !important;
+    
+}
+
+.sideBarOptionsList{
+    margin: 0px !important;
+    padding: 0px !important;
 }
