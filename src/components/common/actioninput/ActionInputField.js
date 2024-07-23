@@ -104,23 +104,6 @@ const ActionInput = ({ onChange, placeholder, icon, position, props }) => {
 
                                            
                             />
-                            <InputBase className="input-container-items" 
-                            inputProps={{ 'aria-label': 'email',
-                            style: {
-                                textAlign: 'left',
-                                paddingLeft: 5
-                              },
-                             }}
-                            placeholder={placeholder || "Enter"}
-                            onChange={onChange}
-                            style={{ border:  props?.border ||'1px solid #c8c8c8', 
-                                         borderRadius: props?.borderRadius || '6px' ,
-                                         maxWidth: props?.maxWidth ||'250px', 
-                                         width:'100%',
-                                         height: props?.height ||'30px',
-                                        }}    
-              
-                            />
                         </div>
                                 
 
