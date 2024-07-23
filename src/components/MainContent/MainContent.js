@@ -6,18 +6,20 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import "./MainContent.css";
 
 const MainContent = (props) => {
+  const location = useLocation();
   const title = useSelector((state) => state?.dashboardDetails?.title);
+
   return (
     <div className="main-content">
       <div className="sidebar">
         <List sx={{ marginTop: "15px" }} className="sideBarOptionsList">
-          {props.menuItems?.map((item, index) => (
+          {props.menuItems?.map((item) => (
             <ListItem
               key={item}
               disablePadding
@@ -25,16 +27,15 @@ const MainContent = (props) => {
                 props.handleMenuItemClick(
                   item.path,
                   item.label,
-                  item.title,
-                  index
+                  item.title
                 )
               }
             >
               <ListItemButton
-                selected={index === props.selectedIndex}
+                selected={item.path === location.pathname}
                 style={{
                   backgroundColor:
-                    index === props.selectedIndex ? "#717171" : "#aaaaaa",
+                  item.path === location.pathname ? "#717171" : "#aaaaaa",
                 }}
                 className="listButtonSection"
               >

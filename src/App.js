@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import Header from "./components/Header/Header";
 import MainContent from "./components/MainContent/MainContent";
@@ -11,16 +11,14 @@ import { setTitle } from './redux/actions/dashboardTitle';
 
 function App() {
   const navigate = useNavigate();
-  const [selectedIndex, setSelectedIndex] = useState(0);
   const dispatch = useDispatch();
   const title = useSelector((state) => state?.dashboardDetails?.title);
 
-  const handleMenuItemClick = (path, label, titleName, index) => {
+  const handleMenuItemClick = (path, label, titleName) => {
     navigate(path);
     dispatch(setTitle(titleName))
-    setSelectedIndex(index);
   };
-
+  
   const handleLogout = () => {
     localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("data");
@@ -29,35 +27,42 @@ function App() {
 
   const menuItems = [
     {
+      id: 1,
       path: "/actionDashboard",
       label: "Action Dashboard",
       icon: <DashboardIcon />,
       title: "Dashboard"
-    }, {
+    }, 
+    {
+      id: 2,
       path: "/run-analytics",
       label: "Run LT analytics",
       icon: <DashboardIcon />,
       title: "LT Analytics"
     },
     {
+      id: 3,
       path: "/analytics-results",
       label: "LT Analytics Results",
       icon: <SettingsIcon />,
       title: "Results"
     },
     {
+      id: 4,
       path: "/workflowManagement",
       label: "Workflow Management",
       icon: <SettingsIcon />,
       title: "Workflow Management"
     },
     {
+      id: 5,
       path: "/schedulerConfigurator",
       label: "Scheduler Configurator",
       icon: <SettingsIcon />,
       title: "Scheduler Configurator"
     },
     {
+      id: 6,
       path: "/workflow-management",
       label: "Workflow Management",
       icon: <AssuredWorkloadIcon />,
@@ -80,7 +85,6 @@ function App() {
         handleMenuItemClick={handleMenuItemClick}
       />
       <MainContent
-        selectedIndex={selectedIndex}
         handleMenuItemClick={handleMenuItemClick}
         menuItems={menuItems}
       />
