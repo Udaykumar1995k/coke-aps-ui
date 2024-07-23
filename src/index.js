@@ -29,7 +29,17 @@ const router = createBrowserRouter([
     ),
     errorElement: <ErrorPage />,
     children: [
+      
       {
+        path: "actionDashboard",
+        element: <PrivateRoutes />,
+        children: [
+          {
+            path: "",
+            element: <ActionDashboard />,
+          },
+        ],
+      },{
         path: "run-analytics",
         element: <PrivateRoutes />,
         children: [
@@ -46,16 +56,6 @@ const router = createBrowserRouter([
           {
             path: "",
             element: <AnalyticsResults />,
-          },
-        ],
-      },
-      {
-        path: "actionDashboard",
-        element: <PrivateRoutes />,
-        children: [
-          {
-            path: "",
-            element: <ActionDashboard />,
           },
         ],
       },

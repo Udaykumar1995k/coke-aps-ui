@@ -1,14 +1,12 @@
 import React from 'react'
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import { Outlet } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import './MainContent.css';
-import { setTitle } from '../../redux/actions/dashboardTitle';
 
 const MainContent = (props) => {
     const title = useSelector((state) => state?.dashboardDetails?.title)
-    const dispatch = useDispatch()
     return (
         <div className='main-content'>
             <div className='sidebar'>
@@ -17,8 +15,7 @@ const MainContent = (props) => {
                         <ListItem
                             key={item}
                             disablePadding
-                            // eslint-disable-next-line
-                            onClick={() => (props.handleMenuItemClick(item.path, item.label, index), dispatch(setTitle(item.title)))}
+                            onClick={() => (props.handleMenuItemClick(item.path, item.label, item.title, index))}
                         >
                             <ListItemButton
                                 selected={index === props.selectedIndex}

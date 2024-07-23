@@ -1,25 +1,28 @@
 
-import * as React from "react";
-import { DataGrid } from "@mui/x-data-grid";
+import React from "react";
 
-const DataTable = ({ columns, rows, ...props }) => {
-  const { checkboxSelection } = props;
+import { AgGridReact } from 'ag-grid-react';
+import "ag-grid-community/styles/ag-grid.css";
+import "ag-grid-community/styles/ag-theme-quartz.css";
 
-  return (
-    <div style={{ height: 450, width: "100%" }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        initialState={{
-          pagination: {
-            paginationModel: { page: 0, pageSize: 7 },
-          }
-        }}
-        pageSizeOptions={[5, 10]}
-        checkboxSelection={checkboxSelection}
-        disableRowSelectionOnClick={!checkboxSelection}
-      />
-    </div>
-  );
+const DataTable = ({ columns, rows, pagination, paginationPageSize, paginationPageSizeSelector, rowSelection }) => {
+
+    return (
+        <div
+            className="ag-theme-quartz"
+            style={{ height: 400, width: 'auto' }}
+        >
+            <AgGridReact
+                rowData={rows}
+                columnDefs={columns}
+                pagination={pagination || true}
+                paginationPageSize={paginationPageSize || 10}
+                paginationPageSizeSelector={paginationPageSizeSelector || [10, 20, 30, 50, 100]}
+                rowSelection={rowSelection || "multiple"}
+
+            />
+        </div>
+    )
 }
 export default DataTable
+

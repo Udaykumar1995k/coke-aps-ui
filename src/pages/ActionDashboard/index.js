@@ -1,7 +1,7 @@
 const ActionDashboard =()=>{
     return(
         <div>
-            
+            Dashboard
         </div>
     )
 }
