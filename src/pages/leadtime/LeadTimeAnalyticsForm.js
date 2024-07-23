@@ -2,10 +2,10 @@ import React, {useState} from "react";
 import  "./LeadTimeAnalyticsForm.css";
 import RadioButtonGroup from "../../components/common/RadioButtonGroup";
 import CheckBoxInput from "../../components/common/CheckboxInput";
-import TextInput from "../../components/common/TextInput";
 import Dropdown from "../../components/common/Dropdown";
 import DatePicker from "../../components/common/DatePicker";
 import ButtonComponent from "../../components/common/button/Button";
+import ActionInput from "../../components/common/actioninput/ActionInputField";
 const LeadtTime = () =>{
     const [formData, setFormData] = useState({
         plantSupplier: '',
@@ -164,7 +164,7 @@ const LeadtTime = () =>{
                          }
                          }
                         />
-                       <TextInput/>
+                       <ActionInput props={{ label:"Enter", height:"55px", maxWidth:"450px"}}/>
                     </div>
                 </div>
                 <div className="form-group">

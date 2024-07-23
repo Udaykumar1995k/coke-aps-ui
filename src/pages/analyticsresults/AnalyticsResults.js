@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container, Grid } from '@mui/material';
 import DataTable from '../../components/common/DataTable';
 import TabSection from '../../components/common/TabSection';
-import ActionInput from '../../components/common/ActionInputField';
+import ActionInput from '../../components/common/actioninput/ActionInputField';
 import ButtonComponent from '../../components/common/button/Button';
 import './AnalyticsResults.css'
 
