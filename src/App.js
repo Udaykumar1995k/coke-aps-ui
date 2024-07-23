@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { useEffect} from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import Header from "./components/Header/Header";
 import MainContent from "./components/MainContent/MainContent";
 import DashboardIcon from "@mui/icons-material/Dashboard";
@@ -11,6 +11,7 @@ import { setTitle } from './redux/actions/dashboardTitle';
 
 function App() {
   const navigate = useNavigate();
+  const location = useLocation();
   const dispatch = useDispatch();
   const title = useSelector((state) => state?.dashboardDetails?.title);
 
@@ -76,6 +77,11 @@ function App() {
       navigate("/login");
     }
   });
+
+  useEffect(()=>{
+    let getTitle = menuItems.filter(item => item.path.includes(location.pathname ));
+    dispatch(setTitle(getTitle[0].title))
+  },[location.pathname])
 
   return (
     <Box>
