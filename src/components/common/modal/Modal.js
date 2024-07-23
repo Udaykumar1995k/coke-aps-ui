@@ -1,4 +1,3 @@
-import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
@@ -6,6 +5,7 @@ import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
+import ButtonComponent from '../button/Button';
 
 const Modal = (props) => {
   return (
@@ -45,9 +45,18 @@ const Modal = (props) => {
           </Typography>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={props.handleClose}>
-            Save changes
-          </Button>
+          <ButtonComponent 
+            maxWidth="170px"
+            label="Clear All"
+            bgColor="white"
+            color="black"
+          />
+          <ButtonComponent 
+            maxWidth="170px"
+            label="Submit"
+            bgColor="black"
+            color="white"
+          />
         </DialogActions>
       </Dialog>
   )

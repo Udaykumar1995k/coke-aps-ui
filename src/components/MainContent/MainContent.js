@@ -17,6 +17,7 @@ const MainContent = (props) => {
                         <ListItem
                             key={item}
                             disablePadding
+                            // eslint-disable-next-line
                             onClick={() => (props.handleMenuItemClick(item.path, item.label, index), dispatch(setTitle(item.title)))}
                         >
                             <ListItemButton

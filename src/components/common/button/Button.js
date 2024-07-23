@@ -1,50 +1,59 @@
 import { Button } from "@mui/material";
-import './CustomButton.css'
-const ButtonComponent = (props) =>{
-    let disabledClassName = ""
-    const buttonConfigs = {
-        success: {
-            backgroundColor: "green",
-            color: "white"
-        },
-        error: {
-            backgroundColor: "red",
-            color: "white"
-        },
-        primary: {
-            backgroundColor: "white",
-            color: "black"
-        },
-        secondary: {
-            backgroundColor: "black",
-            color: "white"
-        }  
-    }
-  
-    const config = buttonConfigs[props?.type] || {};
-    return (
-        <div className={props.className}>
-            <Button
-                    className={`${props.className}_button ${props?.type}`}
-                    onClick={props?.onClick}
-                    disabled = {props?.disabled || false}
-                    variant="contained" 
-                    style={{  wordBreak:"break-word", 
-                    backgroundColor:props?.disabled?'none' :props?.bgColor || config.backgroundColor || 'red' ,
-                    width:'100%',
-                    maxWidth:props?.maxWidth || '200px' ,
-                    color: props?.disabled?'none':props?.color || config.color || 'white',
-                    borderRadius: props?.borderRadius ||"6px",
-                    height: props?.height || "30px",
-                    border: props?.disabled? 'none': props?.border || props?.bgColor?"":'1px solid black',
-                    ...props?.styles
-                }}  
-                    disableRipple
-                    >
-                    {props?.label}
-                </Button>
-        </div>
-    )
-}
+import "./CustomButton.css";
+const ButtonComponent = (props) => {
+  const buttonConfigs = {
+    success: {
+      backgroundColor: "green",
+      color: "white",
+    },
+    error: {
+      backgroundColor: "red",
+      color: "white",
+    },
+    primary: {
+      backgroundColor: "white",
+      color: "black",
+    },
+    secondary: {
+      backgroundColor: "black",
+      color: "white",
+    },
+  };
 
-export default ButtonComponent
+  const config = buttonConfigs[props?.type] || {};
+  return (
+    <div className={props.className}>
+      <Button
+        className={`${props.className}_button ${props?.type}`}
+        onClick={props?.onClick}
+        disabled={props?.disabled || false}
+        variant="contained"
+        style={{
+          wordBreak: "break-word",
+          backgroundColor: props?.disabled
+            ? "none"
+            : props?.bgColor || config.backgroundColor || "red",
+          width: "100%",
+          maxWidth: props?.maxWidth || "200px",
+          color: props?.disabled
+            ? "none"
+            : props?.color || config.color || "white",
+          borderRadius: props?.borderRadius || "6px",
+          height: props?.height || "30px",
+          border: props?.disabled
+            ? "none"
+            : props?.border || props?.bgColor
+            ? ""
+            : "1px solid black",
+          ...props?.styles,
+          textTransform: 'none'
+        }}
+        disableRipple
+      >
+        {props?.label}
+      </Button>
+    </div>
+  );
+};
+
+export default ButtonComponent;
