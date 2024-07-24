@@ -99,18 +99,19 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
    Ex:  `<ButtonComponent backgroundColor="yellow" color="white"/>`
 
    ### Border and Border Radis
-   To set the border  pass the prop  `border` and the border raduis `borderRadius`
+   To set the border  pass the prop  `border` and the border radius `borderRadius`
 
    Ex: `<ButtonComponent borderRadius="6px" border="1px solid red"/>`
 
    ### Disabled
    To set the button disabled pass the `disabled` prop.
-    Ex: `<ButtonComponent disabled={true}/>` 
 
+   Ex: `<ButtonComponent disabled={true}/>` 
+   
     Default it is set to false
 
    ### label
-   To set the tex for a button pass the `label` prop.
+   To set the text for a button pass the `label` prop.
    ### onClick
    To call a function when a button is clicked  pass the function as prop `onClick` to the component.
 
