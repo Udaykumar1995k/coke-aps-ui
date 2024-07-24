@@ -164,7 +164,7 @@ const LeadtTime = () =>{
                          }
                          }
                         />
-                       <ActionInput props={{ label:"Enter", height:"55px", maxWidth:"450px"}}/>
+                       <ActionInput props={{ label:"Enter", height:"44px", maxWidth:"500px"}}/>
                     </div>
                 </div>
                 <div className="form-group">
