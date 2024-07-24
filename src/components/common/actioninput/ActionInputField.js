@@ -78,7 +78,7 @@ const ActionInput = ({ onChange, placeholder, icon, position, props }) => {
                                          borderRadius: props?.borderRadius || '6px' ,
                                          maxWidth: props?.maxWidth ||'250px', 
                                          width:'100%',
-                                         height: props?.height ||'40px',
+                                         height: props?.height ||'20px',
                                          textAlign: 'left',
                                          paddingLeft: 5
                                    }, }}

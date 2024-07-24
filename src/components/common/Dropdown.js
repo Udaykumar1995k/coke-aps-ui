@@ -13,6 +13,8 @@ const Dropdown = ({ label, value, options = [], handleChange, ...props }) => {
         sx: {
             height: props.height || '48px',
             minHeight: props.minHeight || '48px',
+            maxWidth: props?.maxWidth ||'250px',
+            borderRadius: props?.borderRadius ||'6px',
         },
         multiple: props.multiple,
     };
