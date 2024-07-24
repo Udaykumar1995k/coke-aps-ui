@@ -79,6 +79,7 @@ To Render the button component import the component from the button under the co
    To set the Height and width pass the `height` and `maxWidth` props to the component.
    ### type
    To set the type of the button we should pass the `type` prop to the component
+
    Ex: `<ButtonComponent type="primary" />`
    ### primary
    Passing the type primary the backgroundColor is set to  `white` and the color to `black`
@@ -95,7 +96,7 @@ To Render the button component import the component from the button under the co
 
    ### Border and Border Radis
    To set the border  pass the prop  `border` and the border raduis `borderRadius`
-   Ex: `<ButtonComponent bborderRadius="6px" border="1px solid red"/>`
+   Ex: `<ButtonComponent borderRadius="6px" border="1px solid red"/>`
 
    ### Disabled
    To set the button disabled pass the `disabled` prop.
