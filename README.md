@@ -85,13 +85,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
    Ex: `<ButtonComponent type="primary" />`
    
    ### primary
-   Passing the type primary the backgroundColor is set to  `white` and the color to `black`
+   Passing the prop `type = primary` the backgroundColor is set to  `white` and the color to `black`
    ### secondary
-   Passing the type primary the backgroundColor is set to  `black` and the color to `white`
+   Passing the prop `type = secondary` the backgroundColor is set to  `black` and the color to `white`
    ### error
-   Passing the type primary the backgroundColor is set to  `red` and the color to `white`
+   Passing the prop `type = error` the backgroundColor is set to  `red` and the color to `white`
    ### success
-   Passing the type primary the backgroundColor is set to  `green` and the color to `white`
+   Passing the prop `type = success` the backgroundColor is set to  `green` and the color to `white`
 
    ### Custom color
    If we want to th pass the custom color ignoring the above type mention the the prop `backgroundColor` and `color` to set the custom color.
