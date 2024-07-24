@@ -106,6 +106,7 @@ To Render the button component import the component from the button under the co
    To set the tex for a button pass the `label` prop.
    ### onClick
    To call a function when a button is clicked  pass the function as prop `onClick` to the component.
+   
    Ex: `<ButtonComponent onClick={handleOnClick}/>`
 
  
