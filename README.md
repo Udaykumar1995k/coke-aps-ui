@@ -107,8 +107,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
    To set the button disabled pass the `disabled` prop.
 
    Ex: `<ButtonComponent disabled={true}/>` 
-   
-    Default it is set to false
+   Default it is set to false
 
    ### label
    To set the text for a button pass the `label` prop.
