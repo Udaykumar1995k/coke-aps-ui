@@ -47,7 +47,8 @@ const LeadtTime = () =>{
             <form>
                 <div className="form-group">
                     <label className="label-position" htmlFor="hierarchy">Hierarchy for LT Analytics</label>
-                    <Dropdown 
+                    <Dropdown
+                        maxWidth="260px"
                         name="plantSupplier"
                         label="Plant/Supplier/Material" 
                         value={formData.plantSupplier} 
@@ -61,6 +62,7 @@ const LeadtTime = () =>{
                 <div className="form-group">
                     <label className="label-position" htmlFor="supplier">Supplier</label>
                     <Dropdown
+                        maxWidth="260px"
                         label="Supplier" 
                         name="supplier"
                         value={formData.supplier} 
@@ -74,6 +76,7 @@ const LeadtTime = () =>{
                 <div className="form-group">
                     <label className="label-position" htmlFor="material-type">Material Type</label>
                     <Dropdown
+                        maxWidth="260px"
                         name="materialType"
                         label="Material Type" 
                         value={formData.materialType} 
@@ -87,6 +90,7 @@ const LeadtTime = () =>{
                 <div className="form-group">
                     <label className="label-position" htmlFor="material-group">Material Group</label>
                     <Dropdown
+                        maxWidth="260px"
                         name="materialGroup"
                         label="Material Group" 
                         value={formData.materialGroup} 
@@ -99,7 +103,8 @@ const LeadtTime = () =>{
                 </div>
                 <div className="form-group">
                     <label className="label-position" htmlFor="material">Material</label>
-                    <Dropdown 
+                    <Dropdown
+                        maxWidth="260px" 
                         name="material"
                         label="Material" 
                         value={formData.material} 
@@ -114,6 +119,7 @@ const LeadtTime = () =>{
                     <label className="label-position" htmlFor="material">Ship From & To</label>
                     <div className="flex-container">
                     <Dropdown
+                        maxWidth="260px"
                         name="shipFrom"
                         label="Ship From" 
                         value={formData.shipFrom} 
@@ -123,7 +129,8 @@ const LeadtTime = () =>{
                         ]}
                         handleChange={handleChange}
                         />
-                    <Dropdown 
+                    <Dropdown
+                        maxWidth="260px"
                         name="shipTo"
                         label="Ship To" 
                         value={formData.shipTo} 
@@ -164,7 +171,7 @@ const LeadtTime = () =>{
                          }
                          }
                         />
-                       <ActionInput props={{ label:"Enter", height:"55px", maxWidth:"450px"}}/>
+                       <ActionInput props={{ label:"Enter", height:"44px", maxWidth:"500px"}}/>
                     </div>
                 </div>
                 <div className="form-group">

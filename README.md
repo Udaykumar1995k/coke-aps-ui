@@ -68,3 +68,52 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### Button Component
+  To Render the button component import the component from the button under the common inside the     component folder as shown below.
+
+  EX: `import ButtonComponent from 'components/common/button/Button'` 
+
+  to your respective File.
+### Props
+   ### Height and width
+   To set the Height and width pass the `height` and `maxWidth` props to the component.
+   ### type
+   To set the type of the button we should pass the `type` prop to the component
+
+   Ex: `<ButtonComponent type="primary" />`
+   
+   ### primary
+   Passing the prop `type = primary` the backgroundColor is set to  `white` and the color to `black`
+   ### secondary
+   Passing the prop `type = secondary` the backgroundColor is set to  `black` and the color to `white`
+   ### error
+   Passing the prop `type = error` the backgroundColor is set to  `red` and the color to `white`
+   ### success
+   Passing the prop `type = success` the backgroundColor is set to  `green` and the color to `white`
+
+   ### Custom color
+   If we want to th pass the custom color ignoring the above type mention the the prop `backgroundColor` and `color` to set the custom color.
+
+   Ex:  `<ButtonComponent backgroundColor="yellow" color="white"/>`
+
+   ### Border and Border Radis
+   To set the border  pass the prop  `border` and the border radius `borderRadius`
+
+   Ex: `<ButtonComponent borderRadius="6px" border="1px solid red"/>`
+
+   ### Disabled
+   To set the button disabled pass the `disabled` prop.
+
+   Ex: `<ButtonComponent disabled={true}/>` 
+   Default it is set to false
+
+   ### label
+   To set the text for a button pass the `label` prop.
+   ### onClick
+   To call a function when a button is clicked  pass the function as prop `onClick` to the component.
+
+   Ex: `<ButtonComponent onClick={handleOnClick}/>`
+
+ 
