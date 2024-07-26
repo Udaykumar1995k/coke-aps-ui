@@ -6,15 +6,15 @@ const AnalyticsResultsTab = (props) =>{
         <div className="analytic-results">
             <div className="result-item">
                 <span className="analytics-text">Period Consider for Analytics</span>
-                <p >01/January/23 to 31/December/23</p>
+                <p >{props?.periodOfAnalytics}</p>
             </div>
             <div className="result-item">
                 <span className="analytics-text">Analytics Initiated by</span>
-                <p >Administrator(Schedule Based)</p>
+                <p >{props?.analayticsInitiatedBy}</p>
             </div>
             <div className="result-item">
                 <span className="analytics-text">Analytics Run Unique ID</span>
-                <p >LT_ADMIN_FY24_Apr_0010</p>
+                <p >{props?.analyticsRuId}</p>
             </div>
            
         </div>
