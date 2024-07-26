@@ -15,7 +15,7 @@ import {store} from './redux/store'
 import RunAnalytics from './pages/RunAnalytics';
 import AnalyticsResults from './pages/analyticsresults/AnalyticsResults';
 import ErrorPage from './pages/ErrorPage';
-import ActionDashboard from './pages/ActionDashboard';
+import ActionDashboard from './pages/ActionDashboard/actionDashboard';
 import WorkflowManagement from './pages/WorkflowManagement';
 import SchedulerConfigurator from './pages/SchedulerConfigurator';
 
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
     ),
     errorElement: <ErrorPage />,
     children: [
-      
+  
       {
         path: "actionDashboard",
         element: <PrivateRoutes />,
