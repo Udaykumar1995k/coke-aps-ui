@@ -54,20 +54,7 @@ function App() {
       label: "Workflow Management",
       icon: <SettingsIcon />,
       title: "Workflow Management"
-    },
-    {
-      id: 5,
-      path: "/schedulerConfigurator",
-      label: "Scheduler Configurator",
-      icon: <SettingsIcon />,
-      title: "Scheduler Configurator"
-    },
-    {
-      id: 6,
-      path: "/workflow-management",
-      label: "Workflow Management",
-      icon: <AssuredWorkloadIcon />,
-    },
+    }
   ];
 
   useEffect(() => {

@@ -19,6 +19,9 @@ const DataTable = ({ columns, rows, pagination, paginationPageSize, paginationPa
                 paginationPageSize={paginationPageSize || 10}
                 paginationPageSizeSelector={paginationPageSizeSelector || [10, 20, 30, 50, 100]}
                 rowSelection={rowSelection || "multiple"}
+                moveColumns={false}
+                suppressDragLeaveHidesColumns={true}
+                suppressMovable={false}
 
             />
         </div>
