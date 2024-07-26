@@ -14,7 +14,7 @@ const AnalyticsResultsTab = (props) =>{
             </div>
             <div className="result-item">
                 <span className="analytics-text">Analytics Run Unique ID</span>
-                <p >{props?.analyticsRuId}</p>
+                <p >{props?.analyticsRunId}</p>
             </div>
            
         </div>
