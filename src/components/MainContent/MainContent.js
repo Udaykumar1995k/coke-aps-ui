@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  CircularProgress,
   List,
   ListItem,
   ListItemButton,
@@ -9,6 +10,7 @@ import {
 import { Outlet, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+
 import "./MainContent.css";
 import LandingPage from "../../pages/LandingPage/LandingPage";
 
@@ -17,8 +19,9 @@ const MainContent = (props) => {
   const title = useSelector((state) => state?.dashboardDetails?.title);
   
   return (
-    <div className={title === '' ? "landing-content" : "main-content"}>
-      {!title ?
+    <div className={title === 'Landing' ? "landing-content" : "main-content"}>
+      { !title && <CircularProgress /> }
+      {title === 'Landing' ?
       <LandingPage />
       :
       <>

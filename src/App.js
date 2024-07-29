@@ -1,11 +1,12 @@
 import { Box } from "@mui/material";
 import { useEffect} from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import Header from "./components/Header/Header";
-import MainContent from "./components/MainContent/MainContent";
+import { useSelector, useDispatch } from 'react-redux';
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import SettingsIcon from "@mui/icons-material/Settings";
-import { useSelector, useDispatch } from 'react-redux';
+
+import Header from "./components/Header/Header";
+import MainContent from "./components/MainContent/MainContent";
 import { setTitle } from './redux/actions/dashboardTitle';
 import Footer from "./components/Footer/Footer";
 
@@ -30,7 +31,7 @@ function App() {
     {
       id: 1,
       path: "/landing-page",
-      title: ""
+      title: "Landing"
     }, 
     {
       id: 2,
