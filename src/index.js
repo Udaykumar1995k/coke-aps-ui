@@ -18,6 +18,7 @@ import ErrorPage from './pages/ErrorPage';
 import ActionDashboard from './pages/ActionDashboard/actionDashboard';
 import WorkflowManagement from './pages/WorkflowManagement';
 import SchedulerConfigurator from './pages/SchedulerConfigurator';
+import LandingPage from './pages/LandingPage/LandingPage';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,16 @@ const router = createBrowserRouter([
     ),
     errorElement: <ErrorPage />,
     children: [
-  
+      {
+        path: "landing-page",
+        element: <PrivateRoutes />,
+        children: [
+          {
+            path: "",
+            element: <LandingPage />,
+          },
+        ],
+      },
       {
         path: "actionDashboard",
         element: <PrivateRoutes />,
@@ -39,7 +49,8 @@ const router = createBrowserRouter([
             element: <ActionDashboard />,
           },
         ],
-      },{
+      },
+      {
         path: "run-analytics",
         element: <PrivateRoutes />,
         children: [

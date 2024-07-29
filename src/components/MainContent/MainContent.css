@@ -5,6 +5,13 @@
     min-height: 100vh;
     max-width: 1440px;
 }
+.landing-content {
+    display: flex;
+    padding-top: 64px;
+    gap:20px;
+    height: auto;
+    min-height: 80vh;
+}
 .sidebar {
     width: 8%;
     background-color: #aaaaaa;
@@ -12,6 +19,9 @@
 .content {
     width: 100%;
     margin: 0px 15px; 
+}
+.sidebar ul li:nth-child(1) {
+    display: none;
 }
 
 .listButtonSection {

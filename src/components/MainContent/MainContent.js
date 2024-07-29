@@ -10,13 +10,18 @@ import { Outlet, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import "./MainContent.css";
+import LandingPage from "../../pages/LandingPage/LandingPage";
 
 const MainContent = (props) => {
   const location = useLocation();
   const title = useSelector((state) => state?.dashboardDetails?.title);
-
+  
   return (
-    <div className="main-content">
+    <div className={title === '' ? "landing-content" : "main-content"}>
+      {!title ?
+      <LandingPage />
+      :
+      <>
       <div className="sidebar">
         <List sx={{ marginTop: "15px" }} className="sideBarOptionsList">
           {props.menuItems?.map((item) => (
@@ -60,7 +65,7 @@ const MainContent = (props) => {
               </ListItemButton>
             </ListItem>
           ))}
-        </List>
+        </List> 
       </div>
       <div className="content">
         <div>
@@ -93,6 +98,7 @@ const MainContent = (props) => {
           <Outlet />
         </div>
       </div>
+      </>}
     </div>
   );
 };
