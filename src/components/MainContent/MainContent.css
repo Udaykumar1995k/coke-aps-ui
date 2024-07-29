@@ -5,12 +5,22 @@
     height: auto;
     min-height: 100vh;
 }
+.landing-content {
+    display: flex;
+    padding-top: 64px;
+    gap:20px;
+    height: auto;
+    min-height: 80vh;
+}
 .sidebar {
     width: 8%;
     background-color: #aaaaaa;
 }
 .content {
     width: 92%; 
+}
+.sidebar ul li:nth-child(1) {
+    display: none;
 }
 
 .listButtonSection {
