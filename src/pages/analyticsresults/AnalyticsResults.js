@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Container, Grid } from '@mui/material';
-import DataTable from '../../components/common/DataTable';
+import DataTable from '../../components/common/datatable/DataTable';
 import TabSection from '../../components/common/TabSection';
 import ActionInput from '../../components/common/actioninput/ActionInputField';
 import ButtonComponent from '../../components/common/button/Button';
@@ -16,22 +16,24 @@ const AnalyticsResults = () => {
     setValue(newValue);
   };
 
+  const isRowSelectable=useCallback((param)=>{return param.data.Supplier==='xyz Inc'},[])
   const [regularItems] = useState([
     { Supplier: "Abc Inc", Material: "Material Y", InventoryClassification: 'Material', MaterialType: 'A', ShipFrom: 'Ingredients', ShipTo: 'Helsinki', MasterLT: 'Ballina', DemonstratedLT: '6 days', confidencescore: '60 days', LTVariations: '60 days', Analyticsintiatedby: '90%', ViewInputDetails: 'High', FinalLTtobeupdatedinS4: 'Admin', Details: <ButtonComponent label='Details' /> },
+    { Supplier: "xyz Inc", Material: "Material Y", InventoryClassification: 'Material', MaterialType: 'A', ShipFrom: 'Ingredients', ShipTo: 'Helsinki', MasterLT: 'Ballina', DemonstratedLT: '6 days', confidencescore: '60 days', LTVariations: '60 days', Analyticsintiatedby: '90%', ViewInputDetails: 'High', FinalLTtobeupdatedinS4: 'Admin', Details: <ButtonComponent label='Details' /> },
+    { Supplier: "xyz Inc", Material: "Material Y", InventoryClassification: 'Material', MaterialType: 'A', ShipFrom: 'Ingredients', ShipTo: 'Helsinki', MasterLT: 'Ballina', DemonstratedLT: '6 days', confidencescore: '60 days', LTVariations: '60 days', Analyticsintiatedby: '90%', ViewInputDetails: 'High', FinalLTtobeupdatedinS4: 'Admin', Details: <ButtonComponent label='Details' /> },
+    { Supplier: "xyz Inc", Material: "Material Y", InventoryClassification: 'Material', MaterialType: 'A', ShipFrom: 'Ingredients', ShipTo: 'Helsinki', MasterLT: 'Ballina', DemonstratedLT: '6 days', confidencescore: '60 days', LTVariations: '60 days', Analyticsintiatedby: '90%', ViewInputDetails: 'High', FinalLTtobeupdatedinS4: 'Admin', Details: <ButtonComponent label='Details' /> },
     { Supplier: "Abc Inc", Material: "Material Y", InventoryClassification: 'Material', MaterialType: 'A', ShipFrom: 'Ingredients', ShipTo: 'Helsinki', MasterLT: 'Ballina', DemonstratedLT: '6 days', confidencescore: '60 days', LTVariations: '60 days', Analyticsintiatedby: '90%', ViewInputDetails: 'High', FinalLTtobeupdatedinS4: 'Admin', Details: <ButtonComponent label='Details' /> },
+    { Supplier: "pqr Inc", Material: "Material Y", InventoryClassification: 'Material', MaterialType: 'A', ShipFrom: 'Ingredients', ShipTo: 'Helsinki', MasterLT: 'Ballina', DemonstratedLT: '6 days', confidencescore: '60 days', LTVariations: '60 days', Analyticsintiatedby: '90%', ViewInputDetails: 'High', FinalLTtobeupdatedinS4: 'Admin', Details: <ButtonComponent label='Details' /> },
     { Supplier: "Abc Inc", Material: "Material Y", InventoryClassification: 'Material', MaterialType: 'A', ShipFrom: 'Ingredients', ShipTo: 'Helsinki', MasterLT: 'Ballina', DemonstratedLT: '6 days', confidencescore: '60 days', LTVariations: '60 days', Analyticsintiatedby: '90%', ViewInputDetails: 'High', FinalLTtobeupdatedinS4: 'Admin', Details: <ButtonComponent label='Details' /> },
-    { Supplier: "Abc Inc", Material: "Material Y", InventoryClassification: 'Material', MaterialType: 'A', ShipFrom: 'Ingredients', ShipTo: 'Helsinki', MasterLT: 'Ballina', DemonstratedLT: '6 days', confidencescore: '60 days', LTVariations: '60 days', Analyticsintiatedby: '90%', ViewInputDetails: 'High', FinalLTtobeupdatedinS4: 'Admin', Details: <ButtonComponent label='Details' /> },
-    { Supplier: "Abc Inc", Material: "Material Y", InventoryClassification: 'Material', MaterialType: 'A', ShipFrom: 'Ingredients', ShipTo: 'Helsinki', MasterLT: 'Ballina', DemonstratedLT: '6 days', confidencescore: '60 days', LTVariations: '60 days', Analyticsintiatedby: '90%', ViewInputDetails: 'High', FinalLTtobeupdatedinS4: 'Admin', Details: <ButtonComponent label='Details' /> },
-    { Supplier: "Abc Inc", Material: "Material Y", InventoryClassification: 'Material', MaterialType: 'A', ShipFrom: 'Ingredients', ShipTo: 'Helsinki', MasterLT: 'Ballina', DemonstratedLT: '6 days', confidencescore: '60 days', LTVariations: '60 days', Analyticsintiatedby: '90%', ViewInputDetails: 'High', FinalLTtobeupdatedinS4: 'Admin', Details: <ButtonComponent label='Details' /> },
-    { Supplier: "Abc Inc", Material: "Material Y", InventoryClassification: 'Material', MaterialType: 'A', ShipFrom: 'Ingredients', ShipTo: 'Helsinki', MasterLT: 'Ballina', DemonstratedLT: '6 days', confidencescore: '60 days', LTVariations: '60 days', Analyticsintiatedby: '90%', ViewInputDetails: 'High', FinalLTtobeupdatedinS4: 'Admin', Details: <ButtonComponent label='Details' /> },
-    { Supplier: "Abc Inc", Material: "Material Y", InventoryClassification: 'Material', MaterialType: 'A', ShipFrom: 'Ingredients', ShipTo: 'Helsinki', MasterLT: 'Ballina', DemonstratedLT: '6 days', confidencescore: '60 days', LTVariations: '60 days', Analyticsintiatedby: '90%', ViewInputDetails: 'High', FinalLTtobeupdatedinS4: 'Admin', Details: <ButtonComponent label='Details' /> },
-    { Supplier: "Abc Inc", Material: "Material Y", InventoryClassification: 'Material', MaterialType: 'A', ShipFrom: 'Ingredients', ShipTo: 'Helsinki', MasterLT: 'Ballina', DemonstratedLT: '6 days', confidencescore: '60 days', LTVariations: '60 days', Analyticsintiatedby: '90%', ViewInputDetails: 'High', FinalLTtobeupdatedinS4: 'Admin', Details: <ButtonComponent label='Details' /> },
+    { Supplier: "pqr Inc", Material: "Material Y", InventoryClassification: 'Material', MaterialType: 'A', ShipFrom: 'Ingredients', ShipTo: 'Helsinki', MasterLT: 'Ballina', DemonstratedLT: '6 days', confidencescore: '60 days', LTVariations: '60 days', Analyticsintiatedby: '90%', ViewInputDetails: 'High', FinalLTtobeupdatedinS4: 'Admin', Details: <ButtonComponent label='Details' /> },
+    { Supplier: "xyz Inc", Material: "Material Y", InventoryClassification: 'Material', MaterialType: 'A', ShipFrom: 'Ingredients', ShipTo: 'Helsinki', MasterLT: 'Ballina', DemonstratedLT: '6 days', confidencescore: '60 days', LTVariations: '60 days', Analyticsintiatedby: '90%', ViewInputDetails: 'High', FinalLTtobeupdatedinS4: 'Admin', Details: <ButtonComponent label='Details' /> },
   ]);
 
   const [regularItemsData] = useState([
     {
       headerCheckboxSelection: true,
       checkboxSelection: true,
+      showDisabledCheckboxes: true,
       pinned: 'left',
       width: 50,
       lockPinned: true
@@ -91,13 +93,13 @@ const AnalyticsResults = () => {
         <Grid item xs={4}> <ActionInput icon={'search'} position={'left'} /></Grid>
         <Grid item xs={12}>
           {value === 0 && (
-            <DataTable columns={regularItemsData} rows={regularItems} pagination={pagination} paginationPageSize={paginationPageSize} paginationPageSizeSelector={paginationPageSizeSelector} enableCheckbox={true} />
+            <DataTable columns={regularItemsData} rows={regularItems} pagination={pagination} paginationPageSize={paginationPageSize} paginationPageSizeSelector={paginationPageSizeSelector} isRowSelectable={isRowSelectable}/>
           )}
           {value === 1 && (
-            <DataTable columns={openingPeriodVariationItem} rows={openingPeriodVariationItemList} pagination={pagination} paginationPageSize={paginationPageSize} paginationPageSizeSelector={paginationPageSizeSelector} enableCheckbox={false} />
+            <DataTable columns={openingPeriodVariationItem} rows={openingPeriodVariationItemList} pagination={pagination} paginationPageSize={paginationPageSize} paginationPageSizeSelector={paginationPageSizeSelector}/>
           )}
           {value === 2 && (
-            <DataTable columns={openingPeriodVariationItem} rows={openingPeriodVariationItemList} pagination={pagination} paginationPageSize={paginationPageSize} paginationPageSizeSelector={paginationPageSizeSelector} enableCheckbox={false} />)}
+            <DataTable columns={openingPeriodVariationItem} rows={openingPeriodVariationItemList} pagination={pagination} paginationPageSize={paginationPageSize} paginationPageSizeSelector={paginationPageSizeSelector}/>)}
         </Grid>
       </Grid>
     </Container>

@@ -1,11 +1,11 @@
 
 import React from "react";
-
 import { AgGridReact } from 'ag-grid-react';
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
+import './DataTable.css'
 
-const DataTable = ({ columns, rows, pagination, paginationPageSize, paginationPageSizeSelector, rowSelection }) => {
+const DataTable = ({ columns, rows, pagination, paginationPageSize, paginationPageSizeSelector, rowSelection,isRowSelectable,suppressRowClickSelection }) => {
 
     return (
         <div
@@ -19,6 +19,9 @@ const DataTable = ({ columns, rows, pagination, paginationPageSize, paginationPa
                 paginationPageSize={paginationPageSize || 10}
                 paginationPageSizeSelector={paginationPageSizeSelector || [10, 20, 30, 50, 100]}
                 rowSelection={rowSelection || "multiple"}
+                isRowSelectable={isRowSelectable}
+                suppressRowClickSelection={suppressRowClickSelection||true}
+                //getRowClass={(param)=>'ag-row-hover'}
 
             />
         </div>
