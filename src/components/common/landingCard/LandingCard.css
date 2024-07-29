@@ -1,6 +1,6 @@
 .card-div {
     border: 1px solid #000;
-    width: 300px;
+    width: 380px;
     height: 200px;
     border-radius: 5px;
     padding-left: 15px;
@@ -8,11 +8,13 @@
 
 
 /* Media queries starts */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+    .card-div {
+        width: 300px;
+    }
+}
+@media (min-width: 426px) and (max-width: 768px) {
     .card-div {
         width: 200px;
-        height: 200px;
-        border-radius: 5px;
-        padding-left: 15px;
     }
 }
