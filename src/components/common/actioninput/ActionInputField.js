@@ -76,6 +76,7 @@ const ActionInput = ({ onChange, placeholder, icon, position, props }) => {
                             onChange={onChange}
                             InputProps={{style:{
                                          borderRadius: props?.borderRadius || '6px' ,
+                                         backgroundColor: props?.backgroundColor || "white",
                                          maxWidth: props?.maxWidth ||'250px', 
                                          width:'100%',
                                          height: props?.height ||'20px',
@@ -96,6 +97,7 @@ const ActionInput = ({ onChange, placeholder, icon, position, props }) => {
                             onChange={onChange}
                             style={{ border:  props?.border ||'1px solid #c8c8c8', 
                                          borderRadius: props?.borderRadius || '6px' ,
+                                         backgroundColor: props?.backgroundColor || "white",
                                          maxWidth: props?.maxWidth ||'250px', 
                                          width:'100%',
                                          height: props?.height ||'30px',
