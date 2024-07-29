@@ -77,7 +77,7 @@ function App() {
   },[location.pathname])
 
   return (
-    <Box style={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
+    <Box sx={{maxWidth:'1440px', margin:'auto', width:'100%', display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
       <Header
         title={title}
         handleLogout={handleLogout}

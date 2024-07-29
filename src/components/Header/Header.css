@@ -5,6 +5,7 @@
     z-index: 9;
     height: 64px;
     position: fixed;
+    max-width: 1440px;
 }
 .main-box {
     display: flex;
