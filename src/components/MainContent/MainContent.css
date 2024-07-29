@@ -1,7 +1,6 @@
 .main-content {
     display: flex;
     padding-top: 64px;
-    gap:20px;
     height: auto;
     min-height: 100vh;
 }
@@ -10,7 +9,8 @@
     background-color: #aaaaaa;
 }
 .content {
-    width: 92%; 
+    width: 100%;
+    margin: 0px 15px; 
 }
 
 .listButtonSection {

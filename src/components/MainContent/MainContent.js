@@ -81,7 +81,7 @@ const MainContent = (props) => {
                 flexDirection: "row",
                 fontSize: 22,
                 fontWeight: "bold",
-                padding: 10,
+                padding: '10px 0px',
               }}
             >
               <div style={{ marginRight: 10, fontSize: "large" }}>
