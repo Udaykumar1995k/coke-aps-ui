@@ -5,7 +5,7 @@ import TabSection from '../../components/common/TabSection';
 import ActionInput from '../../components/common/actioninput/ActionInputField';
 import ButtonComponent from '../../components/common/button/Button';
 import './AnalyticsResults.css'
-
+import AnalyticsResultsTab from './AnalyticsResultsTab';
 const AnalyticsResults = () => {
   const [value, setValue] = useState(0);
   const pagination = true;
@@ -36,22 +36,26 @@ const AnalyticsResults = () => {
       showDisabledCheckboxes: true,
       pinned: 'left',
       width: 50,
-      lockPinned: true
+      lockPinned: true,
+      suppressMovable: true
     },
-    { field: "Supplier", lockPinned: true, resizable: false },
-    { field: "Material", resizable: false },
-    { field: "InventoryClassification", resizable: false },
-    { field: "MaterialType", resizable: false },
-    { field: "ShipFrom", resizable: false },
-    { field: "ShipTo", resizable: false },
-    { field: "MasterLT", resizable: false },
-    { field: "DemonstratedLT", resizable: false },
-    { field: "confidencescore", resizable: false },
-    { field: "LTVariations", resizable: false },
-    { field: "Analyticsintiatedby", resizable: false },
-    { field: "ViewInputDetails", resizable: false },
-    { field: "FinalLTtobeupdatedinS4", lockPinned: true },
-    { field: "Details", cellRenderer: () => <div className='btn-wrapper'> <ButtonComponent label="Details" /></div>, pinned: 'right', width: 120, lockPinned: true, resizable: false },
+    { field: "Supplier",sortable: true , lockPinned: true, resizable: false, filterParams: {
+      filterOptions: ["contains", "startsWith", "endsWith"],
+      defaultOption: "startsWith",
+    },filter: "agColumnFilter",suppressMovable: true },
+    { field: "Material", resizable: false ,suppressMovable: true },
+    { field: "InventoryClassification", resizable: false ,suppressMovable: true},
+    { field: "MaterialType", resizable: false ,suppressMovable: true },
+    { field: "ShipFrom", resizable: false,suppressMovable: true  },
+    { field: "ShipTo", resizable: false,suppressMovable: true  },
+    { field: "MasterLT", resizable: false ,suppressMovable: true },
+    { field: "DemonstratedLT", resizable: false,suppressMovable: true },
+    { field: "confidencescore", resizable: false,suppressMovable: true },
+    { field: "LTVariations", resizable: false,suppressMovable: true },
+    { field: "Analyticsintiatedby", resizable: false,suppressMovable: true },
+    { field: "ViewInputDetails", resizable: false,suppressMovable: true },
+    { field: "FinalLTtobeupdatedinS4", lockPinned: true ,suppressMovable: true },
+    { field: "Details",suppressMovable: true, cellRenderer: () => <div className='btn-wrapper'> <ButtonComponent label="Details" /></div>, pinned: 'right', width: 120, lockPinned: true, resizable: false },
   ]);
 
   const [openingPeriodVariationItem] = useState([
@@ -86,6 +90,7 @@ const AnalyticsResults = () => {
 
   return (
     <Container maxWidth="lg" >
+      <AnalyticsResultsTab />
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <TabSection label={["Regular Items", "Opening Period Variation Items", "Recent Contract Updates Items"]} value={value} handleChange={handleChange} count={[12, 999, 23]} />

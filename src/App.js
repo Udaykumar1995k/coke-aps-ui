@@ -54,20 +54,7 @@ function App() {
       label: "Workflow Management",
       icon: <SettingsIcon />,
       title: "Workflow Management"
-    },
-    {
-      id: 5,
-      path: "/schedulerConfigurator",
-      label: "Scheduler Configurator",
-      icon: <SettingsIcon />,
-      title: "Scheduler Configurator"
-    },
-    {
-      id: 6,
-      path: "/workflow-management",
-      label: "Workflow Management",
-      icon: <AssuredWorkloadIcon />,
-    },
+    }
   ];
 
   useEffect(() => {
@@ -81,6 +68,7 @@ function App() {
   useEffect(()=>{
     let getTitle = menuItems.filter(item => item.path.includes(location.pathname ));
     dispatch(setTitle(getTitle[0].title))
+    // eslint-disable-next-line
   },[location.pathname])
 
   return (

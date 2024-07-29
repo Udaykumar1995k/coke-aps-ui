@@ -22,6 +22,9 @@ const DataTable = ({ columns, rows, pagination, paginationPageSize, paginationPa
                 isRowSelectable={isRowSelectable}
                 suppressRowClickSelection={suppressRowClickSelection||true}
                 //getRowClass={(param)=>'ag-row-hover'}
+                moveColumns={false}
+                suppressDragLeaveHidesColumns={true}
+                suppressMovable={false}
 
             />
         </div>
