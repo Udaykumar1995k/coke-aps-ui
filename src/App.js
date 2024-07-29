@@ -72,7 +72,7 @@ function App() {
   },[location.pathname])
 
   return (
-    <Box>
+    <Box sx={{maxWidth:'1440px', margin:'auto', width:'100%'}}>
       <Header
         title={title}
         handleLogout={handleLogout}

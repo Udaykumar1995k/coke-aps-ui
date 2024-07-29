@@ -3,6 +3,7 @@
     padding-top: 64px;
     height: auto;
     min-height: 100vh;
+    max-width: 1440px;
 }
 .sidebar {
     width: 8%;

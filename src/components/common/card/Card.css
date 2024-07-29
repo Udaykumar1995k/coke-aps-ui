@@ -43,7 +43,6 @@ body {
 .card-content .value-number {
     font-weight: bold;
     font-size: 28px;
-    margin:14px 0px;
 }
 
 .card-content p {
@@ -53,5 +52,4 @@ body {
 
 .card-description {
     text-align: center;
-    margin:0px 0px 14px 0px;
 }
