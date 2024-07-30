@@ -19,6 +19,7 @@ import ActionDashboard from './pages/ActionDashboard/actionDashboard';
 import WorkflowManagement from './pages/WorkflowManagement';
 import SchedulerConfigurator from './pages/SchedulerConfigurator';
 import LandingPage from './pages/LandingPage/LandingPage';
+import AnalyticsResultsTab from './pages/analyticsresults/AnalyticsResultsTab';
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,16 @@ const router = createBrowserRouter([
           {
             path: "",
             element: <RunAnalytics />,
+          },
+        ],
+      },
+      {
+        path: "material_details",
+        element: <PrivateRoutes />,
+        children: [
+          {
+            path: "",
+            element: <AnalyticsResultsTab />,
           },
         ],
       },

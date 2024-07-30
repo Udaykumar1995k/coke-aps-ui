@@ -61,6 +61,11 @@ function App() {
       icon: <SettingsIcon />,
       title: "Workflow Management"
     },
+    {
+      id: 6,
+      path: "/material_details",
+      title: "Results"
+    }
   ];
 
   useEffect(() => {

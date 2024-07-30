@@ -21,6 +21,7 @@
 .analytic-results  {
     display: flex;
     flex-direction: row;
+    gap: 20px
 }
 
 .result-item {
@@ -51,4 +52,20 @@
         margin-right: 0;
     }
 
+}
+
+
+.result-container {
+    margin-top: 20px;
+
+}
+
+.results-footer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.results-footer-button {
+  width: 50%;  
 }
