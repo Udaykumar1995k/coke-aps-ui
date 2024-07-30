@@ -90,7 +90,6 @@ const ActionInput = ({ onChange, placeholder, icon, position, props }) => {
                             <InputBase className="input-container-items" 
                             inputProps={{ 'aria-label': 'email',
                             style: {
-                                textAlign: 'left',
                                 paddingLeft: 5
                               },
                              }}
