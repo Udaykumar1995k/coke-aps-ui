@@ -88,7 +88,6 @@ const AnalyticsResults = () => {
 
   return (
     <Container maxWidth="lg" >
-      <AnalyticsResultsTab />
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <TabSection label={["Regular Items", "Opening Period Variation Items", "Recent Contract Updates Items"]} value={value} handleChange={handleChange} count={[12, 999, 23]} />
