@@ -5,7 +5,6 @@ import TabSection from '../../components/common/TabSection';
 import ActionInput from '../../components/common/actioninput/ActionInputField';
 import ButtonComponent from '../../components/common/button/Button';
 import './AnalyticsResults.css'
-import AnalyticsResultsTab from './AnalyticsResultsTab';
 const AnalyticsResults = () => {
   const [value, setValue] = useState(0);
   const pagination = true;

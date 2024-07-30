@@ -55,17 +55,16 @@
 }
 
 
-.result-container {
+.result-margin {
     margin-top: 20px;
 
 }
 
-.results-footer {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+
+.button-alignment {
+    justify-content: end;
+    align-items: end;
+    width: 75%;
 }
 
-.results-footer-button {
-  width: 50%;  
-}
+
