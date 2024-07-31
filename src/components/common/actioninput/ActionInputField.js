@@ -9,7 +9,7 @@ import './ActionInput.css'
 const ActionInput = ({ onChange, placeholder, icon, position, props }) => {
     return (
         icon === "search" && position === "left" ?
-            <div style={{ border: '1px solid #c8c8c8', borderRadius: 10, display: 'flex', alignItems: 'center', width: { xs: 150, sm: 300 } }}
+            <div style={{  height: props?.height,border: '1px solid #c8c8c8', borderRadius: 10, display: 'flex', alignItems: 'center', width: { xs: 150, sm: 300 } }}
             >
                 <IconButton>
                     <SearchIcon />
