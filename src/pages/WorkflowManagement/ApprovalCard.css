@@ -1,0 +1,19 @@
+.approval-wrapper {
+    border: 1px solid rgb(200,200,200);
+    border-radius: 4px;
+    padding-bottom:10px;
+    margin-bottom:15px;
+    margin-top:15px
+  } 
+.approver-header{
+    display:flex;
+    gap:25px;
+    margin-bottom: 16px;
+    padding: 10px;
+    background-color: #F0F0F0;
+}
+.approver-container{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}

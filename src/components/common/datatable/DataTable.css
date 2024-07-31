@@ -1,4 +1,12 @@
 
-.ag-row-hover{
-    background-color: #f0f0f0!important;
+.ag-cell-focus {
+    border: 1px solid transparent !important;
+  }
+  .ag-horizontal-left-spacer, .ag-horizontal-right-spacer{
+    overflow-x: auto;
+  }
+  .ag-theme-quartz {
+    
+    --ag-selected-row-background-color: rgb(128, 128, 128, 0.1);
+    
 }
