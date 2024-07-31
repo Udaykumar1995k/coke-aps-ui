@@ -9,7 +9,7 @@ import './ActionInput.css'
 const ActionInput = ({ onChange, placeholder, icon, position, width,height,props }) => {
     return (
         icon === "search" && position === "left" ?
-            <div style={{ border: '1px solid #c8c8c8', borderRadius: 10, display: 'flex', alignItems: 'center', width: width ||'200px',height: height ||'35px' }}
+            <div style={{  height: props?.height,border: '1px solid #c8c8c8', borderRadius: 10, display: 'flex', alignItems: 'center', width: { xs: 150, sm: 300 } }}
             >
                 <IconButton>
                     <SearchIcon />
@@ -76,10 +76,10 @@ const ActionInput = ({ onChange, placeholder, icon, position, width,height,props
                             onChange={onChange}
                             InputProps={{style:{
                                          borderRadius: props?.borderRadius || '6px' ,
+                                         backgroundColor: props?.backgroundColor || "white",
                                          maxWidth: props?.maxWidth ||'250px', 
                                          width:'100%',
                                          height: props?.height ||'20px',
-                                         textAlign: 'left',
                                          paddingLeft: 5
                                    }, }}
                                    value={props.value }
@@ -90,13 +90,13 @@ const ActionInput = ({ onChange, placeholder, icon, position, width,height,props
                             <InputBase className="input-container-items" 
                             inputProps={{ 'aria-label': 'email',
                             style: {
-                                textAlign: 'left',
                                 paddingLeft: 5
                               },
                              }}
                             onChange={onChange}
                             style={{ border:  props?.border ||'1px solid #c8c8c8', 
                                          borderRadius: props?.borderRadius || '6px' ,
+                                         backgroundColor: props?.backgroundColor || "white",
                                          maxWidth: props?.maxWidth ||'250px', 
                                          width:'100%',
                                          height: props?.height ||'30px',

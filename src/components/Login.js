@@ -18,7 +18,7 @@ const Login = () => {
         if(formData){
             localStorage.setItem('isLoggedIn', true);
             localStorage.setItem('data', formData.username);
-            navigate('/actionDashboard')
+            navigate('/landing-page')
         } else (
             navigate('/login')
         )

@@ -1,0 +1,17 @@
+.Landing-main {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* Media queries starts */
+@media (max-width: 426px) {
+    .Landing-main {
+        flex-direction: column;
+        margin: 30px 0;
+    }
+    .Landing-main>a:not(:last-child) {
+        margin-bottom: 20px;
+    }
+}

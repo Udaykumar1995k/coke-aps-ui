@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  CircularProgress,
   List,
   ListItem,
   ListItemButton,
@@ -9,14 +10,21 @@ import {
 import { Outlet, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+
 import "./MainContent.css";
+import LandingPage from "../../pages/LandingPage/LandingPage";
 
 const MainContent = (props) => {
   const location = useLocation();
   const title = useSelector((state) => state?.dashboardDetails?.title);
-
+  
   return (
-    <div className="main-content">
+    <div className={title === 'Landing' ? "landing-content" : "main-content"}>
+      { !title && <CircularProgress /> }
+      {title === 'Landing' ?
+      <LandingPage />
+      :
+      <>
       <div className="sidebar">
         <List sx={{ marginTop: "15px" }} className="sideBarOptionsList">
           {props.menuItems?.map((item) => (
@@ -60,7 +68,7 @@ const MainContent = (props) => {
               </ListItemButton>
             </ListItem>
           ))}
-        </List>
+        </List> 
       </div>
       <div className="content">
         <div>
@@ -81,7 +89,7 @@ const MainContent = (props) => {
                 flexDirection: "row",
                 fontSize: 22,
                 fontWeight: "bold",
-                padding: 10,
+                padding: '10px 0px',
               }}
             >
               <div style={{ marginRight: 10, fontSize: "large" }}>
@@ -93,6 +101,7 @@ const MainContent = (props) => {
           <Outlet />
         </div>
       </div>
+      </>}
     </div>
   );
 };

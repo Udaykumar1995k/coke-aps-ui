@@ -1,13 +1,14 @@
 import { Box } from "@mui/material";
 import { useEffect} from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import Header from "./components/Header/Header";
-import MainContent from "./components/MainContent/MainContent";
+import { useSelector, useDispatch } from 'react-redux';
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import SettingsIcon from "@mui/icons-material/Settings";
-import AssuredWorkloadIcon from '@mui/icons-material/AssuredWorkload';
-import { useSelector, useDispatch } from 'react-redux';
+
+import Header from "./components/Header/Header";
+import MainContent from "./components/MainContent/MainContent";
 import { setTitle } from './redux/actions/dashboardTitle';
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const navigate = useNavigate();
@@ -29,31 +30,41 @@ function App() {
   const menuItems = [
     {
       id: 1,
+      path: "/landing-page",
+      title: "Landing"
+    }, 
+    {
+      id: 2,
       path: "/actionDashboard",
       label: "Action Dashboard",
       icon: <DashboardIcon />,
       title: "Dashboard"
     }, 
     {
-      id: 2,
+      id: 3,
       path: "/run-analytics",
       label: "Run LT analytics",
       icon: <DashboardIcon />,
       title: "LT Analytics"
     },
     {
-      id: 3,
+      id: 4,
       path: "/analytics-results",
       label: "LT Analytics Results",
       icon: <SettingsIcon />,
       title: "Results"
     },
     {
-      id: 4,
+      id: 5,
       path: "/workflowManagement",
       label: "Workflow Management",
       icon: <SettingsIcon />,
       title: "Workflow Management"
+    },
+    {
+      id: 6,
+      path: "/material_details",
+      title: "Results"
     }
   ];
 
@@ -67,12 +78,12 @@ function App() {
 
   useEffect(()=>{
     let getTitle = menuItems.filter(item => item.path.includes(location.pathname ));
-    dispatch(setTitle(getTitle[0].title))
+    getTitle[0] && dispatch(setTitle(getTitle[0].title))
     // eslint-disable-next-line
   },[location.pathname])
 
   return (
-    <Box>
+    <Box sx={{maxWidth:'1440px', margin:'auto', width:'100%', display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
       <Header
         title={title}
         handleLogout={handleLogout}
@@ -82,6 +93,7 @@ function App() {
         handleMenuItemClick={handleMenuItemClick}
         menuItems={menuItems}
       />
+      <Footer />
     </Box>
   );
 }

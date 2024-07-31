@@ -10,14 +10,15 @@
     height: auto;
     border-radius: 6px;
     background-color: lightgray;
-    padding: 0px 0px 0px 10px;
     box-sizing: border-box;
     gap: 10px;
+    padding: 10px;
 }
 
 .analytic-results  {
     display: flex;
     flex-direction: row;
+    gap: 20px
 }
 
 .result-item {
@@ -31,11 +32,11 @@
 .input-details {
     display: flex;
     justify-content: end;
-    align-items: end;
-    margin-right: 100px;
 
 }
-
+ .input-details p {
+    margin: 0px ;
+ }
 .analytics-text {
     color: gray ;
     padding-top: 10px;
@@ -49,6 +50,19 @@
     }
 
 } 
+
+.result-margin {
+    margin-top: 20px;
+
+}
+
+.button-alignment {
+    justify-content: end;
+    align-items: end;
+    width: 75%;
+}
+
+
 .analytics-result-container {
     border: 1px solid #ddd;
     padding: 20px;

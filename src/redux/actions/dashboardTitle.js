@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  title: "Dashboard",
+  title: "",
 }
 
 export const dashboardTitle = createSlice({

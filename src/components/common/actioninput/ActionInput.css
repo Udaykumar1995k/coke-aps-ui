@@ -9,12 +9,7 @@
     flex: 1;  
 }
 
-.input-container-items ::placeholder {
-    text-align: center;
-  }
-
 .input-label {
-    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
