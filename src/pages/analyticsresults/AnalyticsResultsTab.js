@@ -26,7 +26,7 @@ const AnalyticsResultsTab = (props) =>{
                 </p>
             </div >
         </div>
-        <div className="analytic-results-tab result-container">
+        <div className="analytic-results-tab result-margin">
             <div className="analytic-results">
                 <div className="result-item">
                     <span className="analytics-text">Final LT to Be Updated in S4</span>
@@ -38,11 +38,11 @@ const AnalyticsResultsTab = (props) =>{
                 </div>
             </div>
             </div>
-            <div className="results-footer result-container">
-                <div className="results-footer results-footer-button">
+            <div className="analytic-results result-margin">
+                <div className="analytic-results" style={{width:"30%"}}>
                     <ButtonComponent type="primary" maxWidth="80px" label="Back" />
                 </div>
-                <div className="results-footer results-footer-button analytic-results">
+                <div className="analytic-results button-alignment">
                     <ButtonComponent bgColor="lightgrey" color="black"  maxWidth="80px" label="Reject" />
                     <ButtonComponent type="primary" maxWidth="300px" label="Drilldown to Components" />
                     <ButtonComponent type="secondary" maxWidth="180px" label="Send for Approval" />
