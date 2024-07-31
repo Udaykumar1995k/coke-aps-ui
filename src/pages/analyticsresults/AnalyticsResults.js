@@ -11,7 +11,6 @@ const AnalyticsResults = () => {
   const pagination = true;
   const paginationPageSize = 10;
   const paginationPageSizeSelector = [10, 20, 30, 50, 100];
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -407,17 +406,32 @@ const AnalyticsResults = () => {
           }}
         >
           <div style={{width:"30%"}}>
-          <ActionInput icon={"search"} position={"left"}  props={{height:"50px"}}/>
+          <ActionInput icon={"search"} position={"left"}  props={{height:"40px"}}/>
           </div>
-          <div style={{ width:"70%",display:"flex",  justifyContent:"end"}}>
+          <div style={{ width:"70%",display:"flex", justifyContent:"end"}}>
           <Dropdown 
-             width ="250px"
+             width ="135px"
+             styles ={{ textAlign: 'right','& .MuiOutlinedInput-notchedOutline': {
+              border: 'none',
+            },
+            '& .MuiSelect-icon': {
+              display: 'none',
+            },
+            '& .MuiInputLabel-root': {
+              transform: 'none',
+            },
+            '& .MuiInputLabel-root.MuiInputLabel-shrink': {
+              transform: 'none',
+            
+            }
+    }}
             options={[
               {value: 'High(20)', label: 'High(20)'},
               {value: 'Low(30)',label:'Low(30)'},
               {value: 'Medium(40)',label:'Medium(30)'},
-
+              
           ]}
+
           />
           </div>
         </div>
