@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  title: "",
+  tabDetails: "",
 }
 
 export const dashboardTitle = createSlice({
@@ -9,7 +9,7 @@ export const dashboardTitle = createSlice({
   initialState,
   reducers: {
     setTitle: (state, action) => {
-      state.title = action.payload
+      state.tabDetails = action.payload
     },
   },
 })
