@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  CircularProgress,
   List,
   ListItem,
   ListItemButton,
@@ -20,7 +19,6 @@ const MainContent = (props) => {
   
   return (
     <div className={title === 'Landing' ? "landing-content" : "main-content"}>
-      { !title && <CircularProgress /> }
       {title === 'Landing' ?
       <LandingPage />
       :
