@@ -70,3 +70,45 @@
     background-color: #fff;
     margin-bottom: 20px;
 }
+
+.material-tab-container {
+    background-color: white;
+    border: 1px solid lightgray;
+    padding: 10px 10px 20px 20px;
+    margin-top: 12px;
+}
+
+.material-items-container {
+    max-width: 240px;
+    background-color: white;
+    border-radius: 0px !important;
+
+}
+
+.material-items {
+    background-color: white;
+    gap: 14px;
+    padding: 0px !important
+}
+
+.flex-direction-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.border-radius-container {
+    border-radius: 6px;
+}
+
+
+.recomonded-values-group {
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+}
+
+.text-alignment {
+    font-weight: bold;
+    text-align: end;
+}
