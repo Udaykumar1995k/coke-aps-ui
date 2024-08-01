@@ -23,7 +23,7 @@ const LeadtTime = () =>{
 
     });
     const handleChange = (event) =>{
-        console.log("event",event, event.target.name, event.target.value)
+        // console.log("event",event, event.target.name, event.target.value)
         setFormData({...formData,[event.target.name]: event.target.type ==="checkbox" ? event.target.checked: event.target.value});
         
     }

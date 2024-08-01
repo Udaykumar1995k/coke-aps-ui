@@ -16,9 +16,9 @@ function App() {
   const dispatch = useDispatch();
   const title = useSelector((state) => state?.dashboardDetails?.title);
 
-  const handleMenuItemClick = (path, label, titleName) => {
+  const handleMenuItemClick = (path, label, item) => {
     navigate(path);
-    dispatch(setTitle(titleName))
+    dispatch(setTitle(item))
   };
   
   const handleLogout = () => {
@@ -64,7 +64,9 @@ function App() {
     {
       id: 6,
       path: "/material_details",
-      title: "Results"
+      label: "LT Analytics Results",
+      icon: <SettingsIcon />,
+      title: "Material Details"
     }
   ];
 
@@ -78,9 +80,8 @@ function App() {
 
   useEffect(()=>{
     let getTitle = menuItems.filter(item => item.path.includes(location.pathname ));
-    getTitle[0] && dispatch(setTitle(getTitle[0].title))
-    // eslint-disable-next-line
-  },[location.pathname])
+    getTitle[0] && dispatch(setTitle(getTitle[0]));
+  },[location.pathname, dispatch])
 
   return (
     <Box sx={{maxWidth:'1440px', margin:'auto', width:'100%', display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>

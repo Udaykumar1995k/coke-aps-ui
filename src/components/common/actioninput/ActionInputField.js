@@ -6,17 +6,17 @@ import SearchIcon from '@mui/icons-material/Search';
 import EditIcon from '@mui/icons-material/Edit';
 import { TextField } from '@mui/material';
 import './ActionInput.css'
-const ActionInput = ({ onChange, placeholder, icon, position, props }) => {
+const ActionInput = ({ onChange, placeholder, icon, position, width,height,props }) => {
     return (
         icon === "search" && position === "left" ?
-            <div style={{ border: '1px solid #c8c8c8', borderRadius: 10, display: 'flex', alignItems: 'center', width: { xs: 150, sm: 300 } }}
+            <div style={{  height: props?.height,border: '1px solid #c8c8c8', borderRadius: 10, display: 'flex', alignItems: 'center', width: { xs: 150, sm: 300 } }}
             >
                 <IconButton>
                     <SearchIcon />
                 </IconButton>
                 <Divider sx={{ height: 40, }} orientation="vertical" />
                 <InputBase
-                    sx={{ ml: 1, flex: 1 }}
+                    sx={{ ml: 1, flex: 1,fontSize: 14, padding: '4px 8px' }}
                     placeholder={placeholder || "Search"}
                     inputProps={{ 'aria-label': 'search' }}
                     onChange={onChange}
@@ -25,11 +25,11 @@ const ActionInput = ({ onChange, placeholder, icon, position, props }) => {
             :
             icon === "search" && position === "right" ?
 
-                <div style={{ border: '1px solid #c8c8c8', borderRadius: 10, display: 'flex', alignItems: 'center', width: { xs: 150, sm: 300 } }}
+                <div style={{ border: '1px solid #c8c8c8', borderRadius: 10, display: 'flex', alignItems: 'center',  width: width ||'200px',height: height ||'35px'}}
                 >
 
                     <InputBase
-                        sx={{ ml: 1, flex: 1 }}
+                        sx={{ ml: 1, flex: 1,fontSize: 14, padding: '4px 8px'}}
                         placeholder={placeholder || "Search"}
                         inputProps={{ 'aria-label': 'search' }}
                         onChange={onChange}
@@ -40,14 +40,14 @@ const ActionInput = ({ onChange, placeholder, icon, position, props }) => {
                 </div>
                 :
                 icon === "edit" && position === "left" ?
-                    <div style={{ border: '1px solid #c8c8c8', borderRadius: 10, display: 'flex', alignItems: 'center', width: { xs: 150, sm: 300 } }}
+                    <div style={{ border: '1px solid #c8c8c8', borderRadius: 10, display: 'flex', alignItems: 'center',  width: width ||'200px',height: height ||'35px' }}
                     >
                         <IconButton>
                             <EditIcon fontSize='small' />
                         </IconButton>
                         <Divider sx={{ height: 40, }} orientation="vertical" />
                         <InputBase
-                            sx={{ ml: 1, flex: 1 }}
+                            sx={{ ml: 1, flex: 1,fontSize: 14, padding: '4px 8px' }}
                             placeholder={placeholder || ""}
                             inputProps={{ 'aria-label': 'edit' }}
                             onChange={onChange}
@@ -55,10 +55,10 @@ const ActionInput = ({ onChange, placeholder, icon, position, props }) => {
                         
                     </div> :
                     icon === "edit" && position === "right" ?
-                        <div style={{ border: '1px solid #c8c8c8', borderRadius: 10, display: 'flex', alignItems: 'center' }}
+                        <div style={{ border: '1px solid #c8c8c8', borderRadius: 10, display: 'flex', alignItems: 'center', width: width ||'200px',height: height ||'35px' }}
                         >
                             <InputBase
-                                sx={{ ml: 1, flex: 1 }}
+                                sx={{ ml: 1, flex: 1,fontSize: 14, padding: '4px 8px' }}
                                 placeholder={placeholder || ""}
                                 inputProps={{ 'aria-label': 'edit' }}
                                 onChange={onChange}
@@ -80,17 +80,16 @@ const ActionInput = ({ onChange, placeholder, icon, position, props }) => {
                                          maxWidth: props?.maxWidth ||'250px', 
                                          width:'100%',
                                          height: props?.height ||'20px',
-                                         textAlign: 'left',
                                          paddingLeft: 5
                                    }, }}
+                                   value={props.value }
                             />
-                        </div>
+                         </div>
                         : 
                         <div className="input-container">
                             <InputBase className="input-container-items" 
                             inputProps={{ 'aria-label': 'email',
                             style: {
-                                textAlign: 'left',
                                 paddingLeft: 5
                               },
                              }}
@@ -103,6 +102,7 @@ const ActionInput = ({ onChange, placeholder, icon, position, props }) => {
                                          height: props?.height ||'30px',
                                         }} 
                             placeholder={placeholder || "Enter"}
+                            value={props?.value}
 
                                            
                             />

@@ -1,0 +1,18 @@
+  .footer-btn-wrapper{
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+  }
+  
+  .approval-items-wrapper {
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+  }
+  .approval-items-btn{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+

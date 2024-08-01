@@ -3,9 +3,6 @@
      /* justifyContent: 'center'; */
       width: '100%'
 }
-
-    
-
 .analytic-results-tab{
     display: flex;
     flex-direction: column;
@@ -52,20 +49,24 @@
         margin-right: 0;
     }
 
-}
+} 
 
-
-.result-container {
+.result-margin {
     margin-top: 20px;
 
 }
 
-.results-footer {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+.button-alignment {
+    justify-content: end;
+    align-items: end;
+    width: 75%;
 }
 
-.results-footer-button {
-  width: 50%;  
+
+.analytics-result-container {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-bottom: 20px;
 }
