@@ -207,7 +207,7 @@ const AnalyticsResults = () => {
       cellRenderer: () => (
         <div className="btn-wrapper">
           {" "}
-          <ButtonComponent label="Details" />
+          <ButtonComponent  type="secondary" label="Details" />
         </div>
       ),
       pinned: "right",
