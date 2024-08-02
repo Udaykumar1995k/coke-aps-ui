@@ -83,7 +83,7 @@ const MainContent = (props) => {
                   }}
                 >
                   <div>
-                    <BreadcrumbLink />
+                    <BreadcrumbLink labelList={[{title:'Home',path:'/landing-page'},{title:'Analytics Results',path:'/analytics-results'},{title:'Results'}]}/>
                   </div>
                   <div
                     style={{
