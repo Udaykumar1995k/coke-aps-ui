@@ -352,7 +352,7 @@ const WorkflowManagement = () => {
         </div>
         <div className="approval-item-container button-alignment">
             <ButtonComponent type="primary" maxWidth="300px" label="Reject" disabled={!isChecked} />
-            <ButtonComponent disabled={!isChecked}
+            <ButtonComponent disabled={!isChecked} 
           maxWidth="170px"
           label="Send for Approval"
           bgColor="black"
