@@ -1,7 +1,7 @@
 import './Card.css'
 import React, {useState} from 'react'
 const Cards = ({cards, maxWidth,bgColor,callBackFunction}) =>{
-    const [selectedCard,setSelectedCard] = useState(null);
+    const [selectedCard,setSelectedCard] = useState(0);
     const handleCardClick = (index) =>{ 
         setSelectedCard(index);
     }
