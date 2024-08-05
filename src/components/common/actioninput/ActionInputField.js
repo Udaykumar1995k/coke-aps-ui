@@ -103,7 +103,7 @@ const ActionInput = ({ onChange, placeholder, icon, position, width,height,props
                                         }} 
                             placeholder={placeholder || "Enter"}
                             value={props?.value}
-
+                            disabled={props.disabled || false}
                                            
                             />
                         </div>

@@ -5,7 +5,7 @@ import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
 import './DataTable.css'
 
-const DataTable = ({ columns, rows, pagination, paginationPageSize, paginationPageSizeSelector, rowSelection,isRowSelectable,suppressRowClickSelection }) => {
+const DataTable = ({ columns, rows, pagination, paginationPageSize, paginationPageSizeSelector, rowSelection,isRowSelectable,suppressRowClickSelection,onRowSelected }) => {
 
     return (
         <div
@@ -25,6 +25,7 @@ const DataTable = ({ columns, rows, pagination, paginationPageSize, paginationPa
                 moveColumns={false}
                 suppressDragLeaveHidesColumns={true}
                 suppressMovable={false}
+                onRowSelected={onRowSelected}
 
             />
         </div>

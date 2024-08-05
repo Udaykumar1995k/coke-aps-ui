@@ -5,13 +5,17 @@ import ActionInput from "../../components/common/actioninput/ActionInputField";
 import './index.css'
 import ApprovalCard from "./ApprovalCard";
 import Cards from "../../components/common/card/Card";
-import Dropdown from "../../components/common/Dropdown";
 import DataTable from "../../components/common/datatable/DataTable";
-const AnalyticsResults = () => {
+const AnalyticsResults = ({onhandleClick}) => {
   const pagination = true;
   const paginationPageSize = 10;
   const paginationPageSizeSelector = [10, 20, 30, 50, 100];
-  
+
+  const onRowSelected = (params) =>{
+    const isChecked = params.node.selected;
+    onhandleClick(isChecked);
+    
+  }
   const [regularItems] = useState([
     {
       Supplier: "Abc Inc",
@@ -246,6 +250,7 @@ const AnalyticsResults = () => {
             paginationPageSize={paginationPageSize}
             paginationPageSizeSelector={paginationPageSizeSelector}
             enableCheckbox={true}
+            onRowSelected={onRowSelected}
           />
         </div>
       </div>
@@ -317,8 +322,11 @@ const ModalContent = () => {
 };
 
 const WorkflowManagement = () => {
+  const [isChecked, setChecked] = useState(false);
   const [open, setOpen] = useState(false);
-
+  const onhandleClick = (checked) =>{
+    setChecked(checked);
+  }
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -334,17 +342,17 @@ const WorkflowManagement = () => {
       <div>  
         <h5>Pending Action</h5>  
         <div>
-          <AnalyticsResults/>
+          <AnalyticsResults onhandleClick ={onhandleClick}/>
         </div>
         <p>Remarks for Acceptance / Rejection*</p>
-        <ActionInput className="text-input" placeholder="Enter the Remarks" props={{ height:"45px", maxWidth:"250px"}} />
+        <ActionInput  className="text-input" placeholder="Enter the Remarks" props={{ height:"45px", maxWidth:"250px", disabled: !isChecked}} />
         <div  className="approval-item-container">
         <div  style={{width:"30%", marginTop:'20px'}}>
           <ButtonComponent maxWidth="100px" label="Back" bgColor="white" color="black"/>
         </div>
         <div className="approval-item-container button-alignment">
-            <ButtonComponent type="primary" maxWidth="300px" label="Reject" />
-            <ButtonComponent
+            <ButtonComponent type="primary" maxWidth="300px" label="Reject" disabled={!isChecked} />
+            <ButtonComponent disabled={!isChecked}
           maxWidth="170px"
           label="Send for Approval"
           bgColor="black"
