@@ -81,6 +81,7 @@ function App() {
   useEffect(()=>{
     let getTitle = menuItems.filter(item => item.path.includes(location.pathname ));
     getTitle[0] && dispatch(setTitle(getTitle[0]));
+    // eslint-disable-next-line
   },[location.pathname, dispatch])
 
   return (

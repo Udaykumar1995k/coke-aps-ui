@@ -3,7 +3,7 @@ body {
 }
 
 .form-container {
-    max-width: 70%;
+    /* max-width: 70%; */
     padding: 20px;
     /* border: 1px solid #ccc;
     border-radius: 8px;
@@ -16,31 +16,19 @@ form {
     flex-direction: column;
 
 }
-h5{
-    text-align: left;
-    margin-bottom: 20px;
-}
 
-.form-group {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 15px;
-
-}
-
-.form-group > .label-position{
+.label-position{
     margin-top: 10px;
-    min-width: 150px;
-    
+    margin-bottom: 5px;
+    color: #797979;
+    font-size: 14px;
 }
  
 .flex-container{
     display: flex;
     flex-direction: row;
     gap: 10px;
-    width: 50%;
+    width: 100%;
 }
 
 .form-actions{

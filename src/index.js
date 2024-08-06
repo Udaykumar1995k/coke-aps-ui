@@ -12,7 +12,7 @@ import Login from './components/Login';
 import PrivateRoutes from './routes/PrivateRoutes';
 import { Provider } from 'react-redux';
 import {store} from './redux/store'
-import RunAnalytics from './pages/RunAnalytics';
+import RunLTAnalytics from './pages/RunLTAnalytics/RunLTAnalytics';
 import AnalyticsResults from './pages/analyticsresults/AnalyticsResults';
 import ErrorPage from './pages/ErrorPage';
 import ActionDashboard from './pages/ActionDashboard/actionDashboard';
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
         children: [
           {
             path: "",
-            element: <RunAnalytics />,
+            element: <RunLTAnalytics />,
           },
         ],
       },
