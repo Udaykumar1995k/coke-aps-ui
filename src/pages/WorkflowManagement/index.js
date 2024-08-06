@@ -4,7 +4,260 @@ import Modal from "../../components/common/modal/Modal";
 import ActionInput from "../../components/common/actioninput/ActionInputField";
 import './index.css'
 import ApprovalCard from "./ApprovalCard";
+import Cards from "../../components/common/card/Card";
+import DataTable from "../../components/common/datatable/DataTable";
+const AnalyticsResults = ({onhandleClick}) => {
+  const pagination = true;
+  const paginationPageSize = 10;
+  const paginationPageSizeSelector = [10, 20, 30, 50, 100];
 
+  const onRowSelected = (params) =>{
+    const isChecked = params.node.selected;
+    onhandleClick(isChecked);
+    
+  }
+  const [regularItems] = useState([
+    {
+      Supplier: "Abc Inc",
+      Material: "Material Y",
+      InventoryClassification: "Material",
+      MaterialType: "A",
+      ShipFrom: "Ingredients",
+      ShipTo: "Helsinki",
+      MasterLeadTime: "40 Days",
+      DemonstratedLeadTime: "60 Days",
+      confidencescore: "60 days",
+      LTVariations: "60 days",
+      Analyticsintiatedby: "90%",
+      ViewInputDetails: "High",
+      FinalLTtobeupdatedinS4: "Admin",
+      Details: <ButtonComponent label="Details" />,
+    },
+    {
+      Supplier: "Abc Inc",
+      Material: "Material Y",
+      InventoryClassification: "Material",
+      MaterialType: "A",
+      ShipFrom: "Ingredients",
+      ShipTo: "Helsinki",
+      MasterLeadTime: "45 Days",
+      DemonstratedLeadTime: "60 Days",
+      confidencescore: "60 days",
+      LTVariations: "60 days",
+      Analyticsintiatedby: "90%",
+      ViewInputDetails: "High",
+      FinalLTtobeupdatedinS4: "Admin",
+      Details: <ButtonComponent label="Details" />,
+    },
+    {
+      Supplier: "Abc Inc",
+      Material: "Material Y",
+      InventoryClassification: "Material",
+      MaterialType: "A",
+      ShipFrom: "Ingredients",
+      ShipTo: "Helsinki",
+      MasterLeadTime: "40 Days",
+      DemonstratedLeadTime: "60 Days",
+      confidencescore: "60 days",
+      LTVariations: "60 days",
+      Analyticsintiatedby: "90%",
+      ViewInputDetails: "High",
+      FinalLTtobeupdatedinS4: "Admin",
+      Details: <ButtonComponent label="Details" />,
+    },
+    {
+      Supplier: "Abc Inc",
+      Material: "Material Y",
+      InventoryClassification: "Material",
+      MaterialType: "A",
+      ShipFrom: "Ingredients",
+      ShipTo: "Helsinki",
+      MasterLeadTime: "40 Days",
+      DemonstratedLeadTime: "60 Days",
+      confidencescore: "60 days",
+      LTVariations: "60 days",
+      Analyticsintiatedby: "90%",
+      ViewInputDetails: "High",
+      FinalLTtobeupdatedinS4: "Admin",
+      Details: <ButtonComponent label="Details" />,
+    },
+    {
+      Supplier: "Abc Inc",
+      Material: "Material Y",
+      InventoryClassification: "Material",
+      MaterialType: "A",
+      ShipFrom: "Ingredients",
+      ShipTo: "Helsinki",
+      MasterLeadTime: "40 Days",
+      DemonstratedLeadTime: "60 Days",
+      confidencescore: "60 days",
+      LTVariations: "60 days",
+      Analyticsintiatedby: "90%",
+      ViewInputDetails: "High",
+      FinalLTtobeupdatedinS4: "Admin",
+      Details: <ButtonComponent label="Details" />,
+    },
+    {
+      Supplier: "Abc Inc",
+      Material: "Material Y",
+      InventoryClassification: "Material",
+      MaterialType: "A",
+      ShipFrom: "Ingredients",
+      ShipTo: "Helsinki",
+      MasterLeadTime: "40 Days",
+      DemonstratedLeadTime: "60 Days",
+      confidencescore: "60 days",
+      LTVariations: "60 days",
+      Analyticsintiatedby: "90%",
+      ViewInputDetails: "High",
+      FinalLTtobeupdatedinS4: "Admin",
+      Details: <ButtonComponent label="Details" />,
+    },
+    {
+      Supplier: "Abc Inc",
+      Material: "Material Y",
+      InventoryClassification: "Material",
+      MaterialType: "A",
+      ShipFrom: "Ingredients",
+      ShipTo: "Helsinki",
+      MasterLeadTime: "40 Days",
+      DemonstratedLeadTime: "60 Days",
+      confidencescore: "60 days",
+      LTVariations: "60 days",
+      Analyticsintiatedby: "90%",
+      ViewInputDetails: "High",
+      FinalLTtobeupdatedinS4: "Admin",
+      Details: <ButtonComponent label="Details" />,
+    },
+    {
+      Supplier: "Abc Inc",
+      Material: "Material Y",
+      InventoryClassification: "Material",
+      MaterialType: "A",
+      ShipFrom: "Ingredients",
+      ShipTo: "Helsinki",
+      MasterLeadTime: "40 Days",
+      DemonstratedLeadTime: "60 Days",
+      confidencescore: "60 days",
+      LTVariations: "60 days",
+      Analyticsintiatedby: "90%",
+      ViewInputDetails: "High",
+      FinalLTtobeupdatedinS4: "Admin",
+      Details: <ButtonComponent label="Details" />,
+    },
+    {
+      Supplier: "Abc Inc",
+      Material: "Material Y",
+      InventoryClassification: "Material",
+      MaterialType: "A",
+      ShipFrom: "Ingredients",
+      ShipTo: "Helsinki",
+      MasterLeadTime: "40 Days",
+      DemonstratedLeadTime: "60 Days",
+      confidencescore: "60 days",
+      LTVariations: "60 days",
+      Analyticsintiatedby: "90%",
+      ViewInputDetails: "High",
+      FinalLTtobeupdatedinS4: "Admin",
+      Details: <ButtonComponent label="Details" />,
+    },
+  ]);
+
+  const [regularItemsData] = useState([
+    {
+      headerCheckboxSelection: true,
+      checkboxSelection: true,
+      pinned: "left",
+      width: 50,
+      lockPinned: true,
+      suppressMovable: true,
+    },
+    {
+      field: "Supplier",
+      sortable: true,
+      lockPinned: true,
+      resizable: false,
+      filterParams: {
+        filterOptions: ["contains", "startsWith", "endsWith"],
+        defaultOption: "startsWith",
+      },
+      filter: "agColumnFilter",
+      suppressMovable: true,
+      unSortIcon: true
+    },
+    { field: "Material", resizable: false, suppressMovable: true, unSortIcon: true },
+    {
+      field: "InventoryClassification",
+      resizable: false,
+      suppressMovable: true,
+      unSortIcon: true
+    },
+    { field: "MaterialType", resizable: false, suppressMovable: true, unSortIcon: true },
+    { field: "ShipFrom", resizable: false, suppressMovable: true, unSortIcon: true },
+    { field: "ShipTo", resizable: false, suppressMovable: true, unSortIcon: true },
+    { field: "MasterLeadTime", resizable: false, suppressMovable: true, unSortIcon: true },
+    { field: "DemonstratedLeadTime", resizable: false, suppressMovable: true, unSortIcon: true },
+    { field: "confidencescore", resizable: false, suppressMovable: true, unSortIcon: true },
+    { field: "LTVariations", resizable: false, suppressMovable: true, unSortIcon: true },
+    { field: "Analyticsintiatedby", resizable: false, suppressMovable: true, unSortIcon: true },
+    { field: "ViewInputDetails", resizable: false, suppressMovable: true, unSortIcon: true },
+    {
+      field: "FinalLTtobeupdatedinS4",
+      lockPinned: true,
+      suppressMovable: true,
+      unSortIcon: true
+    },
+    {
+      field: "Details",
+      suppressMovable: true,
+      cellRenderer: () => (
+        <div className="btn-wrapper">
+          {" "}
+          <ButtonComponent  type="secondary" label="Details" />
+        </div>
+      ),
+      pinned: "right",
+      width: 120,
+      lockPinned: true,
+      resizable: false,
+    },
+  ]);
+
+  return (
+    <div>
+    <div
+      style={{
+        border: "1px solid lightgrey",
+        borderRadius: "6px",
+        padding: "10px",
+      }}
+    >
+      <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+        <div
+          style={{
+            display: "flex"
+          }}
+        >
+          <div style={{ width: "30%" }}>
+            <ActionInput icon={"search"} position={"left"} props={{ height: "40px" }} />
+          </div>
+        </div>
+        <div>
+          <DataTable
+            columns={regularItemsData}
+            rows={regularItems}
+            pagination={pagination}
+            paginationPageSize={paginationPageSize}
+            paginationPageSizeSelector={paginationPageSizeSelector}
+            enableCheckbox={true}
+            onRowSelected={onRowSelected}
+          />
+        </div>
+      </div>
+    </div>
+</div>
+  );
+};
 const FooterButtons = () => {
   return (
     <div className='footer-btn-wrapper'>
@@ -41,7 +294,6 @@ const ModalContent = () => {
 
   return (
     <>
-
       <div className='approval-items-wrapper '>
         <label style={{ marginTop: '8px', fontSize: '14px' }}>No.of Line Items for Approval
         </label><ActionInput props={{ height: "30px", maxWidth: "70px", value: '4' }} />
@@ -70,24 +322,46 @@ const ModalContent = () => {
 };
 
 const WorkflowManagement = () => {
+  const [isChecked, setChecked] = useState(false);
   const [open, setOpen] = useState(false);
-
+  const onhandleClick = (checked) =>{
+    setChecked(checked);
+  }
   const handleClickOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
   };
-
+  const cardData =[{title:"Pending Action", description:"Materials - Supplier - Plant", value:32},{title:"Pending Approval",  description:"Pending Approval / Rejected by Approver",value:28},{title:"Closed Workflow Items", value:50}]
   return (
-    <div>
-      <ButtonComponent
-        maxWidth="170px"
-        label="Send for Approval"
-        bgColor="black"
-        onClick={handleClickOpen}
-      />
-      <Modal open={open} handleClose={handleClose} title="Workflow Approval" action={<FooterButtons />} content={<ModalContent />} />
+    <div className="workflow-management-container">
+      <div className="card-container">
+        <Cards cards={cardData}/>
+      </div>
+      <div>  
+        <h5>Pending Action</h5>  
+        <div>
+          <AnalyticsResults onhandleClick ={onhandleClick}/>
+        </div>
+        <p>Remarks for Acceptance / Rejection*</p>
+        <ActionInput  className="text-input" placeholder="Enter the Remarks" props={{ height:"45px", maxWidth:"250px", disabled: !isChecked}} />
+        <div  className="approval-item-container">
+        <div  style={{width:"30%", marginTop:'20px'}}>
+          <ButtonComponent maxWidth="100px" label="Back" bgColor="white" color="black"/>
+        </div>
+        <div className="approval-item-container button-alignment">
+            <ButtonComponent type="primary" maxWidth="300px" label="Reject" disabled={!isChecked} />
+            <ButtonComponent disabled={!isChecked} 
+          maxWidth="170px"
+          label="Send for Approval"
+          bgColor="black"
+          onClick={handleClickOpen}
+        />
+        <Modal open={open} handleClose={handleClose} title="Workflow Approval" action={<FooterButtons />} content={<ModalContent />} />        </div>
+        </div>
+        
+      </div> 
     </div>
   );
 };
