@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ButtonComponent from "../../components/common/button/Button";
 import Modal from "../../components/common/modal/Modal";
 import ActionInput from "../../components/common/actioninput/ActionInputField";
@@ -6,6 +6,33 @@ import './index.css'
 import ApprovalCard from "./ApprovalCard";
 import Cards from "../../components/common/card/Card";
 import DataTable from "../../components/common/datatable/DataTable";
+import { WorkFlowStatus,WorkFlowStatusFooter } from "./WorkFlowStatus";
+
+const WorkFlowStatusModel = () => {
+  const [state, setState] = useState('');
+  const [showPopup, setPopUp]  = useState(false);
+  const stepData  = [
+      {label:"WorkFlow Creations",date: "15-July-2024",process:"WorkFlow Initiated",actionPerformed:"Sam Arnold",createdBy:"15-July-2024 13:30:00",status:"Initiated", remarks:" - -",currentState:"completed",completed:true},
+      {label:"Level1 Approval",date: "16-July-2024",process:"Rejected by approver",actionPerformed:"Sam Arnold",createdBy:"15-July-2024 13:30:00",status:"Initiated", remarks:" - -",currentState:"pending",completed:true},
+      {label:"WorkFlow Reintiated",date: "17-July-2024",process:"WorkFlow Reinitiated",actionPerformed:"Sam Arnold",createdBy:"15-July-2024 13:30:00",status:"Initiated", remarks:" - -",currentState:"pending",completed:true}
+  ]
+  useEffect(()=>{
+      let currentState = stepData.findIndex(data => data.currentState === "pending")
+      setState(currentState)
+ });
+  const onhandlePopup = () =>{
+      setPopUp(true)
+  }
+   const onClosePopup = () =>{
+      setPopUp(false)
+   }
+  return (
+      <div >
+          <a style={{color:"black"}} href="#" onClick={onhandlePopup}>Current Status</a>
+          <Modal open={showPopup} handleClose={onClosePopup} title="Current Status"  action = {<WorkFlowStatusFooter/>} content={<WorkFlowStatus steps={stepData} state={state}/>} maxWidth="lg"/>
+      </div>
+  )
+}
 const AnalyticsResults = ({onhandleClick}) => {
   const pagination = true;
   const paginationPageSize = 10;
@@ -32,6 +59,7 @@ const AnalyticsResults = ({onhandleClick}) => {
       ViewInputDetails: "High",
       FinalLTtobeupdatedinS4: "Admin",
       Details: <ButtonComponent label="Details" />,
+      CurrentStatus: <WorkFlowStatusModel/>,
     },
     {
       Supplier: "Abc Inc",
@@ -208,6 +236,19 @@ const AnalyticsResults = ({onhandleClick}) => {
       unSortIcon: true
     },
     {
+      field: "CurrentStatus",
+      suppressMovable: true,
+      cellRenderer: () => (
+        <div >
+          <WorkFlowStatusModel />
+        </div>
+      ),
+      pinned: "right",
+      width: 120,
+      lockPinned: true,
+      resizable: false,
+    },
+    {
       field: "Details",
       suppressMovable: true,
       cellRenderer: () => (
@@ -221,6 +262,7 @@ const AnalyticsResults = ({onhandleClick}) => {
       lockPinned: true,
       resizable: false,
     },
+    
   ]);
 
   return (
