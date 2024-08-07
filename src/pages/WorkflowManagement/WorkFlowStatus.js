@@ -12,9 +12,11 @@ const WorkFlowStatus = ({steps,state}) => {
             </div>
             <div className="workflow-status-container">
                 <div>
-                    <Stepper activeStep={state} orientation="vertical">
+                    <Stepper
+                        activeStep={state} orientation="vertical">
                         {steps.map((step) => (
-                        <Step key={step.label} expanded={true}>
+                        <Step
+                            key={step.label} expanded={true}>
                             <StepLabel>
                                 {step.label}
                             </StepLabel>

@@ -74,3 +74,7 @@
 .workflow-status {
   background-color:  white !important;
 }
+
+.MuiStepIcon-root {
+  color: black !important;
+}
