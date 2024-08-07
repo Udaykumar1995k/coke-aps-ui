@@ -1,6 +1,15 @@
+import { useState } from "react";
 import ButtonComponent from "../../components/common/button/Button"
-
-const WorkFlowStatus = () => {
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
+import StepContent from '@mui/material/StepContent';
+import { StepButton } from "@mui/material";
+const WorkFlowStatus = ({steps,state}) => {
+    const [activeStep, setActiveStep] = useState(0);
+    const handleStep = (step) => () => {
+        setActiveStep(step);
+      };
     return(
         <div>
             <div>
@@ -9,27 +18,37 @@ const WorkFlowStatus = () => {
             </div>
             <div className="workflow-status-container">
                 <div>
-                    {/* <p>Hii</p>
-                    <p>Hiii</p> */}
-                </div>
-                <div className="approver-status-card">
-                    <div className="workflow-header">
-                        <p>Date</p>
-                        <p>Process</p>
-                        <p>Action Performed by</p>
-                        <p>Created by</p>
-                        <p>Status</p>
-                        <p>Approval/Reject Remarks</p>
-                    </div>
-                    <div className="workflow-status">
-                        <p>15th-July 2024</p>
-                        <p>Workflow Initated </p>
-                        <p>Sam Arnold</p>
-                        <p>15th-July 2024 13:00:00</p>
-                        <p>Initated</p>
-                        <p> -- </p>
-                    </div>
-                    </div>
+                    <Stepper activeStep={state} orientation="vertical">
+                        {steps.map((step) => (
+                        <Step key={step.label} expanded={true}>
+                            <StepLabel>
+                                {step.label}
+                            </StepLabel>
+                            <StepContent > 
+                                <div  style={{marginLeft:"40px"}}className="approver-status-card">
+                                    <div className="workflow-header">
+                                        <p>Date</p>
+                                        <p>Process</p>
+                                        <p>Action Performed by</p>
+                                        <p>Created by</p>
+                                        <p>Status</p>
+                                        <p>Approval/Reject Remarks</p>
+                                    </div>
+                                    <div className="workflow-status">
+                                        <p>{step.date}</p>
+                                        <p> {step.process} </p>
+                                        <p>{step.actionPerformed}</p>
+                                        <p>{step.createdBy}</p>
+                                        <p>{step.status}</p>
+                                        <p> {step.remarks} </p>
+                                    </div>
+                                </div> 
+                            </StepContent>
+                        </Step>
+                            ))
+                        }
+                    </Stepper>
+                </div> 
             </div>
 
         </div>

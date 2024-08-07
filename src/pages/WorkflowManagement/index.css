@@ -44,13 +44,14 @@
   display: flex;
   flex-direction: row;
   column-gap: 60px;
-  padding: 20px;
+  padding: 0px 10px;
 }
 
 
 
 .approver-status-card {
   display: table;
+  flex-direction: column;
   border: 1px solid lightgray;
   border-radius: 6px;
 }
@@ -63,12 +64,12 @@
 
 .workflow-header {
   background-color: lightgray;
-  padding: 30px;
 }
 .workflow-header p, .workflow-status p {
   display: table-cell;
-  padding: 10px 10px 26px 35px;
+  padding: 0px 10px;
   text-align: center;
+  max-width: 250px
 }
 .workflow-status {
   background-color:  white !important;
