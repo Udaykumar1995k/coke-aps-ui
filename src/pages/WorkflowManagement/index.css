@@ -39,3 +39,37 @@
   align-items: end;
   width: 75%;
 }
+
+.workflow-status-container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 60px;
+  padding: 20px;
+}
+
+
+
+.approver-status-card {
+  display: table;
+  border: 1px solid lightgray;
+  border-radius: 6px;
+}
+
+
+.workflow-header, .workflow-status
+{
+  display: table-row
+}
+
+.workflow-header {
+  background-color: lightgray;
+  padding: 30px;
+}
+.workflow-header p, .workflow-status p {
+  display: table-cell;
+  padding: 10px 10px 26px 35px;
+  text-align: center;
+}
+.workflow-status {
+  background-color:  white !important;
+}
