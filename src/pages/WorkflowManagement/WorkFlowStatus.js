@@ -3,6 +3,16 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import StepContent from '@mui/material/StepContent';
+import {  Close } from "@mui/icons-material";
+const CustomIcon = () =>{
+    let className ="MuiStepIcon-root Mui-rejected"
+    let displayedIcon= <Close className="MuiSvgIcon-root"/>
+    return (
+        <div className={className}>
+            {displayedIcon}
+        </div>
+    )
+}
 const WorkFlowStatus = ({steps,state}) => {
     return(
         <div>
@@ -17,7 +27,7 @@ const WorkFlowStatus = ({steps,state}) => {
                         {steps.map((step) => (
                         <Step
                             key={step.label} expanded={true}>
-                            <StepLabel>
+                            <StepLabel StepIconComponent={step.currentState ==="rejected"?(props)=><CustomIcon  {...props} status= {step.currentState}/>: undefined}>
                                 {step.label}
                             </StepLabel>
                             <StepContent > 
