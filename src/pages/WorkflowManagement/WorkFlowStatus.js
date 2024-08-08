@@ -6,7 +6,7 @@ import StepContent from '@mui/material/StepContent';
 import {  Close } from "@mui/icons-material";
 const CustomIcon = () =>{
     let className ="MuiStepIcon-root Mui-rejected"
-    let displayedIcon= <Close className="MuiSvgIcon-root"/>
+    let displayedIcon= <Close  style={{color:"white"}}className="MuiSvgIcon-root"/>
     return (
         <div className={className}>
             {displayedIcon}
