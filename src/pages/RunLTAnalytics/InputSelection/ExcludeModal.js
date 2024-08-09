@@ -13,6 +13,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 import ButtonComponent from "../../../components/common/button/Button";
 import DatePicker from "../../../components/common/DatePicker";
+import dayjs from "dayjs";
 
 const ModalContent = (props) => {
   return (
@@ -42,8 +43,8 @@ const ModalContent = (props) => {
                     component="th"
                     scope="row"
                     name="range"
-                    value={row?.range || "Range 1"}
-                  ></TableCell>
+                    value={row?.range}
+                  >{row?.range}</TableCell>
                   <TableCell
                     sx={{
                       "& .MuiFormControl-root": {
@@ -55,7 +56,8 @@ const ModalContent = (props) => {
                     <DatePicker
                       label="Select from Date"
                       name="fromDate"
-                      value={row?.fromDate}
+                      value={dayjs(row?.fromDate)}
+                      onChange={(e) => props?.handleExcludeDateChange(e, 'fromDate')}
                     />
                   </TableCell>
                   <TableCell
@@ -69,11 +71,12 @@ const ModalContent = (props) => {
                     <DatePicker
                       label="Select to Date"
                       name="toDate"
-                      value={row?.toDate}
+                      value={dayjs(row?.toDate)}
+                      onChange={(e) => props?.handleExcludeDateChange(e, 'toDate')}
                     />
                   </TableCell>
                   <TableCell>
-                    <DeleteIcon name="del" />
+                    {props?.rows?.length > 1 && <DeleteIcon name="del" onClick={() => props?.delRowHandler(index)}/>}
                   </TableCell>
                 </TableRow>
               );

@@ -55,6 +55,8 @@ const StepperComp = (props) => {
             showModal={props.showModal}
             handleAddRows={props.handleAddRows}
             rows={props.rows}
+            delRowHandler={props.delRowHandler}
+            handleExcludeDateChange={props.handleExcludeDateChange}
           />
         ) : props.activeStep === 1 ? (
           <RunAnalytics 

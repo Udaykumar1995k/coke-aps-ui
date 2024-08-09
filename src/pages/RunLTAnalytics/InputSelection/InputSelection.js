@@ -295,7 +295,8 @@ const InputSelection = (props) => {
           title="Exclude Range in Period Selected"
           action={<ModalFooter />}
           content={
-            <ModalContent />
+            <ModalContent rows={props.rows} handleAddRows={props.handleAddRows} delRowHandler={props.delRowHandler} 
+            handleExcludeDateChange={props.handleExcludeDateChange}/>
           }
           
         />
