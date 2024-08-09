@@ -14,7 +14,7 @@ const WorkFlowStatusModel = () => {
   const stepData  = [
       {label:"WorkFlow Creations",date: "15-July-2024",process:"WorkFlow Initiated",actionPerformed:"Sam Arnold",createdBy:"15-July-2024 13:30:00",status:"Initiated", remarks:" - -",currentState:"completed",completed:true},
       {label:"Level1 Approval",date: "16-July-2024",process:"Approved approver",actionPerformed:"Sam Arnold",createdBy:"15-July-2024 13:30:00",status:"Initiated", remarks:" - -",currentState:"completed",completed:true},
-      {label:"WorkFlow Reintiated",date: "17-July-2024",process:"Rejected",actionPerformed:"Sam Arnold",createdBy:"15-July-2024 13:30:00",status:"Initiated", remarks:" - -",currentState:"rejected",completed:true},
+      {label:"Level2 Approval",date: "17-July-2024",process:"Rejected",actionPerformed:"Sam Arnold",createdBy:"15-July-2024 13:30:00",status:"Initiated", remarks:" - -",currentState:"rejected",completed:true},
       {label:"WorkFlow Reintiated",date: "18-July-2024",process:"WorkFlow Reinitiated",actionPerformed:"Sam Arnold",createdBy:"15-July-2024 13:30:00",status:"Initiated", remarks:" - -",currentState:"pending",completed:true}
 
   ]
