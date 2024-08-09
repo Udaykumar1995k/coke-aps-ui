@@ -51,7 +51,6 @@
 
 .approver-status-card {
   display: table;
-  flex-direction: column;
   border: 1px solid lightgray;
   border-radius: 6px;
 }
@@ -78,3 +77,28 @@
 .workflow-status-container .MuiStepIcon-root {
   color: black !important;
 }
+/* .MuiStepIcon-root.Mui-active {
+  color: black !important;
+}
+
+.MuiStepIcon-root.Mui-completed {
+  color: black !important;
+} */
+
+.MuiStepIcon-root.Mui-rejected {
+  
+  color: black !important;
+  border-radius: 50%;
+  background-color: black !important;
+  border: 1px solid black;
+  height: 23px;
+  width: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 1px;
+}
+
+/* .MuiStepIcon-root .MuiStepIcon-root {
+  color: "#fff";
+} */

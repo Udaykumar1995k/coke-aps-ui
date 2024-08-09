@@ -9,16 +9,24 @@ import DataTable from "../../components/common/datatable/DataTable";
 import { WorkFlowStatus,WorkFlowStatusFooter } from "./WorkFlowStatus";
 
 const WorkFlowStatusModel = () => {
+  
   const [state, setState] = useState('');
   const [showPopup, setPopUp]  = useState(false);
   const stepData  = [
       {label:"WorkFlow Creations",date: "15-July-2024",process:"WorkFlow Initiated",actionPerformed:"Sam Arnold",createdBy:"15-July-2024 13:30:00",status:"Initiated", remarks:" - -",currentState:"completed",completed:true},
-      {label:"Level1 Approval",date: "16-July-2024",process:"Rejected by approver",actionPerformed:"Sam Arnold",createdBy:"15-July-2024 13:30:00",status:"Initiated", remarks:" - -",currentState:"pending",completed:true},
-      {label:"WorkFlow Reintiated",date: "17-July-2024",process:"WorkFlow Reinitiated",actionPerformed:"Sam Arnold",createdBy:"15-July-2024 13:30:00",status:"Initiated", remarks:" - -",currentState:"pending",completed:true}
+      {label:"Level1 Approval",date: "16-July-2024",process:"Approved approver",actionPerformed:"Sam Arnold",createdBy:"15-July-2024 13:30:00",status:"Initiated", remarks:" - -",currentState:"completed",completed:true},
+      {label:"Level2 Approval",date: "17-July-2024",process:"Rejected",actionPerformed:"Sam Arnold",createdBy:"15-July-2024 13:30:00",status:"Initiated", remarks:" - -",currentState:"rejected",completed:true},
+      {label:"WorkFlow Reintiated",date: "18-July-2024",process:"WorkFlow Reinitiated",actionPerformed:"Sam Arnold",createdBy:"15-July-2024 13:30:00",status:"Initiated", remarks:" - -",currentState:"pending",completed:true}
+
   ]
   useEffect(()=>{
       let currentState = stepData.findIndex(data => data.currentState === "pending")
+      if(currentState !== -1){
       setState(currentState)
+      }
+      else{
+        setState(stepData.length)
+      }
  });
   const onhandlePopup = () =>{
       setPopUp(true)
