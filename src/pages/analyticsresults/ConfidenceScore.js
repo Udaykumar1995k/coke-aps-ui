@@ -1,4 +1,5 @@
 
+import ButtonComponent from "../../components/common/button/Button"
 const ConfidenceScore = () =>{
     return (
         <div>
@@ -33,4 +34,23 @@ const ConfidenceScore = () =>{
     )
 }
 
-export default ConfidenceScore
+const ConfidenceScoreFooter = () => {
+    return(
+        <div className='footer-btn-wrapper'>
+      <ButtonComponent
+        maxWidth="170px"
+        label="Back"
+        bgColor="white"
+        color="black"
+      />
+      <ButtonComponent
+        maxWidth="170px"
+        label="Ok"
+        bgColor="black"
+        color="white"
+      />
+    </div>
+    )
+}
+
+export {ConfidenceScore, ConfidenceScoreFooter}

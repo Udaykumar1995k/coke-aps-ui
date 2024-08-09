@@ -6,11 +6,30 @@ import Dropdown from "../../components/common/Dropdown";
 import { useNavigate } from "react-router-dom";
 import "./AnalyticsResults.css";
 import results from '../../common/results.json'
+import { ConfidenceScore, ConfidenceScoreFooter } from "./ConfidenceScore";
+import Modal from "../../components/common/modal/Modal";
+
+const ConfidenceScoreModal = (props) =>{
+  const [showPopup, setPopUp]  = useState(false);
+  const onhandlePopup = () =>{
+    setPopUp(true)
+    }
+ const onClosePopup = () =>{
+    setPopUp(false)
+  }
+  return(
+  <div>
+    <span  href="#" style={{textDecoration:"underline",cursor:"pointer"}} onClick={onhandlePopup}>{props.value}</span>
+    <Modal  open={showPopup} handleClose={onClosePopup} content={<ConfidenceScore/>} action={<ConfidenceScoreFooter />} />
+    </div>
+    )
+}
 const AnalyticsResults = () => {
   const pagination = true;
   const paginationPageSize = 10;
   const paginationPageSizeSelector = [10, 20, 30, 50, 100];
   const navigate = useNavigate();
+ 
   const [regularItems] = useState(results);
 
   const [regularItemsData] = useState([
@@ -54,7 +73,14 @@ const AnalyticsResults = () => {
       </div>
     )
    },
-    { field: "confidencescore", resizable: false, suppressMovable: true, unSortIcon: true },
+    { field: "confidencescore", resizable: false, suppressMovable: true, unSortIcon: true,
+      cellRenderer: (response) =>(
+        <div>
+          {" "}
+          <ConfidenceScoreModal value={response.value}/>
+        </div>
+      )
+    },
     { field: "LeadTimeVariations", resizable: false, suppressMovable: true, unSortIcon: true },
     { field: "Analyticsintiatedby", resizable: false, suppressMovable: true, unSortIcon: true },
     { field: "ResultsUpdatedat", resizable: false, suppressMovable: true, unSortIcon: true },
