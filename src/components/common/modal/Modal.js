@@ -11,7 +11,7 @@ const Modal = (props) => {
       onClose={props.handleClose}
       open={props.open}
       fullWidth
-      maxWidth={props?.maxWidth || "sm"}
+      maxWidth={props?.maxWidth || "md"}
       style={{ height: '600px' }}
     >
       <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">

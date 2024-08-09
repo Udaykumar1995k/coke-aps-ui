@@ -12,18 +12,19 @@ const stepStyle = {
   maxWidth: "650px",
   margin: "0 auto",
   "& .Mui-active": {
-    "&.MuiStepIcon-root": {
+    "&.MuiSvgIcon-root": {
       color: "#000",
     },
   },
   "& .Mui-completed": {
-    "&.MuiStepIcon-root": {
-      color: "gray",
+    "&.MuiSvgIcon-root": {
+      color: "gray !important",
     },
   },
 };
 
 const StepperComp = (props) => {
+
   return (
     <Box>
       <Stepper
@@ -50,9 +51,17 @@ const StepperComp = (props) => {
             formData={props.formData}
             handleDateChange={props.handleDateChange}
             scheduleAnalyticsRun={props.scheduleAnalyticsRun}
+            handleClose={props.handleClose}
+            showModal={props.showModal}
+            handleAddRows={props.handleAddRows}
+            rows={props.rows}
           />
         ) : props.activeStep === 1 ? (
-          <RunAnalytics />
+          <RunAnalytics 
+            runAnalyticsData={props.runAnalyticsData}
+            handleRunAnalyticsChange={props.handleRunAnalyticsChange}
+            showTable={props.showTable}
+          />
         ) : (
           <ViewResult />
         )}

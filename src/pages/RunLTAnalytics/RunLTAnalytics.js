@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchData } from "../../redux/actions/apiSlice";
 import { CircularProgress } from "@mui/material";
+
 import StepperComp from "../../components/Stepper/Stepper";
 import ButtonComponent from "../../components/common/button/Button";
+import { fetchData } from "../../redux/actions/apiSlice";
 
 const steps = [
   {
@@ -19,6 +20,8 @@ const steps = [
 
 const RunLTAnalytics = () => {
   const [activeStep, setActiveStep] = useState(0);
+  const [completed, setCompleted] = useState({});
+  const [showTable, setShowTable] = useState(false);
   const [formData, setFormData] = useState({
     plantSupplier: "",
     supplier: "",
@@ -34,6 +37,31 @@ const RunLTAnalytics = () => {
     toDate: null,
     filterContract: "",
   });
+  const [runAnalyticsData, setRunAnalyticsData] = useState({
+    prodCriticalItem: '',
+    materialType: ''
+  })
+  const [showModal, setShowModal] = useState(false);
+  const [rows, setRows] = useState([
+    {range: 'Range', fromDate: '', toDate: ''}
+  ])
+
+  const handleAddRows = () => {
+    setRows([...rows, { range: '', fromDate: '', toDate: '' }]);
+  };
+
+  const handleRunAnalyticsChange = (event) => {
+    setRunAnalyticsData({
+      ...runAnalyticsData,
+      [event.target.name]: event.target.value,
+    })
+  }
+
+  const handleSaveRun = (e) => {
+    e.preventDefault();
+    console.log(runAnalyticsData);
+    setShowTable(true);
+  }
 
   const handleChange = (event) => {
     // console.log("event",event, event.target.name, event.target.value)
@@ -54,6 +82,9 @@ const RunLTAnalytics = () => {
 
   const scheduleAnalyticsRun = (event) => {
     console.log("Event", event);
+    const newCompleted = completed;
+    newCompleted[activeStep] = true;
+    setCompleted(newCompleted);
   };
 
   const handleStep = (step) => () => {
@@ -63,6 +94,17 @@ const RunLTAnalytics = () => {
   const clearAll = () => {
     setFormData("");
   };
+
+  const handleClose = () => {
+    setShowModal(false);
+    setFormData({excludeRange: false})
+  }
+
+  useEffect(() => {
+    if(formData?.excludeRange){
+      setShowModal(true);
+    }
+  }, [formData.excludeRange])
 
   // this is an example for fetchData common function by axios and will be deleted once we get actual endpoint.
   const dispatch = useDispatch();
@@ -96,6 +138,14 @@ const RunLTAnalytics = () => {
               formData={formData}
               handleChange={handleChange}
               handleDateChange={handleDateChange}
+              completed={completed}
+              runAnalyticsData={runAnalyticsData}
+              handleRunAnalyticsChange={handleRunAnalyticsChange}
+              showTable={showTable}
+              handleClose={handleClose}
+              showModal={showModal}
+              handleAddRows={handleAddRows}
+              rows={rows}
             />
           </div>
           <div
@@ -130,16 +180,17 @@ const RunLTAnalytics = () => {
               {activeStep === 0 && (
                 <ButtonComponent
                   label="Run Analytics"
-                  bgColor="#fff"
-                  color="#000"
+                  bgColor="#000"
+                  color="#fff"
                   onClick={scheduleAnalyticsRun}
                 />
               )}
               {activeStep === 1 && (
                 <ButtonComponent
                   label="Save & Run"
-                  bgColor="#fff"
-                  color="#000"
+                  bgColor="#000"
+                  color="#fff"
+                  onClick={handleSaveRun}
                 />
               )}
             </div>

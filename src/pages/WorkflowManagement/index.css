@@ -75,6 +75,6 @@
   background-color:  white !important;
 }
 
-.MuiStepIcon-root {
+.workflow-status-container .MuiStepIcon-root {
   color: black !important;
 }
