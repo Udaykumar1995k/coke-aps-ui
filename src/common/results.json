@@ -1,0 +1,148 @@
+[
+    {
+      "Supplier": "Abc Inc 1",
+      "Material": "Material Y",
+      "InventoryClassification": "Material",
+      "MaterialType": "A",
+      "ShipFrom": "Ingredients",
+      "ShipTo": "Helsinki",
+      "MasterLeadTime": "40 Days",
+      "DemonstratedLeadTime": "60 Days",
+      "confidencescore": "90%",
+      "LeadTimeVariations": "High",
+      "Analyticsintiatedby": "Admin",
+      "ResultsUpdatedat": "22-Jun-24 at 20:24:00",
+      "periodOfAnalytics": "01/January/24 to 31/December/24",
+      "analayticsInitiatedBy": "Administrator(Schedulded Based)",
+      "analyticsRunId": "LT_Admin_FY24_Jun_00010"
+
+
+      
+    },
+    {
+        "Supplier": "Abc Inc 2",
+        "Material": "Material Y",
+        "InventoryClassification": "Material",
+        "MaterialType": "A",
+        "ShipFrom": "Ingredients",
+        "ShipTo": "Helsinki",
+        "MasterLeadTime": "40 Days",
+        "DemonstratedLeadTime": "66 Days",
+        "confidencescore": "90%",
+        "LeadTimeVariations": "High",
+        "Analyticsintiatedby": "Admin",
+        "ResultsUpdatedat": "23-Jun-24 at 11:24:00",
+        "periodOfAnalytics": "01/January/24 to 31/December/24",
+        "analayticsInitiatedBy": "Administrator(Schedulded Based)",
+        "analyticsRunId": "LT_Admin_FY24_Jun_00020"
+
+    },
+    {
+        "Supplier": "Abc Inc 3",
+        "Material": "Material Y",
+        "InventoryClassification": "Material",
+        "MaterialType": "A",
+        "ShipFrom": "Ingredients",
+        "ShipTo": "Helsinki",
+        "MasterLeadTime": "40 Days",
+        "DemonstratedLeadTime": "60 Days",
+        "confidencescore": "90%",
+        "LeadTimeVariations": "High",
+        "Analyticsintiatedby": "Admin",
+        "ResultsUpdatedat": "24-Jun-24 at 12:24:00",
+        "periodOfAnalytics": "01/January/24 to 31/December/24",
+         "analayticsInitiatedBy": "Administrator(Schedulded Based)",
+        "analyticsRunId": "LT_Admin_FY24_Jun_00030"
+
+    },
+    {
+        "Supplier": "Abc Inc 4",
+        "Material": "Material Y",
+        "InventoryClassification": "Material",
+        "MaterialType": "A",
+        "ShipFrom": "Ingredients",
+        "ShipTo": "Helsinki",
+        "MasterLeadTime": "40 Days",
+        "DemonstratedLeadTime": "6 Days",
+        "confidencescore": "90%",
+        "LeadTimeVariations": "High",
+        "Analyticsintiatedby": "Admin",
+        "ResultsUpdatedat": "25-Jun-24 at 19:24:00",
+        "periodOfAnalytics": "01/January/24 to 31/December/24",
+        "analayticsInitiatedBy": "Administrator(Schedulded Based)",
+        "analyticsRunId": "LT_Admin_FY24_Jun_00040"
+
+    },
+    {
+        "Supplier": "Abc Inc 5",
+        "Material": "Material Y",
+        "InventoryClassification": "Material",
+        "MaterialType": "A",
+        "ShipFrom": "Ingredients",
+        "ShipTo": "Helsinki",
+        "MasterLeadTime": "40 Days",
+        "DemonstratedLeadTime": "60 Days",
+        "confidencescore": "90%",
+        "LeadTimeVariations": "High",
+        "Analyticsintiatedby": "Admin",
+        "ResultsUpdatedat": "26-Jun-24 at 18:24:00",
+        "periodOfAnalytics": "01/January/24 to 31/December/24",
+        "analayticsInitiatedBy": "Administrator(Schedulded Based)",
+        "analyticsRunId": "LT_Admin_FY24_Jun_00050"
+
+    },
+    {
+        "Supplier": "Abc Inc 6",
+        "Material": "Material Y",
+        "InventoryClassification": "Material",
+        "MaterialType": "A",
+        "ShipFrom": "Ingredients",
+        "ShipTo": "Helsinki",
+        "MasterLeadTime": "40 Days",
+        "DemonstratedLeadTime": "6 Days",
+        "confidencescore": "90%",
+        "LeadTimeVariations": "High",
+        "Analyticsintiatedby": "Admin",
+        "ResultsUpdatedat": "27-Jun-24 at 16:24:00",
+        "periodOfAnalytics": "01/January/24 to 31/December/24",
+        "analayticsInitiatedBy": "Administrator(Schedulded Based)",
+        "analyticsRunId": "LT_Admin_FY24_Jun_00060"
+
+    },
+    {
+        "Supplier": "Abc Inc 7",
+        "Material": "Material Y",
+        "InventoryClassification": "Material",
+        "MaterialType": "A",
+        "ShipFrom": "Ingredients",
+        "ShipTo": "Helsinki",
+        "MasterLeadTime": "40 Days",
+        "DemonstratedLeadTime": "6 Days",
+        "confidencescore": "90%",
+        "LeadTimeVariations": "High",
+        "Analyticsintiatedby": "Admin",
+        "ResultsUpdatedat": "28-Jun-24 at 12:24:00",
+        "periodOfAnalytics": "01/January/24 to 31/December/24",
+        "analayticsInitiatedBy": "Administrator(Schedulded Based)",
+        "analyticsRunId": "LT_Admin_FY24_Jun_00070"
+
+    },
+    {
+        "Supplier": "Abc Inc 8",
+        "Material": "Material Y",
+        "InventoryClassification": "Material",
+        "MaterialType": "A",
+        "ShipFrom": "Ingredients",
+        "ShipTo": "Helsinki",
+        "MasterLeadTime": "40 Days",
+        "DemonstratedLeadTime": "6 Days",
+        "confidencescore": "90%",
+        "LeadTimeVariations": "High",
+        "Analyticsintiatedby": "Admin",
+        "ResultsUpdatedat": "29-Jun-24 at 11:24:00",
+        "periodOfAnalytics": "01/January/24 to 31/December/24",
+        "analayticsInitiatedBy": "Administrator(Schedulded Based)",
+        "analyticsRunId": "LT_Admin_FY24_Jun_00080"
+
+    }
+]

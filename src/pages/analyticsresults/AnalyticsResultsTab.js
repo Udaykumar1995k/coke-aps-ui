@@ -4,11 +4,14 @@ import ButtonComponent from '../../components/common/button/Button';
 import TabSection from '../../components/common/TabSection';
 import Dropdown from '../../components/common/Dropdown';
 import { useState } from 'react';
+import {useLocation } from "react-router-dom";
 const AnalyticsResultsTab = (props) =>{
     const [value, setValue] = useState(0);
     const handleChange = (event, newValue) => {
         setValue(newValue);
       };
+      const {state} = useLocation();
+      console.log("stateData",state)
     const [formData, setFormData] = useState({
         supplier: '',
         material: '',
@@ -25,21 +28,21 @@ const AnalyticsResultsTab = (props) =>{
             <div className="analytic-results">
                 <div className="result-item">
                     <span className="analytics-text">Period Consider for Analytics</span>
-                    <p >{props?.periodOfAnalytics}</p>
+                    <p >{state?.periodOfAnalytics}</p>
                 </div>
                 <div className="result-item">
                     <span className="analytics-text">Analytics Initiated by</span>
-                    <p >{props?.analayticsInitiatedBy}</p>
+                    <p >{state?.analayticsInitiatedBy}</p>
                 </div>
                 <div className="result-item">
                     <span className="analytics-text">Analytics Run Unique ID</span>
-                    <p >{props?.analyticsRunId}</p>
+                    <p >{state?.analyticsRunId}</p>
                 </div>
             
             </div>
             <div className="input-details">
                 <p>
-                    <a style={{color:"black"}} href={props?.link || "#"}>Click Here</a> to View the Complete Input Details
+                    <a style={{color:"black"}} href="#">Click Here</a> to View the Complete Input Details
                 </p>
             </div >
         </div>

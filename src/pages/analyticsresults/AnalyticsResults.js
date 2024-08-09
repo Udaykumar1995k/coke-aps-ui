@@ -3,159 +3,34 @@ import DataTable from "../../components/common/datatable/DataTable";
 import ActionInput from "../../components/common/actioninput/ActionInputField";
 import ButtonComponent from "../../components/common/button/Button";
 import Dropdown from "../../components/common/Dropdown";
+import { useNavigate } from "react-router-dom";
 import "./AnalyticsResults.css";
+import results from '../../common/results.json'
+import { ConfidenceScore, ConfidenceScoreFooter } from "./ConfidenceScore";
+import Modal from "../../components/common/modal/Modal";
+
+const ConfidenceScoreModal = (props) =>{
+  const [showPopup, setPopUp]  = useState(false);
+  const onhandlePopup = () =>{
+    setPopUp(true)
+    }
+ const onClosePopup = () =>{
+    setPopUp(false)
+  }
+  return(
+  <div>
+    <span  href="#" style={{textDecoration:"underline",cursor:"pointer"}} onClick={onhandlePopup}>{props.value}</span>
+    <Modal  open={showPopup} handleClose={onClosePopup} content={<ConfidenceScore/>} action={<ConfidenceScoreFooter />} />
+    </div>
+    )
+}
 const AnalyticsResults = () => {
   const pagination = true;
   const paginationPageSize = 10;
   const paginationPageSizeSelector = [10, 20, 30, 50, 100];
-
-
-  const [regularItems] = useState([
-    {
-      Supplier: "Abc Inc",
-      Material: "Material Y",
-      InventoryClassification: "Material",
-      MaterialType: "A",
-      ShipFrom: "Ingredients",
-      ShipTo: "Helsinki",
-      MasterLT: "Ballina",
-      DemonstratedLT: "6 days",
-      confidencescore: "60 days",
-      LTVariations: "60 days",
-      Analyticsintiatedby: "90%",
-      ViewInputDetails: "High",
-      FinalLTtobeupdatedinS4: "Admin",
-      Details: <ButtonComponent label="Details" />,
-    },
-    {
-      Supplier: "Abc Inc",
-      Material: "Material Y",
-      InventoryClassification: "Material",
-      MaterialType: "A",
-      ShipFrom: "Ingredients",
-      ShipTo: "Helsinki",
-      MasterLT: "Ballina",
-      DemonstratedLT: "6 days",
-      confidencescore: "60 days",
-      LTVariations: "60 days",
-      Analyticsintiatedby: "90%",
-      ViewInputDetails: "High",
-      FinalLTtobeupdatedinS4: "Admin",
-      Details: <ButtonComponent label="Details" />,
-    },
-    {
-      Supplier: "Abc Inc",
-      Material: "Material Y",
-      InventoryClassification: "Material",
-      MaterialType: "A",
-      ShipFrom: "Ingredients",
-      ShipTo: "Helsinki",
-      MasterLT: "Ballina",
-      DemonstratedLT: "6 days",
-      confidencescore: "60 days",
-      LTVariations: "60 days",
-      Analyticsintiatedby: "90%",
-      ViewInputDetails: "High",
-      FinalLTtobeupdatedinS4: "Admin",
-      Details: <ButtonComponent label="Details" />,
-    },
-    {
-      Supplier: "Abc Inc",
-      Material: "Material Y",
-      InventoryClassification: "Material",
-      MaterialType: "A",
-      ShipFrom: "Ingredients",
-      ShipTo: "Helsinki",
-      MasterLT: "Ballina",
-      DemonstratedLT: "6 days",
-      confidencescore: "60 days",
-      LTVariations: "60 days",
-      Analyticsintiatedby: "90%",
-      ViewInputDetails: "High",
-      FinalLTtobeupdatedinS4: "Admin",
-      Details: <ButtonComponent label="Details" />,
-    },
-    {
-      Supplier: "Abc Inc",
-      Material: "Material Y",
-      InventoryClassification: "Material",
-      MaterialType: "A",
-      ShipFrom: "Ingredients",
-      ShipTo: "Helsinki",
-      MasterLT: "Ballina",
-      DemonstratedLT: "6 days",
-      confidencescore: "60 days",
-      LTVariations: "60 days",
-      Analyticsintiatedby: "90%",
-      ViewInputDetails: "High",
-      FinalLTtobeupdatedinS4: "Admin",
-      Details: <ButtonComponent label="Details" />,
-    },
-    {
-      Supplier: "Abc Inc",
-      Material: "Material Y",
-      InventoryClassification: "Material",
-      MaterialType: "A",
-      ShipFrom: "Ingredients",
-      ShipTo: "Helsinki",
-      MasterLT: "Ballina",
-      DemonstratedLT: "6 days",
-      confidencescore: "60 days",
-      LTVariations: "60 days",
-      Analyticsintiatedby: "90%",
-      ViewInputDetails: "High",
-      FinalLTtobeupdatedinS4: "Admin",
-      Details: <ButtonComponent label="Details" />,
-    },
-    {
-      Supplier: "Abc Inc",
-      Material: "Material Y",
-      InventoryClassification: "Material",
-      MaterialType: "A",
-      ShipFrom: "Ingredients",
-      ShipTo: "Helsinki",
-      MasterLT: "Ballina",
-      DemonstratedLT: "6 days",
-      confidencescore: "60 days",
-      LTVariations: "60 days",
-      Analyticsintiatedby: "90%",
-      ViewInputDetails: "High",
-      FinalLTtobeupdatedinS4: "Admin",
-      Details: <ButtonComponent label="Details" />,
-    },
-    {
-      Supplier: "Abc Inc",
-      Material: "Material Y",
-      InventoryClassification: "Material",
-      MaterialType: "A",
-      ShipFrom: "Ingredients",
-      ShipTo: "Helsinki",
-      MasterLT: "Ballina",
-      DemonstratedLT: "6 days",
-      confidencescore: "60 days",
-      LTVariations: "60 days",
-      Analyticsintiatedby: "90%",
-      ViewInputDetails: "High",
-      FinalLTtobeupdatedinS4: "Admin",
-      Details: <ButtonComponent label="Details" />,
-    },
-    {
-      Supplier: "Abc Inc",
-      Material: "Material Y",
-      InventoryClassification: "Material",
-      MaterialType: "A",
-      ShipFrom: "Ingredients",
-      ShipTo: "Helsinki",
-      MasterLT: "Ballina",
-      DemonstratedLT: "6 days",
-      confidencescore: "60 days",
-      LTVariations: "60 days",
-      Analyticsintiatedby: "90%",
-      ViewInputDetails: "High",
-      FinalLTtobeupdatedinS4: "Admin",
-      Details: <ButtonComponent label="Details" />,
-    },
-  ]);
+  const navigate = useNavigate();
+ 
+  const [regularItems] = useState(results);
 
   const [regularItemsData] = useState([
     {
@@ -189,18 +64,26 @@ const AnalyticsResults = () => {
     { field: "MaterialType", resizable: false, suppressMovable: true, unSortIcon: true },
     { field: "ShipFrom", resizable: false, suppressMovable: true, unSortIcon: true },
     { field: "ShipTo", resizable: false, suppressMovable: true, unSortIcon: true },
-    { field: "MasterLT", resizable: false, suppressMovable: true, unSortIcon: true },
-    { field: "DemonstratedLT", resizable: false, suppressMovable: true, unSortIcon: true },
-    { field: "confidencescore", resizable: false, suppressMovable: true, unSortIcon: true },
-    { field: "LTVariations", resizable: false, suppressMovable: true, unSortIcon: true },
-    { field: "Analyticsintiatedby", resizable: false, suppressMovable: true, unSortIcon: true },
-    { field: "ViewInputDetails", resizable: false, suppressMovable: true, unSortIcon: true },
-    {
-      field: "FinalLTtobeupdatedinS4",
-      lockPinned: true,
-      suppressMovable: true,
-      unSortIcon: true
+    { field: "MasterLeadTime", resizable: false, suppressMovable: true, unSortIcon: true },
+    { field: "DemonstratedLeadTime", resizable: false, suppressMovable: true, unSortIcon: true,
+    cellRenderer: (response) => (
+      <div>
+        {" "}
+        <span style={{textDecoration:"underline", cursor:"pointer"}} onClick={()=>navigate('/material_details',{state:response.data})} >{response.value}</span>
+      </div>
+    )
+   },
+    { field: "confidencescore", resizable: false, suppressMovable: true, unSortIcon: true,
+      cellRenderer: (response) =>(
+        <div>
+          {" "}
+          <ConfidenceScoreModal value={response.value}/>
+        </div>
+      )
     },
+    { field: "LeadTimeVariations", resizable: false, suppressMovable: true, unSortIcon: true },
+    { field: "Analyticsintiatedby", resizable: false, suppressMovable: true, unSortIcon: true },
+    { field: "ResultsUpdatedat", resizable: false, suppressMovable: true, unSortIcon: true },
     {
       field: "Details",
       suppressMovable: true,
