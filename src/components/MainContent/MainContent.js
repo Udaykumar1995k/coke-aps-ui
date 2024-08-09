@@ -41,10 +41,10 @@ const MainContent = (props) => {
                   }
                 >
                   <ListItemButton
-                    selected={item.path === location.pathname}
+                    selected={item.path === location.pathname || item.path}
                     style={{
                       backgroundColor:
-                        item.path === location.pathname ? "#717171" : "#aaaaaa",
+                        item.path === location.pathname || location.pathname ==="/material_details"&&item.path==="/analytics-results" ? "#717171" : "#aaaaaa",
                     }}
                     className="listButtonSection"
                   >

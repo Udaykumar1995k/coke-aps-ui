@@ -60,13 +60,6 @@ function App() {
       label: "Workflow Management",
       icon: <SettingsIcon />,
       title: "Workflow Management"
-    },
-    {
-      id: 6,
-      path: "/material_details",
-      label: "LT Analytics Results",
-      icon: <SettingsIcon />,
-      title: "Material Details"
     }
   ];
 
