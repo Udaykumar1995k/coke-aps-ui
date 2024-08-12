@@ -69,6 +69,7 @@ const RunLTAnalytics = () => {
   const handleSaveRun = (e) => {
     e.preventDefault();
     setShowTable(true);
+    console.log('runAnalyticsData', runAnalyticsData)
   }
 
   const handleChange = (event) => {
@@ -98,8 +99,12 @@ const RunLTAnalytics = () => {
     setActiveStep(step);
   };
 
-  const clearAll = () => {
+  const clearAllInputSelection = () => {
     setFormData("");
+  };
+
+  const clearRunAnalytics = () => {
+    setRunAnalyticsData("");
   };
 
   const handleClose = () => {
@@ -165,7 +170,7 @@ const RunLTAnalytics = () => {
               marginBottom: "30px",
             }}
           >
-            <div>
+            <div style={{display: activeStep === 2 && 'none'}}>
               <ButtonComponent
                 label="Back"
                 bgColor="#fff"
@@ -184,7 +189,7 @@ const RunLTAnalytics = () => {
                 label="Clear All"
                 bgColor="#fff"
                 color="#000"
-                onClick={clearAll}
+                onClick={activeStep === 0 ? clearAllInputSelection : clearRunAnalytics}
               />
               {activeStep === 0 && (
                 <ButtonComponent

@@ -13,8 +13,13 @@
     min-height: 80vh;
 }
 .sidebar {
-    width: 8%;
+    width: 100%;
+    max-width: 100px;
     background-color: #aaaaaa;
+}
+.sidebar>ul {
+    position: fixed;
+    max-width: 100px;
 }
 .content {
     width: 100%;
