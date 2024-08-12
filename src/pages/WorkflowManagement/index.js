@@ -8,7 +8,7 @@ import Cards from "../../components/common/card/Card";
 import DataTable from "../../components/common/datatable/DataTable";
 import { WorkFlowStatus,WorkFlowStatusFooter } from "./WorkFlowStatus";
 
-const WorkFlowStatusModel = () => {
+const WorkFlowStatusModel = (props) => {
   
   const [state, setState] = useState('');
   const [showPopup, setPopUp]  = useState(false);
@@ -36,7 +36,7 @@ const WorkFlowStatusModel = () => {
    }
   return (
       <div >
-          <a style={{color:"black"}} href="#" onClick={onhandlePopup}>Current Status</a>
+          <a style={{color:"black"}} href="#" onClick={onhandlePopup}>{props.value}</a>
           <Modal open={showPopup} handleClose={onClosePopup} title="Current Status"  action = {<WorkFlowStatusFooter/>} content={<WorkFlowStatus steps={stepData} state={state}/>} maxWidth="lg"/>
       </div>
   )
@@ -67,7 +67,7 @@ const AnalyticsResults = ({onhandleClick}) => {
       ViewInputDetails: "High",
       FinalLTtobeupdatedinS4: "Admin",
       Details: <ButtonComponent label="Details" />,
-      CurrentStatus: <WorkFlowStatusModel/>,
+      CurrentStatus: "Rejected by approver2",
     },
     {
       Supplier: "Abc Inc",
@@ -84,6 +84,8 @@ const AnalyticsResults = ({onhandleClick}) => {
       ViewInputDetails: "High",
       FinalLTtobeupdatedinS4: "Admin",
       Details: <ButtonComponent label="Details" />,
+      CurrentStatus: "Rejected by approver2",
+
     },
     {
       Supplier: "Abc Inc",
@@ -100,6 +102,7 @@ const AnalyticsResults = ({onhandleClick}) => {
       ViewInputDetails: "High",
       FinalLTtobeupdatedinS4: "Admin",
       Details: <ButtonComponent label="Details" />,
+      CurrentStatus: "Rejected by approver2",
     },
     {
       Supplier: "Abc Inc",
@@ -116,6 +119,7 @@ const AnalyticsResults = ({onhandleClick}) => {
       ViewInputDetails: "High",
       FinalLTtobeupdatedinS4: "Admin",
       Details: <ButtonComponent label="Details" />,
+      CurrentStatus: "Rejected by approver2",
     },
     {
       Supplier: "Abc Inc",
@@ -132,6 +136,7 @@ const AnalyticsResults = ({onhandleClick}) => {
       ViewInputDetails: "High",
       FinalLTtobeupdatedinS4: "Admin",
       Details: <ButtonComponent label="Details" />,
+      CurrentStatus: "Rejected by approver2",
     },
     {
       Supplier: "Abc Inc",
@@ -148,6 +153,7 @@ const AnalyticsResults = ({onhandleClick}) => {
       ViewInputDetails: "High",
       FinalLTtobeupdatedinS4: "Admin",
       Details: <ButtonComponent label="Details" />,
+      CurrentStatus: "Rejected by approver2",
     },
     {
       Supplier: "Abc Inc",
@@ -164,6 +170,7 @@ const AnalyticsResults = ({onhandleClick}) => {
       ViewInputDetails: "High",
       FinalLTtobeupdatedinS4: "Admin",
       Details: <ButtonComponent label="Details" />,
+      CurrentStatus: "Rejected by approver2",
     },
     {
       Supplier: "Abc Inc",
@@ -180,6 +187,7 @@ const AnalyticsResults = ({onhandleClick}) => {
       ViewInputDetails: "High",
       FinalLTtobeupdatedinS4: "Admin",
       Details: <ButtonComponent label="Details" />,
+      CurrentStatus: "Rejected by approver2",
     },
     {
       Supplier: "Abc Inc",
@@ -196,6 +204,7 @@ const AnalyticsResults = ({onhandleClick}) => {
       ViewInputDetails: "High",
       FinalLTtobeupdatedinS4: "Admin",
       Details: <ButtonComponent label="Details" />,
+      CurrentStatus: "Rejected by approver2",
     },
   ]);
 
@@ -243,19 +252,14 @@ const AnalyticsResults = ({onhandleClick}) => {
       suppressMovable: true,
       unSortIcon: true
     },
-    {
-      field: "CurrentStatus",
-      suppressMovable: true,
-      cellRenderer: () => (
+    { field: "CurrentStatus", resizable: false, suppressMovable: true, unSortIcon: true,
+      cellRenderer: (response) => (
         <div >
-          <WorkFlowStatusModel />
+          {console.log("response", response)}
+          <WorkFlowStatusModel  value={response.value}/>
         </div>
       ),
-      pinned: "right",
-      width: 120,
-      lockPinned: true,
-      resizable: false,
-    },
+     },
     {
       field: "Details",
       suppressMovable: true,
