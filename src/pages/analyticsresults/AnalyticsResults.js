@@ -34,14 +34,6 @@ const AnalyticsResults = () => {
 
   const [regularItemsData] = useState([
     {
-      headerCheckboxSelection: true,
-      checkboxSelection: true,
-      pinned: "left",
-      width: 50,
-      lockPinned: true,
-      suppressMovable: true,
-    },
-    {
       field: "Supplier",
       sortable: true,
       lockPinned: true,
