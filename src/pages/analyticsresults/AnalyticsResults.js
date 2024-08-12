@@ -20,7 +20,7 @@ const ConfidenceScoreModal = (props) =>{
   return(
   <div>
     <span  href="#" style={{textDecoration:"underline",cursor:"pointer"}} onClick={onhandlePopup}>{props.value}</span>
-    <Modal  open={showPopup} handleClose={onClosePopup} content={<ConfidenceScore/>} action={<ConfidenceScoreFooter />} />
+    <Modal title="Confidence Score" open={showPopup} handleClose={onClosePopup} content={<ConfidenceScore/>} action={<ConfidenceScoreFooter />} maxWidth="sm" />
     </div>
     )
 }
