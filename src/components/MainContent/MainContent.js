@@ -73,40 +73,6 @@ const MainContent = (props) => {
           </div>
           <div className="content">
             <div>
-              <div>
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    fontSize: 12,
-                    padding: 10,
-                  }}
-                >
-                  <div>
-                    <BreadcrumbLink labelList={[{title:'Home',path:'/landing-page'},{title:'Analytics Results',path:'/analytics-results'},{title:'Results'}]}/>
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      fontSize: 12,
-                    }}
-                  >Last updated : 12/07/2024</div>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    fontSize: 22,
-                    fontWeight: "bold",
-                    padding: '10px 0px',
-                  }}
-                >
-                  <div style={{ marginRight: 10, fontSize: "large" }}>
-                    <ArrowBackIcon />
-                  </div>
-                  <div>Lead Time Analytics - {tabDetails?.title}</div>
-                </div>
-              </div>
               <Outlet />
             </div>
           </div>

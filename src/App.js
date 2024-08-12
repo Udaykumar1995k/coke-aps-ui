@@ -45,7 +45,7 @@ function App() {
       path: "/run-analytics",
       label: "Run LT analytics",
       icon: <DashboardIcon />,
-      title: "LT Analytics"
+      title: "Run LT Analytics"
     },
     {
       id: 4,
