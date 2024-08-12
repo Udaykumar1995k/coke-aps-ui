@@ -5,6 +5,7 @@ import TabSection from '../../components/common/TabSection';
 import Dropdown from '../../components/common/Dropdown';
 import { useState } from 'react';
 import {useLocation } from "react-router-dom";
+import TopSection from '../TopSection';
 const AnalyticsResultsTab = (props) =>{
     const [value, setValue] = useState(0);
     const handleChange = (event, newValue) => {
@@ -24,6 +25,7 @@ const AnalyticsResultsTab = (props) =>{
     }
     return (
     <div>
+        <TopSection labelList={[{ title: 'Home', path: '/landing-page' }, { title: 'Analytics Results', path: '/analytics-results' }, { title: 'Results' }]} />
         <div className="analytic-results-tab">
             <div className="analytic-results">
                 <div className="result-item">

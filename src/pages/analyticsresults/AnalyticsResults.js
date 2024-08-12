@@ -8,6 +8,7 @@ import "./AnalyticsResults.css";
 import results from '../../common/results.json'
 import { ConfidenceScore, ConfidenceScoreFooter } from "./ConfidenceScore";
 import Modal from "../../components/common/modal/Modal";
+import TopSection from "../TopSection";
 
 const ConfidenceScoreModal = (props) =>{
   const [showPopup, setPopUp]  = useState(false);
@@ -33,14 +34,6 @@ const AnalyticsResults = () => {
   const [regularItems] = useState(results);
 
   const [regularItemsData] = useState([
-    {
-      headerCheckboxSelection: true,
-      checkboxSelection: true,
-      pinned: "left",
-      width: 50,
-      lockPinned: true,
-      suppressMovable: true,
-    },
     {
       field: "Supplier",
       sortable: true,
@@ -102,6 +95,7 @@ const AnalyticsResults = () => {
 
   return (
     <div>
+      <TopSection labelList={[{ title: 'Home', path: '/landing-page' }, { title: 'Analytics Results'}]}/>
     <div
       style={{
         border: "1px solid lightgrey",

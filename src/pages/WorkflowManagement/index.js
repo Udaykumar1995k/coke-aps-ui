@@ -6,50 +6,51 @@ import './index.css'
 import ApprovalCard from "./ApprovalCard";
 import Cards from "../../components/common/card/Card";
 import DataTable from "../../components/common/datatable/DataTable";
-import { WorkFlowStatus,WorkFlowStatusFooter } from "./WorkFlowStatus";
+import { WorkFlowStatus, WorkFlowStatusFooter } from "./WorkFlowStatus";
+import TopSection from "../TopSection";
 
-const WorkFlowStatusModel = () => {
-  
+const WorkFlowStatusModel = (props) => {
+
   const [state, setState] = useState('');
-  const [showPopup, setPopUp]  = useState(false);
-  const stepData  = [
-      {label:"WorkFlow Creations",date: "15-July-2024",process:"WorkFlow Initiated",actionPerformed:"Sam Arnold",createdBy:"15-July-2024 13:30:00",status:"Initiated", remarks:" - -",currentState:"completed",completed:true},
-      {label:"Level1 Approval",date: "16-July-2024",process:"Approved approver",actionPerformed:"Sam Arnold",createdBy:"15-July-2024 13:30:00",status:"Initiated", remarks:" - -",currentState:"completed",completed:true},
-      {label:"Level2 Approval",date: "17-July-2024",process:"Rejected",actionPerformed:"Sam Arnold",createdBy:"15-July-2024 13:30:00",status:"Initiated", remarks:" - -",currentState:"rejected",completed:true},
-      {label:"WorkFlow Reintiated",date: "18-July-2024",process:"WorkFlow Reinitiated",actionPerformed:"Sam Arnold",createdBy:"15-July-2024 13:30:00",status:"Initiated", remarks:" - -",currentState:"pending",completed:true}
+  const [showPopup, setPopUp] = useState(false);
+  const stepData = [
+    { label: "WorkFlow Creations", date: "15-July-2024", process: "WorkFlow Initiated", actionPerformed: "Sam Arnold", createdBy: "15-July-2024 13:30:00", status: "Initiated", remarks: " - -", currentState: "completed", completed: true },
+    { label: "Level1 Approval", date: "16-July-2024", process: "Approved approver", actionPerformed: "Sam Arnold", createdBy: "15-July-2024 13:30:00", status: "Initiated", remarks: " - -", currentState: "completed", completed: true },
+    { label: "Level2 Approval", date: "17-July-2024", process: "Rejected", actionPerformed: "Sam Arnold", createdBy: "15-July-2024 13:30:00", status: "Initiated", remarks: " - -", currentState: "rejected", completed: true },
+    { label: "WorkFlow Reintiated", date: "18-July-2024", process: "WorkFlow Reinitiated", actionPerformed: "Sam Arnold", createdBy: "15-July-2024 13:30:00", status: "Initiated", remarks: " - -", currentState: "pending", completed: true }
 
   ]
-  useEffect(()=>{
-      let currentState = stepData.findIndex(data => data.currentState === "pending")
-      if(currentState !== -1){
+  useEffect(() => {
+    let currentState = stepData.findIndex(data => data.currentState === "pending")
+    if (currentState !== -1) {
       setState(currentState)
-      }
-      else{
-        setState(stepData.length)
-      }
- });
-  const onhandlePopup = () =>{
-      setPopUp(true)
+    }
+    else {
+      setState(stepData.length)
+    }
+  });
+  const onhandlePopup = () => {
+    setPopUp(true)
   }
-   const onClosePopup = () =>{
-      setPopUp(false)
-   }
+  const onClosePopup = () => {
+    setPopUp(false)
+  }
   return (
-      <div >
-          <a style={{color:"black"}} href="#" onClick={onhandlePopup}>Current Status</a>
-          <Modal open={showPopup} handleClose={onClosePopup} title="Current Status"  action = {<WorkFlowStatusFooter/>} content={<WorkFlowStatus steps={stepData} state={state}/>} maxWidth="lg"/>
-      </div>
+    <div >
+      <a style={{ color: "black" }} href="#" onClick={onhandlePopup}>{props.value}</a>
+      <Modal open={showPopup} handleClose={onClosePopup} title="Current Status" action={<WorkFlowStatusFooter />} content={<WorkFlowStatus steps={stepData} state={state} />} maxWidth="lg" />
+    </div>
   )
 }
-const AnalyticsResults = ({onhandleClick}) => {
+const AnalyticsResults = ({ onhandleClick }) => {
   const pagination = true;
   const paginationPageSize = 10;
   const paginationPageSizeSelector = [10, 20, 30, 50, 100];
 
-  const onRowSelected = (params) =>{
+  const onRowSelected = (params) => {
     const isChecked = params.node.selected;
     onhandleClick(isChecked);
-    
+
   }
   const [regularItems] = useState([
     {
@@ -67,7 +68,7 @@ const AnalyticsResults = ({onhandleClick}) => {
       ViewInputDetails: "High",
       FinalLTtobeupdatedinS4: "Admin",
       Details: <ButtonComponent label="Details" />,
-      CurrentStatus: <WorkFlowStatusModel/>,
+      CurrentStatus: "Rejected by approver2",
     },
     {
       Supplier: "Abc Inc",
@@ -84,6 +85,8 @@ const AnalyticsResults = ({onhandleClick}) => {
       ViewInputDetails: "High",
       FinalLTtobeupdatedinS4: "Admin",
       Details: <ButtonComponent label="Details" />,
+      CurrentStatus: "Rejected by approver2",
+
     },
     {
       Supplier: "Abc Inc",
@@ -100,6 +103,7 @@ const AnalyticsResults = ({onhandleClick}) => {
       ViewInputDetails: "High",
       FinalLTtobeupdatedinS4: "Admin",
       Details: <ButtonComponent label="Details" />,
+      CurrentStatus: "Rejected by approver2",
     },
     {
       Supplier: "Abc Inc",
@@ -116,6 +120,7 @@ const AnalyticsResults = ({onhandleClick}) => {
       ViewInputDetails: "High",
       FinalLTtobeupdatedinS4: "Admin",
       Details: <ButtonComponent label="Details" />,
+      CurrentStatus: "Rejected by approver2",
     },
     {
       Supplier: "Abc Inc",
@@ -132,6 +137,7 @@ const AnalyticsResults = ({onhandleClick}) => {
       ViewInputDetails: "High",
       FinalLTtobeupdatedinS4: "Admin",
       Details: <ButtonComponent label="Details" />,
+      CurrentStatus: "Rejected by approver2",
     },
     {
       Supplier: "Abc Inc",
@@ -148,6 +154,7 @@ const AnalyticsResults = ({onhandleClick}) => {
       ViewInputDetails: "High",
       FinalLTtobeupdatedinS4: "Admin",
       Details: <ButtonComponent label="Details" />,
+      CurrentStatus: "Rejected by approver2",
     },
     {
       Supplier: "Abc Inc",
@@ -164,6 +171,7 @@ const AnalyticsResults = ({onhandleClick}) => {
       ViewInputDetails: "High",
       FinalLTtobeupdatedinS4: "Admin",
       Details: <ButtonComponent label="Details" />,
+      CurrentStatus: "Rejected by approver2",
     },
     {
       Supplier: "Abc Inc",
@@ -180,6 +188,7 @@ const AnalyticsResults = ({onhandleClick}) => {
       ViewInputDetails: "High",
       FinalLTtobeupdatedinS4: "Admin",
       Details: <ButtonComponent label="Details" />,
+      CurrentStatus: "Rejected by approver2",
     },
     {
       Supplier: "Abc Inc",
@@ -196,6 +205,7 @@ const AnalyticsResults = ({onhandleClick}) => {
       ViewInputDetails: "High",
       FinalLTtobeupdatedinS4: "Admin",
       Details: <ButtonComponent label="Details" />,
+      CurrentStatus: "Rejected by approver2",
     },
   ]);
 
@@ -244,17 +254,13 @@ const AnalyticsResults = ({onhandleClick}) => {
       unSortIcon: true
     },
     {
-      field: "CurrentStatus",
-      suppressMovable: true,
-      cellRenderer: () => (
+      field: "CurrentStatus", resizable: false, suppressMovable: true, unSortIcon: true,
+      cellRenderer: (response) => (
         <div >
-          <WorkFlowStatusModel />
+          {console.log("response", response)}
+          <WorkFlowStatusModel value={response.value} />
         </div>
       ),
-      pinned: "right",
-      width: 120,
-      lockPinned: true,
-      resizable: false,
     },
     {
       field: "Details",
@@ -262,7 +268,7 @@ const AnalyticsResults = ({onhandleClick}) => {
       cellRenderer: () => (
         <div className="btn-wrapper">
           {" "}
-          <ButtonComponent  type="secondary" label="Details" />
+          <ButtonComponent type="secondary" label="Details" />
         </div>
       ),
       pinned: "right",
@@ -270,42 +276,42 @@ const AnalyticsResults = ({onhandleClick}) => {
       lockPinned: true,
       resizable: false,
     },
-    
+
   ]);
 
   return (
     <div>
-    <div
-      style={{
-        border: "1px solid lightgrey",
-        borderRadius: "6px",
-        padding: "10px",
-      }}
-    >
-      <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-        <div
-          style={{
-            display: "flex"
-          }}
-        >
-          <div style={{ width: "30%" }}>
-            <ActionInput icon={"search"} position={"left"} props={{ height: "40px" }} />
+      <div
+        style={{
+          border: "1px solid lightgrey",
+          borderRadius: "6px",
+          padding: "10px",
+        }}
+      >
+        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+          <div
+            style={{
+              display: "flex"
+            }}
+          >
+            <div style={{ width: "30%" }}>
+              <ActionInput icon={"search"} position={"left"} props={{ height: "40px" }} />
+            </div>
           </div>
-        </div>
-        <div>
-          <DataTable
-            columns={regularItemsData}
-            rows={regularItems}
-            pagination={pagination}
-            paginationPageSize={paginationPageSize}
-            paginationPageSizeSelector={paginationPageSizeSelector}
-            enableCheckbox={true}
-            onRowSelected={onRowSelected}
-          />
+          <div>
+            <DataTable
+              columns={regularItemsData}
+              rows={regularItems}
+              pagination={pagination}
+              paginationPageSize={paginationPageSize}
+              paginationPageSizeSelector={paginationPageSizeSelector}
+              enableCheckbox={true}
+              onRowSelected={onRowSelected}
+            />
+          </div>
         </div>
       </div>
     </div>
-</div>
   );
 };
 const FooterButtons = () => {
@@ -341,32 +347,18 @@ const ModalContent = () => {
       setApprovalCardsData([...approvalCardsData, newApprover]);
     }
   };
+  const onHandleDeleteIcon = (index) =>{
+    const newData = approvalCardsData.filter((data,i) => i!==index && data)
+    setApprovalCardsData(newData);
+  }
 
   return (
     <>
-      <div className='approval-items-wrapper '>
-        <label style={{ marginTop: '8px', fontSize: '14px' }}>No.of Line Items for Approval
-        </label><ActionInput props={{ height: "30px", maxWidth: "70px", value: '4' }} />
-      </div>
-      <div className='approval-wrapper'>
-        <div className='approver-header'>
-          <label className='label-size'>Level</label>
-          <label className='label-size' style={{ marginLeft: '10px' }}>Approver Name</label>
-          <label className='label-size' style={{ marginLeft: '85px' }}>Email ID</label>
-        </div>
-        {approvalCardsData && approvalCardsData.map((approver, index) => (
-          <ApprovalCard key={index} approver={approver} />
-        ))}
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '80px' }}>
-        <ButtonComponent
-          maxWidth="170px"
-          label="Add Approver"
-          bgColor="white"
-          color="black"
-          onClick={addApprover}
-        /></div>
-      <div><label style={{ fontSize: '14px' }}>Comments</label> <ActionInput props={{ height: "65px", maxWidth: "400px" }} placeholder='Kindly check the Lead time and approve.' /></div>
+      <ApprovalCard 
+      approver={approvalCardsData}  
+      props={{addApprover:addApprover,
+      deleteApprover:onHandleDeleteIcon }}/>
+
     </>
   )
 };
@@ -374,7 +366,7 @@ const ModalContent = () => {
 const WorkflowManagement = () => {
   const [isChecked, setChecked] = useState(false);
   const [open, setOpen] = useState(false);
-  const onhandleClick = (checked) =>{
+  const onhandleClick = (checked) => {
     setChecked(checked);
   }
   const handleClickOpen = () => {
@@ -383,36 +375,39 @@ const WorkflowManagement = () => {
   const handleClose = () => {
     setOpen(false);
   };
-  const cardData =[{title:"Pending Action", description:"Materials - Supplier - Plant", value:32},{title:"Pending Approval",  description:"Pending Approval / Rejected by Approver",value:28},{title:"Closed Workflow Items", value:50}]
+  const cardData = [{ title: "Pending Action", description: "Materials - Supplier - Plant", value: 32 }, { title: "Pending Approval", description: "Pending Approval / Rejected by Approver", value: 28 }, { title: "Closed Workflow Items", value: 50 }]
   return (
-    <div className="workflow-management-container">
-      <div className="card-container">
-        <Cards cards={cardData}/>
-      </div>
-      <div>  
-        <h5>Pending Action</h5>  
+    <>
+      <TopSection labelList={[{ title: 'Home', path: '/landing-page' }, { title: 'Workflow Management' }]} />
+      <div className="workflow-management-container">
+        <div className="card-container">
+          <Cards cards={cardData} />
+        </div>
         <div>
-          <AnalyticsResults onhandleClick ={onhandleClick}/>
+          <h5>Pending Action</h5>
+          <div>
+            <AnalyticsResults onhandleClick={onhandleClick} />
+          </div>
+          <p>Remarks for Acceptance / Rejection*</p>
+          <ActionInput className="text-input" placeholder="Enter the Remarks" props={{ height: "45px", maxWidth: "250px", disabled: !isChecked }} />
+          <div className="approval-item-container">
+            <div style={{ width: "30%", marginTop: '20px' }}>
+              <ButtonComponent maxWidth="100px" label="Back" bgColor="white" color="black" />
+            </div>
+            <div className="approval-item-container button-alignment">
+              <ButtonComponent type="primary" maxWidth="300px" label="Reject" disabled={!isChecked} />
+              <ButtonComponent disabled={!isChecked}
+                maxWidth="170px"
+                label="Send for Approval"
+                bgColor="black"
+                onClick={handleClickOpen}
+              />
+              <Modal open={open} handleClose={handleClose} title="Workflow Approval" action={<FooterButtons />} content={<ModalContent />} maxWidth="sm"/>        </div>
+          </div>
+
         </div>
-        <p>Remarks for Acceptance / Rejection*</p>
-        <ActionInput  className="text-input" placeholder="Enter the Remarks" props={{ height:"45px", maxWidth:"250px", disabled: !isChecked}} />
-        <div  className="approval-item-container">
-        <div  style={{width:"30%", marginTop:'20px'}}>
-          <ButtonComponent maxWidth="100px" label="Back" bgColor="white" color="black"/>
-        </div>
-        <div className="approval-item-container button-alignment">
-            <ButtonComponent type="primary" maxWidth="300px" label="Reject" disabled={!isChecked} />
-            <ButtonComponent disabled={!isChecked} 
-          maxWidth="170px"
-          label="Send for Approval"
-          bgColor="black"
-          onClick={handleClickOpen}
-        />
-        <Modal open={open} handleClose={handleClose} title="Workflow Approval" action={<FooterButtons />} content={<ModalContent />} />        </div>
-        </div>
-        
-      </div> 
-    </div>
+      </div>
+    </>
   );
 };
 

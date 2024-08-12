@@ -5,6 +5,7 @@ import { CircularProgress } from "@mui/material";
 import StepperComp from "../../components/Stepper/Stepper";
 import ButtonComponent from "../../components/common/button/Button";
 import { fetchData } from "../../redux/actions/apiSlice";
+import TopSection from "../TopSection";
 
 const steps = [
   {
@@ -129,6 +130,7 @@ const RunLTAnalytics = () => {
   // the above is an example for fetchData common function by axios and will be deleted once we get actual endpoint.
   return (
     <>
+    <TopSection labelList={[{ title: 'Home', path: '/landing-page' }, { title: 'Run LT Analytics' }]} />
       {!data ? (
         <div
           style={{
