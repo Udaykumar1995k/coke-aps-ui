@@ -1,7 +1,6 @@
 import React from "react";
 import BreadcrumbLink from "../../components/common/breadcrumb";
 import { useSelector } from "react-redux";
-import { PropaneSharp } from "@mui/icons-material";
 
 const TopSection = (props) => {
     const tabDetails = useSelector((state) => state?.dashboardDetails?.tabDetails);

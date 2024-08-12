@@ -1,4 +1,3 @@
-import React from "react";
 import {
   CircularProgress,
   List,
@@ -7,13 +6,12 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import { Outlet, useLocation } from "react-router-dom";
+import React from "react";
 import { useSelector } from "react-redux";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { Outlet, useLocation } from "react-router-dom";
 
-import "./MainContent.css";
 import LandingPage from "../../pages/LandingPage/LandingPage";
-import BreadcrumbLink from "../common/breadcrumb";
+import "./MainContent.css";
 
 const MainContent = (props) => {
   const location = useLocation();
@@ -44,7 +42,7 @@ const MainContent = (props) => {
                     selected={item.path === location.pathname || item.path}
                     style={{
                       backgroundColor:
-                        item.path === location.pathname || location.pathname ==="/material_details"&&item.path==="/analytics-results" ? "#717171" : "#aaaaaa",
+                        item.path === location.pathname || (location.pathname ==="/material_details"&&item.path==="/analytics-results") ? "#717171" : "#aaaaaa",
                     }}
                     className="listButtonSection"
                   >
