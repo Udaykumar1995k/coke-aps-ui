@@ -13,8 +13,7 @@ const data = [
   { ApproverName: 'Adam George', EmailID: 'adam@cococola.com' },
   { ApproverName: 'Sam Arnoid', EmailID: 'sam@cococola.com' },
 ];
-const ApprovalCard = ({ approver,  props }) => {
-  console.log("approver", approver.length)
+const ApprovalCard = ({ approver, checkBoxCount, props }) => {
   var disabled = false
   const styles = approver.length === 1 ? (disabled=true,{ cursor:"not-allowed", opacity:0.5 }) : (disabled=false,{ cursor:"pointer"});
   const [selectedApprover, setSelectedApprover] = useState({ ApproverName: '', EmailID: '' });
@@ -24,12 +23,11 @@ const ApprovalCard = ({ approver,  props }) => {
       setSelectedApprover(approver);
     }
   };
-
   return (
     <>
     <div className='approval-items-wrapper '>
         <label style={{ marginTop: '8px', fontSize: '14px' }}>No.of Line Items for Approval
-        </label><ActionInput   props={{ height: "30px", maxWidth: "70px", value:"5", disabled:true }} />
+        </label><ActionInput   props={{ height: "30px", maxWidth: "70px", value:checkBoxCount, disabled:true }} />
       </div>
       <div className='approval-wrapper'>
         <div className='approver-header'>

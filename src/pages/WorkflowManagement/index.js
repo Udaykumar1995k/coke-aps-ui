@@ -44,7 +44,7 @@ const WorkFlowStatusModel = (props) => {
     </div>
   )
 }
-const AnalyticsResults = ({ onhandleClick }) => {
+const AnalyticsResults = ({ onhandleClick,onHandleCheckBox }) => {
   const pagination = true;
   const paginationPageSize = 10;
   const paginationPageSizeSelector = [10, 20, 30, 50, 100];
@@ -52,6 +52,9 @@ const AnalyticsResults = ({ onhandleClick }) => {
   const onRowSelected = (params) => {
     const isChecked = params.node.selected;
     onhandleClick(isChecked);
+    const selectedCheckBoxCount = params.api.getSelectedNodes().length;
+    onHandleCheckBox(selectedCheckBoxCount);
+
 
   }
   const [regularItems] = useState([
@@ -335,7 +338,7 @@ const FooterButtons = () => {
   );
 };
 
-const ModalContent = () => {
+const ModalContent = ({checkBoxCount}) => {
   const [approvalCardsData, setApprovalCardsData] = useState([
     { name: "Level1", label: "Level 1" },
   ]);
@@ -358,6 +361,7 @@ const ModalContent = () => {
     <>
       <ApprovalCard 
       approver={approvalCardsData}  
+      checkBoxCount={checkBoxCount}
       props={{addApprover:addApprover,
       deleteApprover:onHandleDeleteIcon }}/>
 
@@ -368,6 +372,10 @@ const ModalContent = () => {
 const WorkflowManagement = () => {
   const [isChecked, setChecked] = useState(false);
   const [open, setOpen] = useState(false);
+  const [rowCount, setRowCount] = useState(0);
+  const onHandleCheckBox = (count) => {
+    setRowCount(count)
+  }
   const onhandleClick = (checked) => {
     setChecked(checked);
   }
@@ -388,7 +396,7 @@ const WorkflowManagement = () => {
         <div>
           <h5>Pending Action</h5>
           <div>
-            <AnalyticsResults onhandleClick={onhandleClick} />
+            <AnalyticsResults onhandleClick={onhandleClick} onHandleCheckBox={onHandleCheckBox} />
           </div>
           <p>Remarks for Acceptance / Rejection*</p>
           <ActionInput className="text-input" placeholder="Enter the Remarks" props={{ height: "45px", maxWidth: "250px", disabled: !isChecked }} />
@@ -404,7 +412,7 @@ const WorkflowManagement = () => {
                 bgColor="black"
                 onClick={handleClickOpen}
               />
-              <Modal open={open} handleClose={handleClose} title="Workflow Approval" action={<FooterButtons />} content={<ModalContent />} maxWidth="sm"/>        </div>
+              <Modal open={open} handleClose={handleClose} title="Workflow Approval" action={<FooterButtons />} content={<ModalContent checkBoxCount={rowCount} />} maxWidth="sm"/>        </div>
           </div>
 
         </div>
