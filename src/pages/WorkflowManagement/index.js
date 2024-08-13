@@ -8,6 +8,7 @@ import Cards from "../../components/common/card/Card";
 import DataTable from "../../components/common/datatable/DataTable";
 import { WorkFlowStatus, WorkFlowStatusFooter } from "./WorkFlowStatus";
 import TopSection from "../TopSection";
+import { Link } from "react-router-dom";
 
 const WorkFlowStatusModel = (props) => {
 
@@ -28,7 +29,8 @@ const WorkFlowStatusModel = (props) => {
     else {
       setState(stepData.length)
     }
-  });
+    // eslint-disable-next-line
+  }, []);
   const onhandlePopup = () => {
     setPopUp(true)
   }
@@ -37,7 +39,7 @@ const WorkFlowStatusModel = (props) => {
   }
   return (
     <div >
-      <a style={{ color: "black" }} href="#" onClick={onhandlePopup}>{props.value}</a>
+      <Link style={{ color: "black" }} href="#" onClick={onhandlePopup}>{props.value}</Link>
       <Modal open={showPopup} handleClose={onClosePopup} title="Current Status" action={<WorkFlowStatusFooter />} content={<WorkFlowStatus steps={stepData} state={state} />} maxWidth="lg" />
     </div>
   )

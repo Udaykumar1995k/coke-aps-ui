@@ -21,8 +21,10 @@ const steps = [
 
 const RunLTAnalytics = () => {
   const [activeStep, setActiveStep] = useState(0);
+  console.log('activeStep:', activeStep)
   const [completed, setCompleted] = useState({});
   const [showTable, setShowTable] = useState(false);
+  const [btnDisabled, setBtnDisabled] = useState(false);
   const [formData, setFormData] = useState({
     plantSupplier: "",
     supplier: "",
@@ -81,6 +83,7 @@ const RunLTAnalytics = () => {
           ? event.target.checked
           : event.target.value,
     });
+    setBtnDisabled(true)
   };
   const handleDateChange = (date, name) => {
     setFormData({
@@ -94,6 +97,8 @@ const RunLTAnalytics = () => {
     const newCompleted = completed;
     newCompleted[activeStep] = true;
     setCompleted(newCompleted);
+    console.log('formData', formData, activeStep);
+    setActiveStep(activeStep + 1)
   };
 
   const handleStep = (step) => () => {
@@ -102,6 +107,7 @@ const RunLTAnalytics = () => {
 
   const clearAllInputSelection = () => {
     setFormData("");
+    setBtnDisabled(false);
   };
 
   const clearRunAnalytics = () => {
@@ -199,6 +205,8 @@ const RunLTAnalytics = () => {
                   bgColor="#000"
                   color="#fff"
                   onClick={scheduleAnalyticsRun}
+                  disabled={!btnDisabled}
+                  style={{backgroundColor: !btnDisabled ? 'none !important' : 'red !important'}}
                 />
               )}
               {activeStep === 1 && (

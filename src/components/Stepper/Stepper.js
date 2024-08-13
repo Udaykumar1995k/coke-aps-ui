@@ -36,8 +36,7 @@ const StepperComp = (props) => {
         {props.steps.map((step, index) => (
           <Step key={index}>
             <StepButton
-              sx={{ "& .MuiStepLabel-label": { marginTop: "5px !important" } }}
-              onClick={props.handleStep(index)}
+              sx={{ "& .MuiStepLabel-label": { marginTop: "5px !important" }, cursor: 'default' }}
             >
               {step.label}
             </StepButton>
