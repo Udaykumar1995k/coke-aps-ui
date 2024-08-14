@@ -44,7 +44,9 @@ const ModalContent = (props) => {
                     scope="row"
                     name="range"
                     value={row?.range}
-                  >{row?.range}</TableCell>
+                  >
+                    {row?.range}
+                  </TableCell>
                   <TableCell
                     sx={{
                       "& .MuiFormControl-root": {
@@ -57,7 +59,9 @@ const ModalContent = (props) => {
                       label="Select from Date"
                       name="fromDate"
                       value={dayjs(row?.fromDate)}
-                      onChange={(e) => props?.handleExcludeDateChange(e, 'fromDate')}
+                      onChange={(e) =>
+                        props?.handleExcludeDateChange(e, "fromDate")
+                      }
                     />
                   </TableCell>
                   <TableCell
@@ -72,11 +76,18 @@ const ModalContent = (props) => {
                       label="Select to Date"
                       name="toDate"
                       value={dayjs(row?.toDate)}
-                      onChange={(e) => props?.handleExcludeDateChange(e, 'toDate')}
+                      onChange={(e) =>
+                        props?.handleExcludeDateChange(e, "toDate")
+                      }
                     />
                   </TableCell>
                   <TableCell>
-                    {props?.rows?.length > 1 && <DeleteIcon name="del" onClick={() => props?.delRowHandler(index)}/>}
+                    {props?.rows?.length > 1 && (
+                      <DeleteIcon
+                        name="del"
+                        onClick={() => props?.delRowHandler(index)}
+                      />
+                    )}
                   </TableCell>
                 </TableRow>
               );
@@ -119,7 +130,13 @@ const ModalContent = (props) => {
           rows={5}
           style={{ width: "100%", maxWidth: "400px", resize: "none" }}
           disabled
-        ></textarea>
+        >
+          {props?.rows?.map((row) => {
+            return `<${row.range} From ${row.fromDate || "Date"} To ${
+              row.toDate || "Date"
+            }>;`;
+          })}
+        </textarea>
       </Grid>
     </Grid>
   );
@@ -133,6 +150,7 @@ const ModalFooter = (props) => {
         label="Clear All"
         bgColor="white"
         color="black"
+        onClick={props.clearAllExcludeModal}
       />
       <ButtonComponent
         maxWidth="170px"

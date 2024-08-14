@@ -21,7 +21,6 @@ const steps = [
 
 const RunLTAnalytics = () => {
   const [activeStep, setActiveStep] = useState(0);
-  console.log('activeStep:', activeStep)
   const [completed, setCompleted] = useState({});
   const [showTable, setShowTable] = useState(false);
   const [btnDisabled, setBtnDisabled] = useState(false);
@@ -46,20 +45,25 @@ const RunLTAnalytics = () => {
   })
   const [showModal, setShowModal] = useState(false);
   const [rows, setRows] = useState([
-    {range: 'Range 1', fromDate: '', toDate: ''}
+    {range: 'Range 1', fromDate: null, toDate: null}
   ])
 
   const handleAddRows = () => {
-    setRows([...rows, { range: `Range ${rows.length + 1}`, fromDate: '', toDate: '' }]);
+    setRows([...rows, { range: `Range ${rows.length + 1}`, fromDate: null, toDate: null }]);
   };
 
   const delRowHandler = (index) => {
     const newArray = rows.filter((rows, i)=> i !==index && rows)
     setRows(newArray);
   }
-
+  
   const handleExcludeDateChange = (date, name) => {
-    console.log('date, name:', date, name)
+    const newDate = new Date(date).toLocaleDateString();
+    console.log('newDate:', newDate)
+    // setRows({
+    //   ...rows,
+    //   [name]: newDate
+    // })
   }
 
   const handleRunAnalyticsChange = (event) => {
@@ -97,7 +101,6 @@ const RunLTAnalytics = () => {
     const newCompleted = completed;
     newCompleted[activeStep] = true;
     setCompleted(newCompleted);
-    console.log('formData', formData, activeStep);
     setActiveStep(activeStep + 1)
   };
 
@@ -114,9 +117,17 @@ const RunLTAnalytics = () => {
     setRunAnalyticsData("");
   };
 
+  const clearAllExcludeModal = () => {
+    setRows([])
+  }
+
   const handleClose = () => {
     setShowModal(false);
     setFormData({excludeRange: false})
+  }
+
+  const backHandler = () => {
+    setActiveStep(activeStep - 1)
   }
 
   useEffect(() => {
@@ -168,6 +179,7 @@ const RunLTAnalytics = () => {
               rows={rows}
               delRowHandler={delRowHandler}
               handleExcludeDateChange={handleExcludeDateChange}
+              clearAllExcludeModal={clearAllExcludeModal}
             />
           </div>
           <div
@@ -178,13 +190,15 @@ const RunLTAnalytics = () => {
               marginBottom: "30px",
             }}
           >
-            <div style={{display: activeStep === 2 && 'none'}}>
+            <div>
+              { activeStep === 1 &&
               <ButtonComponent
                 label="Back"
                 bgColor="#fff"
                 color="#000"
                 maxWidth="80px"
-              />
+                onClick={backHandler}
+              /> }
             </div>
             <div
               style={{
