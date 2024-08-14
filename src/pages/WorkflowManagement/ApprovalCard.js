@@ -18,9 +18,11 @@ const ApprovalCard = ({ approver, checkBoxCount, isClicked,props }) => {
   var disabled = false
   const styles = approver.length === 1 ? (disabled=true,{ cursor:"not-allowed", opacity:0.5 }) : (disabled=false,{ cursor:"pointer"});
   const [selectedApprover, setSelectedApprover] = useState({ ApproverName: '', EmailID: '' });
+  const [comment, setComment] = useState("");
   useEffect(()=>{
     if(isClicked){
       setSelectedApprover({ ApproverName: '', EmailID: '' })
+      setComment("")
     }
     else{
     }
@@ -64,7 +66,7 @@ const ApprovalCard = ({ approver, checkBoxCount, isClicked,props }) => {
           color="black"
           onClick={props?.addApprover}
         /></div>
-      <div><label style={{ fontSize: '14px' }}>Comments</label> <ActionInput props={{ height: "65px", maxWidth: "400px" }} placeholder='Kindly check the Lead time and approve.' /></div>
+      <div><label style={{ fontSize: '14px' }}>Comments</label> <ActionInput  onChange={(e)=>setComment(e.target.value)}props={{ height: "65px", maxWidth: "400px" ,value:comment }} placeholder='Kindly check the Lead time and approve.' /></div>
    </>
 
 
