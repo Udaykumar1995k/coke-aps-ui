@@ -262,7 +262,6 @@ const AnalyticsResults = ({ onhandleClick,onHandleCheckBox }) => {
       field: "CurrentStatus", resizable: false, suppressMovable: true, unSortIcon: true,
       cellRenderer: (response) => (
         <div >
-          {console.log("response", response)}
           <WorkFlowStatusModel value={response.value} />
         </div>
       ),
@@ -319,7 +318,10 @@ const AnalyticsResults = ({ onhandleClick,onHandleCheckBox }) => {
     </div>
   );
 };
-const FooterButtons = () => {
+const FooterButtons = ({setClearData}) => {
+  const clearApprovalData = () =>{
+    setClearData()
+  }
   return (
     <div className='footer-btn-wrapper'>
       <ButtonComponent
@@ -327,6 +329,7 @@ const FooterButtons = () => {
         label="Clear All"
         bgColor="white"
         color="black"
+        onClick={clearApprovalData}
       />
       <ButtonComponent
         maxWidth="170px"
@@ -338,12 +341,17 @@ const FooterButtons = () => {
   );
 };
 
-const ModalContent = ({checkBoxCount}) => {
+const ModalContent = ({checkBoxCount,isClicked,setApproval}) => {
   const [approvalCardsData, setApprovalCardsData] = useState([
     { name: "Level1", label: "Level 1" },
   ]);
-
-  const addApprover = () => {
+  useEffect(()=>{
+    setApprovalCardsData([
+      { name: "Level1", label: "Level 1" },
+    ])
+    setApproval()
+  },[isClicked])
+  const addApprover = () => { 
     if (approvalCardsData.length < 5) {
       const newApprover = {
         name: `Level${approvalCardsData.length + 1}`,
@@ -373,6 +381,13 @@ const WorkflowManagement = () => {
   const [isChecked, setChecked] = useState(false);
   const [open, setOpen] = useState(false);
   const [rowCount, setRowCount] = useState(0);
+  const [isClicked, setisClicked] = useState(false);
+  const setClearData = () =>{
+    setisClicked(true)
+  }
+  const setApproval = () => {
+    setisClicked(false)
+  }
   const onHandleCheckBox = (count) => {
     setRowCount(count)
   }
@@ -412,7 +427,7 @@ const WorkflowManagement = () => {
                 bgColor="black"
                 onClick={handleClickOpen}
               />
-              <Modal open={open} handleClose={handleClose} title="Workflow Approval" action={<FooterButtons />} content={<ModalContent checkBoxCount={rowCount} />} maxWidth="sm"/>        </div>
+              <Modal open={open} handleClose={handleClose} title="Workflow Approval" action={<FooterButtons setClearData={setClearData}/>} content={<ModalContent checkBoxCount={rowCount} isClicked={isClicked} setApproval={setApproval}/>} maxWidth="sm"/>        </div>
           </div>
 
         </div>
