@@ -40,7 +40,7 @@ const WorkFlowStatusModel = (props) => {
   return (
     <div >
       <Link style={{ color: "black" }} href="#" onClick={onhandlePopup}>{props.value}</Link>
-      <Modal open={showPopup} handleClose={onClosePopup} title="Current Status" action={<WorkFlowStatusFooter />} content={<WorkFlowStatus steps={stepData} state={state} />} maxWidth="lg" />
+      <Modal open={showPopup} handleClose={onClosePopup} title="Current Status" action={<WorkFlowStatusFooter />} content={<WorkFlowStatus steps={stepData} state={state} />} maxWidth="md" />
     </div>
   )
 }
