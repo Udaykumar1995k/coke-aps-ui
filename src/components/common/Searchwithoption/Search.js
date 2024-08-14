@@ -9,7 +9,7 @@ const SearchWithOptions = ({ data, width, onChange,clearInputValue }) => {
                 freeSolo
                 id="searchfield"
                 disableClearable
-                {...(clearInputValue ? {} : { value: "" })}
+                {...clearInputValue ? {} : { value: "" }}
                 options={data.map((option) => option.ApproverName)}
                 onChange={(event, value) => onChange(value)}
                 renderInput={(params) => (
