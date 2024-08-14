@@ -370,6 +370,7 @@ const ModalContent = ({checkBoxCount,isClicked,setApproval}) => {
       <ApprovalCard 
       approver={approvalCardsData}  
       checkBoxCount={checkBoxCount}
+      isClicked ={isClicked}
       props={{addApprover:addApprover,
       deleteApprover:onHandleDeleteIcon }}/>
 

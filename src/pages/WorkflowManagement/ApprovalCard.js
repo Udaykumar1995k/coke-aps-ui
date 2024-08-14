@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ActionInput from '../../components/common/actioninput/ActionInputField';
 import DeleteIcon from '@mui/icons-material/Delete';
 import './ApprovalCard.css'
@@ -6,17 +6,25 @@ import SearchWithOptions from '../../components/common/Searchwithoption/Search';
 import './index.css'
 import ButtonComponent from '../../components/common/button/Button';
 import { IconButton } from '@mui/material';
-const data = [
-  { ApproverName: 'Jerry Mathew', EmailID: 'jerry@cococola.com' },
-  { ApproverName: 'Jerry George', EmailID: 'george@cococola.com' },
-  { ApproverName: 'Ronald Wesley', EmailID: 'ronald@cococola.com' },
-  { ApproverName: 'Adam George', EmailID: 'adam@cococola.com' },
-  { ApproverName: 'Sam Arnoid', EmailID: 'sam@cococola.com' },
-];
-const ApprovalCard = ({ approver, checkBoxCount, props }) => {
+
+const ApprovalCard = ({ approver, checkBoxCount, isClicked,props }) => {
+  const data = [
+    { ApproverName: 'Jerry Mathew', EmailID: 'jerry@cococola.com' },
+    { ApproverName: 'Jerry George', EmailID: 'george@cococola.com' },
+    { ApproverName: 'Ronald Wesley', EmailID: 'ronald@cococola.com' },
+    { ApproverName: 'Adam George', EmailID: 'adam@cococola.com' },
+    { ApproverName: 'Sam Arnoid', EmailID: 'sam@cococola.com' },
+  ];
   var disabled = false
   const styles = approver.length === 1 ? (disabled=true,{ cursor:"not-allowed", opacity:0.5 }) : (disabled=false,{ cursor:"pointer"});
   const [selectedApprover, setSelectedApprover] = useState({ ApproverName: '', EmailID: '' });
+  useEffect(()=>{
+    if(isClicked){
+      setSelectedApprover({ ApproverName: '', EmailID: '' })
+    }
+    else{
+    }
+  },[isClicked])
   const handleApproverChange = (approverName) => {
     const approver = data.find(item => item.ApproverName === approverName);
     if (approver) {
@@ -38,7 +46,7 @@ const ApprovalCard = ({ approver, checkBoxCount, props }) => {
         {approver.map((approver,index) =>(
         <div className='approver-container'>
         <label className='label-size' style={{ marginTop: '10px' }}>{approver.label}</label>
-        <SearchWithOptions data={data} onChange={handleApproverChange} />
+        <SearchWithOptions data={data} onChange={handleApproverChange} clearInputValue={isClicked}/>
         <ActionInput props={{ height: "40px", maxWidth: "200px", value: selectedApprover.EmailID }} placeholder='Email' />
         <span style={{ marginTop: '3px', ...styles }}>
           <IconButton disabled={disabled}>
