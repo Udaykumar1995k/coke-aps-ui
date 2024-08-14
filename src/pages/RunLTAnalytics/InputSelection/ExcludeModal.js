@@ -57,10 +57,10 @@ const ModalContent = (props) => {
                   >
                     <DatePicker
                       label="Select from Date"
-                      name="fromDate"
-                      value={dayjs(row?.fromDate)}
+                      name="excludeFromDate"
+                      value={dayjs(row?.excludeFromDate)}
                       onChange={(e) =>
-                        props?.handleExcludeDateChange(e, "fromDate")
+                        props?.handleExcludeDateChange(e, "excludeFromDate", index)
                       }
                     />
                   </TableCell>
@@ -74,10 +74,10 @@ const ModalContent = (props) => {
                   >
                     <DatePicker
                       label="Select to Date"
-                      name="toDate"
-                      value={dayjs(row?.toDate)}
+                      name="excludeToDate"
+                      value={dayjs(row?.excludeToDate)}
                       onChange={(e) =>
-                        props?.handleExcludeDateChange(e, "toDate")
+                        props?.handleExcludeDateChange(e, "excludeToDate", index)
                       }
                     />
                   </TableCell>
@@ -132,8 +132,8 @@ const ModalContent = (props) => {
           disabled
         >
           {props?.rows?.map((row) => {
-            return `<${row.range} From ${row.fromDate || "Date"} To ${
-              row.toDate || "Date"
+            return `<${row.range} From ${row.excludeToDate || "Date"} To ${
+              row.excludeToDate || "Date"
             }>;`;
           })}
         </textarea>

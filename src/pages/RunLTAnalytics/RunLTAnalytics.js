@@ -45,11 +45,11 @@ const RunLTAnalytics = () => {
   })
   const [showModal, setShowModal] = useState(false);
   const [rows, setRows] = useState([
-    {range: 'Range 1', fromDate: null, toDate: null}
+    {range: 'Range 1', excludeFromDate: null, excludeToDate: null}
   ])
 
   const handleAddRows = () => {
-    setRows([...rows, { range: `Range ${rows.length + 1}`, fromDate: null, toDate: null }]);
+    setRows([...rows, { range: `Range ${rows.length + 1}`, excludeFromDate: null, excludeToDate: null }]);
   };
 
   const delRowHandler = (index) => {
@@ -57,13 +57,9 @@ const RunLTAnalytics = () => {
     setRows(newArray);
   }
   
-  const handleExcludeDateChange = (date, name) => {
+  const handleExcludeDateChange = (date, name, index) => {
     const newDate = new Date(date).toLocaleDateString();
-    console.log('newDate:', newDate)
-    // setRows({
-    //   ...rows,
-    //   [name]: newDate
-    // })
+    setRows(rows.map((row, i) => (i === index ? { ...row, [name]: newDate } : row)))
   }
 
   const handleRunAnalyticsChange = (event) => {
@@ -118,7 +114,7 @@ const RunLTAnalytics = () => {
   };
 
   const clearAllExcludeModal = () => {
-    setRows([])
+    setRows(rows.map(row => ({ ...row, excludeFromDate: null, excludeToDate: null })));
   }
 
   const handleClose = () => {
