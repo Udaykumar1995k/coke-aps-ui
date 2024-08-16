@@ -1,19 +1,60 @@
-.approval-wrapper {
+/* .approval-wrapper {
     border: 1px solid rgb(200,200,200);
     border-radius: 4px;
     padding-bottom:10px;
     margin-bottom:15px;
     margin-top:15px
-  } 
-.approver-header{
-    display:flex;
+  }  */
+
+  /* .approver-status-card {
+    display: table;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+  } */
+
+  .approval-wrapper {
+    border: 1px solid lightgray;
+    border-radius: 4px;
+  }
+
+  .approver-header{
+    display: flex;
+    background-color: lightgray; 
+
+  }
+  .approver-container{
+    display: flex; 
+  }
+/* .approver-header{
+    display: table-cell;
     gap:25px;
     margin-bottom: 16px;
     padding: 10px;
     background-color: #F0F0F0;
 }
 .approver-container{
-    display: flex;
+    display:  table-cell;
     justify-content: space-around;
     margin-bottom: 10px;
+} */
+
+ .approver-header p {
+    padding: 0px 10px;
+}
+.level-width {
+    min-width: 80px;
+    max-width: 150px;
+    text-align: left;
+}
+
+.approver-label-width {
+    min-width: 250px;
+    max-width: 350px;
+    text-align: left;
+}
+
+.email-lable-width {
+    min-width: 250px;
+    max-width: 350px;
+    text-align: left;
 }

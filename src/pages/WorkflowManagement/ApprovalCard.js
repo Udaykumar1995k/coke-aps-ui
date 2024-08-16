@@ -35,28 +35,33 @@ const ApprovalCard = ({ approver, checkBoxCount, isClicked,props }) => {
   };
   return (
     <>
-    <div className='approval-items-wrapper '>
-        <label style={{ marginTop: '8px', fontSize: '14px' }}>No.of Line Items for Approval
-        </label><ActionInput   props={{ height: "30px", maxWidth: "70px", value:checkBoxCount, disabled:true }} />
+    <div className='approval-items-wrapper'>
+        <p style={{ marginTop: '8px', fontSize: '14px' }}>No.of Line Items for Approval
+        </p><ActionInput   props={{ height: "30px", maxWidth: "70px", value:checkBoxCount, disabled:true }} />
       </div>
       <div className='approval-wrapper'>
         <div className='approver-header'>
-          <label className='label-size'>Level</label>
-          <label className='label-size' style={{ marginLeft: '10px' }}>Approver Name</label>
-          <label className='label-size' style={{ marginLeft: '85px' }}>Email ID</label>
+          <p className='level-width'>Level</p>
+          <p className='approver-label-width' >Approver Name </p>
+          <p className='email-lable-width'>Email ID </p>
+          <p></p>
         </div>
         {approver.map((approver,index) =>(
         <div className='approver-container'>
-        <label className='label-size' style={{ marginTop: '10px' }}>{approver.label}</label>
-        <SearchWithOptions data={data} onChange={handleApproverChange} clearInputValue={isClicked}/>
-        <ActionInput props={{ height: "40px", maxWidth: "200px", value: selectedApprover.EmailID }} placeholder='Email' />
-        <span style={{ marginTop: '3px', ...styles }}>
-          <IconButton disabled={disabled}>
-          <DeleteIcon   onClick={()=>props?.deleteApprover(index)} />
-          </IconButton>
+          <div  style={{paddingTop:"16px", paddingBottom:"10px", paddingLeft:"10px"}} className='level-width'>{approver.label}</div>
+          <div  style={{paddingTop:"10px", paddingBottom:"10px", paddingLeft:"10px"}} className='approver-label-width'>
+            <SearchWithOptions data={data} width="200px" onChange={handleApproverChange} clearInputValue={isClicked}/>
+          </div>
+          <div className='email-lable-width'  style={{paddingTop:"10px", paddingBottom:"10px", paddingLeft:"22px"}}>
+            <ActionInput props={{ height: "40px", maxWidth: "220px", value: selectedApprover.EmailID }} placeholder='Email' />
+          </div>
+          <span style={{ paddingTop:"10px", ...styles,  textAlign:"right"}}>
+            <IconButton disabled={disabled}>
+            <DeleteIcon   onClick={()=>props?.deleteApprover(index)} />
+            </IconButton>
           </span>
         </div>
-      ))}
+        ))}
       </div>
       <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '80px' }}>
         <ButtonComponent

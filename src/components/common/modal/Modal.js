@@ -10,7 +10,6 @@ const Modal = (props) => {
     <Dialog
       onClose={props.handleClose}
       open={props.open}
-      fullWidth
       maxWidth={props?.maxWidth || "md"}
       style={{ height: '600px' }}
     >

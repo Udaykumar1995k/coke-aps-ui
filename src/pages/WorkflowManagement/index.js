@@ -428,7 +428,7 @@ const WorkflowManagement = () => {
                 bgColor="black"
                 onClick={handleClickOpen}
               />
-              <Modal open={open} handleClose={handleClose} title="Workflow Approval" action={<FooterButtons setClearData={setClearData}/>} content={<ModalContent checkBoxCount={rowCount} isClicked={isClicked} setApproval={setApproval}/>} maxWidth="sm"/>        </div>
+              <Modal open={open} handleClose={handleClose} title="Workflow Approval" action={<FooterButtons setClearData={setClearData}/>} content={<ModalContent checkBoxCount={rowCount} isClicked={isClicked} setApproval={setApproval}/>} maxWidth="100px"/>        </div>
           </div>
 
         </div>
