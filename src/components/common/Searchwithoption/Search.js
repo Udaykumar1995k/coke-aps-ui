@@ -2,7 +2,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import SearchIcon from '@mui/icons-material/Search';
 
-const SearchWithOptions = ({ data, width, onChange,clearInputValue }) => {
+const SearchWithOptions = ({ data, width, onChange,clearInputValue,onInputChange }) => {
     return (
         <div style={{ width: width || '200px' }}>
             <Autocomplete
@@ -11,7 +11,8 @@ const SearchWithOptions = ({ data, width, onChange,clearInputValue }) => {
                 disableClearable
                 {...clearInputValue ? {} : { value: "" }}
                 options={data.map((option) => option.ApproverName)}
-                onChange={(event, value) => onChange(value)}
+                onChange={(event, value) =>  onChange(value)}
+                onInputChange={(event, value) =>onInputChange(value)}
                 renderInput={(params) => (
                     <TextField
                         {...params}
@@ -24,7 +25,7 @@ const SearchWithOptions = ({ data, width, onChange,clearInputValue }) => {
                             endAdornment: (
                                 <>
                                     {params.InputProps.endAdornment}
-                                    <SearchIcon />
+                                    {/* <SearchIcon /> */}
                                 </>
                             ),
                         }}

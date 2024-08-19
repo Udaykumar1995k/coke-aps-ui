@@ -327,8 +327,7 @@ const FooterButtons = ({setClearData}) => {
       <ButtonComponent
         maxWidth="170px"
         label="Clear All"
-        bgColor="white"
-        color="black"
+        type="primary"
         onClick={clearApprovalData}
       />
       <ButtonComponent
@@ -342,37 +341,13 @@ const FooterButtons = ({setClearData}) => {
 };
 
 const ModalContent = ({checkBoxCount,isClicked,setApproval}) => {
-  const [approvalCardsData, setApprovalCardsData] = useState([
-    { name: "Level1", label: "Level 1" },
-  ]);
-  useEffect(()=>{
-    setApprovalCardsData([
-      { name: "Level1", label: "Level 1" },
-    ])
-    setApproval()
-  },[isClicked])
-  const addApprover = () => { 
-    if (approvalCardsData.length < 5) {
-      const newApprover = {
-        name: `Level${approvalCardsData.length + 1}`,
-        label: `Level ${approvalCardsData.length + 1}`,
-      };
-      setApprovalCardsData([...approvalCardsData, newApprover]);
-    }
-  };
-  const onHandleDeleteIcon = (index) =>{
-    const newData = approvalCardsData.filter((data,i) => i!==index && data)
-    setApprovalCardsData(newData);
-  }
-
   return (
     <>
       <ApprovalCard 
-      approver={approvalCardsData}  
       checkBoxCount={checkBoxCount}
       isClicked ={isClicked}
-      props={{addApprover:addApprover,
-      deleteApprover:onHandleDeleteIcon }}/>
+      setApproval={setApproval}
+      />
 
     </>
   )
