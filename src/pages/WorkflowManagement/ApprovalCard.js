@@ -63,7 +63,7 @@ const ApprovalCard = ({ approver, checkBoxCount, isClicked,props }) => {
         </div>
         ))}
       </div>
-      <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '80px' }}>
+      <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '80px', marginTop:"15px" }}>
         <ButtonComponent
           maxWidth="170px"
           label="Add Approver"
