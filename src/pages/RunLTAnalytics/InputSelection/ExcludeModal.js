@@ -8,7 +8,6 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import React from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 import ButtonComponent from "../../../components/common/button/Button";
@@ -130,13 +129,13 @@ const ModalContent = (props) => {
           rows={5}
           style={{ width: "100%", maxWidth: "400px", resize: "none" }}
           disabled
-        >
-          {props?.rows?.map((row) => {
-            return `<${row.range} From ${row.excludeToDate || "Date"} To ${
-              row.excludeToDate || "Date"
-            }>;`;
+          value = {props?.rows && props?.rows?.map((row) => {
+            return (
+              `<${row?.range} From ${row?.excludeFromDate || 'Date'} To ${
+              row?.excludeToDate || 'Date'}>`
+            );
           })}
-        </textarea>
+         />
       </Grid>
     </Grid>
   );
@@ -157,6 +156,8 @@ const ModalFooter = (props) => {
         label="Submit"
         bgColor="black"
         color="white"
+        onClick={props.submitExcludeModalHandler}
+        disabled= {props.isDisabled}
       />
     </Grid>
   );

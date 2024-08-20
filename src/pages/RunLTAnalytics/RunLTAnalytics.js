@@ -24,6 +24,7 @@ const RunLTAnalytics = () => {
   const [completed, setCompleted] = useState({});
   const [showTable, setShowTable] = useState(false);
   const [btnDisabled, setBtnDisabled] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(true);
   const [formData, setFormData] = useState({
     plantSupplier: "",
     supplier: "",
@@ -58,9 +59,12 @@ const RunLTAnalytics = () => {
   }
   
   const handleExcludeDateChange = (date, name, index) => {
+    date && setIsDisabled(false);
     const newDate = new Date(date).toLocaleDateString();
-    setRows(rows.map((row, i) => (i === index ? { ...row, [name]: newDate } : row)))
-  }
+    setRows(
+      rows.map((row, i) => (i === index ? { ...row, [name]: newDate } : row))
+    );
+  };
 
   const handleRunAnalyticsChange = (event) => {
     setRunAnalyticsData({
@@ -115,6 +119,12 @@ const RunLTAnalytics = () => {
 
   const clearAllExcludeModal = () => {
     setRows(rows.map(row => ({ ...row, excludeFromDate: null, excludeToDate: null })));
+    setIsDisabled(true);
+  }
+
+  const submitExcludeModalHandler = () => {
+    setFormData({excludeRange: true});
+    setShowModal(false);
   }
 
   const handleClose = () => {
@@ -176,6 +186,8 @@ const RunLTAnalytics = () => {
               delRowHandler={delRowHandler}
               handleExcludeDateChange={handleExcludeDateChange}
               clearAllExcludeModal={clearAllExcludeModal}
+              submitExcludeModalHandler={submitExcludeModalHandler}
+              isDisabled={isDisabled}
             />
           </div>
           <div

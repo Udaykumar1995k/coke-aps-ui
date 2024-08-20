@@ -255,9 +255,36 @@ const InputSelection = (props) => {
                 Exclude Range in the Period Selected
               </label>
             </Grid>
-            {/* <Grid item xs={12} sx={{display: 'flex', paddingTop: '0 !important', flexDirection: 'row', alignItems: 'center',  "& .MuiFormControl-root": {width: '80%'}, "& .MuiFormLabel-root": {fontSize: '14px'}, "& .MuiInputBase-root": {height: '90%'}, "& .MuiFormControlLabel-root": {marginRight: '0'}  }}>
-                      <textarea rows={5} style={{width: '100%', maxWidth: '400px', resize: 'none'}}></textarea>
-                  </Grid> */}
+            { props?.formData?.excludeRange &&
+            <Grid
+              item
+              xs={12}
+              sx={{
+                display: "flex",
+                paddingTop: "0 !important",
+                flexDirection: "row",
+                alignItems: "center",
+                "& .MuiFormControl-root": { width: "80%" },
+                "& .MuiFormLabel-root": { fontSize: "14px" },
+                "& .MuiInputBase-root": { height: "90%" },
+                "& .MuiFormControlLabel-root": { marginRight: "0" },
+              }}
+            >
+              <textarea
+                rows={5}
+                style={{ width: "100%", maxWidth: "400px", resize: "none" }}
+                disabled
+                value={
+                  props?.rows &&
+                  props?.rows?.map((row) => {
+                    return `<${row?.range} From ${
+                      row?.excludeFromDate || "Date"
+                    } To ${row?.excludeToDate || "Date"}>`;
+                  })
+                }
+              />
+            </Grid>
+            }
           </Grid>
           <Grid container spacing={2} mt={1}>
             <Grid
@@ -293,7 +320,13 @@ const InputSelection = (props) => {
           open={props.showModal}
           handleClose={props.handleClose}
           title="Exclude Range in Period Selected"
-          action={<ModalFooter clearAllExcludeModal={props.clearAllExcludeModal} />}
+          action={
+            <ModalFooter
+              clearAllExcludeModal={props.clearAllExcludeModal}
+              submitExcludeModalHandler={props.submitExcludeModalHandler}
+              isDisabled={props.isDisabled}
+            />
+          }
           content={
             <ModalContent
               rows={props.rows}
