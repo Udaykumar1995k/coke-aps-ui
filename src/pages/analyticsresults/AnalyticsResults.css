@@ -9,10 +9,18 @@
     width: 100%;
     height: auto;
     border-radius: 6px;
-    background-color: lightgray;
+    background-color: #e8e8e8;
     box-sizing: border-box;
     gap: 10px;
     padding: 10px;
+}
+
+.tab-part .MuiTabs-root .MuiButtonBase-root {
+    color: #000;
+}
+
+.tab-part .MuiTabs-root .MuiTabs-indicator {
+    background-color: #8c8c8c;
 }
 
 .analytic-results  {
@@ -26,7 +34,11 @@
     flex-direction: column;
     padding: 0px 20px 0px 10px;
     max-width: 250px;
+}
 
+.result-item>span {
+    color: gray;
+    font-size: 14px;
 }
 
 .input-details {
@@ -52,7 +64,7 @@
 } 
 
 .result-margin {
-    margin-top: 20px;
+    margin: 20px 0;
 
 }
 

@@ -1,6 +1,5 @@
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import SearchIcon from '@mui/icons-material/Search';
 
 const SearchWithOptions = ({ data, width, onChange,clearInputValue,onInputChange }) => {
     return (

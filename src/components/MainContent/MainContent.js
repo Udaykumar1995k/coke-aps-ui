@@ -1,5 +1,4 @@
 import {
-  CircularProgress,
   List,
   ListItem,
   ListItemButton,
@@ -19,7 +18,6 @@ const MainContent = (props) => {
 
   return (
     <div className={tabDetails.title === 'Landing' ? "landing-content" : "main-content"}>
-      {!tabDetails.title && <CircularProgress />}
       {tabDetails.title === 'Landing' ?
         <LandingPage />
         :
