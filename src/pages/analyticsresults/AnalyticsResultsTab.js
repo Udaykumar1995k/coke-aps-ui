@@ -12,6 +12,7 @@ import ApprovalCard from "../WorkflowManagement/ApprovalCard";
 import SortIcon from '@mui/icons-material/Sort';
 import { IconButton } from "@mui/material";
 import ResultsGraph from "../../components/Graph/ResultsGraph";
+import { Popper } from "@mui/material"
 const FooterButtons = ({setClearData}) => {
   const clearApprovalData = () =>{
     setClearData()
@@ -48,10 +49,17 @@ const ModalContent = ({checkBoxCount,isClicked,setApproval}) => {
 const AnalyticsResultsTab = (props) => {
   const [value, setValue] = useState(0);
   const [show, setShow] = useState(false);
-  const [showResults, setShowResults] = useState(true);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const [anchorEl, setAnchorEl] = useState(null);
+  const handleClick = (event) => {
+        setAnchorEl(anchorEl? null:event.currentTarget)
+    }
+    const handPopperClose = () =>{
+        setAnchorEl(null)
+    }
+  const openPopper = Boolean(anchorEl)
   const { state } = useLocation();
   console.log("stateData", state);
   const [open, setOpen] = useState(false);
@@ -67,13 +75,9 @@ const AnalyticsResultsTab = (props) => {
   };
   const handleDrillDown = () => {
     setShow(true);
-    setShowResults(true)
   };
 
-  const handleFilter = () => {
-    setShowResults(!showResults)
-    setShow(false)
-  }
+  
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -132,24 +136,26 @@ const AnalyticsResultsTab = (props) => {
             handleChange={handleChange}
             count={[12, 999]}
           />
-            <IconButton onClick={handleFilter}>
+            <IconButton onClick={handleClick}>
               <SortIcon/>
             </IconButton>
           <div className="analytic-results" >
             <div className="flex-direction-column" >
-              {show?<Graph/>:
-                showResults ? 
+           {!show?( 
+            <div>
+              <ResultsGraph 
+              labels={['Jan','Feb','March','April','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']}
+              pData = {[2400, 1398, 9800, 3908, 4800, 3800, 4300,2400, 1398, 9800, 3908, 4800, 3800]}
+              />
+            </div>
+            ):""}  
+              {show?<Graph/>: ""}
+              {
+                !show? 
                   (
-                      <div>
-                        <ResultsGraph 
-                          labels={['Jan','Feb','March','April','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']}
-                          pData = {[2400, 1398, 9800, 3908, 4800, 3800, 4300,2400, 1398, 9800, 3908, 4800, 3800]}
-                        />
-                      </div>
-                  ): 
-                  (
-                  <div style={{display:"flex"}}> 
-                  <div className="material-tab-container analytic-results-tab material-items-container" style={{marginTop:"40px"}}>
+                  <Popper open={openPopper} anchorEl={anchorEl}>
+                  <div style={{paddingLeft:"140px", paddingBottom:"20px"}}> 
+                  <div className="material-tab-container analytic-results-tab material-items-container" >
                     <div className="result-item material-items" >
                       <label>Supplier</label>
                       <Dropdown
@@ -205,19 +211,14 @@ const AnalyticsResultsTab = (props) => {
                           type="secondary"
                           label="Ok"
                           maxWidth="80px"
+                          onClick={handPopperClose}
                         />
                       </div>
                     </div>
                   </div>
-                  <div style={{marginTop:"40px"}}>
-                    <ResultsGraph
-                     labels={['Jun','Jul','Aug','Sep','Oct','Nov','Dec']}
-                     pData = {[2400, 1398, 9800, 3908, 4800, 3800, 4300]}
-                     props={{width:280, height:400}}
-                    />
-                     </div>
                   </div>
-                  )
+                  </Popper>
+                  ): ""
               }
               <div
                 style={{ paddingLeft: "12px" }}
