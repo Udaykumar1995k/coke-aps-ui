@@ -5,7 +5,7 @@ const ResultsGraph = ( {labels,pData,props}) => {
     return (
         <div>
         <BarChart
-          width={props?.width ||530}
+          width={props?.width ||520}
           height={props?.height || 400}
           series={[
             { data: pData, id: 'pvId', color: 'black' }

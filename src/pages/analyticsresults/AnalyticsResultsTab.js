@@ -124,7 +124,7 @@ const AnalyticsResultsTab = (props) => {
         </div>
       </div>
       <div className="analytic-results material-tab-container border-radius-container">
-        <div style={{ width: "75%" }} className="tab-part">
+        <div style={{ width: "75%" }} className="tab-part" >
           <TabSection
             style={{ maxWidth: "450px", marginBottom: "30px", width: "100%" }}
             label={["Regular Items", "Advance PO Items"]}
@@ -132,86 +132,94 @@ const AnalyticsResultsTab = (props) => {
             handleChange={handleChange}
             count={[12, 999]}
           />
-          <div className="analytic-results">
-          <div >
+          <div className="analytic-results" >
+            <div >
               <IconButton onClick={handleFilter}>
                 <SortIcon/>
               </IconButton>
             </div>
-            <div className="flex-direction-column">
-            {show?<Graph/>:
-              showResults ? 
-                (
-                    <div>
-                      <ResultsGraph 
-                        labels={['Jan','Feb','March','April','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']}
-                        pData = {[2400, 1398, 9800, 3908, 4800, 3800, 4300,2400, 1398, 9800, 3908, 4800, 3800]}
+            <div className="flex-direction-column" >
+              {show?<Graph/>:
+                showResults ? 
+                  (
+                      <div>
+                        <ResultsGraph 
+                          labels={['Jan','Feb','March','April','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']}
+                          pData = {[2400, 1398, 9800, 3908, 4800, 3800, 4300,2400, 1398, 9800, 3908, 4800, 3800]}
+                        />
+                      </div>
+                  ): 
+                  (
+                  <div style={{display:"flex"}}> 
+                  <div className="material-tab-container analytic-results-tab material-items-container" style={{marginTop:"40px"}}>
+                    <div className="result-item material-items" >
+                      <label>Supplier</label>
+                      <Dropdown
+                        width="200px"
+                        label="Select Supplier"
+                        value={formData.supplier}
+                        name="supplier"
+                        options={[
+                          { value: "ireland", label: "CPS Balina" },
+                          { value: "india", label: "CPS Hyderabad" },
+                        ]}
+                        handleChange={handleFormData}
                       />
-                    </div>
-                ): 
-                ( 
-                <div className="material-tab-container analytic-results-tab material-items-container" style={{marginTop:"40px"}}>
-                  <div className="result-item material-items">
-                    <label>Supplier</label>
-                    <Dropdown
-                      width="200px"
-                      label="Select Supplier"
-                      value={formData.supplier}
-                      name="supplier"
-                      options={[
-                        { value: "ireland", label: "CPS Balina" },
-                        { value: "india", label: "CPS Hyderabad" },
-                      ]}
-                      handleChange={handleFormData}
-                    />
-                    <label>Material</label>
-                    <Dropdown
-                      width="200px"
-                      label="Select Material"
-                      value={formData.material}
-                      name="material"
-                      options={[
-                        { value: "Material1", label: "Material1" },
-                        { value: "Material2", label: "Material2" },
-                      ]}
-                      handleChange={handleFormData}
-                    />
-                    <label>Ship From</label>
-                    <Dropdown
-                      width="200px"
-                      label="Select Ship From"
-                      value={formData.shipFrom}
-                      name="shipFrom"
-                      options={[
-                        { value: "Location1", label: "India" },
-                        { value: "Location2", label: "Ireland" },
-                      ]}
-                      handleChange={handleFormData}
-                    />
-                    <label>Ship To</label>
-                    <Dropdown
-                      width="200px"
-                      label="Select Ship To"
-                      value={formData.shipTo}
-                      name="shipTo"
-                      options={[
-                        { value: "Location1", label: "India" },
-                        { value: "Location2", label: "Ireland" },
-                      ]}
-                      handleChange={handleFormData}
-                    />
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <ButtonComponent
-                        type="secondary"
-                        label="Ok"
-                        maxWidth="80px"
+                      <label>Material</label>
+                      <Dropdown
+                        width="200px"
+                        label="Select Material"
+                        value={formData.material}
+                        name="material"
+                        options={[
+                          { value: "Material1", label: "Material1" },
+                          { value: "Material2", label: "Material2" },
+                        ]}
+                        handleChange={handleFormData}
                       />
+                      <label>Ship From</label>
+                      <Dropdown
+                        width="200px"
+                        label="Select Ship From"
+                        value={formData.shipFrom}
+                        name="shipFrom"
+                        options={[
+                          { value: "Location1", label: "India" },
+                          { value: "Location2", label: "Ireland" },
+                        ]}
+                        handleChange={handleFormData}
+                      />
+                      <label>Ship To</label>
+                      <Dropdown
+                        width="200px"
+                        label="Select Ship To"
+                        value={formData.shipTo}
+                        name="shipTo"
+                        options={[
+                          { value: "Location1", label: "India" },
+                          { value: "Location2", label: "Ireland" },
+                        ]}
+                        handleChange={handleFormData}
+                      />
+                      <div style={{ display: "flex", justifyContent: "center" }}>
+                        <ButtonComponent
+                          type="secondary"
+                          label="Ok"
+                          maxWidth="80px"
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-                )
-            }
-            
+                  <div style={{marginTop:"40px"}}>
+                    <ResultsGraph
+                     labels={['Jun','Jul','Aug','Sep','Oct','Nov','Dec']}
+                     pData = {[2400, 1398, 9800, 3908, 4800, 3800, 4300]}
+                     props={{width:280, height:400}}
+                    />
+                     </div>
+                  </div>
+                  )
+              }
               <div
                 style={{ paddingLeft: "12px" }}
                 className="analytic-results result-margin"
