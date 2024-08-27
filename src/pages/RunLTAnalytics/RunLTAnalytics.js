@@ -13,10 +13,7 @@ const steps = [
   },
   {
     label: "Run Analytics",
-  },
-  {
-    label: "View Results",
-  },
+  }
 ];
 
 const RunLTAnalytics = () => {

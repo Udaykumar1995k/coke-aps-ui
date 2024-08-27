@@ -4,7 +4,6 @@ import Step from "@mui/material/Step";
 import InputSelection from "../../pages/RunLTAnalytics/InputSelection/InputSelection";
 import { StepButton } from "@mui/material";
 import RunAnalytics from "../../pages/RunLTAnalytics/RunAnalytics/RunAnalytics";
-import ViewResult from "../../pages/RunLTAnalytics/ViewResult/ViewResult";
 
 const stepStyle = {
   width: "100%",
@@ -60,14 +59,12 @@ const StepperComp = (props) => {
             submitExcludeModalHandler={props.submitExcludeModalHandler}
             isDisabled={props.isDisabled}
           />
-        ) : props.activeStep === 1 ? (
+        ) :  (
           <RunAnalytics 
             runAnalyticsData={props.runAnalyticsData}
             handleRunAnalyticsChange={props.handleRunAnalyticsChange}
             showTable={props.showTable}
           />
-        ) : (
-          <ViewResult />
         )}
       </div>
     </Box>
