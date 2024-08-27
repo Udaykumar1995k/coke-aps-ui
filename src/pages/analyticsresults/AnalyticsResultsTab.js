@@ -4,7 +4,7 @@ import ButtonComponent from "../../components/common/button/Button";
 import TabSection from "../../components/common/TabSection";
 import Dropdown from "../../components/common/Dropdown";
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import TopSection from "../TopSection";
 import Graph from "../../components/Graph/Graph";
 const AnalyticsResultsTab = (props) => {
@@ -56,10 +56,10 @@ const AnalyticsResultsTab = (props) => {
         </div>
         <div className="input-details">
           <p>
-            <Link style={{ color: "black" }} to="#">
-              Click Here
-            </Link>{" "}
-            to View the Complete Input Details
+            {/* <Link style={{ color: "black" }} to="#"> */}
+            <span style={{textDecoration:"underline", cursor:"pointer"}}>Click Here</span>
+            {/* </Link>{" "} */}
+             &nbsp;to View the Complete Input Details
           </p>
         </div>
       </div>
