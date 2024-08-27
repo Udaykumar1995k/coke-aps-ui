@@ -9,6 +9,9 @@ import TopSection from "../TopSection";
 import Graph from "../../components/Graph/Graph";
 import Modal from "../../components/common/modal/Modal";
 import ApprovalCard from "../WorkflowManagement/ApprovalCard";
+import SortIcon from '@mui/icons-material/Sort';
+import { IconButton } from "@mui/material";
+import ResultsGraph from "../../components/Graph/ResultsGraph";
 const FooterButtons = ({setClearData}) => {
   const clearApprovalData = () =>{
     setClearData()
@@ -44,7 +47,8 @@ const ModalContent = ({checkBoxCount,isClicked,setApproval}) => {
 };
 const AnalyticsResultsTab = (props) => {
   const [value, setValue] = useState(0);
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
+  const [showResults, setShowResults] = useState(true);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -62,8 +66,14 @@ const AnalyticsResultsTab = (props) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
   const handleDrillDown = () => {
-    setShow(false);
+    setShow(true);
+    setShowResults(true)
   };
+
+  const handleFilter = () => {
+    setShowResults(!showResults)
+    setShow(false)
+  }
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -88,6 +98,7 @@ const AnalyticsResultsTab = (props) => {
       />
       <div className="analytic-results-tab">
         <div className="analytic-results">
+          
           <div className="result-item">
             <span className="analytics-text">
               Period Consider for Analytics
@@ -122,9 +133,24 @@ const AnalyticsResultsTab = (props) => {
             count={[12, 999]}
           />
           <div className="analytic-results">
+          <div >
+              <IconButton onClick={handleFilter}>
+                <SortIcon/>
+              </IconButton>
+            </div>
             <div className="flex-direction-column">
-              {show ? (
-                <div className="material-tab-container analytic-results-tab material-items-container">
+            {show?<Graph/>:
+              showResults ? 
+                (
+                    <div>
+                      <ResultsGraph 
+                        labels={['Jan','Feb','March','April','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']}
+                        pData = {[2400, 1398, 9800, 3908, 4800, 3800, 4300,2400, 1398, 9800, 3908, 4800, 3800]}
+                      />
+                    </div>
+                ): 
+                ( 
+                <div className="material-tab-container analytic-results-tab material-items-container" style={{marginTop:"40px"}}>
                   <div className="result-item material-items">
                     <label>Supplier</label>
                     <Dropdown
@@ -183,9 +209,9 @@ const AnalyticsResultsTab = (props) => {
                     </div>
                   </div>
                 </div>
-              ) : (
-                <Graph />
-              )}
+                )
+            }
+            
               <div
                 style={{ paddingLeft: "12px" }}
                 className="analytic-results result-margin"
@@ -216,7 +242,7 @@ const AnalyticsResultsTab = (props) => {
             </div>
           </div>
         </div>
-        {show ? (
+        {!show ? (
           <div
             className="analytic-results-tab result-margin"
             style={{ width: "25%" }}
@@ -252,7 +278,7 @@ const AnalyticsResultsTab = (props) => {
           </div>
         )}
       </div>
-      {show && (
+      {!show && (
         <div className="analytic-results-tab result-margin" style={{padding: '20px 10px'}}>
           <div className="analytic-results">
             <div className="result-item">
@@ -282,10 +308,10 @@ const AnalyticsResultsTab = (props) => {
             type="primary"
             maxWidth="80px"
             label="Back"
-            onClick={() => setShow(true)}
+            onClick={() => setShow(false)}
           />
         </div>
-        {show && (
+        {!show && (
           <div className="analytic-results button-alignment">
             <ButtonComponent
               bgColor="lightgrey"
