@@ -7,6 +7,41 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import TopSection from "../TopSection";
 import Graph from "../../components/Graph/Graph";
+import Modal from "../../components/common/modal/Modal";
+import ApprovalCard from "../WorkflowManagement/ApprovalCard";
+const FooterButtons = ({setClearData}) => {
+  const clearApprovalData = () =>{
+    setClearData()
+  }
+  return (
+    <div className='footer-btn-wrapper'>
+      <ButtonComponent
+        maxWidth="170px"
+        label="Clear All"
+        type="primary"
+        onClick={clearApprovalData}
+      />
+      <ButtonComponent
+        maxWidth="170px"
+        label="Submit"
+        bgColor="black"
+        color="white"
+      />
+    </div>
+  );
+};
+const ModalContent = ({checkBoxCount,isClicked,setApproval}) => {
+  return (
+    <>
+      <ApprovalCard 
+      checkBoxCount={checkBoxCount}
+      isClicked ={isClicked}
+      setApproval={setApproval}
+      />
+
+    </>
+  )
+};
 const AnalyticsResultsTab = (props) => {
   const [value, setValue] = useState(0);
   const [show, setShow] = useState(true);
@@ -15,6 +50,8 @@ const AnalyticsResultsTab = (props) => {
   };
   const { state } = useLocation();
   console.log("stateData", state);
+  const [open, setOpen] = useState(false);
+  const [isClicked, setisClicked] = useState(false);
   const [formData, setFormData] = useState({
     supplier: "",
     material: "",
@@ -27,7 +64,19 @@ const AnalyticsResultsTab = (props) => {
   const handleDrillDown = () => {
     setShow(false);
   };
-
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+  
+  const setClearData = () =>{
+    setisClicked(true)
+  }
+  const setApproval = () => {
+    setisClicked(false)
+  }
   return (
     <div>
       <TopSection
@@ -254,7 +303,11 @@ const AnalyticsResultsTab = (props) => {
               type="secondary"
               maxWidth="180px"
               label="Send for Approval"
-            />
+              onClick={handleClickOpen}
+            />           
+            <Modal open={open} handleClose={handleClose} title="Workflow Approval" action={<FooterButtons setClearData={setClearData}/>} content={<ModalContent checkBoxCount="1" isClicked={isClicked} setApproval={setApproval}/>} maxWidth="100px"/>
+
+            
           </div>
         )}
       </div>
