@@ -132,12 +132,10 @@ const AnalyticsResultsTab = (props) => {
             handleChange={handleChange}
             count={[12, 999]}
           />
+            <IconButton onClick={handleFilter}>
+              <SortIcon/>
+            </IconButton>
           <div className="analytic-results" >
-            <div >
-              <IconButton onClick={handleFilter}>
-                <SortIcon/>
-              </IconButton>
-            </div>
             <div className="flex-direction-column" >
               {show?<Graph/>:
                 showResults ? 
@@ -175,6 +173,7 @@ const AnalyticsResultsTab = (props) => {
                           { value: "Material1", label: "Material1" },
                           { value: "Material2", label: "Material2" },
                         ]}
+               
                         handleChange={handleFormData}
                       />
                       <label>Ship From</label>
