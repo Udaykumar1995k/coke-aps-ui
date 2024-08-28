@@ -25,7 +25,7 @@ const Dropdown = ({ label, value, options = [], handleChange, ...props }) => {
     }
 
     return (
-        <FormControl sx={{ width: props.width || '50%' ,...props.styles}} >
+        <FormControl sx={{ width: props.width || '50%' ,...props.styles, height:props?.formHeight}} >
             <InputLabel id={props.inputLabelId || "dropdown-label"}>{label}</InputLabel>
             < Select {...selectProps} defaultValue={options[0]?.label}>
                 {options.map((option) => (

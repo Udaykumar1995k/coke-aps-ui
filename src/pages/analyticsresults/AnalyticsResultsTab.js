@@ -157,9 +157,10 @@ const AnalyticsResultsTab = (props) => {
                   <div style={{paddingLeft:"140px", paddingBottom:"20px"}}> 
                   <div className="material-tab-container analytic-results-tab material-items-container" >
                     <div className="result-item material-items" >
-                      <label>Supplier</label>
+                      <span>Supplier</span>
                       <Dropdown
                         width="200px"
+                        formHeight="42px"
                         label="Select Supplier"
                         value={formData.supplier}
                         name="supplier"
@@ -169,9 +170,10 @@ const AnalyticsResultsTab = (props) => {
                         ]}
                         handleChange={handleFormData}
                       />
-                      <label>Material</label>
+                      <span>Material</span>
                       <Dropdown
                         width="200px"
+                        formHeight="42px"
                         label="Select Material"
                         value={formData.material}
                         name="material"
@@ -182,9 +184,10 @@ const AnalyticsResultsTab = (props) => {
                
                         handleChange={handleFormData}
                       />
-                      <label>Ship From</label>
+                      <span>Ship From</span>
                       <Dropdown
                         width="200px"
+                        formHeight="42px"
                         label="Select Ship From"
                         value={formData.shipFrom}
                         name="shipFrom"
@@ -194,9 +197,10 @@ const AnalyticsResultsTab = (props) => {
                         ]}
                         handleChange={handleFormData}
                       />
-                      <label>Ship To</label>
+                      <span>Ship To</span>
                       <Dropdown
                         width="200px"
+                        formHeight="42px"
                         label="Select Ship To"
                         value={formData.shipTo}
                         name="shipTo"
@@ -221,7 +225,7 @@ const AnalyticsResultsTab = (props) => {
                   ): ""
               }
               <div
-                style={{ paddingLeft: "12px" }}
+                style={{ paddingLeft: "12px", padding:"10px" }}
                 className="analytic-results result-margin"
               >
                 <p>Variance (Actual vs</p>
