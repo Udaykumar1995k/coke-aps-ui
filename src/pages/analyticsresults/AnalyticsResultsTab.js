@@ -9,6 +9,10 @@ import TopSection from "../TopSection";
 import Graph from "../../components/Graph/Graph";
 import Modal from "../../components/common/modal/Modal";
 import ApprovalCard from "../WorkflowManagement/ApprovalCard";
+import SortIcon from '@mui/icons-material/Sort';
+import { IconButton } from "@mui/material";
+import ResultsGraph from "../../components/Graph/ResultsGraph";
+import { Popper } from "@mui/material"
 const FooterButtons = ({setClearData}) => {
   const clearApprovalData = () =>{
     setClearData()
@@ -44,10 +48,18 @@ const ModalContent = ({checkBoxCount,isClicked,setApproval}) => {
 };
 const AnalyticsResultsTab = (props) => {
   const [value, setValue] = useState(0);
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const [anchorEl, setAnchorEl] = useState(null);
+  const handleClick = (event) => {
+        setAnchorEl(anchorEl? null:event.currentTarget)
+    }
+    const handPopperClose = () =>{
+        setAnchorEl(null)
+    }
+  const openPopper = Boolean(anchorEl)
   const { state } = useLocation();
   console.log("stateData", state);
   const [open, setOpen] = useState(false);
@@ -62,8 +74,10 @@ const AnalyticsResultsTab = (props) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
   const handleDrillDown = () => {
-    setShow(false);
+    setShow(true);
   };
+
+  
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -88,6 +102,7 @@ const AnalyticsResultsTab = (props) => {
       />
       <div className="analytic-results-tab">
         <div className="analytic-results">
+          
           <div className="result-item">
             <span className="analytics-text">
               Period Consider for Analytics
@@ -113,7 +128,7 @@ const AnalyticsResultsTab = (props) => {
         </div>
       </div>
       <div className="analytic-results material-tab-container border-radius-container">
-        <div style={{ width: "75%" }} className="tab-part">
+        <div style={{ width: "75%" }} className="tab-part" >
           <TabSection
             style={{ maxWidth: "450px", marginBottom: "30px", width: "100%" }}
             label={["Regular Items", "Advance PO Items"]}
@@ -121,73 +136,96 @@ const AnalyticsResultsTab = (props) => {
             handleChange={handleChange}
             count={[12, 999]}
           />
-          <div className="analytic-results">
-            <div className="flex-direction-column">
-              {show ? (
-                <div className="material-tab-container analytic-results-tab material-items-container">
-                  <div className="result-item material-items">
-                    <label>Supplier</label>
-                    <Dropdown
-                      width="200px"
-                      label="Select Supplier"
-                      value={formData.supplier}
-                      name="supplier"
-                      options={[
-                        { value: "ireland", label: "CPS Balina" },
-                        { value: "india", label: "CPS Hyderabad" },
-                      ]}
-                      handleChange={handleFormData}
-                    />
-                    <label>Material</label>
-                    <Dropdown
-                      width="200px"
-                      label="Select Material"
-                      value={formData.material}
-                      name="material"
-                      options={[
-                        { value: "Material1", label: "Material1" },
-                        { value: "Material2", label: "Material2" },
-                      ]}
-                      handleChange={handleFormData}
-                    />
-                    <label>Ship From</label>
-                    <Dropdown
-                      width="200px"
-                      label="Select Ship From"
-                      value={formData.shipFrom}
-                      name="shipFrom"
-                      options={[
-                        { value: "Location1", label: "India" },
-                        { value: "Location2", label: "Ireland" },
-                      ]}
-                      handleChange={handleFormData}
-                    />
-                    <label>Ship To</label>
-                    <Dropdown
-                      width="200px"
-                      label="Select Ship To"
-                      value={formData.shipTo}
-                      name="shipTo"
-                      options={[
-                        { value: "Location1", label: "India" },
-                        { value: "Location2", label: "Ireland" },
-                      ]}
-                      handleChange={handleFormData}
-                    />
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <ButtonComponent
-                        type="secondary"
-                        label="Ok"
-                        maxWidth="80px"
+            <IconButton onClick={handleClick}>
+              <SortIcon/>
+            </IconButton>
+          <div className="analytic-results" >
+            <div className="flex-direction-column" >
+           {!show?( 
+            <div>
+              <ResultsGraph 
+              labels={['Jan','Feb','March','April','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']}
+              pData = {[2400, 1398, 9800, 3908, 4800, 3800, 4300,2400, 1398, 9800, 3908, 4800, 3800]}
+              />
+            </div>
+            ):""}  
+              {show?<Graph/>: ""}
+              {
+                !show? 
+                  (
+                  <Popper open={openPopper} anchorEl={anchorEl}>
+                  <div style={{paddingLeft:"140px", paddingBottom:"20px"}}> 
+                  <div className="material-tab-container analytic-results-tab material-items-container" >
+                    <div className="result-item material-items" >
+                      <span>Supplier</span>
+                      <Dropdown
+                        width="200px"
+                        formHeight="42px"
+                        label="Select Supplier"
+                        value={formData.supplier}
+                        name="supplier"
+                        options={[
+                          { value: "ireland", label: "CPS Balina" },
+                          { value: "india", label: "CPS Hyderabad" },
+                        ]}
+                        handleChange={handleFormData}
                       />
+                      <span>Material</span>
+                      <Dropdown
+                        width="200px"
+                        formHeight="42px"
+                        label="Select Material"
+                        value={formData.material}
+                        name="material"
+                        options={[
+                          { value: "Material1", label: "Material1" },
+                          { value: "Material2", label: "Material2" },
+                        ]}
+               
+                        handleChange={handleFormData}
+                      />
+                      <span>Ship From</span>
+                      <Dropdown
+                        width="200px"
+                        formHeight="42px"
+                        label="Select Ship From"
+                        value={formData.shipFrom}
+                        name="shipFrom"
+                        options={[
+                          { value: "Location1", label: "India" },
+                          { value: "Location2", label: "Ireland" },
+                        ]}
+                        handleChange={handleFormData}
+                      />
+                      <span>Ship To</span>
+                      <Dropdown
+                        width="200px"
+                        formHeight="42px"
+                        label="Select Ship To"
+                        value={formData.shipTo}
+                        name="shipTo"
+                        options={[
+                          { value: "Location1", label: "India" },
+                          { value: "Location2", label: "Ireland" },
+                        ]}
+                        handleChange={handleFormData}
+                      />
+                      <div style={{ display: "flex", justifyContent: "center" }}>
+                        <ButtonComponent
+                          type="secondary"
+                          label="Ok"
+                          maxWidth="80px"
+                          onClick={handPopperClose}
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-              ) : (
-                <Graph />
-              )}
+                  </div>
+                  </Popper>
+                  ): ""
+              }
               <div
-                style={{ paddingLeft: "12px" }}
+                style={{ paddingLeft: "12px", padding:"10px" }}
                 className="analytic-results result-margin"
               >
                 <p>Variance (Actual vs</p>
@@ -216,7 +254,7 @@ const AnalyticsResultsTab = (props) => {
             </div>
           </div>
         </div>
-        {show ? (
+        {!show ? (
           <div
             className="analytic-results-tab result-margin"
             style={{ width: "25%" }}
@@ -252,7 +290,7 @@ const AnalyticsResultsTab = (props) => {
           </div>
         )}
       </div>
-      {show && (
+      {!show && (
         <div className="analytic-results-tab result-margin" style={{padding: '20px 10px'}}>
           <div className="analytic-results">
             <div className="result-item">
@@ -282,10 +320,10 @@ const AnalyticsResultsTab = (props) => {
             type="primary"
             maxWidth="80px"
             label="Back"
-            onClick={() => setShow(true)}
+            onClick={() => setShow(false)}
           />
         </div>
-        {show && (
+        {!show && (
           <div className="analytic-results button-alignment">
             <ButtonComponent
               bgColor="lightgrey"
