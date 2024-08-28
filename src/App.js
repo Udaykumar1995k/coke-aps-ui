@@ -4,6 +4,10 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import SettingsIcon from "@mui/icons-material/Settings";
+import ManageHistoryIcon from '@mui/icons-material/ManageHistory';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import MapsHomeWorkIcon from '@mui/icons-material/MapsHomeWork';
+import AssuredWorkloadIcon from '@mui/icons-material/AssuredWorkload';
 
 import Header from "./components/Header/Header";
 import MainContent from "./components/MainContent/MainContent";
@@ -60,6 +64,34 @@ function App() {
       label: "Workflow Management",
       icon: <SettingsIcon />,
       title: "Workflow Management"
+    },
+    {
+      id: 6,
+      path: "/scheduler-configurator",
+      label: "Scheduler Configurator",
+      icon: <ManageHistoryIcon />,
+      title: "Scheduler Configurator"
+    },
+    {
+      id: 7,
+      path: "/parameter-configuration",
+      label: "Parameter Configuration",
+      icon: <AssuredWorkloadIcon />,
+      title: "Parameter Configuration"
+    },
+    {
+      id: 8,
+      path: "/planner-material-mapping",
+      label: "Planner-Material Mapping",
+      icon: <MapsHomeWorkIcon />,
+      title: "Planner-Material Mapping"
+    },
+    {
+      id: 9,
+      path: "/user-authorization",
+      label: "User Authorization",
+      icon: <AccountCircleIcon />,
+      title: "User Authorization"
     }
   ];
 

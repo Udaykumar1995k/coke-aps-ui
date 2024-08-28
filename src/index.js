@@ -20,6 +20,9 @@ import WorkflowManagement from './pages/WorkflowManagement';
 import SchedulerConfigurator from './pages/SchedulerConfigurator';
 import LandingPage from './pages/LandingPage/LandingPage';
 import AnalyticsResultsTab from './pages/analyticsresults/AnalyticsResultsTab';
+import ParamaterConfiguration from './pages/ParameterConfiguration';
+import PlannerMaterialMapping from './pages/PlannerMaterialMapping';
+import UserAuthorization from './pages/UserAuthorization';
 
 const router = createBrowserRouter([
   {
@@ -92,12 +95,42 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: "schedulerConfigurator",
+        path: "scheduler-configurator",
         element: <PrivateRoutes />,
         children: [
           {
             path: "",
             element: <SchedulerConfigurator />,
+          },
+        ],
+      },
+      {
+        path: "parameter-configuration",
+        element: <PrivateRoutes />,
+        children: [
+          {
+            path: "",
+            element: <ParamaterConfiguration />,
+          },
+        ],
+      },
+      {
+        path: "planner-material-mapping",
+        element: <PrivateRoutes />,
+        children: [
+          {
+            path: "",
+            element: <PlannerMaterialMapping />,
+          },
+        ],
+      },
+      {
+        path: "user-authorization",
+        element: <PrivateRoutes />,
+        children: [
+          {
+            path: "",
+            element: <UserAuthorization />,
           },
         ],
       },

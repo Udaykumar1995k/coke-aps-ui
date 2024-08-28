@@ -18,8 +18,11 @@
     background-color: #aaaaaa;
 }
 .sidebar>ul {
-    position: fixed;
+    position: sticky;
     max-width: 100px;
+}
+.sidebar>ul>li>div {
+    padding: 5px;
 }
 .content {
     width: 100%;

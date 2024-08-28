@@ -1,0 +1,7 @@
+.cron-comp > div:last-child button {
+    background: #000 !important; 
+}
+
+.cron-comp > div:last-child button:hover {
+    background: #000 !important; 
+}
