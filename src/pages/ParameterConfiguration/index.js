@@ -4,6 +4,7 @@ import Dropdown from "../../components/common/Dropdown";
 import TabSection from "../../components/common/TabSection";
 import ActionInput from "../../components/common/actioninput/ActionInputField";
 import ButtonComponent from "../../components/common/button/Button";
+import CustomSlider from './Slider';
 import './index.css';
 const ParamaterConfiguration = () => {
   const [formData, setFormData] = useState({
@@ -133,6 +134,9 @@ const ParamaterConfiguration = () => {
                 </div>
               </div>
               <p style={{fontSize:"14px", paddingLeft:"10px"}}>Lead Time Variation Category</p>
+              <div>
+                <CustomSlider props={{width:"200px"}}/>
+              </div>
             <div className="parameter-items">
               <div>
               <span>
