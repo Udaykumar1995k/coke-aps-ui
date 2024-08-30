@@ -33,3 +33,4 @@ function CustomSlider(props) {
 }
 
 export default CustomSlider;
+
