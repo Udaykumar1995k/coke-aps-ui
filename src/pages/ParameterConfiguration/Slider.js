@@ -8,17 +8,6 @@ function CustomSlider(props) {
     setValue(newValue);
   };
 
-  const marks = [
-    {
-      value: value[0],
-      label: `${value[0]}%`,
-    },
-    {
-      value: value[1],
-      label: `${value[1]}%`,
-    },
-  ];
-
   return (
     <div >
       <Slider sx={{width:props?.width || 400}}
