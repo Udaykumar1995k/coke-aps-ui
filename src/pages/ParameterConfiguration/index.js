@@ -134,9 +134,26 @@ const ParamaterConfiguration = () => {
                 </div>
               </div>
               <p style={{fontSize:"14px", paddingLeft:"10px"}}>Lead Time Variation Category</p>
-              <div>
-                <CustomSlider props={{width:"200px"}}/>
-              </div>
+              <div className="lead-time-category">
+                <div className="paramaeter-tab-container lead-time-category-container">
+                  <div className="lead-time-category-items">
+                    <p >Low Lead Time Variation</p>
+                    <CustomSlider width="300px" intialStartvalue="20" intialEndvalue="80"/>
+                  </div>
+                </div> 
+                <div className="paramaeter-tab-container lead-time-category-container">
+                  <div className="lead-time-category-items">
+                    <p >Medium Lead Time Variation</p>
+                    <CustomSlider width="300px" intialStartvalue="30" intialEndvalue="60"/>
+                  </div>
+                </div> 
+                <div className="paramaeter-tab-container lead-time-category-container">
+                  <div className="lead-time-category-items">
+                    <p >High Lead Time Variation</p>
+                    <CustomSlider width="300px" intialStartvalue="40" intialEndvalue="90"/>
+                  </div>
+                </div> 
+            </div>
             <div className="parameter-items">
               <div>
               <span>
