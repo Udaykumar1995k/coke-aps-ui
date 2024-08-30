@@ -1,0 +1,72 @@
+.paramaeter-tab-container {
+    border: 1px solid lightgray;
+    padding: 0px 20px;
+    border-radius: 6px;
+    background-color: white;
+}
+
+.parameter-items {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 10px 10px;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-part .MuiTabs-root .MuiButtonBase-root {
+    color: #000;
+}
+
+.tab-part .MuiTabs-root .MuiTabs-indicator {
+    background-color: #8c8c8c;
+}
+
+.materials {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.threshold-value-container {
+    background-color: rgba(239, 239, 240,0.6);
+    border-radius: 6px;
+    padding: 5px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.button-alignment {
+    display: flex;
+   flex-direction: row;
+   gap: 10px;
+}
+
+.custom-slider .MuiSlider-thumb {
+    height: 12px; /* decrease the size of the start and end points */
+    width: 12px;
+  }
+  
+  .custom-slider .MuiSlider-thumb.MuiSlider-thumbColorPrimary {
+    background-color: black; /* selected color */
+  }
+  
+  .custom-slider .MuiSlider-track {
+    background-color: black; /* unselected color */
+  }
+  
+  .custom-slider .MuiSlider-rail {
+    background-color: white; /* unselected color */
+    border-color: black !important; /* add black border to unselected rail */
+  }
+  
+  .custom-slider .MuiSlider-track.MuiSlider-trackColorPrimary {
+    background-color: white; /* unselected track color */
+  }
+  
+  .custom-slider .MuiSlider-root {
+    border: 1px solid black !important; /* add black border to entire slider */
+  }
