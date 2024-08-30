@@ -1,7 +1,12 @@
+.cron-comp {
+    align-items: center !important;
+}
 .cron-comp > div:last-child button {
     background: #000 !important; 
 }
-
 .cron-comp > div:last-child button:hover {
     background: #000 !important; 
+}
+.react-js-cron > div, .react-js-cron-field .ant-select {
+    height: 50px;
 }

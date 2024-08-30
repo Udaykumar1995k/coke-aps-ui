@@ -1,19 +1,17 @@
-import React, { useState } from 'react'
 import Cron from 'react-js-cron'
 import 'react-js-cron/dist/styles.css'
 
 import './Scheduler.css';
 
-const Scheduler = () => {
-  const defaultValue = '30 5 * * 1,6'
-  const [value, setValue] = useState(defaultValue)
-  console.log('value:', value)
+const Scheduler = (props) => {
 
   return (
     <Cron
-        value={value}
-        setValue={setValue}
+        value={props.value}
+        setValue={props.setValue}
         className='cron-comp'
+        humanizeLabels={true}
+        humanizeValue
     />
   )
 }
