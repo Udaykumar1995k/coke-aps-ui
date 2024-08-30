@@ -1,0 +1,12 @@
+.userSection-auth {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px 10px;
+}
+
+.dropdown-item-auth {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
