@@ -5,6 +5,7 @@ import TabSection from "../../components/common/TabSection";
 import ActionInput from "../../components/common/actioninput/ActionInputField";
 import ButtonComponent from "../../components/common/button/Button";
 import CustomSlider from './Slider';
+import ExcelUpdate from './ExcelUpdate';
 import './index.css';
 const ParamaterConfiguration = () => {
   const [formData, setFormData] = useState({
@@ -29,7 +30,7 @@ const ParamaterConfiguration = () => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
   return (
-    <div>
+    <>
       <TopSection
         labelList={[
           { title: "Home", path: "/landing-page" },
@@ -45,7 +46,7 @@ const ParamaterConfiguration = () => {
             /> 
             { value === 0?
               (
-                <div>
+                <>
                   <div className="parameter-items" >
                     <div className="materials">
                       <span>Material Type</span>
@@ -199,17 +200,18 @@ const ParamaterConfiguration = () => {
                       />
                     </div>
                   </div>
-                </div>
+                </>
               ):
               (
-                <div>
-                </div>
+                <>
+                <ExcelUpdate/>
+                </>
               )
             }
           </div>
       </div> 
       
-    </div> 
+    </> 
   )
 }
 

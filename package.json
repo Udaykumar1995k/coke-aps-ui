@@ -20,6 +20,7 @@
     "ag-grid-react": "^32.0.2",
     "axios": "^1.7.2",
     "dayjs": "^1.11.12",
+    "file-saver": "^2.0.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-js-cron": "^5.0.1",
@@ -27,7 +28,8 @@
     "react-router-dom": "^6.24.0",
     "react-scripts": "5.0.1",
     "styled-components": "^6.1.11",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "xlsx": "^0.18.5"
   },
   "scripts": {
     "start": "react-scripts start",
