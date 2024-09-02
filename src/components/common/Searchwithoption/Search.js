@@ -3,7 +3,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 
 const SearchWithOptions = ({ data, width, onChange,clearInputValue,onInputChange }) => {
     return (
-        <div style={{ width: width || '200px' }}>
+        <div className='searchOption' style={{ width: width || '200px' }}>
             <Autocomplete
                 freeSolo
                 id="searchfield"
