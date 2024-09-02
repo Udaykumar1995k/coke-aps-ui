@@ -1,0 +1,10 @@
+.tab-main button {
+    text-transform: capitalize;
+}
+.tab-main .Mui-selected {
+    color: #000028;
+    font-weight: bold;
+}
+.tab-main .MuiTabs-indicator {
+    background-color: #717171;
+}
