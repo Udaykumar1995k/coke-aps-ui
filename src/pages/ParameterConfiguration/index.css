@@ -41,13 +41,13 @@
 
 .button-alignment {
     display: flex;
-   flex-direction: row;
+    flex-direction: row;
    gap: 10px;
 }
 
 .custom-slider .MuiSlider-thumb {
-    height: 12px; /* decrease the size of the start and end points */
-    width: 12px;
+    height: 0px; /* decrease the size of the start and end points */
+    width:0px;
   }
   
   .custom-slider .MuiSlider-thumb.MuiSlider-thumbColorPrimary {
@@ -61,6 +61,8 @@
   .custom-slider .MuiSlider-rail {
     background-color: white; /* unselected color */
     border-color: black !important; /* add black border to unselected rail */
+    border: 1px solid black !important;
+    height: 7px;
   }
   
   .custom-slider .MuiSlider-track.MuiSlider-trackColorPrimary {
@@ -68,5 +70,50 @@
   }
   
   .custom-slider .MuiSlider-root {
-    border: 1px solid black !important; /* add black border to entire slider */
+    border: 1px solid black !important; /*add black border to entire slider */
   }
+  /* .custom-slider .MuiSlider-valueLabel {
+    border: 1px solid black; 
+    color: black; 
+    background-color: white;
+    border-radius: 4px; 
+  }
+  .custom-slider .MuiSlider-valueLabel.MuiSlider-valueLabelOpen > .MuiSlider-valueLabelCaret {
+    border-bottom-color: black; 
+  }
+  .custom-slider .MuiSlider-valueLabel ::before {
+    border: 1px solid black;
+  } */
+
+
+.MuiSlider-markLabel {
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 2px 4px;
+}
+.lead-time-category {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.lead-time-category-container {
+  max-width: 820px;
+  border: 1px solid black !important;
+  height: 120px;
+  gap: 70px;
+  width: 100%;
+}
+
+.lead-time-category-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 12px;
+}
+.lead-time-category-items p {
+  font-size: 12px;
+}
+
+
