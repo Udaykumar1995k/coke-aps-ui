@@ -5,6 +5,7 @@ import TabSection from "../../components/common/TabSection";
 import ActionInput from "../../components/common/actioninput/ActionInputField";
 import ButtonComponent from "../../components/common/button/Button";
 import CustomSlider from './Slider';
+import ExcelUpdate from './ExcelUpdate';
 import './index.css';
 const ParamaterConfiguration = () => {
   const [formData, setFormData] = useState({
@@ -202,8 +203,9 @@ const ParamaterConfiguration = () => {
                 </>
               ):
               (
-                <div>
-                </div>
+                <>
+                <ExcelUpdate/>
+                </>
               )
             }
           </div>
