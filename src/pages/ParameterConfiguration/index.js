@@ -29,7 +29,7 @@ const ParamaterConfiguration = () => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
   return (
-    <div>
+    <>
       <TopSection
         labelList={[
           { title: "Home", path: "/landing-page" },
@@ -45,7 +45,7 @@ const ParamaterConfiguration = () => {
             /> 
             { value === 0?
               (
-                <div>
+                <>
                   <div className="parameter-items" >
                     <div className="materials">
                       <span>Material Type</span>
@@ -199,7 +199,7 @@ const ParamaterConfiguration = () => {
                       />
                     </div>
                   </div>
-                </div>
+                </>
               ):
               (
                 <div>
@@ -209,7 +209,7 @@ const ParamaterConfiguration = () => {
           </div>
       </div> 
       
-    </div> 
+    </> 
   )
 }
 
