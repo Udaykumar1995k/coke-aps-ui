@@ -177,29 +177,6 @@ const ParamaterConfiguration = () => {
                       </div>
                     </div>
                   </div>
-                  <div style={{ display:"flex",padding:"10px"}} >
-                    <div style={{display:"flex", width:"30%"}}>
-                      <ButtonComponent
-                        type="primary"
-                        maxWidth="80px"
-                        label="Back"
-                      />
-                    </div>
-                    <div className="button-alignment" style={{width:"70%"}}>
-                      <ButtonComponent
-                        type="primary"
-                        maxWidth="120px"
-                          label="Clear All"
-                        onClick={handleClear}
-                      />
-                      <ButtonComponent
-                        type="secondary"
-                        maxWidth="80px"
-                        label="Save"
-                        onClick={onHandleClick}
-                      />
-                    </div>
-                  </div>
                 </>
               ):
               (
@@ -208,9 +185,51 @@ const ParamaterConfiguration = () => {
                 </>
               )
             }
+            
           </div>
-      </div> 
-      
+        </div> 
+      <div style={{ display:"flex",padding:"10px"}} >
+        <div style={{display:"flex", width:"30%"}}>
+          <ButtonComponent
+            type="primary"
+            maxWidth="80px"
+            label="Back"
+          />
+        </div>
+        {value ===0?
+        (
+          <div className="button-alignment" style={{width:"70%"}}>
+          <ButtonComponent
+            type="primary"
+            maxWidth="120px"
+              label="Clear All"
+            onClick={handleClear}
+          />
+          <ButtonComponent
+            type="secondary"
+            maxWidth="80px"
+            label="Save"
+            onClick={onHandleClick}
+          />
+        </div>
+        ):
+        <div className="button-alignment" style={{width:"70%"}}>
+          <ButtonComponent
+            type="primary"
+            maxWidth="180px"
+            label="File Upload Overview"
+            onClick={handleClear}
+          />
+          <ButtonComponent
+            type="secondary"
+            maxWidth="80px"
+            label="Save"
+            onClick={onHandleClick}
+          />
+        </div>}
+        
+      </div>
+
     </> 
   )
 }
