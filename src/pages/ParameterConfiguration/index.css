@@ -149,3 +149,30 @@
   background-color: rgba(239, 239, 240,2);
   border-radius: 4px;
 }
+
+.flex-items-row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 600px;
+}
+
+.line-items {
+  margin-top: 10px;
+  font-size: 12px;
+  width: 250px;
+}
+
+.error-line-items-container {
+  padding: 5px 10px;
+  background-color: rgba(239, 239, 240,2);
+  border-radius: 4px;
+  max-width: 260px;
+
+}
+
+.footer-button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
