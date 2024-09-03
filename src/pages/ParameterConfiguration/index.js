@@ -222,7 +222,7 @@ const ParamaterConfiguration = () => {
           />
           <ButtonComponent
             type="secondary"
-            maxWidth="80px"
+            maxWidth="80px" 
             label="Save"
             onClick={onHandleClick}
           />
