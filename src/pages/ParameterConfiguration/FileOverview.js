@@ -37,14 +37,14 @@ const FileOverivew = ({fileName}) =>{
 }
 
 
-const FileOverivewFooter = () =>{
+const FileOverivewFooter = (props) =>{
     return (
         <div className="footer-button-wrapper">
            <ButtonComponent
                 type="primary"
                 maxWidth="180px"
                 label="Cancel"
-                // onClick={handleClickOpen}
+                onClick={props.close}
               />
             <ButtonComponent
                 type="secondary"

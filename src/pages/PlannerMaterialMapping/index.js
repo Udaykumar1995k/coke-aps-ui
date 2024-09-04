@@ -7,6 +7,8 @@ import './index.css';
 import Dropdown from '../../components/common/Dropdown';
 import ButtonComponent from '../../components/common/button/Button';
 import ExcelUpdate from '../ParameterConfiguration/ExcelUpdate';
+import Modal from '../../components/common/modal/Modal';
+import { FileOverivew, FileOverivewFooter } from '../ParameterConfiguration/FileOverview';
 
 
 const data = [
@@ -25,6 +27,8 @@ const PlannerMaterialMapping = () => {
     material: ''
   })
   const [isDisabled, setIsDisabled] = useState(true);
+  const [overview, setOverview] = useState(false);
+  const [fileName, setFileName] = useState('')
 
   const handleChange = (event, newValue) => {
     setTabValue(newValue);
@@ -53,6 +57,10 @@ const PlannerMaterialMapping = () => {
       material: ''
     });
     setSelectedPlanner(null);
+  }
+
+  const getFileName = (fileName) =>{
+    setFileName(fileName)
   }
 
   return (
@@ -90,17 +98,22 @@ const PlannerMaterialMapping = () => {
                     sx={{
                       display: "flex",
                       flexDirection: "column",
-                      "& .MuiInputBase-root": { height: "50px", maxWidth: "250px" },
+                      "& .MuiInputBase-root": {
+                        height: "50px",
+                        maxWidth: "250px",
+                      },
                     }}
                   >
                     <label className="label-position">Material Type</label>
-                      <Autocomplete
-                          options={data}
-                          getOptionLabel={(option) => option.plannerName}
-                          onChange={handlePlannerChange}
-                          value={selectedPlanner || null}
-                          renderInput={(params) => <TextField {...params} label="Search Planners" />}
-                      />
+                    <Autocomplete
+                      options={data}
+                      getOptionLabel={(option) => option.plannerName}
+                      onChange={handlePlannerChange}
+                      value={selectedPlanner || null}
+                      renderInput={(params) => (
+                        <TextField {...params} label="Search Planners" />
+                      )}
+                    />
                   </Grid>
                   <Grid
                     item
@@ -109,13 +122,16 @@ const PlannerMaterialMapping = () => {
                       display: "flex",
                       flexDirection: "column",
                       "& .MuiInputBase-root": { height: "50px" },
-                      "& .MuiFormControl-root": {maxWidth: '250px'},
+                      "& .MuiFormControl-root": { maxWidth: "250px" },
                     }}
                   >
-                    <label className="label-position" style={{marginTop: '26px'}}></label>
+                    <label
+                      className="label-position"
+                      style={{ marginTop: "26px" }}
+                    ></label>
                     <TextField
                       label="Email"
-                      value={selectedPlanner? selectedPlanner.email : ''}
+                      value={selectedPlanner ? selectedPlanner.email : ""}
                       disabled
                     />
                   </Grid>
@@ -194,7 +210,7 @@ const PlannerMaterialMapping = () => {
             </form>
           </TabPanel>
           <TabPanel value="2">
-            <ExcelUpdate />
+            <ExcelUpdate getFileName={getFileName} />
           </TabPanel>
         </TabContext>
       </Grid>
@@ -207,53 +223,69 @@ const PlannerMaterialMapping = () => {
         }}
       >
         <div></div>
-      { tabValue === '1' ?
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            width: "210px",
+        {tabValue === "1" ? (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "210px",
+            }}
+          >
+            <ButtonComponent
+              label="Clear All"
+              bgColor="#fff"
+              color="#000"
+              onClick={clearAllData}
+              disabled={isDisabled}
+            />
+            <ButtonComponent
+              label="Save & Run"
+              bgColor="#000"
+              color="#fff"
+              onClick={handleDataSubmit}
+              disabled={isDisabled}
+            />
+          </div>
+        ) : (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "290px",
+            }}
+          >
+            <ButtonComponent
+              label="File Upload Overview"
+              bgColor="#fff"
+              color="#000"
+              onClick={() => setOverview(true)}
+              // disabled={isDisabled}
+            />
+            <ButtonComponent
+              label="Save & Run"
+              bgColor="#000"
+              color="#fff"
+              // onClick={handleDataSubmit}
+              // disabled={isDisabled}
+            />
+          </div>
+        )}
+        <Modal
+          open={overview}
+          handleClose={() => {
+            setOverview(false);
           }}
-        >
-          <ButtonComponent
-            label="Clear All"
-            bgColor="#fff"
-            color="#000"
-            onClick={clearAllData}
-            disabled={isDisabled}
-          />
-          <ButtonComponent
-            label="Save & Run"
-            bgColor="#000"
-            color="#fff"
-            onClick={handleDataSubmit}
-            disabled={isDisabled}
-          />
-        </div>
-        :
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            width: "290px",
-          }}
-        >
-          <ButtonComponent
-            label="File Upload Overview"
-            bgColor="#fff"
-            color="#000"
-            // onClick={clearAllData}
-            // disabled={isDisabled}
-          />
-          <ButtonComponent
-            label="Save & Run"
-            bgColor="#000"
-            color="#fff"
-            // onClick={handleDataSubmit}
-            // disabled={isDisabled}
-          />
-        </div>
-      }
+          title="File Upload Overview"
+          action={
+            <FileOverivewFooter
+              close={() => {
+                setOverview(false);
+              }}
+            />
+          }
+          content={<FileOverivew fileName={fileName} />}
+          maxWidth="100px"
+        />
       </div>
     </>
   );
