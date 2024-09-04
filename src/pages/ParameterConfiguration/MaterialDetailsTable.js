@@ -4,7 +4,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 
 
-const MaterialDetailsTable = ({headers,values}) =>{
+const MaterialDetailsTable = ({headers,rows}) =>{
     return (
         <div>
             <TableContainer sx={{overflowX:"auto",margin:"auto", textOverflow:"ellipsis", whiteSpace:"nowrap"}}>
@@ -17,6 +17,19 @@ const MaterialDetailsTable = ({headers,values}) =>{
                             
                         </TableRow>
                     </TableHead>
+                    <TableBody>
+          {rows.map((row, index) => (
+            <TableRow key={index}>
+              {row.map((cell, index) => (
+                <TableCell key={index}>{cell}</TableCell>
+              ))}
+              <TableCell align="right">
+                <VisibilityIcon style={{ marginRight: 10 }} />
+                <DeleteIcon />
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
                 </Table>
             </TableContainer>
         </div>

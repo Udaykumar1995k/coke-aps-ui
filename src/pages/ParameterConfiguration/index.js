@@ -9,6 +9,7 @@ import ExcelUpdate from './ExcelUpdate';
 import {FileOverivew, FileOverivewFooter} from './FileOverview';
 import Modal from '../../components/common/modal/Modal'
 import './index.css';
+import MaterialDetailsTable from './MaterialDetailsTable';
 const ParamaterConfiguration = () => {
   const [fileName, setFileName] = useState('')
   const [formData, setFormData] = useState({
@@ -44,6 +45,11 @@ const ParamaterConfiguration = () => {
   const getFileName = (fileName) =>{
     setFileName(fileName)
   }
+
+  const header = ["Unique Id","Material Type","Material Group","Material","Supplier","Threshold Value For LT Variations","Cooling Period in Days","Overdue WorkFlow Days","Low Lead Time Variation Category","Meduim Lead time Variation Category","High Lead Time Variation Category","Created On","Action"]
+  const rows = [
+    ['1001', 'HALB', 'MG1','MAT1','ABC Ltd',"-20%, 20%","180","07","20-40%","41-70%","71-99.99%","22-Jun-2-12:30p","22-Jun-24 12:30pm","Action"]
+  ];
   return (
     <>
       <TopSection
@@ -248,7 +254,7 @@ const ParamaterConfiguration = () => {
         }
         
       </div>
-
+      <MaterialDetailsTable headers={header} rows={rows}/>
     </> 
   )
 }
