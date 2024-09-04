@@ -10,7 +10,7 @@ function CustomSlider(props) {
 
   return (
     <div >
-      <Slider sx={{width:props?.width || 400}}
+      <Slider sx={{width:"100%"}}
         className="custom-slider"
         value={value}
         onChange={handleChange}

@@ -6,8 +6,11 @@ import ActionInput from "../../components/common/actioninput/ActionInputField";
 import ButtonComponent from "../../components/common/button/Button";
 import CustomSlider from './Slider';
 import ExcelUpdate from './ExcelUpdate';
+import {FileOverivew, FileOverivewFooter} from './FileOverview';
+import Modal from '../../components/common/modal/Modal'
 import './index.css';
 const ParamaterConfiguration = () => {
+  const [fileName, setFileName] = useState('')
   const [formData, setFormData] = useState({
     supplier: "",
     material: "",
@@ -17,6 +20,7 @@ const ParamaterConfiguration = () => {
     greaterThan:"30%"
   });
   const [value, setValue] = useState(0);
+  const [open, setOpen] = useState(false);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -29,6 +33,17 @@ const ParamaterConfiguration = () => {
   const handleFormData = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
+  const handleClickOpen = () =>{
+    setOpen(true)
+  }
+
+  const handleClose = () =>{
+    setOpen(false)
+  }
+
+  const getFileName = (fileName) =>{
+    setFileName(fileName)
+  }
   return (
     <>
       <TopSection
@@ -177,40 +192,63 @@ const ParamaterConfiguration = () => {
                       </div>
                     </div>
                   </div>
-                  <div style={{ display:"flex",padding:"10px"}} >
-                    <div style={{display:"flex", width:"30%"}}>
-                      <ButtonComponent
-                        type="primary"
-                        maxWidth="80px"
-                        label="Back"
-                      />
-                    </div>
-                    <div className="button-alignment" style={{width:"70%"}}>
-                      <ButtonComponent
-                        type="primary"
-                        maxWidth="120px"
-                          label="Clear All"
-                        onClick={handleClear}
-                      />
-                      <ButtonComponent
-                        type="secondary"
-                        maxWidth="80px"
-                        label="Save"
-                        onClick={onHandleClick}
-                      />
-                    </div>
-                  </div>
                 </>
               ):
               (
                 <>
-                <ExcelUpdate/>
+                <ExcelUpdate getFileName={getFileName}/>
                 </>
               )
             }
+            
           </div>
-      </div> 
-      
+        </div> 
+      <div style={{ display:"flex",padding:"10px"}} >
+        <div style={{display:"flex", width:"30%"}}>
+          <ButtonComponent
+            type="primary"
+            maxWidth="80px"
+            label="Back"
+          />
+        </div>
+        { value ===0?
+          (
+            <div className="button-alignment" style={{width:"70%"}}>
+              <ButtonComponent
+                type="primary"
+                maxWidth="120px"
+                label="Clear All"
+                onClick={handleClear}
+              />
+              <ButtonComponent
+                type="secondary"
+                maxWidth="80px"
+                label="Save"
+                onClick={onHandleClick}
+              />
+            </div>
+          ):
+          (
+            <div className="button-alignment" style={{width:"70%"}}>
+              <ButtonComponent
+                type="primary"
+                maxWidth="180px"
+                label="File Upload Overview"
+                onClick={handleClickOpen}
+              />
+              <Modal  open={open} handleClose = {handleClose} title="File Upload Overview"  action = {<FileOverivewFooter/>} content={<FileOverivew fileName={fileName}/>} maxWidth="100px"/>
+              <ButtonComponent
+                type="secondary"
+                maxWidth="80px" 
+                label="Save"
+                onClick={onHandleClick}
+              />
+            </div>
+          )
+        }
+        
+      </div>
+
     </> 
   )
 }

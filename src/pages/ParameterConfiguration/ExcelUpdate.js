@@ -7,7 +7,7 @@ import UploadFileIcon from '@mui/icons-material/UploadFile';
 import ExcelLogo from '../../assets/272697_excel_icon.png'
 import { IconButton } from '@mui/material';
 import { Delete } from '@mui/icons-material';
-const ExcelUpdate = () => {
+const ExcelUpdate = ({getFileName}) => {
      const [data, setData] = useState(null);
      const [fileName, setFileName] = useState('');
     const handleButtonClick = () =>{
@@ -16,6 +16,7 @@ const ExcelUpdate = () => {
     const handeDeleteIcon = () =>{
         setData(null);
         setFileName('');
+        getFileName('')
     }
     const handleFileUpload = (event) =>{
         const file = event.target.files[0];
@@ -28,6 +29,7 @@ const ExcelUpdate = () => {
             const sheetData = XLSX.utils.sheet_to_json(sheet);
             setData(sheetData);
             setFileName(file.name)
+            getFileName(file.name)
         };
         reader.readAsArrayBuffer(file);
     }
