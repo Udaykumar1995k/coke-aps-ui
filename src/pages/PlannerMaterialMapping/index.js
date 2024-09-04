@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { Autocomplete, Box, Grid, Tab, TextField } from '@mui/material'
+import { Autocomplete, Box, Grid, Paper, Tab, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField } from '@mui/material'
 import { TabContext, TabList, TabPanel } from '@mui/lab'
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 
 import TopSection from '../TopSection'
 import './index.css';
@@ -28,7 +30,8 @@ const PlannerMaterialMapping = () => {
   })
   const [isDisabled, setIsDisabled] = useState(true);
   const [overview, setOverview] = useState(false);
-  const [fileName, setFileName] = useState('')
+  const [fileName, setFileName] = useState('');
+  const [saveValue, setSaveValue] = useState();
 
   const handleChange = (event, newValue) => {
     setTabValue(newValue);
@@ -48,6 +51,7 @@ const PlannerMaterialMapping = () => {
 
   const handleDataSubmit = () => {
     console.log({...selectedPlanner, ...formData});
+    setSaveValue({...selectedPlanner, ...formData});
   }
 
   const clearAllData = () => {
@@ -259,14 +263,14 @@ const PlannerMaterialMapping = () => {
               bgColor="#fff"
               color="#000"
               onClick={() => setOverview(true)}
-              // disabled={isDisabled}
+              disabled={!fileName}
             />
             <ButtonComponent
               label="Save & Run"
               bgColor="#000"
               color="#fff"
               // onClick={handleDataSubmit}
-              // disabled={isDisabled}
+              disabled={!fileName}
             />
           </div>
         )}
@@ -287,6 +291,43 @@ const PlannerMaterialMapping = () => {
           maxWidth="100px"
         />
       </div>
+      <Grid mb={2}>
+        <TableContainer component={Paper}>
+            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+              <TableHead sx={{background: '#f2f2f2'}}>
+                <TableRow>
+                  <TableCell>Unique Id</TableCell>
+                  <TableCell>Planner Name</TableCell>
+                  <TableCell>Email ID</TableCell>
+                  <TableCell>Material Type</TableCell>
+                  <TableCell>Material Group</TableCell>
+                  <TableCell>Material</TableCell>
+                  <TableCell>Created On</TableCell>
+                  <TableCell>Updated On</TableCell>
+                  <TableCell>Actions</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                  <TableRow
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row">1001</TableCell>
+                    <TableCell>{saveValue?.plannerName}</TableCell>
+                    <TableCell>{saveValue?.email}</TableCell>
+                    <TableCell>{saveValue?.materialType}</TableCell>
+                    <TableCell>{saveValue?.materialGroup}</TableCell>
+                    <TableCell>{saveValue?.material}</TableCell>
+                    <TableCell>22-Jun-23</TableCell>
+                    <TableCell>22-Jun-23</TableCell>
+                    <TableCell>
+                      <EditIcon />
+                      <DeleteIcon />
+                    </TableCell>
+                  </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
+      </Grid>
     </>
   );
 }
