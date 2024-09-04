@@ -6,6 +6,7 @@ import TopSection from '../TopSection'
 import './index.css';
 import Dropdown from '../../components/common/Dropdown';
 import ButtonComponent from '../../components/common/button/Button';
+import ExcelUpdate from '../ParameterConfiguration/ExcelUpdate';
 
 
 const data = [
@@ -89,8 +90,7 @@ const PlannerMaterialMapping = () => {
                     sx={{
                       display: "flex",
                       flexDirection: "column",
-                      "& .MuiInputBase-root": { height: "50px" },
-                      "& .searchOption": { maxWidth: "250px" },
+                      "& .MuiInputBase-root": { height: "50px", maxWidth: "250px" },
                     }}
                   >
                     <label className="label-position">Material Type</label>
@@ -193,7 +193,9 @@ const PlannerMaterialMapping = () => {
               </Grid>
             </form>
           </TabPanel>
-          <TabPanel value="2">Excel Update</TabPanel>
+          <TabPanel value="2">
+            <ExcelUpdate />
+          </TabPanel>
         </TabContext>
       </Grid>
       <div
@@ -205,6 +207,7 @@ const PlannerMaterialMapping = () => {
         }}
       >
         <div></div>
+      { tabValue === '1' ?
         <div
           style={{
             display: "flex",
@@ -227,6 +230,30 @@ const PlannerMaterialMapping = () => {
             disabled={isDisabled}
           />
         </div>
+        :
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            width: "290px",
+          }}
+        >
+          <ButtonComponent
+            label="File Upload Overview"
+            bgColor="#fff"
+            color="#000"
+            // onClick={clearAllData}
+            // disabled={isDisabled}
+          />
+          <ButtonComponent
+            label="Save & Run"
+            bgColor="#000"
+            color="#fff"
+            // onClick={handleDataSubmit}
+            // disabled={isDisabled}
+          />
+        </div>
+      }
       </div>
     </>
   );
