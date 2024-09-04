@@ -291,6 +291,7 @@ const PlannerMaterialMapping = () => {
           maxWidth="100px"
         />
       </div>
+      { saveValue &&
       <Grid mb={2}>
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -328,6 +329,7 @@ const PlannerMaterialMapping = () => {
             </Table>
           </TableContainer>
       </Grid>
+      }
     </>
   );
 }
