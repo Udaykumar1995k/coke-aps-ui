@@ -124,3 +124,26 @@
     font-weight: bold;
     text-align: end;
 }
+
+
+.form-container {
+    /* max-width: 70%; */
+    padding: 20px;
+    /* border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff; */
+    /* margin: auto; */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.label-position{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #797979;
+    font-size: 14px;
+}
