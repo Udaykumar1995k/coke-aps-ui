@@ -4,6 +4,7 @@
     height: auto;
     min-height: 100vh;
     max-width: 1440px;
+    /* overflow: hidden; */
 }
 .landing-content {
     display: flex;
@@ -26,7 +27,8 @@
 }
 .content {
     width: 100%;
-    margin: 0px 15px; 
+    margin: 0px 15px;
+    overflow: hidden;
 }
 .sidebar ul li:nth-child(1) {
     display: none;
