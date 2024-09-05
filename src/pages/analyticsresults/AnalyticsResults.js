@@ -9,7 +9,7 @@ import results from '../../common/results.json'
 import { ConfidenceScore, ConfidenceScoreFooter } from "./ConfidenceScore";
 import Modal from "../../components/common/modal/Modal";
 import TopSection from "../TopSection";
-
+import LeadtimeModel from "./LeadTimeModal";
 const ConfidenceScoreModal = (props) =>{
   const [showPopup, setPopUp]  = useState(false);
   const onhandlePopup = () =>{
@@ -83,7 +83,7 @@ const AnalyticsResults = () => {
       cellRenderer: () => (
         <div className="btn-wrapper">
           {" "}
-          <ButtonComponent  type="secondary" label="Details" />
+          <LeadtimeModel/> 
         </div>
       ),
       pinned: "right",
