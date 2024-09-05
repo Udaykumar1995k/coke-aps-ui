@@ -10,6 +10,7 @@ import {FileOverivew, FileOverivewFooter} from './FileOverview';
 import Modal from '../../components/common/modal/Modal'
 import './index.css';
 import MaterialDetailsTable from './MaterialDetailsTable';
+
 const ParamaterConfiguration = () => {
   const [fileName, setFileName] = useState('')
   const [show, setShow] = useState(false);

@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from '@mui/icons-material/Edit';
+
 const MaterialDetailsTable = ({ headers, rows }) => {
   return (
     <Grid mb={2}>
