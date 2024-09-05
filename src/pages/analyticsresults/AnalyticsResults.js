@@ -78,7 +78,7 @@ const AnalyticsResults = () => {
     { field: "Analyticsintiatedby", resizable: false, suppressMovable: true, unSortIcon: true },
     { field: "ResultsUpdatedat", resizable: false, suppressMovable: true, unSortIcon: true },
     {
-      field: "Details",
+      field: "View Input Details",
       suppressMovable: true,
       cellRenderer: () => (
         <div className="btn-wrapper">
@@ -109,10 +109,10 @@ const AnalyticsResults = () => {
             display: "flex"
           }}
         >
-          <div style={{ width: "30%" }}>
+          {/* <div style={{ width: "30%" }}>
             <ActionInput icon={"search"} position={"left"} props={{ height: "40px" }} />
-          </div>
-          <div style={{ width: "70%", display: "flex", justifyContent: "end" }}>
+          </div> */}
+          <div style={{ width: "100%", display: "flex", justifyContent: "end" }}>
             <Dropdown
               width="135px"
               styles={{

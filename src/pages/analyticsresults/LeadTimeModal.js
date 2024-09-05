@@ -1,5 +1,4 @@
 import React, {useState,useEffect} from "react";
-// import InputSelection from "../RunLTAnalytics/InputSelection/InputSelection";
 import Modal from "../../components/common/modal/Modal";
 import ButtonComponent from "../../components/common/button/Button";
 import './AnalyticsResults.css'
@@ -418,7 +417,7 @@ const LeadtimeModel = () =>{
     }
     return(
     <div>
-      <ButtonComponent  type="secondary" label="Details" onClick={onhandlePopup}/>
+      <ButtonComponent  type="secondary" label="Input" onClick={onhandlePopup}/>
       <Modal title="Input Data For Lead Time Analytics" open={showPopup} handleClose={onClosePopup} content={<LeadeTimeContent/>} action={<LeadeTimeFooter />} maxWidth="lg" />
       </div>
       )
