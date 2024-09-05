@@ -12,6 +12,7 @@ import './index.css';
 import MaterialDetailsTable from './MaterialDetailsTable';
 const ParamaterConfiguration = () => {
   const [fileName, setFileName] = useState('')
+  const [show, setShow] = useState(false);
   const [formData, setFormData] = useState({
     supplier: "",
     material: "",
@@ -24,12 +25,13 @@ const ParamaterConfiguration = () => {
   const [open, setOpen] = useState(false);
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    setShow(false)
   };
   const handleClear = (event) => {
     console.log(event)
   };
-  const onHandleClick = (event) => {
-    console.log(event)
+  const onHandleClick = () => {
+    setShow(true)
   }
   const handleFormData = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -45,10 +47,10 @@ const ParamaterConfiguration = () => {
   const getFileName = (fileName) =>{
     setFileName(fileName)
   }
-
-  const header = ["Unique Id","Material Type","Material Group","Material","Supplier","Threshold Value For LT Variations","Cooling Period in Days","Overdue WorkFlow Days","Low Lead Time Variation Category","Meduim Lead time Variation Category","High Lead Time Variation Category","Created On","Action"]
+  
+  const header = ["Unique Id","Material Type","Material Group","Material","Supplier","Threshold Value For LT Variations","Cooling Period in Days","Overdue WorkFlow Days","Low Lead Time Variation Category","Meduim Lead time Variation Category","High Lead Time Variation Category","Created On","Updated On","Action"]
   const rows = [
-    ['1001', 'HALB', 'MG1','MAT1','ABC Ltd',"-20%, 20%","180","07","20-40%","41-70%","71-99.99%","22-Jun-2-12:30p","22-Jun-24 12:30pm","Action"]
+    ['1001', 'HALB', 'MG1','MAT1','ABC Ltd',"-20%, 20%","180","07","20-40%","41-70%","71-99.99%","22-Jun-2-12:30PM","22-Jun-2-12:30PM"]
   ];
   return (
     <>
@@ -254,7 +256,8 @@ const ParamaterConfiguration = () => {
         }
         
       </div>
-      <MaterialDetailsTable headers={header} rows={rows}/>
+      {show && <MaterialDetailsTable headers={header} rows={rows}/>
+}
     </> 
   )
 }
