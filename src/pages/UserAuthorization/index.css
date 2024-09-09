@@ -30,7 +30,7 @@
 .headerList_details{
     display: flex;
     justify-content: space-between;
-    background-color: #bbbbc6;
+    background-color: #f2f2f2;
     padding: 5px 5px 5px 10px;
     border-radius: 10px 10px 0px 0px;
 }
