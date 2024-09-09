@@ -68,7 +68,7 @@ const UserAuthorization = () => {
 
   useEffect(() => {
     dispatch(setMenuItems(formData.selectedMenu));
-  }, [formData]);
+  }, [formData, dispatch]);
 
   return (
     <>
