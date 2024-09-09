@@ -9,7 +9,7 @@ import DataTable from "../../components/common/datatable/DataTable";
 import { WorkFlowStatus, WorkFlowStatusFooter } from "./WorkFlowStatus";
 import TopSection from "../TopSection";
 import { Link } from "react-router-dom";
-
+import LeadtimeModel from "../analyticsresults/LeadTimeModal";
 const WorkFlowStatusModel = (props) => {
 
   const [state, setState] = useState('');
@@ -267,12 +267,12 @@ const AnalyticsResults = ({ onhandleClick,onHandleCheckBox }) => {
       ),
     },
     {
-      field: "Details",
+      field: "View Input Details",
       suppressMovable: true,
       cellRenderer: () => (
         <div className="btn-wrapper">
           {" "}
-          <ButtonComponent type="secondary" label="Details" />
+          <LeadtimeModel/>
         </div>
       ),
       pinned: "right",
@@ -298,9 +298,9 @@ const AnalyticsResults = ({ onhandleClick,onHandleCheckBox }) => {
               display: "flex"
             }}
           >
-            <div style={{ width: "30%" }}>
+            {/* <div style={{ width: "30%" }}>
               <ActionInput icon={"search"} position={"left"} props={{ height: "40px" }} />
-            </div>
+            </div> */}
           </div>
           <div>
             <DataTable
