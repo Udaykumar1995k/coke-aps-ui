@@ -31,12 +31,12 @@ const ButtonComponent = (props) => {
         style={{
           wordBreak: "break-word",
           backgroundColor: props?.disabled
-            ? "none"
+            ? "rgba(0, 0, 0, 0.12)"
             : props?.bgColor || config.backgroundColor || "red",
           width: "100%",
           maxWidth: props?.maxWidth || "200px",
           color: props?.disabled
-            ? "none"
+            ? "rgba(0, 0, 0, 0.26)"
             : props?.color || config.color || "white",
           borderRadius: props?.borderRadius || "6px",
           height: props?.height || "30px",

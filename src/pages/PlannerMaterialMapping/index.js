@@ -61,6 +61,8 @@ const PlannerMaterialMapping = () => {
       material: ''
     });
     setSelectedPlanner(null);
+    setIsDisabled(true);
+    setSaveValue();
   }
 
   const getFileName = (fileName) =>{
