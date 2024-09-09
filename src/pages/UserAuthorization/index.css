@@ -60,3 +60,21 @@
     cursor: pointer;
 }
 
+.project-mapping {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.project-mapping-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-button-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
