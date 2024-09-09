@@ -15,7 +15,17 @@ const EditAuthorization = (props) => {
   const handleClose = () =>{
     setShowPopup(false);
   }
+  const [formData, setFormData] = useState({ProjectName:"", FunctionalityName:""})
+    const handleChange = (event) =>{
+        setFormData({...formData,[event.target.name]:event.target.value})
+    }
+    const handleClear = () =>{
+        setFormData({ProjectName:"", FunctionalityName:""})
+    }
 
+    const handleSubmitData = () =>{
+          setShowPopup(false)
+    }
   return (
     <>
       <Grid
@@ -77,7 +87,7 @@ const EditAuthorization = (props) => {
         <div className="current_auth_main">
           <p id="current_auth_header">Current Authorizations:</p>
           <p  style={{cursor:"pointer"}}onClick={handleOpen}>+ Create Project Functionality Mapping</p>
-          <Modal open={open} title="Project Functionality Mapping" handleClose={handleClose } content={<ProjectMappingContent/>} action={<ProjectMappingFooter/>}/>
+          <Modal open={open} title="Project Functionality Mapping" handleClose={handleClose } content={<ProjectMappingContent handleChange={handleChange} formData={formData}/>} action={<ProjectMappingFooter handleClear={handleClear} handleSubmitData={handleSubmitData}/>}/>
         </div>
         <div className="table_header">
           <div className="headerList_details">
