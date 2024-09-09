@@ -1,10 +1,9 @@
 import React from 'react'
-import { Grid } from '@mui/material'
+import { Grid, TextField } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close';
 
 import Dropdown from '../../components/common/Dropdown'
 import ButtonComponent from '../../components/common/button/Button'
-import ActionInput from '../../components/common/actioninput/ActionInputField';
 
 const EditAuthorization = (props) => {
 
@@ -23,40 +22,44 @@ const EditAuthorization = (props) => {
         <div className="userSection-auth">
           <div className="dropdown-item-auth">
             <span>Unique ID</span>
-            <ActionInput
-              placeholder="Unique ID"
-              props={{ height: "50px", maxWidth: "250px" }}
-              value={props?.formData.uniqueId}
+            <TextField
+              variant="outlined"
+              value={props?.formData?.uniqueId}
               name="uniqueId"
+              disabled
+              sx={{"& .MuiInputBase-input": {height: '15px'}}}
             />
           </div>
           <div className="dropdown-item-auth">
             <span>Username</span>
-            <ActionInput
-              placeholder="Username"
-              props={{ height: "50px", maxWidth: "250px" }}
+            <TextField
+              variant="outlined"
               value={props?.formData?.userName}
               name="userName"
+              disabled
+              sx={{"& .MuiInputBase-input": {height: '15px'}}}
             />
           </div>
         </div>
         <div className="userSection-auth">
           <div className="dropdown-item-auth">
             <span>User Role</span>
-            <ActionInput
-              placeholder="User Role"
-              props={{ height: "50px", maxWidth: "250px" }}
-              value={props?.formData.role}
+            <TextField
+              variant="outlined"
+              value={props?.formData?.role}
               name="role"
+              disabled
+              sx={{"& .MuiInputBase-input": {height: '15px'}}}
             />
           </div>
           <div className="dropdown-item-auth">
             <span>Email</span>
-            <ActionInput
-              placeholder="Email"
-              props={{ height: "50px", maxWidth: "250px" }}
+            <TextField
+              variant="outlined"
               value={props?.formData?.email}
               name="email"
+              disabled
+              sx={{"& .MuiInputBase-input": {height: '15px'}}}
             />
           </div>
         </div>
