@@ -1,12 +1,31 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Grid, TextField } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close';
 
 import Dropdown from '../../components/common/Dropdown'
 import ButtonComponent from '../../components/common/button/Button'
-
+import { ProjectMappingContent, ProjectMappingFooter } from './ProjectMappingModal';
+import Modal from '../../components/common/modal/Modal'
 const EditAuthorization = (props) => {
+  const [open, setShowPopup] = useState(false);
+  const handleOpen = () =>{
+    setShowPopup(true);
+  }
+  
+  const handleClose = () =>{
+    setShowPopup(false);
+  }
+  const [formData, setFormData] = useState({ProjectName:"", FunctionalityName:""})
+    const handleChange = (event) =>{
+        setFormData({...formData,[event.target.name]:event.target.value})
+    }
+    const handleClear = () =>{
+        setFormData({ProjectName:"", FunctionalityName:""})
+    }
 
+    const handleSubmitData = () =>{
+          setShowPopup(false)
+    }
   return (
     <>
       <Grid
@@ -67,7 +86,8 @@ const EditAuthorization = (props) => {
       <div style={{ marginBottom: "20px" }}>
         <div className="current_auth_main">
           <p id="current_auth_header">Current Authorizations:</p>
-          <p>+ Create Project Functionality Mapping</p>
+          <p  style={{cursor:"pointer"}}onClick={handleOpen}>+ Create Project Functionality Mapping</p>
+          <Modal open={open} title="Project Functionality Mapping" handleClose={handleClose } content={<ProjectMappingContent handleChange={handleChange} formData={formData}/>} action={<ProjectMappingFooter handleClear={handleClear} handleSubmitData={handleSubmitData}/>}/>
         </div>
         <div className="table_header">
           <div className="headerList_details">
