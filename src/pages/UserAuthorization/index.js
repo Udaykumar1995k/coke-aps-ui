@@ -137,9 +137,7 @@ const UserAuthorization = () => {
             </div>
           </Grid>
           <div style={{ display: "flex", padding: "10px" }}>
-            <div style={{ display: "flex", width: "30%" }}>
-              <ButtonComponent type="primary" maxWidth="80px" label="Back" />
-            </div>
+            <div style={{ display: "flex", width: "30%" }}></div>
 
             <div className="button-alignment" style={{ width: "70%" }}>
               <ButtonComponent
