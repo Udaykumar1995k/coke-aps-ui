@@ -62,7 +62,13 @@ const UserAuthorization = () => {
   };
 
   const handleClear = () => {
-    setFormData('');
+    setFormData({
+      uniqueId: "",
+      userName: "",
+      role: "",
+      email: "",
+      selectedMenu: [],
+    });
     setShow(false);
   }
 
