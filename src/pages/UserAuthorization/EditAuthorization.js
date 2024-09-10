@@ -82,7 +82,7 @@ const EditAuthorization = (props) => {
                 width="200px"
                 formHeight="42px"
                 label="Select"
-                value={props?.formData.selectedMenu}
+                value={props?.formData?.selectedMenu}
                 name="selectedMenu"
                 multiple
                 options={[
