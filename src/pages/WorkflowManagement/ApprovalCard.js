@@ -7,10 +7,9 @@ import './index.css'
 import ButtonComponent from '../../components/common/button/Button';
 import { IconButton } from '@mui/material';
 const ApprovalCard = ({ checkBoxCount, isClicked,setApproval }) => {
-  var disabled = false;
   const [disableApprover, setDisableApprover] = useState(true);
   const [approvalCardsData, setApprovalCardsData] = useState([
-    { name: "Level1", label: "Level 1", EmailID:"",ApproverName:""},
+    { name: "Level1", label: "Level 1", EmailID:""},
   ]);
   const [formData, setFormData] = useState({
     ApproverData: [],
@@ -28,11 +27,11 @@ const ApprovalCard = ({ checkBoxCount, isClicked,setApproval }) => {
       const newApprover = {
         name: `Level${approvalCardsData.length + 1}`,
         label: `Level ${approvalCardsData.length + 1}`,
-        EmailID: "",
-        ApproverName:""
+        EmailID: ""
       };
       setApprovalCardsData([...approvalCardsData, newApprover]);
-    }
+      setDisableApprover(true)
+    } 
   };
   const onHandleDeleteIcon = (index) =>{
     const newData = approvalCardsData.filter((data,i) => i!==index && data)
@@ -40,11 +39,11 @@ const ApprovalCard = ({ checkBoxCount, isClicked,setApproval }) => {
     const newFormData = formData.ApproverData.filter((data,i) => i!==index && data)
     setFormData({...formData,ApproverData:newFormData})
   };
-  const styles = approvalCardsData.length === 1 ? (disabled=true,{ cursor:"not-allowed", opacity:0.5 }) : (disabled=false,{ cursor:"pointer"});
+  
   useEffect(()=>{
     if(isClicked){
       setApprovalCardsData([
-        { name: "Level1", label: "Level 1", EmailID:"",ApproverName:""},
+        { name: "Level1", label: "Level 1", EmailID:""},
       ])
       setDisableApprover(true)
       setFormData({
@@ -53,7 +52,7 @@ const ApprovalCard = ({ checkBoxCount, isClicked,setApproval }) => {
       setApproval()
       
     }
-  },[isClicked])
+  },[isClicked,approvalCardsData])
     const handleApproverChange = (approverName,name) => {
       const approver = data.find(item => item.ApproverName === approverName);
       if (approver) {
@@ -61,7 +60,6 @@ const ApprovalCard = ({ checkBoxCount, isClicked,setApproval }) => {
         approvalCardsData.forEach((item) =>{
           if(item.name === name){
             item.EmailID = approver["EmailID"]
-            item.ApproverName = approver["ApproverName"]
           }
         })
         setDisableApprover(false)  
@@ -73,15 +71,14 @@ const ApprovalCard = ({ checkBoxCount, isClicked,setApproval }) => {
     }
   }
   const handleClear = (previousValue,name) => {
-      const newFormData = formData.ApproverData.filter((option) =>option.ApproverName !== previousValue)
-      setFormData({...formData,ApproverData: newFormData})
+      let FormData = formData.ApproverData.filter((option) =>option.ApproverName !== previousValue)
+      setFormData({...formData,ApproverData: FormData})
       approvalCardsData.forEach((item) =>{
         if(item.name === name){
           item.EmailID = ""
-          item.ApproverName = ""
         }
       })
-      if(newFormData.length === 0) {
+      if(FormData.length === 0) {
         setDisableApprover(true)
       
       }
@@ -125,10 +122,10 @@ const ApprovalCard = ({ checkBoxCount, isClicked,setApproval }) => {
                 placeholder='Email' 
               />
             </div>
-            <span style={{ paddingTop:"10px", ...styles,  textAlign:"right"}}>
-              <IconButton disabled={disabled}>
+            <span style={{ paddingTop:"10px",   textAlign:"right"}}>
+            {approvalCardsData.length!==1 && <IconButton>
                 <DeleteIcon   onClick={()=>onHandleDeleteIcon(index)} />
-              </IconButton>
+              </IconButton>}
             </span>
         </div>
         ))}
