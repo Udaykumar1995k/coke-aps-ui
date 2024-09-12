@@ -145,6 +145,7 @@ const UserAuthorization = () => {
                 maxWidth="120px"
                 label="Clear All"
                 onClick={handleClear}
+                disabled={!formData?.userName}
               />
               <ButtonComponent
                 type="secondary"

@@ -46,7 +46,7 @@ const EditAuthorization = (props) => {
               value={props?.formData?.uniqueId}
               name="uniqueId"
               disabled
-              sx={{"& .MuiInputBase-input": {height: '15px'}}}
+              sx={{"& .MuiInputBase-input": {height: '15px', cursor: 'not-allowed'}}}
             />
           </div>
           <div className="dropdown-item-auth">
@@ -56,7 +56,7 @@ const EditAuthorization = (props) => {
               value={props?.formData?.userName}
               name="userName"
               disabled
-              sx={{"& .MuiInputBase-input": {height: '15px'}}}
+              sx={{"& .MuiInputBase-input": {height: '15px', cursor: 'not-allowed'}}}
             />
           </div>
         </div>
@@ -68,7 +68,7 @@ const EditAuthorization = (props) => {
               value={props?.formData?.role}
               name="role"
               disabled
-              sx={{"& .MuiInputBase-input": {height: '15px'}}}
+              sx={{"& .MuiInputBase-input": {height: '15px', cursor: 'not-allowed'}}}
             />
           </div>
           <div className="dropdown-item-auth">
@@ -78,7 +78,7 @@ const EditAuthorization = (props) => {
               value={props?.formData?.email}
               name="email"
               disabled
-              sx={{"& .MuiInputBase-input": {height: '15px'}}}
+              sx={{"& .MuiInputBase-input": {height: '15px', cursor: 'not-allowed'}}}
             />
           </div>
         </div>

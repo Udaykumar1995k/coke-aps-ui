@@ -217,6 +217,7 @@ const RunLTAnalytics = () => {
                 bgColor="#fff"
                 color="#000"
                 onClick={activeStep === 0 ? clearAllInputSelection : clearRunAnalytics}
+                disabled={!btnDisabled}
               />
               {activeStep === 0 && (
                 <ButtonComponent
