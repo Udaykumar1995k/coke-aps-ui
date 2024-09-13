@@ -14,18 +14,6 @@ import ResultsGraph from "../../components/Graph/ResultsGraph";
 import { Popper } from "@mui/material"
 import { WorkFlowApproval,WorkFlowApprovalFooter } from "../WorkflowManagement/WorkFLowApproverModal";
 import WorkFlowApprovalFormData from "../WorkflowManagement/WorkFlowApprovalFormData";
-// const ModalContent = ({checkBoxCount,isClicked,setApproval}) => {
-//   return (
-//     <>
-//       {/* <ApprovalCard 
-//       checkBoxCount={checkBoxCount}
-//       isClicked ={isClicked}
-//       setApproval={setApproval}
-//       /> */}
-
-//     </>
-//   )
-// };
 const AnalyticsResultsTab = (props) => {
   const [value, setValue] = useState(0);
   const [show, setShow] = useState(false);
