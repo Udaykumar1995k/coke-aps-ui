@@ -3,13 +3,14 @@ import ButtonComponent from "../../components/common/button/Button";
 import Modal from "../../components/common/modal/Modal";
 import ActionInput from "../../components/common/actioninput/ActionInputField";
 import './index.css'
-import ApprovalCard from "./ApprovalCard";
 import Cards from "../../components/common/card/Card";
 import DataTable from "../../components/common/datatable/DataTable";
 import { WorkFlowStatus, WorkFlowStatusFooter } from "./WorkFlowStatus";
 import TopSection from "../TopSection";
 import { Link } from "react-router-dom";
 import LeadtimeModel from "../analyticsresults/LeadTimeModal";
+import WorkFlowApprovalFormData from "./WorkFlowApprovalFormData";
+import { WorkFlowApproval,WorkFlowApprovalFooter } from "./WorkFLowApproverModal";
 const WorkFlowStatusModel = (props) => {
 
   const [state, setState] = useState('');
@@ -318,64 +319,48 @@ const AnalyticsResults = ({ onhandleClick,onHandleCheckBox }) => {
     </div>
   );
 };
-const FooterButtons = ({setClearData}) => {
-  const clearApprovalData = () =>{
-    setClearData()
-  }
-  return (
-    <div className='footer-btn-wrapper'>
-      <ButtonComponent
-        maxWidth="170px"
-        label="Clear All"
-        type="primary"
-        onClick={clearApprovalData}
-      />
-      <ButtonComponent
-        maxWidth="170px"
-        label="Submit"
-        bgColor="black"
-        color="white"
-      />
-    </div>
-  );
-};
 
-const ModalContent = ({checkBoxCount,isClicked,setApproval}) => {
-  return (
-    <>
-      <ApprovalCard 
-      checkBoxCount={checkBoxCount}
-      isClicked ={isClicked}
-      setApproval={setApproval}
-      />
 
-    </>
-  )
-};
+// const ModalContent = ({checkBoxCount,isClicked,setApproval}) => {
+//   return (
+//     <>
+//       <ApprovalCard 
+//       checkBoxCount={checkBoxCount}
+//       isClicked ={isClicked}
+//       setApproval={setApproval}
+//       />
+
+//     </>
+//   )
+// };
 
 const WorkflowManagement = () => {
   const [isChecked, setChecked] = useState(false);
-  const [open, setOpen] = useState(false);
   const [rowCount, setRowCount] = useState(0);
-  const [isClicked, setisClicked] = useState(false);
-  const setClearData = () =>{
-    setisClicked(true)
-  }
-  const setApproval = () => {
-    setisClicked(false)
-  }
+  const { formData,
+          disableApprover,
+          data,
+          approvalCardsData,
+          open,
+          clear,
+          disableButton,
+          addComment,
+          handleApproverChange,
+          handleClear,
+          addApprover,
+          onHandleDeleteIcon,
+          clearFormData,
+          handleClickOpen,
+          handleClose,
+          onSubmitHandler
+        } = WorkFlowApprovalFormData();
   const onHandleCheckBox = (count) => {
     setRowCount(count)
   }
   const onhandleClick = (checked) => {
     setChecked(checked);
   }
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
+  
   const cardData = [{ title: "Pending Action", description: "Materials - Supplier - Plant", value: 32 }, { title: "Pending Approval", description: "Pending Approval / Rejected by Approver", value: 28 }, { title: "Closed Workflow Items", value: 50 }]
   return (
     <>
@@ -403,7 +388,34 @@ const WorkflowManagement = () => {
                 bgColor="black"
                 onClick={handleClickOpen}
               />
-              <Modal open={open} handleClose={handleClose} title="Workflow Approval" action={<FooterButtons setClearData={setClearData}/>} content={<ModalContent checkBoxCount={rowCount} isClicked={isClicked} setApproval={setApproval}/>} maxWidth="100px"/>        </div>
+              <Modal 
+              open={open} 
+              handleClose={handleClose} 
+              title="Workflow Approval" 
+              action={
+                      <WorkFlowApprovalFooter 
+                        clearFormData={clearFormData}
+                        onSubmitHandler={onSubmitHandler}
+                        disableButton={disableButton}
+                      />
+                    } 
+              content={
+                        <WorkFlowApproval 
+                          checkBoxCount={rowCount}
+                          formData={formData}
+                          disableApprover={disableApprover}
+                          data={data}
+                          clear={clear}
+                          approvalCardsData={approvalCardsData}
+                          addComment={addComment}
+                          handleApproverChange={handleApproverChange}
+                          handleClear={handleClear}
+                          addApprover={addApprover}
+                          onHandleDeleteIcon={onHandleDeleteIcon}
+                        />
+                      } 
+              maxWidth="100px"/>        
+            </div>
           </div>
 
         </div>

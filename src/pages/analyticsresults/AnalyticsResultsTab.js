@@ -8,44 +8,24 @@ import { useLocation } from "react-router-dom";
 import TopSection from "../TopSection";
 import Graph from "../../components/Graph/Graph";
 import Modal from "../../components/common/modal/Modal";
-import ApprovalCard from "../WorkflowManagement/ApprovalCard";
 import SortIcon from '@mui/icons-material/Sort';
 import { IconButton } from "@mui/material";
 import ResultsGraph from "../../components/Graph/ResultsGraph";
 import { Popper } from "@mui/material"
-const FooterButtons = ({setClearData}) => {
-  const clearApprovalData = () =>{
-    setClearData()
-  }
-  return (
-    <div className='footer-btn-wrapper'>
-      <ButtonComponent
-        maxWidth="170px"
-        label="Clear All"
-        type="primary"
-        onClick={clearApprovalData}
-      />
-      <ButtonComponent
-        maxWidth="170px"
-        label="Submit"
-        bgColor="black"
-        color="white"
-      />
-    </div>
-  );
-};
-const ModalContent = ({checkBoxCount,isClicked,setApproval}) => {
-  return (
-    <>
-      <ApprovalCard 
-      checkBoxCount={checkBoxCount}
-      isClicked ={isClicked}
-      setApproval={setApproval}
-      />
+import { WorkFlowApproval,WorkFlowApprovalFooter } from "../WorkflowManagement/WorkFLowApproverModal";
+import WorkFlowApprovalFormData from "../WorkflowManagement/WorkFlowApprovalFormData";
+// const ModalContent = ({checkBoxCount,isClicked,setApproval}) => {
+//   return (
+//     <>
+//       {/* <ApprovalCard 
+//       checkBoxCount={checkBoxCount}
+//       isClicked ={isClicked}
+//       setApproval={setApproval}
+//       /> */}
 
-    </>
-  )
-};
+//     </>
+//   )
+// };
 const AnalyticsResultsTab = (props) => {
   const [value, setValue] = useState(0);
   const [show, setShow] = useState(false);
@@ -56,14 +36,29 @@ const AnalyticsResultsTab = (props) => {
   const handleClick = (event) => {
         setAnchorEl(anchorEl? null:event.currentTarget)
     }
+    const { formData:WorkFlowFormData,
+      disableApprover,
+      data,
+      approvalCardsData,
+      open,
+      clear,
+      disableButton,
+      addComment,
+      handleApproverChange,
+      handleClear,
+      addApprover,
+      onHandleDeleteIcon,
+      clearFormData,
+      handleClickOpen,
+      handleClose,
+      onSubmitHandler
+    } = WorkFlowApprovalFormData();
     const handPopperClose = () =>{
         setAnchorEl(null)
     }
   const openPopper = Boolean(anchorEl)
   const { state } = useLocation();
   console.log("stateData", state);
-  const [open, setOpen] = useState(false);
-  const [isClicked, setisClicked] = useState(false);
   const [formData, setFormData] = useState({
     supplier: "",
     material: "",
@@ -77,20 +72,6 @@ const AnalyticsResultsTab = (props) => {
     setShow(true);
   };
 
-  
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
-  
-  const setClearData = () =>{
-    setisClicked(true)
-  }
-  const setApproval = () => {
-    setisClicked(false)
-  }
   return (
     <div>
       <TopSection
@@ -343,8 +324,33 @@ const AnalyticsResultsTab = (props) => {
               label="Send for Approval"
               onClick={handleClickOpen}
             />           
-            <Modal open={open} handleClose={handleClose} title="Workflow Approval" action={<FooterButtons setClearData={setClearData}/>} content={<ModalContent checkBoxCount="1" isClicked={isClicked} setApproval={setApproval}/>} maxWidth="100px"/>
-
+            <Modal 
+              open={open} 
+              handleClose={handleClose} 
+              title="Workflow Approval" 
+              action={
+                      <WorkFlowApprovalFooter 
+                        clearFormData={clearFormData}
+                        onSubmitHandler={onSubmitHandler}
+                        disableButton={disableButton}
+                      />
+                    } 
+              content={
+                        <WorkFlowApproval 
+                          checkBoxCount="1"
+                          formData={WorkFlowFormData}
+                          disableApprover={disableApprover}
+                          data={data}
+                          clear={clear}
+                          approvalCardsData={approvalCardsData}
+                          addComment={addComment}
+                          handleApproverChange={handleApproverChange}
+                          handleClear={handleClear}
+                          addApprover={addApprover}
+                          onHandleDeleteIcon={onHandleDeleteIcon}
+                        />
+                      }
+                    />
             
           </div>
         )}

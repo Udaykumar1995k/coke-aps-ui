@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 
-const SearchWithOptions = ({ data, width, onChange,clearInputValue,onInputChange,handleClear,name }) => {
+const SearchWithOptions = ({ data, width, onChange,clearInputValue,handleClear,name }) => {
     const [previousValue, setPreviousValue] = useState('');
     return (
         <div className='searchOption' style={{ width: width || '200px' }}>
@@ -16,10 +16,9 @@ const SearchWithOptions = ({ data, width, onChange,clearInputValue,onInputChange
                 onChange={(event, value) =>  onChange(value,name)}
                 onInputChange={(event, newValue) => {
                     if (newValue === '') {
-                      handleClear(previousValue,name); // call the handleClear function with the previous value
+                      handleClear(previousValue,name);
                     } else {
                       setPreviousValue(newValue)
-                      onInputChange(newValue);
                     }
                   }}
                 renderInput={(params) => (
