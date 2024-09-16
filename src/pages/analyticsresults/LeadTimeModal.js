@@ -7,79 +7,32 @@ import CheckBoxInput from "../../components/common/CheckboxInput";
 import Dropdown from "../../components/common/Dropdown";
 import DatePicker from "../../components/common/DatePicker";
 import { ModalContent,ModalFooter } from "../RunLTAnalytics/InputSelection/ExcludeModal";
-const LeadeTimeContent = () =>{
-    const [showModal, setShowModal] = useState(false);
-    const [isDisabled, setIsDisabled] = useState(true);
-    const [rows, setRows] = useState([
+const LeadeTimeContent = (props) =>{
+  const [isDisabled, setIsDisabled] = useState(true);
+  const [rows, setRows] = useState([
         {range: 'Range 1', excludeFromDate: null, excludeToDate: null}
       ]);
-    const [formData, setFormData] = useState({
-        plantSupplier: "",
-        supplier: "",
-        materialType: "",
-        materialGroup: "",
-        material: "",
-        shipFrom: "",
-        shipTo: "",
-        excludeRange: false,
-        recentContractUpdates: "",
-        posPlacedInAdvance: "",
-        fromDate: null,
-        toDate: null,
-        filterContract: "",
-      });
-
-    const handleChange = (event) => {
-    setFormData({
-        ...formData,
-        [event.target.name]:
-        event.target.type === "checkbox"
-            ? event.target.checked
-            : event.target.value,
-    });
-    };
-
-    const handleClose = () => {
-    setShowModal(false);
-    setFormData({excludeRange: false})
-    }
+      const handleExcludeDateChange = (date, name, index) => {
+        date && setIsDisabled(false);
+        const newDate = new Date(date).toLocaleDateString();
+        setRows(
+            rows.map((row, i) => (i === index ? { ...row, [name]: newDate } : row))
+        );
+        };
     
-    const handleExcludeDateChange = (date, name, index) => {
-    date && setIsDisabled(false);
-    const newDate = new Date(date).toLocaleDateString();
-    setRows(
-        rows.map((row, i) => (i === index ? { ...row, [name]: newDate } : row))
-    );
-    };
-
-    const clearAllExcludeModal = () => {
-    setRows(rows.map(row => ({ ...row, excludeFromDate: null, excludeToDate: null })));
-    setIsDisabled(true);
-    }
-
-    const handleAddRows = () => {
-    setRows([...rows, { range: `Range ${rows.length + 1}`, excludeFromDate: null, excludeToDate: null }]);
-    };
-    
-    const delRowHandler = (index) => {
-    const newArray = rows.filter((rows, i)=> i !==index && rows)
-    setRows(newArray);
-    }
-    const submitExcludeModalHandler = () => {
-    setFormData({excludeRange: true});
-    setShowModal(false);
-    }
-    const handleDateChange = (date, name) => {
-        setFormData({
-          ...formData,
-          [name]: date,
-        });
-      };
-      useEffect(() => {
-        if(formData?.excludeRange){
-          setShowModal(true);
+        const clearAllExcludeModal = () => {
+        setRows(rows.map(row => ({ ...row, excludeFromDate: null, excludeToDate: null })));
+        setIsDisabled(true);
         }
-      }, [formData.excludeRange])
+    
+        const handleAddRows = () => {
+        setRows([...rows, { range: `Range ${rows.length + 1}`, excludeFromDate: null, excludeToDate: null }]);
+        };
+        
+        const delRowHandler = (index) => {
+        const newArray = rows.filter((rows, i)=> i !==index && rows)
+        setRows(newArray);
+        }
    return(
         <div>
             <div className="form-container">
@@ -101,12 +54,12 @@ const LeadeTimeContent = () =>{
               <Dropdown
                 label="Supplier"
                 name="supplier"
-                value={formData?.supplier}
+                value={props?.formData?.supplier}
                 options={[
-                  { value: "ireland", label: "CPS Balina" },
+                  { value: "ireland", label: "CPS Balina" }, 
                   { value: "india", label: "CPS Hyderabad" },
                 ]}
-                handleChange={handleChange}
+                handleChange={props?.handleChange}
               />
             </Grid>
             <Grid
@@ -125,12 +78,12 @@ const LeadeTimeContent = () =>{
               <Dropdown
                 name="materialType"
                 label="Material Type"
-                value={formData?.materialType}
+                value={props?.formData?.materialType}
                 options={[
                   { value: "Type1", label: "Type1" },
                   { value: "Type2", label: "Type2" },
                 ]}
-                handleChange={handleChange}
+                handleChange={props?.handleChange}
               />
             </Grid>
           </Grid>
@@ -152,12 +105,12 @@ const LeadeTimeContent = () =>{
                 maxWidth="260px"
                 name="materialGroup"
                 label="Material Group"
-                value={formData?.materialGroup}
+                value={props?.formData?.materialGroup}
                 options={[
                   { value: "Group1", label: "Group1" },
                   { value: "Group2", label: "Group2" },
                 ]}
-                handleChange={handleChange}
+                handleChange={props?.handleChange}
               />
             </Grid>
             <Grid
@@ -177,12 +130,12 @@ const LeadeTimeContent = () =>{
                 maxWidth="260px"
                 name="material"
                 label="Material"
-                value={formData?.material}
+                value={props?.formData?.material}
                 options={[
                   { value: "Material1", label: "Material1" },
                   { value: "Material2", label: "Material2" },
                 ]}
-                handleChange={handleChange}
+                handleChange={props?.handleChange}
               />
             </Grid>
           </Grid>
@@ -202,10 +155,10 @@ const LeadeTimeContent = () =>{
                 Ship From
               </label>
               <DatePicker
-                name="shipFrom"
+                name="shipFromDate"
                 label="Select From Date"
-                value={formData?.fromDate}
-                onChange={(e) => handleDateChange(e, "fromDate")}
+                value={props?.formData?.shipFromDate}
+                onChange={(e) => props?.handleDateChange(e, "shipFromDate")}
               />
             </Grid>
             <Grid
@@ -223,10 +176,10 @@ const LeadeTimeContent = () =>{
                 Ship To
               </label>
               <DatePicker
-                name="shipTo"
+                name="shipToDate"
                 label="Select To Date"
-                value={formData?.fromDate}
-                onChange={(e) => handleDateChange(e, "fromDate")}
+                value={props?.formData?.shipToDate}
+                onChange={(e) => props?.handleDateChange(e, "shipToDate")}
               />
             </Grid>
           </Grid>
@@ -253,10 +206,10 @@ const LeadeTimeContent = () =>{
                 sx={{ "& .MuiInputBase-root>Input": { height: "90%" } }}
               >
                 <DatePicker
-                  name="fromDate"
+                  name="periodFromDate"
                   label="Select From Date"
-                  value={formData?.fromDate}
-                  onChange={(e) => handleDateChange(e, "fromDate")}
+                  value={props?.formData?.periodFromDate}
+                  onChange={(e) => props?.handleDateChange(e, "periodFromDate")}
                 />
               </Grid>
               <Grid
@@ -265,10 +218,10 @@ const LeadeTimeContent = () =>{
                 sx={{ "& .MuiInputBase-root>Input": { height: "90%" } }}
               >
                 <DatePicker
-                  name="toDate"
+                  name="periodToDate"
                   label="Select To Date"
-                  value={formData?.toDate}
-                  onChange={(e) => handleDateChange(e, "toDate")}
+                  value={props?.formData?.periodToDate}
+                  onChange={(e) => props?.handleDateChange(e, "periodToDate")}
                 />
               </Grid>
             </Grid>
@@ -290,16 +243,16 @@ const LeadeTimeContent = () =>{
               <CheckBoxInput
                 props={{
                   name: "excludeRange",
-                  checked: formData?.excludeRange,
+                  checked: props?.formData?.excludeRange,
                   fontSize: 28,
-                  onchange: handleChange,
+                  onchange: props?.handleChange,
                 }}
               />
               <label className="label-position" htmlFor="period-to-consider">
                 Exclude Range in the Period Selected
               </label>
             </Grid>
-            { formData?.excludeRange &&
+            { props?.formData?.excludeRange &&
             <Grid
               item
               xs={12}
@@ -347,12 +300,12 @@ const LeadeTimeContent = () =>{
               <Dropdown
                 name="filterContract"
                 label="Filter"
-                value={formData?.filterContract}
+                value={props?.formData?.filterContract}
                 options={[
                   { value: "6 Months", label: "6 Months" },
                   { value: "12 Months", label: "12 Months" },
                 ]}
-                handleChange={handleChange}
+                handleChange={props?.handleChange}
               />
             </Grid>
           </Grid>
@@ -360,13 +313,13 @@ const LeadeTimeContent = () =>{
       </div>
       {
         <Modal
-          open={showModal}
-          handleClose={handleClose}
+          open={props?.showModal}
+          handleClose={props?.handleClose}
           title="Exclude Range in Period Selected"
           action={
             <ModalFooter
               clearAllExcludeModal={clearAllExcludeModal}
-              submitExcludeModalHandler={submitExcludeModalHandler}
+              submitExcludeModalHandler={props?.submitExcludeModalHandler}
               isDisabled={isDisabled}
             />
           }
@@ -387,7 +340,7 @@ const LeadeTimeContent = () =>{
 
 }
 
-const LeadeTimeFooter = (props) =>{
+const LeadeTimeFooter = ({handleClear,disabled,handleSubmitButton}) =>{
     return (
         <div className='button-alignment'>
       <ButtonComponent
@@ -395,30 +348,150 @@ const LeadeTimeFooter = (props) =>{
         label="Cancel"
         bgColor="white"
         color="black"
+        onClick={handleClear}
       />
       <ButtonComponent
         maxWidth="170px"
         label="Submit"
         bgColor="black"
         color="white"
-        disabled={props?.disabled}
+        disabled={disabled}
+        onClick={handleSubmitButton}
       />
     </div>
     )
 }
 
 const LeadtimeModel = () =>{
+    const [showModal, setShowModal] = useState(false);
     const [showPopup, setPopUp]  = useState(false);
+    const [disabled, setDisabled] = useState(true)
+    const [formData, setFormData] = useState({
+      plantSupplier: "",
+      supplier: "",
+      materialType: "",
+      materialGroup: "",
+      material: "",
+      shipFrom: "",
+      shipTo: "",
+      excludeRange: false,
+      recentContractUpdates: "",
+      posPlacedInAdvance: "",
+      shipFromDate: null,
+      shipToDate:null,
+      periodFromDate:null,
+      periodToDate:null,
+      toDate: null,
+      filterContract: "",
+    });
+
+  const handleChange = (event) => {
+  setFormData({
+      ...formData,
+      [event.target.name]:
+      event.target.type === "checkbox"
+          ? event.target.checked
+          : event.target.value,
+  });
+  setDisabled(false)
+  };
+
+  const handleClose = () => {
+  setShowModal(false);
+  setFormData({excludeRange: false})
+  }
+  const handleDateChange = (date, name) => {
+    setFormData({
+      ...formData,
+      [name]: date,
+    });
+    setDisabled(false)
+  };
+  useEffect(() => {
+    if(formData?.excludeRange){
+      setShowModal(true);
+    }
+  }, [formData.excludeRange])
     const onhandlePopup = () =>{
       setPopUp(true)
       }
    const onClosePopup = () =>{
       setPopUp(false)
     }
+    const submitExcludeModalHandler = () => {
+      setFormData({excludeRange: true});
+      setShowModal(false);
+      }
+      // console.log("showModal",showModal)
+    const handleClear = () =>{
+      setFormData({
+        plantSupplier: "",
+        supplier: "",
+        materialType: "",
+        materialGroup: "",
+        material: "",
+        shipFrom: "",
+        shipTo: "",
+        excludeRange: false,
+        recentContractUpdates: "",
+        posPlacedInAdvance: "",
+        shipFromDate: null,
+        shipToDate:null,
+        periodFromDate:null,
+        periodToDate:null,
+        toDate: null,
+        filterContract: "",
+      })
+      setPopUp(false)
+    }
+    const handleSubmitButton =  () =>{
+      setFormData({
+        plantSupplier: "",
+        supplier: "",
+        materialType: "",
+        materialGroup: "",
+        material: "",
+        shipFrom: "",
+        shipTo: "",
+        excludeRange: false,
+        recentContractUpdates: "",
+        posPlacedInAdvance: "",
+        shipFromDate: null,
+        shipToDate:null,
+        periodFromDate:null,
+        periodToDate:null,
+        toDate: null,
+        filterContract: "",
+      })
+      setPopUp(false)
+      setDisabled(true)
+
+    }
     return(
     <div>
       <ButtonComponent  type="secondary" label="Input" onClick={onhandlePopup}/>
-      <Modal title="Input Data For Lead Time Analytics" open={showPopup} handleClose={onClosePopup} content={<LeadeTimeContent/>} action={<LeadeTimeFooter />} maxWidth="lg" />
+      <Modal title="Input Data For Lead Time Analytics" 
+        open={showPopup} 
+        handleClose={onClosePopup} 
+        content={
+                <LeadeTimeContent
+                  formData={formData}
+                  showModal={showModal}
+                  handleClose={handleClose}
+                  handleChange={handleChange}
+                  handleDateChange={handleDateChange}
+                  submitExcludeModalHandler={submitExcludeModalHandler}
+
+                />
+                } 
+        action={
+                  <LeadeTimeFooter 
+                    handleClear ={handleClear}
+                    disabled={disabled}
+                    handleSubmitButton={handleSubmitButton}
+                  />
+                } 
+        maxWidth="lg" />
       </div>
       )
     }
