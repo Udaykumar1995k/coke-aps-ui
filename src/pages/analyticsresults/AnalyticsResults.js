@@ -4,27 +4,11 @@ import DataTable from "../../components/common/datatable/DataTable";
 import ButtonComponent from "../../components/common/button/Button";
 import Dropdown from "../../components/common/Dropdown";
 import { useNavigate } from "react-router-dom";
+import ConfidenceScoreModal from "./ConfidenceScore";
 import "./AnalyticsResults.css";
 import results from '../../common/results.json'
-import { ConfidenceScore, ConfidenceScoreFooter } from "./ConfidenceScore";
-import Modal from "../../components/common/modal/Modal";
 import TopSection from "../TopSection";
 import LeadtimeModel from "./LeadTimeModal";
-const ConfidenceScoreModal = (props) =>{
-  const [showPopup, setPopUp]  = useState(false);
-  const onhandlePopup = () =>{
-    setPopUp(true)
-    }
- const onClosePopup = () =>{
-    setPopUp(false)
-  }
-  return(
-  <div>
-    <span  href="#" style={{textDecoration:"underline",cursor:"pointer"}} onClick={onhandlePopup}>{props.value}</span>
-    <Modal title="Confidence Score" open={showPopup} handleClose={onClosePopup} content={<ConfidenceScore/>} action={<ConfidenceScoreFooter />} maxWidth="sm" />
-    </div>
-    )
-}
 const AnalyticsResults = () => {
   const pagination = true;
   const paginationPageSize = 10;

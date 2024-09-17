@@ -62,6 +62,7 @@ const ActionInput = ({ onChange, placeholder, icon, position, width,height,props
                                 placeholder={placeholder || ""}
                                 inputProps={{ 'aria-label': 'edit' }}
                                 onChange={onChange}
+                                value={props.value}
                             />
                             <Divider sx={{ height: 40, }} orientation="vertical" />
                             <IconButton>
