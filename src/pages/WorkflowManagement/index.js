@@ -11,6 +11,10 @@ import { Link } from "react-router-dom";
 import LeadtimeModel from "../analyticsresults/LeadTimeModal";
 import WorkFlowApprovalFormData from "./WorkFlowApprovalFormData";
 import { WorkFlowApproval,WorkFlowApprovalFooter } from "./WorkFLowApproverModal";
+import  pendingActionItems from '../../common/pendingAction.json'
+import pendingApprovalItems from '../../common/pendingApproval.json'
+import commonFields from '../../common/commonfields.json'
+import ConfidenceScoreModal from "../analyticsresults/ConfidenceScore";
 const WorkFlowStatusModel = (props) => {
 
   const [state, setState] = useState('');
@@ -45,245 +49,16 @@ const WorkFlowStatusModel = (props) => {
     </div>
   )
 }
-const AnalyticsResults = ({ onhandleClick,onHandleCheckBox }) => {
+const AnalyticsResults = ({ onhandleClick,onHandleCheckBox,regularItems,regularItemsData }) => {
   const pagination = true;
   const paginationPageSize = 10;
   const paginationPageSizeSelector = [10, 20, 30, 50, 100];
-
   const onRowSelected = (params) => {
     const isChecked = params.node.selected;
     onhandleClick(isChecked);
     const selectedCheckBoxCount = params.api.getSelectedNodes().length;
     onHandleCheckBox(selectedCheckBoxCount);
-
-
   }
-  const [regularItems] = useState([
-    {
-      Supplier: "Abc Inc",
-      Material: "Material Y",
-      InventoryClassification: "Material",
-      MaterialType: "A",
-      ShipFrom: "Ingredients",
-      ShipTo: "Helsinki",
-      MasterLeadTime: "40 Days",
-      DemonstratedLeadTime: "60 Days",
-      confidencescore: "60 days",
-      LTVariations: "60 days",
-      Analyticsintiatedby: "90%",
-      ViewInputDetails: "High",
-      FinalLTtobeupdatedinS4: "Admin",
-      Details: <ButtonComponent label="Details" />,
-      CurrentStatus: "Rejected by approver2",
-    },
-    {
-      Supplier: "Abc Inc",
-      Material: "Material Y",
-      InventoryClassification: "Material",
-      MaterialType: "A",
-      ShipFrom: "Ingredients",
-      ShipTo: "Helsinki",
-      MasterLeadTime: "45 Days",
-      DemonstratedLeadTime: "60 Days",
-      confidencescore: "60 days",
-      LTVariations: "60 days",
-      Analyticsintiatedby: "90%",
-      ViewInputDetails: "High",
-      FinalLTtobeupdatedinS4: "Admin",
-      Details: <ButtonComponent label="Details" />,
-      CurrentStatus: "Rejected by approver2",
-
-    },
-    {
-      Supplier: "Abc Inc",
-      Material: "Material Y",
-      InventoryClassification: "Material",
-      MaterialType: "A",
-      ShipFrom: "Ingredients",
-      ShipTo: "Helsinki",
-      MasterLeadTime: "40 Days",
-      DemonstratedLeadTime: "60 Days",
-      confidencescore: "60 days",
-      LTVariations: "60 days",
-      Analyticsintiatedby: "90%",
-      ViewInputDetails: "High",
-      FinalLTtobeupdatedinS4: "Admin",
-      Details: <ButtonComponent label="Details" />,
-      CurrentStatus: "Rejected by approver2",
-    },
-    {
-      Supplier: "Abc Inc",
-      Material: "Material Y",
-      InventoryClassification: "Material",
-      MaterialType: "A",
-      ShipFrom: "Ingredients",
-      ShipTo: "Helsinki",
-      MasterLeadTime: "40 Days",
-      DemonstratedLeadTime: "60 Days",
-      confidencescore: "60 days",
-      LTVariations: "60 days",
-      Analyticsintiatedby: "90%",
-      ViewInputDetails: "High",
-      FinalLTtobeupdatedinS4: "Admin",
-      Details: <ButtonComponent label="Details" />,
-      CurrentStatus: "Rejected by approver2",
-    },
-    {
-      Supplier: "Abc Inc",
-      Material: "Material Y",
-      InventoryClassification: "Material",
-      MaterialType: "A",
-      ShipFrom: "Ingredients",
-      ShipTo: "Helsinki",
-      MasterLeadTime: "40 Days",
-      DemonstratedLeadTime: "60 Days",
-      confidencescore: "60 days",
-      LTVariations: "60 days",
-      Analyticsintiatedby: "90%",
-      ViewInputDetails: "High",
-      FinalLTtobeupdatedinS4: "Admin",
-      Details: <ButtonComponent label="Details" />,
-      CurrentStatus: "Rejected by approver2",
-    },
-    {
-      Supplier: "Abc Inc",
-      Material: "Material Y",
-      InventoryClassification: "Material",
-      MaterialType: "A",
-      ShipFrom: "Ingredients",
-      ShipTo: "Helsinki",
-      MasterLeadTime: "40 Days",
-      DemonstratedLeadTime: "60 Days",
-      confidencescore: "60 days",
-      LTVariations: "60 days",
-      Analyticsintiatedby: "90%",
-      ViewInputDetails: "High",
-      FinalLTtobeupdatedinS4: "Admin",
-      Details: <ButtonComponent label="Details" />,
-      CurrentStatus: "Rejected by approver2",
-    },
-    {
-      Supplier: "Abc Inc",
-      Material: "Material Y",
-      InventoryClassification: "Material",
-      MaterialType: "A",
-      ShipFrom: "Ingredients",
-      ShipTo: "Helsinki",
-      MasterLeadTime: "40 Days",
-      DemonstratedLeadTime: "60 Days",
-      confidencescore: "60 days",
-      LTVariations: "60 days",
-      Analyticsintiatedby: "90%",
-      ViewInputDetails: "High",
-      FinalLTtobeupdatedinS4: "Admin",
-      Details: <ButtonComponent label="Details" />,
-      CurrentStatus: "Rejected by approver2",
-    },
-    {
-      Supplier: "Abc Inc",
-      Material: "Material Y",
-      InventoryClassification: "Material",
-      MaterialType: "A",
-      ShipFrom: "Ingredients",
-      ShipTo: "Helsinki",
-      MasterLeadTime: "40 Days",
-      DemonstratedLeadTime: "60 Days",
-      confidencescore: "60 days",
-      LTVariations: "60 days",
-      Analyticsintiatedby: "90%",
-      ViewInputDetails: "High",
-      FinalLTtobeupdatedinS4: "Admin",
-      Details: <ButtonComponent label="Details" />,
-      CurrentStatus: "Rejected by approver2",
-    },
-    {
-      Supplier: "Abc Inc",
-      Material: "Material Y",
-      InventoryClassification: "Material",
-      MaterialType: "A",
-      ShipFrom: "Ingredients",
-      ShipTo: "Helsinki",
-      MasterLeadTime: "40 Days",
-      DemonstratedLeadTime: "60 Days",
-      confidencescore: "60 days",
-      LTVariations: "60 days",
-      Analyticsintiatedby: "90%",
-      ViewInputDetails: "High",
-      FinalLTtobeupdatedinS4: "Admin",
-      Details: <ButtonComponent label="Details" />,
-      CurrentStatus: "Rejected by approver2",
-    },
-  ]);
-
-  const [regularItemsData] = useState([
-    {
-      headerCheckboxSelection: true,
-      checkboxSelection: true,
-      pinned: "left",
-      width: 50,
-      lockPinned: true,
-      suppressMovable: true,
-    },
-    {
-      field: "Supplier",
-      sortable: true,
-      lockPinned: true,
-      resizable: false,
-      filterParams: {
-        filterOptions: ["contains", "startsWith", "endsWith"],
-        defaultOption: "startsWith",
-      },
-      filter: "agColumnFilter",
-      suppressMovable: true,
-      unSortIcon: true
-    },
-    { field: "Material", resizable: false, suppressMovable: true, unSortIcon: true },
-    {
-      field: "InventoryClassification",
-      resizable: false,
-      suppressMovable: true,
-      unSortIcon: true
-    },
-    { field: "MaterialType", resizable: false, suppressMovable: true, unSortIcon: true },
-    { field: "ShipFrom", resizable: false, suppressMovable: true, unSortIcon: true },
-    { field: "ShipTo", resizable: false, suppressMovable: true, unSortIcon: true },
-    { field: "MasterLeadTime", resizable: false, suppressMovable: true, unSortIcon: true },
-    { field: "DemonstratedLeadTime", resizable: false, suppressMovable: true, unSortIcon: true },
-    { field: "confidencescore", resizable: false, suppressMovable: true, unSortIcon: true },
-    { field: "LTVariations", resizable: false, suppressMovable: true, unSortIcon: true },
-    { field: "Analyticsintiatedby", resizable: false, suppressMovable: true, unSortIcon: true },
-    { field: "ViewInputDetails", resizable: false, suppressMovable: true, unSortIcon: true },
-    {
-      field: "FinalLTtobeupdatedinS4",
-      lockPinned: true,
-      suppressMovable: true,
-      unSortIcon: true
-    },
-    {
-      field: "CurrentStatus", resizable: false, suppressMovable: true, unSortIcon: true,
-      cellRenderer: (response) => (
-        <div >
-          <WorkFlowStatusModel value={response.value} />
-        </div>
-      ),
-    },
-    {
-      field: "View Input Details",
-      suppressMovable: true,
-      cellRenderer: () => (
-        <div className="btn-wrapper">
-          {" "}
-          <LeadtimeModel/>
-        </div>
-      ),
-      pinned: "right",
-      width: 120,
-      lockPinned: true,
-      resizable: false,
-    },
-
-  ]);
-
   return (
     <div>
       <div
@@ -320,59 +95,140 @@ const AnalyticsResults = ({ onhandleClick,onHandleCheckBox }) => {
   );
 };
 
-
-// const ModalContent = ({checkBoxCount,isClicked,setApproval}) => {
-//   return (
-//     <>
-//       <ApprovalCard 
-//       checkBoxCount={checkBoxCount}
-//       isClicked ={isClicked}
-//       setApproval={setApproval}
-//       />
-
-//     </>
-//   )
-// };
-
 const WorkflowManagement = () => {
   const [isChecked, setChecked] = useState(false);
+  const [materialTitle, setMaterialTitle] = useState("Pending Action")
+  const [regularItems, setRegularItems] = useState(pendingActionItems);
   const [rowCount, setRowCount] = useState(0);
-  const { formData,
-          disableApprover,
-          data,
-          approvalCardsData,
-          open,
-          clear,
-          disableButton,
-          addComment,
-          handleApproverChange,
-          handleClear,
-          addApprover,
-          onHandleDeleteIcon,
-          clearFormData,
-          handleClickOpen,
-          handleClose,
-          onSubmitHandler
+  const { formData,disableApprover,data,approvalCardsData,open,clear,disableButton,addComment,handleApproverChange,
+          handleClear,addApprover,onHandleDeleteIcon,clearFormData,handleClickOpen,handleClose,onSubmitHandler
         } = WorkFlowApprovalFormData();
+
+  const CurrentStatuscellRenderer =  (response) => (
+    <div >
+      <WorkFlowStatusModel value={response.value} />
+    </div>
+      );
+
+  const viewInputRender = () =>(
+      <div className="btn-wrapper">
+            {" "}
+            <LeadtimeModel/>
+      </div>
+      );
+  const ltToBeUpdated = (response) =>(
+    <div>
+        <ActionInput icon={"edit"} position={"right"} props={{ height: "10px",value:response.value }} width="80px" />
+      </div>
+
+  );
+  const renderConfidenceModal =(response) =>(
+    <div>
+          {" "}
+          <ConfidenceScoreModal value={response.value}/>
+        </div>
+  )
+  const commonTableFieldNames = [
+    commonFields["headerCheckboxSelection"],
+    commonFields["Supplier"],
+    commonFields["Material"],
+    commonFields["InventoryClassification"],
+    commonFields["ShipFrom"],
+    commonFields["ShipTo"],
+    commonFields["MasterLeadTime"],
+    commonFields["DemonstratedLeadTime"],
+    {
+    ...commonFields["Confidencescore"],
+    cellRenderer:renderConfidenceModal
+    },
+    commonFields["LeadTimeVariations"],
+    commonFields["Analyticsintiatedby"],
+    commonFields["ResultsUpdatedat"],
+    commonFields["avgMdedialLeadTime"],
+    commonFields["recommondedRange"],
+    commonFields["confidenceLevel"],
+    {
+    ...commonFields["FinalLTtobeupdatedinS4"],
+    cellRenderer:ltToBeUpdated
+    },
+    {
+      ...commonFields["viewInputDetails"],
+      cellRenderer:viewInputRender
+    }
+  ]
+  const pendingActionFields = [
+    ...commonTableFieldNames,
+    commonFields["pendingForApprovalSince"],  
+
+  ]
+  const [regularItemsData,setregularItemsData] = useState(pendingActionFields);
+
   const onHandleCheckBox = (count) => {
     setRowCount(count)
   }
+
   const onhandleClick = (checked) => {
     setChecked(checked);
   }
+
+  const pendingApproval = (index) =>{
+    setRegularItems(pendingApprovalItems)
+    let title = cardData[index]["title"]
+    setMaterialTitle(title)
+    let pendingApprovalFields = [
+      ...commonTableFieldNames,
+      {
+        ...commonFields["CurrentStatus"],
+        cellRenderer:CurrentStatuscellRenderer,
+      },
+      commonFields["rejectReason"]
+      
+    ]
+    
+    setregularItemsData(pendingApprovalFields)
+  }
   
-  const cardData = [{ title: "Pending Action", description: "Materials - Supplier - Plant", value: 32 }, { title: "Pending Approval", description: "Pending Approval / Rejected by Approver", value: 28 }, { title: "Closed Workflow Items", value: 50 }]
+  const pendingAction = (index) => {
+    setRegularItems(pendingActionItems);
+    setMaterialTitle(cardData[index]["title"])
+    setregularItemsData(pendingActionFields)
+
+    }
+
+  const closedWorkFlow = (index) =>{
+    setRegularItems(pendingActionItems);
+    setMaterialTitle(cardData[index]["title"])
+    setregularItemsData(pendingActionFields)
+    }
+
+  const callBackFunction = (index,name) =>{
+    const func = funcMap[name];
+    if(typeof func === "function") {
+      func(index);
+    }
+    else {
+      console.log('Invalid function name');
+    }
+    }
+
+  const funcMap = {
+    pendingApproval: pendingApproval,
+    pendingAction: pendingAction,
+    closedWorkFlow: closedWorkFlow
+    }
+
+  const cardData = [{ title: "Pending Action", description: "Materials - Supplier - Plant", value: 32,name:'pendingAction' }, { title: "Pending Approval", description: "Pending Approval / Rejected by Approver", value: 28,name:"pendingApproval" }, { title: "Closed Workflow Items", value: 50,name:"closedWorkFlow" }]
   return (
     <>
       <TopSection labelList={[{ title: 'Home', path: '/landing-page' }, { title: 'Workflow Management' }]} />
       <div className="workflow-management-container">
         <div className="card-container">
-          <Cards cards={cardData} />
+          <Cards cards={cardData} callBackFunction={callBackFunction} />
         </div>
         <div>
-          <h5>Pending Action</h5>
+          <h5>{materialTitle}</h5>
           <div>
-            <AnalyticsResults onhandleClick={onhandleClick} onHandleCheckBox={onHandleCheckBox} />
+            <AnalyticsResults onhandleClick={onhandleClick} onHandleCheckBox={onHandleCheckBox} regularItems={regularItems} regularItemsData={regularItemsData}/>
           </div>
           <p>Remarks for Acceptance / Rejection*</p>
           <ActionInput className="text-input" placeholder="Enter the Remarks" props={{ height: "45px", maxWidth: "250px", disabled: !isChecked }} />

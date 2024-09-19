@@ -1,4 +1,6 @@
 
+import React, {useState} from "react"
+import Modal from "../../components/common/modal/Modal"
 import ButtonComponent from "../../components/common/button/Button"
 const ConfidenceScore = () =>{
     return (
@@ -53,4 +55,20 @@ const ConfidenceScoreFooter = () => {
     )
 }
 
-export {ConfidenceScore, ConfidenceScoreFooter}
+const ConfidenceScoreModal = (props) =>{
+    const [showPopup, setPopUp]  = useState(false);
+    const onhandlePopup = () =>{
+      setPopUp(true)
+      }
+   const onClosePopup = () =>{
+      setPopUp(false)
+    }
+    return(
+    <div>
+      <span  href="#" style={{textDecoration:"underline",cursor:"pointer"}} onClick={onhandlePopup}>{props.value}</span>
+      <Modal title="Confidence Score" open={showPopup} handleClose={onClosePopup} content={<ConfidenceScore/>} action={<ConfidenceScoreFooter />} maxWidth="sm" />
+      </div>
+      )
+  }
+
+export default ConfidenceScoreModal
