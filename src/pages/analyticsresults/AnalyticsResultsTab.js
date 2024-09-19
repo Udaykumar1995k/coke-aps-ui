@@ -97,37 +97,37 @@ const AnalyticsResultsTab = (props) => {
         </div>
       </div>
       <div className="material-tab-container">
-        <div  className="tab-part tab-section-width" >
-          <TabSection
-            style={{ maxWidth: "450px", marginBottom: "30px", width: "100%" }}
-            label={["Regular Items", "Advance PO Items"]}
-            value={value}
-            handleChange={handleChange}
-            count={[12, 999]}
-          />
-            <div style={{display:"flex",  justifyContent:"space-between"}}>
-            <IconButton onClick={handleClick}>
-              <SortIcon/>
-            </IconButton>
-            <Dropdown
-                width="220px"
-                options={[
-                  { value: "In Last 1 Year", label: "In Last 1 Year" },
-                  { value: "In Last 2 Year", label: "In Last 2 Year" },
-                ]}
+          <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
+            <div  className="tab-part tab-section">
+              <TabSection
+                style={{ maxWidth: "450px", marginBottom: "30px", width: "100%" }}
+                label={["Regular Items", "Advance PO Items"]}
+                value={value}
+                handleChange={handleChange}
+                count={[12, 999]}
               />
-            </div>
-            
-          <div className="analytic-results" >
+              <div style={{display:"flex", gap:"10px", justifyContent:"space-between"}}>
+                <IconButton onClick={handleClick}>
+                  <SortIcon/>
+                </IconButton>
+                <Dropdown
+                    width="220px"
+                    options={[
+                      { value: "In Last 1 Year", label: "In Last 1 Year" },
+                      { value: "In Last 2 Year", label: "In Last 2 Year" },
+                    ]}
+                  />
+              </div>
+              {!show?( 
+                <div>
+                  <ResultsGraph 
+                  labels={['Jan','Feb','March','April','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']}
+                  pData = {[2400, 1398, 9800, 3908, 4800, 3800, 4300,2400, 1398, 9800, 3908, 4800, 3800]}
+                  />
+                </div>
+                ):""}
+              <div className="analytic-results" >
             <div className="flex-direction-column" >
-           {!show?( 
-            <div>
-              <ResultsGraph 
-              labels={['Jan','Feb','March','April','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']}
-              pData = {[2400, 1398, 9800, 3908, 4800, 3800, 4300,2400, 1398, 9800, 3908, 4800, 3800]}
-              />
-            </div>
-            ):""}  
               {show?<Graph/>: ""}
               {
                 !show? 
@@ -203,28 +203,28 @@ const AnalyticsResultsTab = (props) => {
                   </Popper>
                   ): ""
               }
-              <div
-                style={{ paddingLeft: "12px", padding:"10px" }}
-                className="analytic-results result-margin"
-              >
-                <p>Variance (Actual vs</p>
-                <Dropdown
-                  width="230px"
-                  options={[
-                    { value: "Median", label: "Median" },
-                    { value: "Mean", label: "Mean" },
-                    { value: "Quartiles", label: "Quartiles" },
-                    { value: "75th Percentiles", label: "75th Percentiles" },
-                    { value: "80th Percentiles", label: "80th Percentiles" },
-                    { value: "90th Percentiles", label: "95th Percentiles" },
-                  ]}
-                />
-                <p>10%</p>
-              </div>
             </div>
           </div>
-        </div>
-        {!show ? (
+              <div
+                style={{ paddingLeft: "12px", padding:"10px" }}
+                className="analytic-results result-margin" >
+                  <p>Variance (Actual vs</p>
+                  <Dropdown
+                    width="230px"
+                    options={[
+                      { value: "Median", label: "Median" },
+                      { value: "Mean", label: "Mean" },
+                      { value: "Quartiles", label: "Quartiles" },
+                      { value: "75th Percentiles", label: "75th Percentiles" },
+                      { value: "80th Percentiles", label: "80th Percentiles" },
+                      { value: "90th Percentiles", label: "95th Percentiles" },
+                    ]}
+                  />
+                  <p>10%</p>
+              </div> 
+            </div>
+            {!show ? (
+              
           <div
             className="analytic-results-tab result-margin result-recommondation"
           >
@@ -253,12 +253,9 @@ const AnalyticsResultsTab = (props) => {
               </span>
             </div>
           </div>
-        ) : (
-          <div>
-            <h4>Lead Time</h4>
-          </div>
-        )}
-      </div>
+        ) :""}
+          </div> 
+        </div>
       {!show && (
         <div className="analytic-results-tab result-margin" style={{padding: '20px 10px'}}>
           <div className="analytic-results">

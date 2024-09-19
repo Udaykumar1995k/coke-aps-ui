@@ -84,7 +84,6 @@
 }
 
 .material-tab-container {
-    display: flex;
     background-color: white;
     border: 1px solid lightgray;
     padding: 10px 10px 20px 20px;
@@ -148,11 +147,12 @@ form {
 }
 
 .result-recommondation{
-    width: 40%;
+    width: 30%;
 }
 
-.tab-section-width {
-    width: 100%;
+.tab-section {
+    display: flex;
+    flex-direction: column;
 }
 
 
