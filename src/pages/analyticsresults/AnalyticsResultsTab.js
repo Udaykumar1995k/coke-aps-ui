@@ -96,8 +96,8 @@ const AnalyticsResultsTab = (props) => {
           </p>
         </div>
       </div>
-      <div className="analytic-results material-tab-container border-radius-container">
-        <div style={{ width: "75%" }} className="tab-part" >
+      <div className="material-tab-container">
+        <div  className="tab-part tab-section-width" >
           <TabSection
             style={{ maxWidth: "450px", marginBottom: "30px", width: "100%" }}
             label={["Regular Items", "Advance PO Items"]}
@@ -105,9 +105,19 @@ const AnalyticsResultsTab = (props) => {
             handleChange={handleChange}
             count={[12, 999]}
           />
+            <div style={{display:"flex",  justifyContent:"space-between"}}>
             <IconButton onClick={handleClick}>
               <SortIcon/>
             </IconButton>
+            <Dropdown
+                width="220px"
+                options={[
+                  { value: "In Last 1 Year", label: "In Last 1 Year" },
+                  { value: "In Last 2 Year", label: "In Last 2 Year" },
+                ]}
+              />
+            </div>
+            
           <div className="analytic-results" >
             <div className="flex-direction-column" >
            {!show?( 
@@ -122,7 +132,7 @@ const AnalyticsResultsTab = (props) => {
               {
                 !show? 
                   (
-                  <Popper open={openPopper} anchorEl={anchorEl} placement="bottom-start">
+                    <Popper open={openPopper} anchorEl={anchorEl} placement="bottom-start">
                   <div > 
                   <div className="material-tab-container analytic-results-tab material-items-container" >
                     <div className="result-item material-items" >
@@ -212,21 +222,11 @@ const AnalyticsResultsTab = (props) => {
                 <p>10%</p>
               </div>
             </div>
-            <div>
-              <Dropdown
-                width="220px"
-                options={[
-                  { value: "In Last 1 Year", label: "In Last 1 Year" },
-                  { value: "In Last 2 Year", label: "In Last 2 Year" },
-                ]}
-              />
-            </div>
           </div>
         </div>
         {!show ? (
           <div
-            className="analytic-results-tab result-margin"
-            style={{ width: "25%" }}
+            className="analytic-results-tab result-margin result-recommondation"
           >
             <div className="analytics-text">
               <p>Mean </p>
