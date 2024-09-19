@@ -13,7 +13,8 @@ const RunAnalytics = (props) => {
         <form>
           <Grid
             item
-            xs={4}
+            md={4}
+            xs={12}
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -34,7 +35,8 @@ const RunAnalytics = (props) => {
           </Grid>
           <Grid
             item
-            xs={6}
+            md={6}
+            xs={12}
             mt={2}
             mb={6}
             sx={{

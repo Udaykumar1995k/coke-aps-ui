@@ -86,6 +86,7 @@ const PlannerMaterialMapping = () => {
           borderRadius: "10px",
           flexDirection: "column",
         }}
+        className='main-planner'
       >
         <TabContext value={tabValue}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -100,7 +101,8 @@ const PlannerMaterialMapping = () => {
                 <Grid container spacing={2} mb={2}>
                   <Grid
                     item
-                    xs={4}
+                    md={4}
+                    xs={12}
                     sx={{
                       display: "flex",
                       flexDirection: "column",
@@ -123,7 +125,8 @@ const PlannerMaterialMapping = () => {
                   </Grid>
                   <Grid
                     item
-                    xs={4}
+                    md={4}
+                    xs={12}
                     sx={{
                       display: "flex",
                       flexDirection: "column",
@@ -145,7 +148,8 @@ const PlannerMaterialMapping = () => {
                 <Grid container spacing={2}>
                   <Grid
                     item
-                    xs={4}
+                    md={4}
+                    xs={12}
                     sx={{
                       display: "flex",
                       flexDirection: "column",
@@ -167,7 +171,8 @@ const PlannerMaterialMapping = () => {
                   </Grid>
                   <Grid
                     item
-                    xs={4}
+                    md={4}
+                    xs={12}
                     sx={{
                       display: "flex",
                       flexDirection: "column",
@@ -189,7 +194,8 @@ const PlannerMaterialMapping = () => {
                   </Grid>
                   <Grid
                     item
-                    xs={4}
+                    md={4}
+                    xs={12}
                     sx={{
                       display: "flex",
                       flexDirection: "column",
