@@ -146,9 +146,6 @@ form {
     font-size: 14px;
 }
 
-.result-recommondation{
-    width: 30%;
-}
 
 .tab-section {
     display: flex;
@@ -157,11 +154,23 @@ form {
 
 
 /* @media (max-width:910px){
-    .result-recommondation{
-        width: 40%;
-        flex-shrink: 0;
-    }
-    .tab-section-width {
-        width: 60%;
+    .main-section{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
     }
 } */
+
+
+.recomonded-values-container{
+    max-width: 250px;
+    border-radius: 6px;
+    background-color: #e8e8e8;
+    padding: 10px;
+}
+
+.main-section {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}

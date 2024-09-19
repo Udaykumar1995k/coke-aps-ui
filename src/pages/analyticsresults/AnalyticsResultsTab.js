@@ -97,8 +97,8 @@ const AnalyticsResultsTab = (props) => {
         </div>
       </div>
       <div className="material-tab-container">
-          <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
-            <div  className="tab-part tab-section">
+          <div className="main-section">
+            <div  className="tab-part tab-section"> 
               <TabSection
                 style={{ maxWidth: "450px", marginBottom: "30px", width: "100%" }}
                 label={["Regular Items", "Advance PO Items"]}
@@ -226,17 +226,15 @@ const AnalyticsResultsTab = (props) => {
             {!show ? (
               
           <div
-            className="analytic-results-tab result-margin result-recommondation"
+            className="recomonded-values-container result-margin"
           >
-            <div className="analytics-text">
-              <p>Mean </p>
-              <p>Median </p>
-              <p>Quartiles </p>
-              <p>75th Percentiles </p>
-              <p>80th Percentiles </p>
-              <p>90th Percentiles </p>
-              <p>COV</p>
-            </div>
+              <p className="analytics-text">Mean </p>
+              <p className="analytics-text">Median </p>
+              <p className="analytics-text">Quartiles </p>
+              <p className="analytics-text">75th Percentiles </p>
+              <p className="analytics-text">80th Percentiles </p>
+              <p className="analytics-text">90th Percentiles </p>
+              <p className="analytics-text">COV</p>
             <h5>Recommondation:</h5>
             <div className="analytic-results recomonded-values-group">
               <span>Recomonded values:</span>
