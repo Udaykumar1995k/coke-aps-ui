@@ -84,10 +84,12 @@
 }
 
 .material-tab-container {
+    display: flex;
     background-color: white;
     border: 1px solid lightgray;
     padding: 10px 10px 20px 20px;
     margin-top: 12px;
+    border-radius: 6px;
 }
 
 .material-items-container {
@@ -108,9 +110,6 @@
     flex-direction: column;
 }
 
-.border-radius-container {
-    border-radius: 6px;
-}
 
 
 .recomonded-values-group {
@@ -147,3 +146,22 @@ form {
     color: #797979;
     font-size: 14px;
 }
+
+.result-recommondation{
+    width: 40%;
+}
+
+.tab-section-width {
+    width: 100%;
+}
+
+
+/* @media (max-width:910px){
+    .result-recommondation{
+        width: 40%;
+        flex-shrink: 0;
+    }
+    .tab-section-width {
+        width: 60%;
+    }
+} */
