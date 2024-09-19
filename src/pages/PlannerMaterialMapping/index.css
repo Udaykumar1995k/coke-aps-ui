@@ -8,3 +8,9 @@
 .tab-main .MuiTabs-indicator {
     background-color: #717171;
 }
+
+@media (max-width: 768px) {
+    .main-planner .MuiInputBase-root, .main-planner .MuiFormControl-root {
+        max-width: 100% !important;
+    }
+}

@@ -9,7 +9,7 @@ import './ActionInput.css'
 const ActionInput = ({ onChange, placeholder, icon, position, width,height,props }) => {
     return (
         icon === "search" && position === "left" ?
-            <div style={{  height:height ||'35px', border: '1px solid #c8c8c8', borderRadius: 10, display: 'flex', alignItems: 'center', width: width || '200px' }}
+            <div className="search-bar" style={{  height:height ||'35px', border: '1px solid #c8c8c8', borderRadius: 10, display: 'flex', alignItems: 'center', width: width || '200px' }}
             >
                 <IconButton>
                     <SearchIcon />
@@ -25,7 +25,7 @@ const ActionInput = ({ onChange, placeholder, icon, position, width,height,props
             :
             icon === "search" && position === "right" ?
 
-                <div style={{ border: '1px solid #c8c8c8', borderRadius: 10, display: 'flex', alignItems: 'center',  width: width ||'200px',height: height ||'35px'}}
+                <div className="search-bar" style={{ border: '1px solid #c8c8c8', borderRadius: 10, display: 'flex', alignItems: 'center',  width: width ||'200px',height: height ||'35px'}}
                 >
 
                     <InputBase

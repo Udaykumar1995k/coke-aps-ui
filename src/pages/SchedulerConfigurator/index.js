@@ -66,7 +66,8 @@ const SchedulerConfigurator = () => {
         <form>
           <Grid
             item
-            xs={4}
+            md={4}
+            xs={12}
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -87,7 +88,8 @@ const SchedulerConfigurator = () => {
           </Grid>
           <Grid
             item
-            xs={6}
+            md={6}
+            xs={12}
             mt={2}
             sx={{
               display: "flex",
