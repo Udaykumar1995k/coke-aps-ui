@@ -122,8 +122,8 @@ const AnalyticsResultsTab = (props) => {
               {
                 !show? 
                   (
-                  <Popper open={openPopper} anchorEl={anchorEl}>
-                  <div style={{paddingLeft:"140px", paddingBottom:"20px"}}> 
+                  <Popper open={openPopper} anchorEl={anchorEl} placement="bottom-start">
+                  <div > 
                   <div className="material-tab-container analytic-results-tab material-items-container" >
                     <div className="result-item material-items" >
                       <span>Supplier</span>
