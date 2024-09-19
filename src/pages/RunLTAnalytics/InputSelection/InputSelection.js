@@ -18,7 +18,8 @@ const InputSelection = (props) => {
           <Grid container spacing={2}>
             <Grid
               item
-              xs={4}
+              md={4}
+              xs={12}
               sx={{
                 display: "flex",
                 flexDirection: "column",
@@ -43,7 +44,8 @@ const InputSelection = (props) => {
             </Grid>
             <Grid
               item
-              xs={4}
+              md={4}
+              xs={12}
               sx={{
                 display: "flex",
                 flexDirection: "column",
@@ -67,7 +69,8 @@ const InputSelection = (props) => {
             </Grid>
             <Grid
               item
-              xs={4}
+              md={4}
+              xs={12}
               sx={{
                 display: "flex",
                 flexDirection: "column",
@@ -93,7 +96,8 @@ const InputSelection = (props) => {
           <Grid container spacing={2} mt={1}>
             <Grid
               item
-              xs={4}
+              md={4}
+              xs={12}
               sx={{
                 display: "flex",
                 flexDirection: "column",
@@ -118,7 +122,8 @@ const InputSelection = (props) => {
             </Grid>
             <Grid
               item
-              xs={4}
+              md={4}
+              xs={12}
               sx={{
                 display: "flex",
                 flexDirection: "column",
@@ -145,7 +150,8 @@ const InputSelection = (props) => {
           <Grid container spacing={2} mt={1}>
             <Grid
               item
-              xs={3}
+              md={3}
+              xs={12}
               sx={{
                 display: "flex",
                 flexDirection: "column",
@@ -166,7 +172,8 @@ const InputSelection = (props) => {
             </Grid>
             <Grid
               item
-              xs={3}
+              md={3}
+              xs={12}
               sx={{
                 display: "flex",
                 flexDirection: "column",
@@ -205,7 +212,8 @@ const InputSelection = (props) => {
             >
               <Grid
                 item
-                xs={3}
+                md={3}
+                xs={12}
                 sx={{ "& .MuiInputBase-root>Input": { height: "90%" } }}
               >
                 <DatePicker
@@ -217,7 +225,8 @@ const InputSelection = (props) => {
               </Grid>
               <Grid
                 item
-                xs={3}
+                md={3}
+                xs={12}
                 sx={{ "& .MuiInputBase-root>Input": { height: "90%" } }}
               >
                 <DatePicker
@@ -289,7 +298,8 @@ const InputSelection = (props) => {
           <Grid container spacing={2} mt={1}>
             <Grid
               item
-              xs={4}
+              md={4}
+              xs={12}
               sx={{
                 display: "flex",
                 flexDirection: "column",

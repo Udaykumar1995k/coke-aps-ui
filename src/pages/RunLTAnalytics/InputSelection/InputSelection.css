@@ -46,3 +46,12 @@ form {
     border-radius: 4px !important;
     /* cursor: pointer !important; */
 }
+
+@media (max-width: 768px) {
+    .form-container .MuiFormControl-root .MuiInputBase-root {
+        max-width: 100%;
+    }
+    .form-container .MuiFormControl-root {
+        width: 100% !important;
+    }
+  }
