@@ -119,15 +119,11 @@ const AnalyticsResultsTab = (props) => {
                   />
               </div>
               {!show?( 
-                <div>
                   <ResultsGraph 
                   labels={['Jan','Feb','March','April','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']}
                   pData = {[2400, 1398, 9800, 3908, 4800, 3800, 4300,2400, 1398, 9800, 3908, 4800, 3800]}
                   />
-                </div>
                 ):""}
-              <div className="analytic-results" >
-            <div className="flex-direction-column" >
               {show?<Graph/>: ""}
               {
                 !show? 
@@ -203,8 +199,6 @@ const AnalyticsResultsTab = (props) => {
                   </Popper>
                   ): ""
               }
-            </div>
-          </div>
               <div
                 style={{ paddingLeft: "12px", padding:"10px" }}
                 className="analytic-results result-margin" >

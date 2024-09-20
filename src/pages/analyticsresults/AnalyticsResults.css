@@ -104,12 +104,6 @@
     padding: 0px !important
 }
 
-.flex-direction-column {
-    display: flex;
-    flex-direction: column;
-}
-
-
 
 .recomonded-values-group {
     align-items: center;
@@ -147,10 +141,7 @@ form {
 }
 
 
-/* .tab-section {
-    display: flex;
-    flex-direction: column;
-} */
+
 
 
 /* @media (max-width:910px){
