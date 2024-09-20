@@ -147,16 +147,19 @@ form {
 }
 
 
-.tab-section {
+/* .tab-section {
     display: flex;
     flex-direction: column;
-}
+} */
 
 
 /* @media (max-width:910px){
-    .main-section{
+    .recomonded-values-container{
+        max-width: 100px;
+        border-radius: 6px;
+        background-color: #e8e8e8;
+        padding: 10px;
         display: flex;
-        justify-content: space-between;
         flex-direction: column;
     }
 } */

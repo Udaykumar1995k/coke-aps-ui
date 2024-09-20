@@ -98,7 +98,7 @@ const AnalyticsResultsTab = (props) => {
       </div>
       <div className="material-tab-container">
           <div className="main-section">
-            <div  className="tab-part tab-section"> 
+            <div  className="tab-part"> 
               <TabSection
                 style={{ maxWidth: "450px", marginBottom: "30px", width: "100%" }}
                 label={["Regular Items", "Advance PO Items"]}
@@ -224,8 +224,8 @@ const AnalyticsResultsTab = (props) => {
               </div> 
             </div>
             {!show ? (
-              
-          <div
+              <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(100px,10fr))"}}>
+                <div
             className="recomonded-values-container result-margin"
           >
               <p className="analytics-text">Mean </p>
@@ -251,6 +251,8 @@ const AnalyticsResultsTab = (props) => {
               </span>
             </div>
           </div>
+                </div>
+          
         ) :""}
           </div> 
         </div>
