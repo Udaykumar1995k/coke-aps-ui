@@ -24,18 +24,28 @@ const ParamaterConfiguration = () => {
   });
   const [value, setValue] = useState(0);
   const [open, setOpen] = useState(false);
+  const [disabled, setDisabled] = useState(true)
   const handleChange = (event, newValue) => {
     setValue(newValue);
     setShow(false)
   };
-  const handleClear = (event) => {
-    console.log(event)
+  const handleClear = () => {
+    setFormData({
+      supplier: "",
+      material: "",
+      materialType: "",
+      materialGroup: "",
+      lowerThan: "20%",
+      greaterThan:"30%"
+    })
+    setDisabled(true)
   };
   const onHandleClick = () => {
     setShow(true)
   }
   const handleFormData = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
+    setDisabled(false)
   };
   const handleClickOpen = () =>{
     setOpen(true)
@@ -47,6 +57,10 @@ const ParamaterConfiguration = () => {
 
   const getFileName = (fileName) =>{
     setFileName(fileName)
+  }
+
+  const handleSubmit = () =>{
+    setOpen(false)
   }
   
   const header = ["Unique Id","Material Type","Material Group","Material","Supplier","Threshold Value For LT Variations","Cooling Period in Days","Overdue WorkFlow Days","Low Lead Time Variation Category","Meduim Lead time Variation Category","High Lead Time Variation Category","Created On","Updated On","Action"]
@@ -227,12 +241,14 @@ const ParamaterConfiguration = () => {
                 type="primary"
                 maxWidth="120px"
                 label="Clear All"
+                disabled={disabled}
                 onClick={handleClear}
               />
               <ButtonComponent
                 type="secondary"
                 maxWidth="80px"
                 label="Save"
+                disabled={disabled}
                 onClick={onHandleClick}
               />
             </div>
@@ -243,13 +259,15 @@ const ParamaterConfiguration = () => {
                 type="primary"
                 maxWidth="180px"
                 label="File Upload Overview"
+                disabled={!fileName}
                 onClick={handleClickOpen}
               />
-              <Modal  open={open} handleClose = {handleClose} title="File Upload Overview"  action = {<FileOverivewFooter/>} content={<FileOverivew fileName={fileName}/>} maxWidth="100px"/>
+              <Modal  open={open} handleClose = {handleClose} title="File Upload Overview"  action = {<FileOverivewFooter close={handleClose} submit={handleSubmit}/>} content={<FileOverivew fileName={fileName}/>} maxWidth="100px"/>
               <ButtonComponent
                 type="secondary"
                 maxWidth="80px" 
                 label="Save"
+                disabled={!fileName}
                 onClick={onHandleClick}
               />
             </div>

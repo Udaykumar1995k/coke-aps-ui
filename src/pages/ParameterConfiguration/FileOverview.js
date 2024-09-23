@@ -44,13 +44,13 @@ const FileOverivewFooter = (props) =>{
                 type="primary"
                 maxWidth="180px"
                 label="Cancel"
-                onClick={props.close}
+                onClick={props?.close}
               />
             <ButtonComponent
                 type="secondary"
                 maxWidth="180px"
                 label="Submit"
-                // onClick={handleClickOpen}
+                onClick={props?.submit}
               />
         </div>
     )
