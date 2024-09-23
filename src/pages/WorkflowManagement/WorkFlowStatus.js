@@ -1,9 +1,12 @@
+import React, { useState, useEffect } from "react";
 import ButtonComponent from "../../components/common/button/Button"
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import StepContent from '@mui/material/StepContent';
 import {  Close } from "@mui/icons-material";
+import { Link } from "react-router-dom";
+import Modal from "../../components/common/modal/Modal";
 const CustomIcon = () =>{
     let className ="MuiStepIcon-root Mui-rejected"
     let displayedIcon= <Close  style={{color:"white"}}className="MuiSvgIcon-root"/>
@@ -62,7 +65,7 @@ const WorkFlowStatus = ({steps,state}) => {
 }
 
 
-const WorkFlowStatusFooter = () => {
+const WorkFlowStatusFooter = (props) => {
     return(
         <div className='footer-btn-wrapper'>
       <ButtonComponent
@@ -76,9 +79,45 @@ const WorkFlowStatusFooter = () => {
         label="Ok"
         bgColor="black"
         color="white"
+        onClick={props.onClosePopup}
       />
     </div>
     )
 }
 
-export {WorkFlowStatus, WorkFlowStatusFooter}
+const WorkFlowStatusModel = (props) => {
+
+    const [state, setState] = useState('');
+    const [showPopup, setPopUp] = useState(false);
+    const stepData = [
+      { label: "WorkFlow Creations", date: "15-July-2024", process: "WorkFlow Initiated", actionPerformed: "Sam Arnold", createdBy: "15-July-2024 13:30:00", status: "Initiated", remarks: " - -", currentState: "completed", completed: true },
+      { label: "Level1 Approval", date: "16-July-2024", process: "Approved approver", actionPerformed: "Sam Arnold", createdBy: "15-July-2024 13:30:00", status: "Initiated", remarks: " - -", currentState: "completed", completed: true },
+      { label: "Level2 Approval", date: "17-July-2024", process: "Rejected", actionPerformed: "Sam Arnold", createdBy: "15-July-2024 13:30:00", status: "Initiated", remarks: " - -", currentState: "rejected", completed: true },
+      { label: "WorkFlow Reintiated", date: "18-July-2024", process: "WorkFlow Reinitiated", actionPerformed: "Sam Arnold", createdBy: "15-July-2024 13:30:00", status: "Initiated", remarks: " - -", currentState: "pending", completed: true }
+  
+    ]
+    useEffect(() => {
+      let currentState = stepData.findIndex(data => data.currentState === "pending")
+      if (currentState !== -1) {
+        setState(currentState)
+      }
+      else {
+        setState(stepData.length)
+      }
+      // eslint-disable-next-line
+    }, []);
+    const onhandlePopup = () => {
+      setPopUp(true)
+    }
+    const onClosePopup = () => {
+      setPopUp(false)
+    }
+    return (
+      <div >
+        <Link style={{ color: "black" }} href="#" onClick={onhandlePopup}>{props.value}</Link>
+        <Modal open={showPopup} handleClose={onClosePopup} title="Current Status" action={<WorkFlowStatusFooter  onClosePopup={onClosePopup}/>} content={<WorkFlowStatus steps={stepData} state={state} />} maxWidth="md" />
+      </div>
+    )
+  }
+
+  export default WorkFlowStatusModel
