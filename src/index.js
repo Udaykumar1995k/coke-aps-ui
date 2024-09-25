@@ -12,17 +12,17 @@ import Login from './components/Login';
 import PrivateRoutes from './routes/PrivateRoutes';
 import { Provider } from 'react-redux';
 import {store} from './redux/store'
-import RunLTAnalytics from './pages/RunLTAnalytics/RunLTAnalytics';
-import AnalyticsResults from './pages/analyticsresults/AnalyticsResults';
+import RunLTAnalytics from './pages/LT/RunLTAnalytics/RunLTAnalytics';
+import AnalyticsResults from './pages/LT/analyticsresults/AnalyticsResults';
 import ErrorPage from './pages/ErrorPage';
-import ActionDashboard from './pages/ActionDashboard/actionDashboard';
-import WorkflowManagement from './pages/WorkflowManagement';
-import SchedulerConfigurator from './pages/SchedulerConfigurator';
+import ActionDashboard from './pages/LT/ActionDashboard/actionDashboard';
+import WorkflowManagement from './pages/LT/WorkflowManagement';
+import SchedulerConfigurator from './pages/LT/SchedulerConfigurator';
 import LandingPage from './pages/LandingPage/LandingPage';
-import AnalyticsResultsTab from './pages/analyticsresults/AnalyticsResultsTab';
-import ParamaterConfiguration from './pages/ParameterConfiguration';
-import PlannerMaterialMapping from './pages/PlannerMaterialMapping';
-import UserAuthorization from './pages/UserAuthorization';
+import AnalyticsResultsTab from './pages/LT/analyticsresults/AnalyticsResultsTab';
+import ParamaterConfiguration from './pages/LT/ParameterConfiguration';
+import PlannerMaterialMapping from './pages/LT/PlannerMaterialMapping';
+import UserAuthorization from './pages/LT/UserAuthorization';
 
 const router = createBrowserRouter([
   {

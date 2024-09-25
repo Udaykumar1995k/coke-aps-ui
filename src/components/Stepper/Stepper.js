@@ -1,9 +1,9 @@
 import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
-import InputSelection from "../../pages/RunLTAnalytics/InputSelection/InputSelection";
+import InputSelection from "../../pages/LT/RunLTAnalytics/InputSelection/InputSelection";
 import { StepButton } from "@mui/material";
-import RunAnalytics from "../../pages/RunLTAnalytics/RunAnalytics/RunAnalytics";
+import RunAnalytics from "../../pages/LT/RunLTAnalytics/RunAnalytics/RunAnalytics";
 
 const stepStyle = {
   width: "100%",
