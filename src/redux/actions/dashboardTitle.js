@@ -10,7 +10,7 @@ export const dashboardTitle = createSlice({
   reducers: {
     setTitle: (state, action) => {
       state.tabDetails = action.payload
-    },
+    }
   },
 })
 

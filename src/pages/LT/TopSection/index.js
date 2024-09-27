@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 const TopSection = (props) => {
     const tabDetails = useSelector((state) => state?.dashboardDetails?.tabDetails);
+    const cardTitle = useSelector((state) => state?.userCardType.cardTitle)
     return (
         <div>
             <div
@@ -33,7 +34,7 @@ const TopSection = (props) => {
                     padding: '0px 0px 20px 0px',
                 }}
             >
-                <div>Lead Time Analytics - {tabDetails?.title}</div>
+                <div>{cardTitle} - {tabDetails?.title}</div>
             </div>
         </div>
     )

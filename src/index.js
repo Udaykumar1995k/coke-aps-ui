@@ -23,6 +23,8 @@ import AnalyticsResultsTab from './pages/LT/analyticsresults/AnalyticsResultsTab
 import ParamaterConfiguration from './pages/LT/ParameterConfiguration';
 import PlannerMaterialMapping from './pages/LT/PlannerMaterialMapping';
 import UserAuthorization from './pages/LT/UserAuthorization';
+import Dashboard from './pages/MDM/Dashboard/index';
+import Profile from './pages/MDM/Profile';
 
 const router = createBrowserRouter([
   {
@@ -131,6 +133,26 @@ const router = createBrowserRouter([
           {
             path: "",
             element: <UserAuthorization />,
+          },
+        ],
+      },
+      {
+        path: "mdm-dashboard",
+        element: <PrivateRoutes />,
+        children: [
+          {
+            path: "",
+            element: <Dashboard />,
+          },
+        ],
+      },
+      {
+        path: "profile",
+        element: <PrivateRoutes />,
+        children: [
+          {
+            path: "",
+            element: <Profile />,
           },
         ],
       },

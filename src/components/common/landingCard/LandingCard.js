@@ -12,6 +12,7 @@ const LandingCard = (props) => {
         fontWeight: "700",
         fontSize: "17px",
       }}
+      onClick={props?.onClick}
     >
       <div className="card-div">
         <p>{props.title}</p>
