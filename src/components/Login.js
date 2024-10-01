@@ -26,7 +26,7 @@ const Login = () => {
 
      useEffect(() => {
         if(localStorage.getItem('isLoggedIn')){
-            navigate('/actionDashboard')
+            navigate('/landing-page')
         }
      })
 

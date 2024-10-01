@@ -47,7 +47,7 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: "actionDashboard",
+        path: "lt-dashboard",
         element: <PrivateRoutes />,
         children: [
           {

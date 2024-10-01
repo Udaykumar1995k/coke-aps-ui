@@ -8,7 +8,7 @@ const CardData = [
   {
     id: 1,
     title: "Lead Time Analytics",
-    url: "/actionDashboard",
+    url: "/lt-dashboard",
   },
   {
     id: 2,

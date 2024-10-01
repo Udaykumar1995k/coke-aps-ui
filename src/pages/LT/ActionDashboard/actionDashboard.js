@@ -5,7 +5,7 @@ const ActionDashboard = () => {
     const cardData = [{ title: "High LT Variation", description: "Materials - Supplier - Plant", value: 32 }, { title: "Medium LT Variation", value: 28 }, { title: "Low LT Variation", value: 50 }]
     return (
         <div>
-            <TopSection labelList={[{ title: 'Home', path: '/landing-page' }, { title: 'Dashboard'}]} />
+            <TopSection labelList={[{ title: 'Home', path: '/landing-page' }, { title: 'LT Dashboard'}]} />
             <div className="container">
                 <Cards cards={cardData} />
             </div>

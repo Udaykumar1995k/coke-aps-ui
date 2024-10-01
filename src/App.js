@@ -39,7 +39,7 @@ function App() {
     },
     {
       id: 2,
-      path: "/actionDashboard",
+      path: "/lt-dashboard",
       label: "Action Dashboard",
       icon: <DashboardIcon />,
       title: "Dashboard",

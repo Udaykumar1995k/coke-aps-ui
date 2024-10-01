@@ -81,7 +81,7 @@ const ErrorPage = () => {
         changed or is temporarily unavailable.
       </Typography>
       <Link
-        to="actionDashboard"
+        to="landing-page"
         style={{
           textDecoration: "none",
           background: "#F40000",
