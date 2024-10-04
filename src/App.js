@@ -3,11 +3,14 @@ import { useEffect } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import SettingsIcon from "@mui/icons-material/Settings";
-import ManageHistoryIcon from "@mui/icons-material/ManageHistory";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MapsHomeWorkIcon from "@mui/icons-material/MapsHomeWork";
-import AssuredWorkloadIcon from "@mui/icons-material/AssuredWorkload";
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import AnalyticsIcon from '@mui/icons-material/Analytics';
+import InsightsIcon from '@mui/icons-material/Insights';
+import AppSettingsAltIcon from '@mui/icons-material/AppSettingsAlt';
+import PunchClockIcon from '@mui/icons-material/PunchClock';
+import PermDataSettingIcon from '@mui/icons-material/PermDataSetting';
 
 import Header from "./components/Header/Header";
 import MainContent from "./components/MainContent/MainContent";
@@ -48,35 +51,35 @@ function App() {
       id: 3,
       path: "/run-analytics",
       label: "Run LT analytics",
-      icon: <DashboardIcon />,
+      icon: <AnalyticsIcon />,
       title: "Run LT Analytics",
     },
     {
       id: 4,
       path: "/analytics-results",
       label: "LT Analytics Results",
-      icon: <SettingsIcon />,
+      icon: <InsightsIcon />,
       title: "Results",
     },
     {
       id: 5,
       path: "/workflowManagement",
       label: "Workflow Management",
-      icon: <SettingsIcon />,
+      icon: <AppSettingsAltIcon />,
       title: "Workflow Management",
     },
     {
       id: 6,
       path: "/scheduler-configurator",
       label: "Scheduler Configurator",
-      icon: <ManageHistoryIcon />,
+      icon: <PunchClockIcon />,
       title: "Scheduler Configurator",
     },
     {
       id: 7,
       path: "/parameter-configuration",
       label: "Parameter Configuration",
-      icon: <AssuredWorkloadIcon />,
+      icon: <PermDataSettingIcon />,
       title: "Parameter Configuration",
     },
     {
@@ -103,10 +106,10 @@ function App() {
     },
     {
       id: 2,
-      path: "/mdm-dashboard",
-      label: "Dashboard",
-      icon: <DashboardIcon />,
-      title: "Dashboard",
+      path: "/notification",
+      label: "Notifications",
+      icon: <NotificationsIcon />,
+      title: "Notifications",
     },
     {
       id: 3,

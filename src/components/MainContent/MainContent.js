@@ -5,7 +5,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Outlet, useLocation } from "react-router-dom";
 
@@ -16,6 +16,13 @@ const MainContent = (props) => {
   const location = useLocation();
   const tabDetails = useSelector((state) => state?.dashboardDetails?.tabDetails);
   const cardTitle = useSelector((state) => state?.userCardType?.cardTitle);
+
+  useEffect(() => {
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function () {
+      window.history.pushState(null, null, window.location.href);
+    };
+  }, [])
 
   return (
     <div className={tabDetails.title === 'Landing' ? "landing-content" : "main-content"}>

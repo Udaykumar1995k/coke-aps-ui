@@ -1,20 +1,20 @@
 import React from "react";
 import TopSection from "../../LT/TopSection";
 
-const Dashboard = () => {
+const Notification = () => {
   return (
     <div>
       <TopSection
         labelList={[
           { title: "Home", path: "/landing-page" },
-          { title: "MDM Dashboard" },
+          { title: "Notifications" },
         ]}
       />
       <div className="container">
-        Hello MDM Dashboard
+        MDM Notifications
       </div>
     </div>
   );
 };
 
-export default Dashboard;
+export default Notification;

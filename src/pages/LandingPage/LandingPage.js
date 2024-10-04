@@ -13,7 +13,7 @@ const CardData = [
   {
     id: 2,
     title: "Contract Data Update",
-    url: "/mdm-dashboard",
+    url: "/notification",
   },
   {
     id: 3,
